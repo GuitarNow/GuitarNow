@@ -1,4 +1,4 @@
-#GuitarNow
+# GuitarNow
 
 Realizzato per il progetto di Tecnologie Web.
 
