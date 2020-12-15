@@ -7,14 +7,8 @@
 } 
 
 html{
-<<<<<<< HEAD
     background-image: url('../Images/sfondo2.jpg');
     background-color:#7B4A36;
-=======
-    background-image: url('../Images/sfondo.jpg');
-	/*background-size:cover;*/ /* per adattare immagine a sfondo */ 
-    background-color:#A84721;
->>>>>>> 8d906b3410301b4d5f7d3b04882debf061ccec19
     width: 100%;
 }
 
@@ -222,7 +216,11 @@ section h2{
 --------------------------------footer----------------------------------*/
 
 footer{
-	
+    font-size: 0.7em;
+    font-style: italic;
+    padding: 0.5em;
+    padding-top: 1em;
+    border-top: 1px solid #000;
 }
 
 
