@@ -7,15 +7,15 @@
 } 
 
 html{
-    background-image: url('../Images/sfondo.jpg');
-    background-color:#A84721;
+    background-image: url('../Images/sfondo2.jpg');
+    background-color:#7B4A36;
     width: 100%;
 }
 
 body{
     max-width:1024px;
     margin: auto;
-    background-color:#A84721;
+    background-color:#7B4A36;
     font-family:"Comic Sans MS", cursive, sans-serif;
     
     font-size:100%;
@@ -32,7 +32,7 @@ header{
     overflow: auto;
     text-align:center;
     margin:auto;
-    background-color:#691e05;
+    background-color:#4E1600;
     
 }
 
@@ -150,7 +150,7 @@ background-color:#392D20;
 -----------------------------------home--------------------------------*/
 
 #home{
-    background-color:#691e05;
+    background-color:#4E1600;
     color: #DDD;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
@@ -164,11 +164,32 @@ h1{
 
 
 /*------------------------------------------------------------------------------
---------------------------------contenuto----------------------------------*/
+--------------------------------contenutoHome----------------------------------*/
+.chitarre{
+    width: 20%;
+}
 
 #valencia{
-    width:20%;
+    
 }
+
+#acustica{
+    
+}
+
+#semiacustica{
+    
+}
+
+#elettrica{
+    
+}
+
+
+
+
+/*------------------------------------------------------------------------------------------------
+------------------------------contenutoServizi--------------------------*/
 
 .img_servizi{
     width:25%;
