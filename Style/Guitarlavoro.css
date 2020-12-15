@@ -8,6 +8,7 @@
 
 html{
     background-image: url('../Images/sfondo.jpg');
+	/*background-size:cover;*/ /* per adattare immagine a sfondo */ 
     background-color:#A84721;
     width: 100%;
 }
@@ -165,12 +166,51 @@ h1{
 
 /*------------------------------------------------------------------------------
 --------------------------------contenuto----------------------------------*/
+#contenuto{
+	height:0%;
+}
 
 #valencia{
     width:20%;
 }
 
+
+/*------------------------------------------------------------------------------
+--------------------------------contenuto SERVIZI----------------------------------*/
+
+
+section p{
+	margin-left:3%;
+}
+section h2{
+	margin-left:3%;
+}
+
+
 .img_servizi{
-    width:25%;
-	height:20%;
+    width:280px;
+	height:180px;
+	float:right;
+
+	margin-right:3%;
+	
+}
+
+
+/*------------------------------------------------------------------------------
+--------------------------------footer----------------------------------*/
+
+footer{
+	
+}
+
+
+
+#xhtml{
+	margin-top:2%;
+	float:left;
+}
+
+#css{
+	float:right;
 }
