@@ -1,0 +1,176 @@
+/*------------------------------------------------------------------------
+------------------------------- Generale---------------------------------*/
+
+*{
+    padding: 0em;
+    margin: 0em;
+} 
+
+html{
+    background-image: url('../Images/sfondo.jpg');
+    background-color:#A84721;
+    width: 100%;
+}
+
+body{
+    max-width:1024px;
+    margin: auto;
+    background-color:#A84721;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    
+    font-size:100%;
+    color: #000;
+}
+
+
+/*--------------------------------------------------------------------------------------
+-----------------------------------------HEADER-------------------------------*/
+
+
+header{   
+    padding: 1em;
+    overflow: auto;
+    text-align:center;
+    margin:auto;
+    background-color:#691e05;
+    
+}
+
+#logo{
+    float:left;
+    width:17%;
+    padding-right:1em;
+    
+}
+
+#accesso{
+    float:right; 
+    padding-right:4em;    
+}
+
+
+
+#accedi, #registrati{   
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    background-color: #ec9b30;
+    padding: 0.5em;
+    font-size:1.1em;
+    color:#000;
+}
+#accedi{
+    margin-right:0.7em;
+    padding-left: 1em;
+    padding-right:1em;
+}
+
+#accedi:hover, #registrati:hover{
+background-color:#392D20;
+    color: #DDD;
+}
+
+#menu{
+    display: flex;
+    align-items: center;
+    font-size:1.1em;
+    list-style:none;
+}
+
+#menu  li {
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    display: inline-block;
+}
+
+#menu li:first-child{
+    border-left: 1px solid #000;
+}
+
+#menu .tendinaContenuto li {
+    border: none;
+}
+
+#menu a{
+    text-decoration: none;
+    display: inline-block;
+    color: #000;
+    background-color: #ec9b30;
+    text-align: center;
+    padding: 0.5em;
+}
+
+#menu a:hover {
+    background-color: #392D20;
+    color: #DDD;
+}
+
+
+#linkCorrente{
+    background-color:#392D20;
+    color: #DDD;
+    text-align: left;
+    padding: 0.5em;
+}
+
+#menu li ul.tendinaContenuto {
+    display: none;
+    position: absolute;
+    min-width: 0em;   
+}
+
+#menu ul.tendinaContenuto li {
+    display: block;
+    width: 100%;
+}
+
+#menu ul.tendinaContenuto li a {
+    width: 100%;
+    text-align: left;
+    padding: 0.4em;
+}
+
+#menu ul.tendinaContenuto li a {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+#menu ul.tendinaContenuto li:first-child a {
+    border-top: 1px solid #000;
+}
+
+#menu li:hover .tendinaContenuto {
+    display: block;
+}
+
+/*------------------------------------------------------------------------------
+-----------------------------------home--------------------------------*/
+
+#home{
+    background-color:#691e05;
+    color: #DDD;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 0.2em;
+}
+
+h1{
+    text-align: center;
+    font-size:1.5em;
+}
+
+
+/*------------------------------------------------------------------------------
+--------------------------------contenuto----------------------------------*/
+
+#valencia{
+    width:20%;
+}
+
+.img_servizi{
+    width:25%;
+	height:20%;
+}
