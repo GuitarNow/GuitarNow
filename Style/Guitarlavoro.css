@@ -217,21 +217,38 @@ section h2{
 
 .form{
 	border:1px solid black;
-	border-radius:10px 10px;
-	height:70%;
-	width:60%;
+	border-radius:5px 5px;
+	height:60%;
+	width:35%;
 	font-size:18px;
-	margin-left:20%;
-	margin-top:15%;
+	margin-left:25%;
+	margin-top:25%;
 	margin-bottom:15%;
+	background-color:#A0A0A0;
 }
+
+.form p{
+	margin-left:20%;
+	margin-top:2em;
+	
+}
+
+.form a{ 
+	margin-left:20%;
+	margin-top:2em;
+	color:grey;
+}
+
+.form input{
+	margin-left:20%;
+}
+
 
 .form input{
 	
 	border:1px solid black;
-	border-radius:20px 20px;
-	height:2em;
-	width:15em;
+	height:2.5em;
+	width:18em;
 } 
 
 
