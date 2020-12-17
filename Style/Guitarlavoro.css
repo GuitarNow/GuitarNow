@@ -280,10 +280,11 @@ footer{
 }
 
 #logo_footer{
-    float:left;
+    
     width:17%;
     padding-right:1em;
     padding-bottom: 0.5%;
+    display:inline-block;
 }
 
 .icone_footer{
@@ -292,8 +293,10 @@ padding-top: 0.5%;
 }
 
 .ontatti{
-    padding-top: 1%;
+    
+    padding-top: 1.3%;
     padding-left: 3%;
+   
 }
 
 #contatti{
