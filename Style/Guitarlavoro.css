@@ -236,7 +236,16 @@ section h2{
 .form a{ 
 	margin-left:20%;
 	margin-top:2em;
-	color:grey;
+	color:#2C3539;
+}
+
+#login_accedi{
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:white;
+	height:2.5em;
+	text-size:1.1em;
 }
 
 .form input{
@@ -247,11 +256,14 @@ section h2{
 .form input{
 	
 	border:1px solid black;
-	height:2.5em;
+	height:2em;
 	width:18em;
 } 
 
-
+.form img{
+	width:80%;
+	height:20%;
+}
 
 
 
