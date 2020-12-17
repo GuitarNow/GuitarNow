@@ -246,7 +246,8 @@ form a{
 	color:#DDD;
 	height:1.7em;
     font-size:1.1em;
-    width: 56%;
+    padding-right: 3.3em;
+    padding-left: 3.3em;
     margin-bottom: 0.5em;
 }
 
