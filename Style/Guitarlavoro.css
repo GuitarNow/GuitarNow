@@ -215,7 +215,7 @@ section h2{
 /*------------------------------------------------------------------------------
 --------------------------------contenuto LOGIN----------------------------------*/
 
-.form{
+form{
 	border:1px solid black;
 	border-radius:5px 5px;
 	height:60%;
@@ -227,13 +227,13 @@ section h2{
 	background-color:#A0A0A0;
 }
 
-.form p{
+form label{
 	margin-left:20%;
 	margin-top:2em;
 	
 }
 
-.form a{ 
+form a{ 
 	margin-left:20%;
 	margin-top:2em;
 	color:#2C3539;
@@ -243,24 +243,24 @@ section h2{
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
-	color:white;
-	height:2.5em;
-	text-size:1.1em;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+    width: 56%;
+    margin-bottom: 0.5em;
 }
 
-.form input{
-	margin-left:20%;
+#user{
+    margin-bottom: 0.7em;
 }
 
-
-.form input{
-	
+form input{
+	margin-left:20%;	
 	border:1px solid black;
 	height:2em;
-	width:18em;
 } 
 
-.form img{
+form img{
 	width:80%;
 	height:20%;
 }
@@ -277,9 +277,6 @@ footer{
     padding: 0.5em;
     padding-top: 1em;
     border-top: 1px solid #000;
-
-    
-
 }
 
 #logo_footer{
@@ -303,7 +300,7 @@ padding-top: 0.5%;
     float:left;
     text-align: left;
     padding-top: 2%;
-    color:white;
+    color:#DDD;
 
 }
 

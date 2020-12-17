@@ -25,33 +25,34 @@
         <input id="registrati" type="submit" value="Registrati">
     </div>
     <ul id="menu" role="menubar">
-        <li id="linkCorrente" class="link" role="none" xml:lang="en">Home</li> 
+        <li class="link" role="none" xml:lang="en"><a href="../Home.html" role="menuitem">Home</a></li> 
+            
         <li role="none" class="link">
             <a id="tendina" role="menuitem" aria-haspopup="true" aria-expanded="false">Prodotti</a>
             <ul role="menu" class="tendinaContenuto">
-                <li role="none"><a href="Html/Chitarre.html" role="menuitem" tabindex="-1">Chitarre</a></li>
-                <li role="none"><a href="Html/Accessori.html" role="menuitem" tabindex="-1">Accessori</a></li>
+                <li role="none"><a href="Chitarre.html" role="menuitem" tabindex="-1">Chitarre</a></li>
+                <li role="none"><a href="Accessori.html" role="menuitem" tabindex="-1">Accessori</a></li>
             </ul>
         </li>
-        <li class="link" role="none"><a href="Html/Servizi.html" role="menuitem">Servizi</a></li>
-        <li class="link" role="none"><a href="Html/Chisiamo.html" role="menuitem">Chi siamo</a></li>
+        <li class="link" role="none"><a href="Servizi.html" role="menuitem">Servizi</a></li>
+        <li class="link" role="none"><a href="Chisiamo.html" role="menuitem">Chi siamo</a></li>
 </ul>
 
     
 </header>
 <nav id="home">
-    <p>Ti trovi in: <span xml: lang="en">Home</span></p>
+    <p>Ti trovi in: <span xml: lang="en">Login</span></p>
 </nav>
 
 <div id="contenuto">
     <form method="post" class="form" >
 	 <img src="../Images/logo_bianco.png" alt="" />
-	<p>Username</p>
-	<input type="text" name="username" >
-	<p>Password</p>
-	<input type="password" name="psw"><br/><br/>
-	<input type="button" name="accedi" value="Accedi" id="login_accedi">
-	<a href="cambio_psw.php">password dimenticata</p>
+	<label for="username">Username</label>
+	<input type="text" name="username" id="user">
+	<label for="password">Password</label>
+	<input type="password" name="password" id="password"><br/><br/>
+	<input type="submit" name="accedi" value="Accedi" id="login_accedi">
+	<p><a href="cambio_psw.php">password dimenticata</p>
 	
 	</form>
 </div>
