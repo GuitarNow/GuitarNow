@@ -246,12 +246,12 @@ form a{
 	color:#DDD;
 	height:1.7em;
     font-size:1.1em;
-    padding-right: 3.3em;
-    padding-left: 3.3em;
+    width:60%;
     margin-bottom: 0.5em;
 }
 
-#user{
+#user, #password{
+    width:60%;
     margin-bottom: 0.7em;
 }
 
