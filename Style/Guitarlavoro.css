@@ -191,19 +191,32 @@ h1{
     border: 1px solid #fcc2d7;
     margin: 0 10px 20px 10px;
     padding: 10px;
-    border-radius:5px;
+    border-radius:10px;
     flex: 1 1 200px;
     text-align: center;
     font-size: 1.1em;
 }
 
 .chitarre{
-    width: 70%;
+    width: 75%;
 }
 
-.accessori{
-
+#acc1{
+    width:91%;
 }
+
+#acc2{
+    width:86%;
+}
+
+#acc3{
+    width:80%;
+}
+
+#acc4{
+    width:76%
+}
+
 
 #descrizione{
     color: #000;
@@ -332,22 +345,26 @@ padding-top: 0.5%;
    
 }
 
+#lastFooter{
+    display:inline-block;
+}
+
 #contatti{
     float:left;
     text-align: left;
     padding-top: 2%;
-    color:#DDD;
+    color:rgb(87, 87, 87);
 
 }
 
 
 #xhtml{
-    margin-top: 2%;
+    
     float:right;
 }
 
 #css{
-    margin-top: 2%;
+    
     float:right;
     
 }
