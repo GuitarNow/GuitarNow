@@ -164,13 +164,13 @@ h1{
 
 /*------------------------------------------------------------------------------
 --------------------------------contenutoHome----------------------------------*/
-#contenuto{
+.contenuto{
     
     margin-left:1.5em;
     margin-right: 1.5em;
 }
 
-#contenuto h1{
+.contenuto h1{
     padding-bottom: 0.5em;
     padding-top:0.5em;
     text-align: center;
@@ -231,24 +231,22 @@ h1{
 /*------------------------------------------------------------------------------
 --------------------------------contenuto SERVIZI----------------------------------*/
 
-
-section p{
-	margin-left:3%;
-}
-section h2{
-	margin-left:3%;
-}
-
-
 .img_servizi{
-    width:280px;
-	height:180px;
-	float:right;
-
-	margin-right:3%;
-	
+    width:25%;
+	float:right;	
 }
 
+#contenutoServizi h2{
+    padding-bottom:0.2em;
+}
+
+#contenutoServizi p{
+    padding-bottom: 0.5em;
+}
+
+#reg{
+    padding-top:0.5em;
+}
 
 /*------------------------------------------------------------------------------
 --------------------------------contenuto LOGIN----------------------------------*/
