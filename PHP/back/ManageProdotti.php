@@ -11,6 +11,7 @@ class ManageProdotti
     {
         $this->prodotto = new DatabaseConnection();
     }
+    //------------- CHITARRE --------------------
 
     // la funzione ritorna il contenuto della vista getChitarre che riporta la lista di tutte le chitarre contenenti nel database
     public function get_chitarra()
@@ -18,22 +19,48 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre"), MYSQLI_ASSOC);
     }
 
-    // la funzione ritorna il contenuto della vista getChitarre che riporta la lista di tutti gli accessori contenenti nel database
+    public function get_produttori_chitarre(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getChitarre"), MYSQLI_ASSOC);
+    }
+
+    //------------- FILTRI CHITARRE --------------------
+
+    public function get_chitarre_produttore($produttore){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre where produttore =".$produttore), MYSQLI_ASSOC);
+    }
+   
+    public function get_chitarre_produttore_prezzo($produttore, $prezzo){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre where produttore =".$produttore." AND prezzo <=".$prezzo), MYSQLI_ASSOC);
+    }
+
+    //------------- ACCESSORI --------------------
+
+       // la funzione ritorna il contenuto della vista getChitarre che riporta la lista di tutti gli accessori contenenti nel database
     public function get_accessori()
     {
         return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori"), MYSQLI_ASSOC);
-    }
-
-    public function get_produttori_chitarre(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getChitarre"), MYSQLI_ASSOC);
     }
 
     public function get_produttori_accessori(){
         return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getAccessori"), MYSQLI_ASSOC);
     }
 
-    public function get_chitarre_produttore($produttore){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre"), MYSQLI_ASSOC);
+    //------------- FILTRI ACCESSORI --------------------
+    public function get_accessori_produttore($produttore){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where produttore =".$produttore), MYSQLI_ASSOC);
+    }
+   
+    public function get_accessori_produttore_prezzo($produttore, $prezzo){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where produttore =".$produttore." AND prezzo <=".$prezzo), MYSQLI_ASSOC);
+    }
+
+    public function get_accessori_categoria($categoria, $produttore=NULL, $prezzo=NULL){
+        if($produttore == NULL && $prezzo == NULL)
+        {
+            return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where categoria =".$categoria), MYSQLI_ASSOC);
+        }else if($produttore!= NULL && $prezzo ==NULL){
+            return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where categoria =".$categoria."AND produttore =".$produttore), MYSQLI_ASSOC);
+        } 
     }
 
     
