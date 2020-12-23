@@ -27,7 +27,7 @@ body{
 -----------------------------------------HEADER-------------------------------*/
 
 
-header{   
+#header{   
     padding: 1em;
     overflow: auto;
     text-align:center;
