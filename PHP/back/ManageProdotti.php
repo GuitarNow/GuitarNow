@@ -21,8 +21,21 @@ class ManageProdotti
     // la funzione ritorna il contenuto della vista getChitarre che riporta la lista di tutti gli accessori contenenti nel database
     public function get_accessori()
     {
-        return mysqli_fetch_all($this->product->execute("select * from getAccessori"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori"), MYSQLI_ASSOC);
     }
+
+    public function get_produttori_chitarre(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getChitarre"), MYSQLI_ASSOC);
+    }
+
+    public function get_produttori_accessori(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getAccessori"), MYSQLI_ASSOC);
+    }
+
+    public function get_chitarre_produttore($produttore){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre"), MYSQLI_ASSOC);
+    }
+
     
 }
 
