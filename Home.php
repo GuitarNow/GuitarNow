@@ -84,3 +84,7 @@ $contenuto_home = '   <div id="contenutoHome" class="contenuto">
 </div>';
 
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_home, $web_page);
+
+echo $web_page;
+
+?>
