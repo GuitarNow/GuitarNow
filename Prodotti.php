@@ -27,7 +27,7 @@ if($categoria == "accessori"){
     $chitarre_database = $chitarre_manage->get_chitarra();
 }
 
-
+// Predisposizione di un campo nascosto nella carta dove inserire l'id della chitarra , in modo da reindirizzare alla pagina_dettaglio della chitarra
 foreach($chitarre_database as $chitarre)
 {
     $chitare_da_visualizzare.= '<li>
