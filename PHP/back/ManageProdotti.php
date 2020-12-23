@@ -24,7 +24,7 @@ class ManageProdotti
     }
 
 
-    }
+    
 
     //------------- ACCESSORI --------------------
 
@@ -80,7 +80,7 @@ class ManageProdotti
 
     
     //------------- FILTRI CHITARRE --------------------
-    
+
     public function filtri_chitarre($categoria=NULL, $produttore=NULL, $prezzo=NULL){
         $query = "SELECT * FROM getChitarre";
         $primo = true;
