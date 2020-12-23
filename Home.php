@@ -1,6 +1,6 @@
 <?php
 
-$web_page = file_get_contents('html/template.html');
+$web_page = file_get_contents('Html/template.html');
 
 $web_page = str_replace('<title_page/>', "Home", $web_page);
 
