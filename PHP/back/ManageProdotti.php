@@ -23,14 +23,7 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getChitarre"), MYSQLI_ASSOC);
     }
 
-    //------------- FILTRI CHITARRE --------------------
 
-    public function get_chitarre_produttore($produttore){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre where produttore =".$produttore), MYSQLI_ASSOC);
-    }
-   
-    public function get_chitarre_produttore_prezzo($produttore, $prezzo){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre where produttore =".$produttore." AND prezzo <=".$prezzo), MYSQLI_ASSOC);
     }
 
     //------------- ACCESSORI --------------------
@@ -46,27 +39,83 @@ class ManageProdotti
     }
 
     //------------- FILTRI ACCESSORI --------------------
-    public function get_accessori_produttore($produttore){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where produttore =".$produttore), MYSQLI_ASSOC);
-    }
-   
-    public function get_accessori_produttore_prezzo($produttore, $prezzo){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where produttore =".$produttore." AND prezzo <=".$prezzo), MYSQLI_ASSOC);
+    
+
+    public function filtri_accessori($categoria=NULL, $produttore=NULL, $prezzo=NULL){
+        $query = "SELECT * FROM getAccessori";
+        $primo = true;
+
+        if($categoria != NULL)
+        {
+            if ($primo){
+                $query.= "WHERE ";
+                $primo = false;
+            }else{
+                $query .="AND "; 
+            }
+            $query .= "categoria =".$categoria;
+            
+        }elseif($produttore != NULL)
+        {
+            if ($primo){
+                $query.= "WHERE ";
+                $primo = false;
+            }else{
+                $query .="AND "; 
+            }
+            $query .= "produttore =".$produttore;
+        }elseif ($prezzo != NULL) {
+            if ($primo){
+                $query.= "WHERE ";
+                $primo = false;
+            }else{
+                $query .="AND "; 
+            }
+            $query .= "prezzo <=".$prezzo;
+        }
+        
+        return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
+        
     }
 
-    public function get_accessori_categoria($categoria, $produttore=NULL, $prezzo=NULL){
-        if($produttore == NULL && $prezzo == NULL)
+    
+    //------------- FILTRI CHITARRE --------------------
+    
+    public function filtri_chitarre($categoria=NULL, $produttore=NULL, $prezzo=NULL){
+        $query = "SELECT * FROM getChitarre";
+        $primo = true;
+
+        if($categoria != NULL)
         {
-            return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where categoria =".$categoria), MYSQLI_ASSOC);
-        }elseif($produttore!= NULL && $prezzo ==NULL)
+            if ($primo){
+                $query.= "WHERE ";
+                $primo = false;
+            }else{
+                $query .="AND "; 
+            }
+            $query .= "categoria =".$categoria;
+            
+        }elseif($produttore != NULL)
         {
-            return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where categoria =".$categoria."AND produttore =".$produttore), MYSQLI_ASSOC);
-        }elseif($produttore == NULL && prezzo != NULL)
-        {
-            return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where categoria =".$categoria."AND prezzo <=".$prezzo), MYSQLI_ASSOC);
-        }elseif ($produttore!=NULL && prezzo!=NULL) {
-            return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where categoria =".$categoria."AND prezzo <=".$prezzo), MYSQLI_ASSOC);
+            if ($primo){
+                $query.= "WHERE ";
+                $primo = false;
+            }else{
+                $query .="AND "; 
+            }
+            $query .= "produttore =".$produttore;
+        }elseif ($prezzo != NULL) {
+            if ($primo){
+                $query.= "WHERE ";
+                $primo = false;
+            }else{
+                $query .="AND "; 
+            }
+            $query .= "prezzo <=".$prezzo;
         }
+        
+        return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
+        
     }
 
     
