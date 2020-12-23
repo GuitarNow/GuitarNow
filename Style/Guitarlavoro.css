@@ -136,7 +136,6 @@ h1{
     font-size:1.5em;
 }
 
-
 /*------------------------------------------------------------------------------
 --------------------------------contenutoHome----------------------------------*/
 .contenuto{
@@ -172,6 +171,12 @@ h1{
     font-size: 1.1em;
 }
 
+#contenutoHome a{
+    width:25%;
+    color: #000;
+    text-decoration: none;
+}
+
 .chitarre{
     width: 75%;
 }
@@ -191,7 +196,6 @@ h1{
 #acc4{
     width:76%
 }
-
 
 #descrizione{
     color: #000;
@@ -343,4 +347,47 @@ padding-top: 0.5%;
     
     float:right;
     
+}
+
+/*--------------------------------------------------------------------------
+-----------------------Filtri------------------------------------------*/
+
+#menuProdotti{
+    display: flex;
+    align-items: center;
+    font-size:1.1em;
+    list-style:none;
+}
+
+#menuProdotti  li {
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    display: inline-block;
+}
+
+#menuProdotti li:first-child{
+    border-left: 1px solid #000;
+}
+
+#menuProdotti a{
+    text-decoration: none;
+    display: inline-block;
+    color: #000;
+    background-color: #ec9b30;
+    text-align: center;
+    padding: 0.5em;
+}
+
+#menuProdotti a:hover {
+    background-color: #392D20;
+    color: #DDD;
+}
+
+
+#linkCorrenteProdotti{
+    background-color:#392D20;
+    color: #DDD;
+    text-align: left;
+    padding: 0.5em;
 }
