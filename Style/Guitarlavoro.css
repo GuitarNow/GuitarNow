@@ -157,6 +157,7 @@ h1{
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    width:100%;
     
 }
 
@@ -169,12 +170,17 @@ h1{
     flex: 0 1 200px;
     text-align: center;
     font-size: 1.1em;
+    
 }
 
-#contenutoHome a{
+.chitCard a, .accCard a{
     width:25%;
     color: #000;
     text-decoration: none;
+}
+
+.piccola{
+    padding-bottom:12%;
 }
 
 .chitarre{
