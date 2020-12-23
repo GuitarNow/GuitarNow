@@ -6,21 +6,6 @@
     margin: 0em;
 } 
 
-html{
-    background-image: url('../Images/sfondo2.jpg');
-    background-color:#7B4A36;
-    width: 100%;
-}
-
-body{
-    max-width:1024px;
-    margin: auto;
-    background-color:#C68948;
-    font-family:"Comic Sans MS", cursive, sans-serif;
-    font-size:100%;
-    color: #000;
-}
-
 
 /*--------------------------------------------------------------------------------------
 -----------------------------------------HEADER-------------------------------*/
@@ -121,6 +106,7 @@ background-color:#392D20;
     border-bottom: 1px solid #000;
     padding: 0.2em;
 }
+
 #breadcrumbs{
     background-color:#4E1600;
     color: #DDD;
@@ -288,7 +274,7 @@ form img{
 /*------------------------------------------------------------------------------
 --------------------------------footer----------------------------------*/
 
-footer{
+#footer{
     background-color: #4E1600;
     color:rgb(255, 255, 255);
     font-size: 0.7em;
