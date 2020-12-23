@@ -58,9 +58,15 @@ class ManageProdotti
         if($produttore == NULL && $prezzo == NULL)
         {
             return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where categoria =".$categoria), MYSQLI_ASSOC);
-        }else if($produttore!= NULL && $prezzo ==NULL){
+        }elseif($produttore!= NULL && $prezzo ==NULL)
+        {
             return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where categoria =".$categoria."AND produttore =".$produttore), MYSQLI_ASSOC);
-        } 
+        }elseif($produttore == NULL && prezzo != NULL)
+        {
+            return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where categoria =".$categoria."AND prezzo <=".$prezzo), MYSQLI_ASSOC);
+        }elseif ($produttore!=NULL && prezzo!=NULL) {
+            return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori where categoria =".$categoria."AND prezzo <=".$prezzo), MYSQLI_ASSOC);
+        }
     }
 
     
