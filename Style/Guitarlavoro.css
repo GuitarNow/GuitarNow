@@ -19,36 +19,34 @@ body{
     font-family:"Comic Sans MS", cursive, sans-serif;
     font-size:100%;
     color: #000;
+    border:1px solid #000;
 }
 
 
 
 /*--------------------------------------------------------------------------------------
 -----------------------------------------HEADER-------------------------------*/
-
-
 #header{   
-    padding: 2em;
+    padding-top: 1em;
+    padding-bottom:1em;
     overflow: auto;
     text-align:center;
-    margin:auto;
+    margin: auto;
     background-color:#4E1600;
 }
 
 #logo{
     float:left;
-    width:17%;
-    padding-right:1em;
-    
+    width:25%; 
+    margin-left:2%;  
 }
+
 
 #accesso{
-   
+    width:30%;
     float:right; 
-    margin:auto;
-    margin-right: 6%;     
+    margin-right:4%;;     
 }
-
 
 
 #accedi, #registrati{   
@@ -57,30 +55,31 @@ body{
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     background-color: #ec9b30;
-    padding: 0.6em;
+    padding: 0.7em;
     font-size:1.1em;
     color:#000;
-    
+    border-radius:5px;
     
 }
+
+
 #accedi{
     padding-left: 1em;
     padding-right:1em;
+    margin-right:4%;
 }
-#registrati{
-    margin-left: 1em;
-}
+
+
 
 #accedi:hover, #registrati:hover{
 background-color:#392D20;
     color: #DDD;
 }
 
+
 #menu{
-    display: flex;
-    align-items: center;
-    font-size:1.1em;
-    list-style:none;
+    float: center;
+    width: 70%;
     
 }
 
@@ -88,35 +87,34 @@ background-color:#392D20;
     border-right: 1px solid #000;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
-    display: inline-block;
-}
-
-#menu li:first-child{
     border-left: 1px solid #000;
+    background-color: #ec9b30;
+    padding: 0.6em;
+    font-size:1.1em;
+    color:#000;
+    display: inline-block;
+    margin: 0 -3px;
 }
 
 #menu a{
     text-decoration: none;
-    display: inline-block;
+    display:inline-block;
     color: #000;
     background-color: #ec9b30;
-    text-align: center;
-    padding: 0.5em;
+    text-align: center;   
 }
 
-#menu a:hover {
+#menu a:hover, #menu li:hover{
     background-color: #392D20;
     color: #DDD;
 }
 
-
-#linkCorrente{
+li#linkCorrente{
     background-color:#392D20;
     color: #DDD;
     text-align: left;
-    padding: 0.5em;
+    padding: 0.6em;
 }
-
 
 /*------------------------------------------------------------------------------
 -----------------------------------home--------------------------------*/
@@ -141,6 +139,8 @@ h1{
     text-align: center;
     font-size:1.5em;
 }
+
+
 
 /*------------------------------------------------------------------------------
 --------------------------------contenutoHome----------------------------------*/
