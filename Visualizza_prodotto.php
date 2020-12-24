@@ -1,7 +1,7 @@
 <?php
 $id_prodotto = $_GET['prodotto'];
 
-require_once('PHP/back/DatabaseConnection.php');
+require_once('PHP/back/ManageProdotti.php');
 
 $web_page = file_get_contents('Html/template.html');
 
