@@ -28,12 +28,11 @@ body{
 
 
 #header{   
-    padding: 1em;
+    padding: 2em;
     overflow: auto;
     text-align:center;
     margin:auto;
     background-color:#4E1600;
-    
 }
 
 #logo{
@@ -44,8 +43,10 @@ body{
 }
 
 #accesso{
+   
     float:right; 
-    padding-right:4em;    
+    margin:auto;
+    margin-right: 6%;     
 }
 
 
@@ -56,14 +57,18 @@ body{
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     background-color: #ec9b30;
-    padding: 0.5em;
+    padding: 0.6em;
     font-size:1.1em;
     color:#000;
+    
+    
 }
 #accedi{
-    margin-right:0.7em;
     padding-left: 1em;
     padding-right:1em;
+}
+#registrati{
+    margin-left: 1em;
 }
 
 #accedi:hover, #registrati:hover{
@@ -76,6 +81,7 @@ background-color:#392D20;
     align-items: center;
     font-size:1.1em;
     list-style:none;
+    
 }
 
 #menu  li {
@@ -330,6 +336,7 @@ h1{
 
 .icone_footer{
 padding-top: 0.5%;
+
   position: absolute;
 }
 
