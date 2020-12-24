@@ -23,12 +23,12 @@ $web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Specifiche prodott
 
 
 // essendo che ritorna solamente un elemento non so se funziona il foreach
-foreach($chitarra_selezionata as $c)
-{
+//foreach($chitarra_selezionata as $c)
+//{
 
-$contenuto='<div id="specifiche_prodotto"><h1>'.$c['produttore'].' '.$c['modello'].'</h1></div>';
+$contenuto='<div id="specifiche_prodotto"><h1>'.$chitarra_selezionata['produttore'].' '.$chitarra_selezionata['modello'].'</h1></div>';
 
-}
+//}
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
 
 echo $web_page;
