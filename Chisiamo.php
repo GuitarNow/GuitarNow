@@ -17,4 +17,5 @@ $web_page = str_replace('<contenuto_to_insert/>', file_get_contents('Html/Chisia
 
 echo $web_page;
 
+
 ?>
