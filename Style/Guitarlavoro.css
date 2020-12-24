@@ -84,12 +84,8 @@ background-color:#392D20;
 }
 
 #menu  li {
-    border-right: 1px solid #000;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    border-left: 1px solid #000;
-    background-color: #ec9b30;
-    padding: 0.6em;
+    
+    background-color: #ec9b30;  
     font-size:1.1em;
     color:#000;
     display: inline-block;
@@ -97,16 +93,22 @@ background-color:#392D20;
 }
 
 #menu a{
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
     text-decoration: none;
     display:inline-block;
     color: #000;
     background-color: #ec9b30;
     text-align: center;   
+    padding:0.6em;
 }
 
-#menu a:hover, #menu li:hover{
+#menu a:hover{
     background-color: #392D20;
     color: #DDD;
+    border: 1px solid #000;
 }
 
 li#linkCorrente{
@@ -114,6 +116,7 @@ li#linkCorrente{
     color: #DDD;
     text-align: left;
     padding: 0.6em;
+    border: 1px solid #000;
 }
 
 /*------------------------------------------------------------------------------
