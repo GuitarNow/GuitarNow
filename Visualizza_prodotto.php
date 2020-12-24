@@ -23,8 +23,8 @@ $web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Specifiche prodott
 
 foreach($chitarra_selezionata as $c)
 {
-$filtri=file_get_contents('Html/Filtri.html');
-$contenuto=$filtri.'<div id="specifiche_prodotto"><h1>'.$c['produttore'].' '.$c['modello'].'</h1></div>';
+
+$contenuto='<div id="specifiche_prodotto"><h1>'.$c['produttore'].' '.$c['modello'].'</h1></div>';
 
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
