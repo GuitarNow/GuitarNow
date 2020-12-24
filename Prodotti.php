@@ -72,7 +72,8 @@ $filtri = str_replace('<filtro_tipologia/>', $filtro_tipo, $filtri);
 
 
 // ----------------FILTRO ---------------------------
-$contenuto_pagina =$filtri;
+$contenuto_pagina ="<div id='container_prodotti_filtri'>";
+$contenuto_pagina .=$filtri;
 
 
 
@@ -98,10 +99,10 @@ foreach($prodotti_database as $prodotti)
     <img class="chitarre" src="Images/CHITARRA-ACUSTICA-YAMAHA-F-370.jpg" alt="Chitarra acustica" />'.
     '<p>'.$prodotti['produttore'].$prodotti['modello'].'</p>'.
     '<p>'.$prodotti['prezzo_vendita'].'€</p>
-    </li><a/>';
+    </li></a>';
 }
 
-$contenuto_pagina .= '</ul>';
+$contenuto_pagina .= '</ul></div>';
 
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 
