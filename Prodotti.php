@@ -17,29 +17,93 @@ $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Chitarre", $web_page);
 
-$chitare_da_visualizzare 
-= '<ul class="chitCard">';
 
-$chitarre_manage = new ManageProdotti();
-if($categoria == "accessori"){
-    $chitarre_database = $chitarre_manage->get_accessori();
-}else{
-    $chitarre_database = $chitarre_manage->get_chitarra();
+// ----- FILTRO CATEGORIA PRODOTTO -------
+$menu_prodotto ="";
+if($categoria == "chitarre" || $categoria == NULL){
+    $menu_prodotto = '
+<li id="linkCorrenteProdotti" class="link" role="none" >Chitarre</li> 
+<li class="link" role="none"><a href="Prodotti.php?categoria=accessori" role="menuitem">Accessori</a></li>
+    ';
+}elseif($categoria == "accessori"){
+    $menu_prodotto = '
+    <li  class="link" role="none"><a href="Prodotti.php?categoria=chitarre" role="menuitem">Chitarre</a></li> 
+    <li id="linkCorrenteProdotti" class="link" role="none">Accessori</a></li>';
 }
+
+
+
+
+$filtri=file_get_contents('Html/Filtri.html');
+$filtri = str_replace('<menu_prodotti/>', $menu_prodotto, $filtri);
+
+//-------------------FILTRO PRODUTTORI ----------------
+$produttori_manage = new ManageProdotti();
+$produttori="";
+$filtro_produttori ="";
+if($categoria == "accessori"){
+    $produttori = $produttori_manage->get_produttori_accessori();
+}elseif($categoria == "chitarre"){
+    $produttori = $produttori_manage->get_produttori_chitarre();
+}
+
+foreach($produttori as $produttori_da_visualizzare){
+    $filtro_produttori.= "<option>".$produttori_da_visualizzare['produttore']."</option>";
+}
+
+
+$filtri = str_replace('<filtro_produttore/>', $filtro_produttori, $filtri);
+
+// -------- FILTRO CATEGORIA ----------------
+$tipo_manage = new ManageProdotti();
+$tipo="";
+$filtro_tipo ="";
+if($categoria == "accessori"){
+    $tipo = $tipo_manage->get_tipo_accessori();
+}elseif($categoria == "chitarre"){
+    $tipo = $tipo_manage->get_tipo_chitarre();
+}
+
+foreach($tipo as $tipi_da_visualizzare){
+    $filtro_tipo.= "<option>".$tipi_da_visualizzare['tipo']."</option>";
+}
+
+$filtri = str_replace('<filtro_tipologia/>', $filtro_produttori, $filtri);
+
+
+// ----------------FILTRO ---------------------------
+$contenuto_pagina =$filtri;
+
+
+
+
+
+
+$contenuto_pagina .='<ul class="chitCard">';
+$prodotti_manage = new ManageProdotti();
+
+if($categoria == "accessori"){
+    $prodotti_database = $prodotti_manage->get_accessori();
+}else{
+    $prodotti_database = $prodotti_manage->get_chitarra();
+}
+
+
+
 
 // Predisposizione di un campo nascosto nella carta dove inserire l'id della chitarra , in modo da reindirizzare alla pagina_dettaglio della chitarra
-foreach($chitarre_database as $chitarre)
+foreach($prodotti_database as $prodotti)
 {
-    $chitare_da_visualizzare.= '<li>
+    $contenuto_pagina.= '<a href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'"><li>
     <img class="chitarre" src="Images/CHITARRA-ACUSTICA-YAMAHA-F-370.jpg" alt="Chitarra acustica" />'.
-    '<p>'.$chitarre['produttore'].$chitarre['modello'].'</p>'.
-    '<p>'.$chitarre['prezzo_vendita'].'€</p>
-    </li>';
+    '<p>'.$prodotti['produttore'].$prodotti['modello'].'</p>'.
+    '<p>'.$prodotti['prezzo_vendita'].'€</p>
+    </li><a/>';
 }
 
-$chitare_da_visualizzare .= '</ul>';
+$contenuto_pagina .= '</ul>';
 
-$web_page = str_replace('<contenuto_to_insert/>', $chitare_da_visualizzare, $web_page);
+$web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 
 echo $web_page;
 

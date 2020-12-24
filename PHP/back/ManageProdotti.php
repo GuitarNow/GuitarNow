@@ -23,6 +23,10 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getChitarre"), MYSQLI_ASSOC);
     }
 
+    public function get_tipo_chitarre(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select tipo_chitarra as tipo FROM getChitarre"), MYSQLI_ASSOC);
+    }
+
 
     
 
@@ -36,6 +40,9 @@ class ManageProdotti
 
     public function get_produttori_accessori(){
         return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getAccessori"), MYSQLI_ASSOC);
+    }
+    public function get_tipo_accessori(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select categoria as tipo FROM getAccessori"), MYSQLI_ASSOC);
     }
 
     //------------- FILTRI ACCESSORI --------------------
