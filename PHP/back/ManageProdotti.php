@@ -41,6 +41,10 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori"), MYSQLI_ASSOC);
     }
 
+    public function get_specifiche_accessori($id){
+        return mysqli_fetch_assoc($this->prodotto->get_result_query("select * from getAccessori WHERE codice_prodotto =".$id));
+    }
+
     public function get_produttori_accessori(){
         return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getAccessori"), MYSQLI_ASSOC);
     }
