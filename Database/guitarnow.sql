@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 22, 2020 alle 17:09
+-- Creato il: Dic 24, 2020 alle 13:42
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.4
 
@@ -75,7 +75,8 @@ CREATE TABLE `commento` (
 -- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getaccessori` (
-`modello` varchar(50)
+`codice_prodotto` int(11)
+,`modello` varchar(50)
 ,`produttore` varchar(30)
 ,`descrizione` text
 ,`prezzo_vendita` float(6,2)
@@ -89,7 +90,8 @@ CREATE TABLE `getaccessori` (
 -- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getchitarre` (
-`modello` varchar(50)
+`codice_prodotto` int(11)
+,`modello` varchar(50)
 ,`produttore` varchar(30)
 ,`descrizione` text
 ,`prezzo_vendita` float(6,2)
@@ -179,7 +181,7 @@ CREATE TABLE `user` (
 --
 DROP TABLE IF EXISTS `getaccessori`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getaccessori`  AS  select `prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`accessorio`.`categoria` AS `categoria` from ((`accessorio` join `prodotto` on(`accessorio`.`codice_accessorio` = `prodotto`.`codice_prodotto`)) join `produttore` on(`prodotto`.`produttore` = `produttore`.`ragione_sociale`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getaccessori`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`accessorio`.`categoria` AS `categoria` from ((`accessorio` join `prodotto` on(`accessorio`.`codice_accessorio` = `prodotto`.`codice_prodotto`)) join `produttore` on(`prodotto`.`produttore` = `produttore`.`ragione_sociale`)) ;
 
 -- --------------------------------------------------------
 
@@ -188,7 +190,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `getchitarre`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipo_chitarra` from ((`chitarra` join `prodotto` on(`chitarra`.`cod_chitarra` = `prodotto`.`codice_prodotto`)) join `produttore` on(`prodotto`.`produttore` = `produttore`.`ragione_sociale`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipo_chitarra` from ((`chitarra` join `prodotto` on(`chitarra`.`cod_chitarra` = `prodotto`.`codice_prodotto`)) join `produttore` on(`prodotto`.`produttore` = `produttore`.`ragione_sociale`)) ;
 
 --
 -- Indici per le tabelle scaricate
