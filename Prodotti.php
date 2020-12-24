@@ -68,7 +68,7 @@ foreach($tipo as $tipi_da_visualizzare){
     $filtro_tipo.= "<option>".$tipi_da_visualizzare['tipo']."</option>";
 }
 
-$filtri = str_replace('<filtro_tipologia/>', $filtro_produttori, $filtri);
+$filtri = str_replace('<filtro_tipologia/>', $filtro_tipo, $filtri);
 
 
 // ----------------FILTRO ---------------------------
