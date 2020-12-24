@@ -19,7 +19,9 @@ body{
     font-family:"Comic Sans MS", cursive, sans-serif;
     font-size:100%;
     color: #000;
-    border:1px solid #000;
+    border-left: 0.5px solid #000;
+    border-right: 0.5px solid #000;
+    border-bottom: 1px solid #000;
 }
 
 
@@ -84,7 +86,7 @@ background-color:#392D20;
 }
 
 #menu  li {
-    
+        
     background-color: #ec9b30;  
     font-size:1.1em;
     color:#000;
@@ -99,8 +101,8 @@ background-color:#392D20;
     border-left: 1px solid #000;
     text-decoration: none;
     display:inline-block;
-    color: #000;
-    background-color: #ec9b30;
+    color: #000;  
+    background-color: #ec9b30;  
     text-align: center;   
     padding:0.6em;
 }
