@@ -1,14 +1,14 @@
 <?php
 $id_prodotto = $_GET['prodotto'];
+
 require_once('PHP/back/DatabaseConnection.php');
 
 $web_page = file_get_contents('Html/template.html');
 
-$id_selezionato=2;
-$conn=new DatabaseConnection();
-$query='select * from chitarra,prodotto,produttore where chitarra.cod_chitarra=prodotto.codice_prodotto and prodotto.produttore=produttore.ragione_sociale and cod_chitarra='.$id_selezionato.';';
-echo $query;
-$chitarra_selezionata= mysqli_fetch_all($conn->get_result_query($query), MYSQLI_ASSOC);
+
+$manage_prodoto=new ManageProdotti();
+
+$chitarra_selezionata= $manage_prodoto->get_specifiche_chitarra($id_prodotto);
 
 
 $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
@@ -21,6 +21,8 @@ $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Specifiche prodotto", $web_page);
 
+
+// essendo che ritorna solamente un elemento non so se funziona il foreach
 foreach($chitarra_selezionata as $c)
 {
 

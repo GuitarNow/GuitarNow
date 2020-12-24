@@ -18,6 +18,9 @@ class ManageProdotti
     {
         return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre"), MYSQLI_ASSOC);
     }
+    public function get_specifiche_chitarra($id){
+        return mysqli_fetch_assoc($this->prodotto->get_result_query("select * from getChitarre WHERE codice_prodotto =".$id));
+    }
 
     public function get_produttori_chitarre(){
         return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getChitarre"), MYSQLI_ASSOC);
