@@ -8,6 +8,38 @@
 
 
 <form method="post">
+<fieldset>
+<legend>Prouttore</legend>
+<filtro_produttore />
+</fieldset>
+
+<fieldset>
+<legend>Tipologia prodotto</legend>
+<filtro_tipologia />
+</fieldset>
+
+<fieldset>
+<legend>Ordina per</legend>
+<input type="radio" id="piu_recente" name="ordinamento" value="piu_recente">
+<label for="piu_recente">Data(crescente)</label><br />
+
+<input type="radio" id="meno_recente" name="ordinamento" value="meno_recente">
+<label for="meno_recente">Data(decrescente)</label><br />
+
+<input type="radio" id="economica" name="ordinamento" value="economica">
+<label for="economica">Prezzo(crescente)</label><br />
+
+<input type="radio" id="costosa" name="ordinamento" value="costosa">
+<label for="costosa">Prezzo(decrescente)</label><br />
+</fieldset>
+<fieldset>
+<legend>Fascia di prezzo</legend>
+
+<input type="radio" id="principianti" name="prezzo" value="principianti">
+<label for="principianti">Sotto i 150&#128;</label><br />
+
+<input type="radio" id="intermedia" name="prezzo" value="intermedia">
+<label for="intermedia">Da 150&#128; a 600&#128;</label><br />
 
     <select name="produttore" id= "produttore">
         <filtro_produttore/>
