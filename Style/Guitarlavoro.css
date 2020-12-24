@@ -433,15 +433,27 @@ padding-top: 0.5%;
 
 #specifiche_prodotto{
 	width:70%;
-	display:block;
 	background-color:white;
-	float:right;
 	margin-top:5%;
-	margin-right:5%;
+	margin-left:15%;
     border-radius:10px;
 	
 }
 	
 #elementi_contenuto{
 		overflow:hidden;		
+}
+
+
+#anteprima_img{
+    width:50%;
+    height:30%;
+    margin-left:25%;
+	
+}
+
+#specifiche_prodotto p
+{
+    margin-left:3%;
+    margin-right:3%;
 }
