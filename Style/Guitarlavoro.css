@@ -19,7 +19,9 @@ body{
     font-family:"Comic Sans MS", cursive, sans-serif;
     font-size:100%;
     color: #000;
-    border:1px solid #000;
+    border-left: 0.5px solid #000;
+    border-right: 0.5px solid #000;
+    border-bottom: 1px solid #000;
 }
 
 
@@ -84,12 +86,8 @@ background-color:#392D20;
 }
 
 #menu  li {
-    border-right: 1px solid #000;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    border-left: 1px solid #000;
-    background-color: #ec9b30;
-    padding: 0.6em;
+        
+    background-color: #ec9b30;  
     font-size:1.1em;
     color:#000;
     display: inline-block;
@@ -97,16 +95,22 @@ background-color:#392D20;
 }
 
 #menu a{
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
     text-decoration: none;
     display:inline-block;
-    color: #000;
-    background-color: #ec9b30;
+    color: #000;  
+    background-color: #ec9b30;  
     text-align: center;   
+    padding:0.6em;
 }
 
-#menu a:hover, #menu li:hover{
+#menu a:hover{
     background-color: #392D20;
     color: #DDD;
+    border: 1px solid #000;
 }
 
 li#linkCorrente{
@@ -114,6 +118,7 @@ li#linkCorrente{
     color: #DDD;
     text-align: left;
     padding: 0.6em;
+    border: 1px solid #000;
 }
 
 /*------------------------------------------------------------------------------
@@ -150,8 +155,8 @@ h1{
     
 }
 .contenuto{
-    margin-left:1.5em;
-    margin-right: 1.5em;
+    margin-left:5%;
+    margin-right: 5%;
 }
 
 .contenuto h1{
@@ -164,27 +169,27 @@ h1{
 
 
 .chitCard, .accCard{
-    margin:0 -10px;
-    padding: 0;
-    margin-left: 0.5%;
-    list-style: none;
-    display: flex;
     
+    list-style: none;
+    display: flex; 
     flex-wrap: wrap;
-    width:80%;
+    width:100%;
+    align-items:stretch;
+    flex-direction: row;
     
 }
 
 .chitCard li, .accCard li{
     background-color: #fff0f6;
     border: 1px solid #fcc2d7;
+  /* background-color: #e5dbff;
+border: 1px solid #d0bfff; */
     margin: 0 10px 20px 10px;
     padding: 10px;
-    border-radius:10px;
-    
+    border-radius:12px;
     flex:0 0 100%;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.1em; 
     
 }
 
@@ -192,14 +197,16 @@ h1{
     width:25%;
     color: #000;
     text-decoration: none;
-}
-
-.piccola{
-    padding-bottom:12%;
+    
 }
 
 .chitarre{
     width: 75%;
+    border-radius: 15%; 
+}
+
+.accessori{
+    border-radius: 15%;
 }
 
 #acc1{
