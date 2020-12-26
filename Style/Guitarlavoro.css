@@ -169,13 +169,11 @@ h1{
 
 
 .chitCard, .accCard{
-    
     list-style: none;
     display: flex; 
     flex-wrap: wrap;
     width:100%;
-    align-items:stretch;
-    flex-direction: row;
+    align-items: center;
     
 }
 
@@ -189,15 +187,13 @@ border: 1px solid #d0bfff; */
     border-radius:12px;
     flex:0 0 100%;
     text-align: center;
-    font-size: 1.1em; 
-    
+    font-size: 1.1em;     
 }
 
 .chitCard a, .accCard a{
     width:25%;
     color: #000;
-    text-decoration: none;
-    
+    text-decoration: none; 
 }
 
 .chitarre{
