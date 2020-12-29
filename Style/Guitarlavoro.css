@@ -252,33 +252,30 @@ border: 1px solid #d0bfff; */
 }
 
 /*------------------------------------------------------------------------------
---------------------------------contenuto LOGIN----------------------------------*/
-
-#form{
+----------------------contenuto LOGIN--REGISTRATI--------------------------------*/
+form{
 	border:1px solid black;
 	border-radius:5px 5px;
 	height:60%;
-	width:35%;
+	width:45%;
 	font-size:18px;
-	margin-left:32.5%;
-	margin-top:20%;
-	margin-bottom:15%;
+	margin-left:28%;
+	margin-top:10%;
+	margin-bottom:10%;
 	background-color:#A0A0A0;
 }
 
-#form label{
-	margin-left:20%;
-	margin-top:2em;
-	
+form label{
+	margin-left:20%;	
 }
 
-#form a{ 
-	margin-left:20%;
+form a{ 
+	margin-left:25%;
 	margin-top:2em;
 	color:#2C3539;
 }
 
-#login_accedi{
+#loginAccedi, #registratiAccedi{
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
@@ -287,33 +284,31 @@ border: 1px solid #d0bfff; */
     font-size:1.1em;
     width:60%;
     margin-bottom: 0.5em;
+    margin-top:3%;
 }
 
-#user, #password{
+#nome, #cognome, #email, #nascita ,#username, #password, #ridigitaPassword{
     width:60%;
     margin-bottom: 0.7em;
 }
 
-#form input{
+form input{
 	margin-left:20%;	
 	border:1px solid black;
 	height:2em;
 } 
 
-#form img{
+form img{
 	width:80%;
 	height:20%;
 }
 
-#link_form{
-	font-size:0.85em;
-}
 
-#cambpass{
+
+#cambpass, #giaAccount{
     margin-bottom: 0.5em;
     margin-left:0.7em;
 }
-
 
 /*------------------------------------------------------------------------------
 --------------------------------footer----------------------------------*/
