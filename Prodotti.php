@@ -97,8 +97,8 @@ foreach($prodotti_database as $prodotti)
 {
     $contenuto_pagina.= '<a href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li>
     <img class="chitarre" src="Images/CHITARRA-ACUSTICA-YAMAHA-F-370.jpg" alt="Chitarra acustica" />'.
-    '<p>'.$prodotti['produttore'].$prodotti['modello'].'</p>'.
-    '<p>'.$prodotti['prezzo_vendita'].'€</p>
+    '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
+    '</p><p>'.$prodotti['prezzo_vendita'].'€</p>
     </li></a>';
 }
 

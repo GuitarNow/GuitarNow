@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 25, 2020 alle 10:14
+-- Creato il: Dic 29, 2020 alle 22:06
 -- Versione del server: 10.1.19-MariaDB
 -- Versione PHP: 5.6.28
 
@@ -31,6 +31,16 @@ CREATE TABLE `accessorio` (
   `categoria` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dump dei dati per la tabella `accessorio`
+--
+
+INSERT INTO `accessorio` (`codice_accessorio`, `categoria`) VALUES
+(4, 'Corde'),
+(5, 'Amplificatori'),
+(6, 'Effetti'),
+(11, 'Gadget');
+
 -- --------------------------------------------------------
 
 --
@@ -49,8 +59,13 @@ CREATE TABLE `chitarra` (
 --
 
 INSERT INTO `chitarra` (`cod_chitarra`, `legno_manico`, `legno_corpo`, `tipo_chitarra`) VALUES
-(2, 'legno3', 'legno4', 'elettrica'),
-(3, 'legno1', 'legno 2', 'classica');
+(1, 'palissandro', 'palissandro', 'Elettrica'),
+(2, 'mogano', 'palissandro', 'Elettrica'),
+(3, 'acero', 'acero', 'Classica'),
+(7, 'abete', 'acero', 'Semiacustica'),
+(8, 'otano', 'acero', 'Elettrica'),
+(9, 'otano', 'palissandro', 'Elettrica'),
+(10, 'mogano', 'abete', 'Acustica');
 
 -- --------------------------------------------------------
 
@@ -130,9 +145,17 @@ CREATE TABLE `prodotto` (
 --
 
 INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione`, `prezzo_vendita`) VALUES
-(1, 'Les Paul Custom 1990', 'Gibson', 'La Les Paul Standard HP conserva molte caratteristiche Gibson popolari, tra cui il profilo asimmetrico del manico Slim Taper, migliorando l''uso con un aggiornamento dei venerati pick-up humbucker PAF ed un top in acero figurato AAA+ con abbellimenti di alto livello. Il modello HP offre innovazioni all''avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista, capotasto zero-fret e sellette regolabili in titanio. Una varietà timbrica eccezionale fornita da 4 potenziometri push-pull con DIP switch per oltre 150 possibilità di rewiring istantanei reversibili.\r\n', 3000.00),
+(1, 'Les Paul Studio', 'Epiphone', 'La chitarra elettrica Epiphone Les Paul Studio, appartenente alla "Inspired by Gibson Collection", offre agli appassionati del marchio di Nashville il modello progettato da Gibson negli anni ''80 per offrire ad un prezzo contenuto una vera Les Paul semplice ma completa Il suono di questa chitarra elettrica è generato da una coppia di pickup Alnico Classic ed Alnico Classic Plus, dal suono caldo e corposo, ottimi sia sui suoni puliti che sui distorti. A completare lo strumento troviamo potenziometri CTS e meccaniche Grover Rotomatic.', 3000.00),
 (2, 'Les Paul Standard HP 2018', 'Gibson', 'La Les Paul Standard HP conserva molte caratteristiche Gibson popolari, tra cui il profilo asimmetrico del manico Slim Taper, migliorando l''uso con un aggiornamento dei venerati pick-up humbucker PAF ed un top in acero figurato AAA+ con abbellimenti di alto livello. Il modello HP offre innovazioni all''avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista, capotasto zero-fret e sellette regolabili in titanio. Una varietà timbrica eccezionale fornita da 4 potenziometri push-pull con DIP switch per oltre 150 possibilità di rewiring istantanei reversibili.\n', 2599.00),
-(3, 'Player Stratocaster MN Black', 'Fender', 'Il suono ispiratore di una Stratocaster è uno dei fondamenti Fender. Caratterizzato da un suono classico, high-end squillanti, medi potenti ed una fascia bassa robusta, abbinato ad una articolazione cristallina, la Player Stratocaster è dotata dello stile e del feel Fender autentico. E'' pronta a servire la tua visione musicale, è abbastanza versatile da gestire qualsiasi stile ed è la piattaforma perfetta per creare il tuo suono. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il pickup al ponte, dandoti un maggiore controllo sul suono nelle posizioni del pickup 1 e 2.\n<br/>\nCaratteristiche\n<br/>\n\n<ul>\n    <li></li>\n</ul> \n<li>Body: Ontano</li>\n<li>Finitura: Poliestere lucido</li>\n<li>Manico: Acero</li>\n<li>Finitura: Satinata</li>\n<li>Profilo: Modern "C"</li>\n<li>Scala: 25,5" (648mm)</li>\n<li>Tastiera: Acero</li>\n<li>Raggio: 9.5" (241mm)</li>\n<li>Tasti: 22</li>\n<li>Dimensione: Jumbo medium</li>\n<li>Capotasto: Osso sintetico</li>\n<li>Larghezza: 1,650" (42mm)</li>\n<li>Intarsi: Dot neri</li>\n<li>Truss Rod: Standard con dado di regolazione esagonale da 3/16"</li>\n<li>Pickup: Player Series Alnico 5 Strat Single-Coil</li>\n<li>Controlli: Master Volume, Tone 1 (Neck / Middle), Tone 2 (Bridge), Selettore pick up a 5 posizioni</li>\n<li>Ponte: Tremolo sincronizzato a 2 punti con selle in acciaio piegato</li>\n<li>Hardware: Nichel / Cromo</li>\n<li>Meccaniche: Standard Cast / Sealed</li>\n<li>Battipenna: Color pergamena a 3 strati</li>\n<li>Manopole: Plastica color pergamena</li>\n<li>Piastra: 4 Bulloni con "F" stampata</li>\n<li>Finitura: Nera</li>\n<li>N.B. Custodia NON inclusa</li>', 639.00);
+(3, 'Stratocaster MN Black', 'Fender', 'Il suono ispiratore di una Stratocaster è uno dei fondamenti Fender. Caratterizzato da un suono classico, high-end squillanti, medi potenti ed una fascia bassa robusta, abbinato ad una articolazione cristallina, la Player Stratocaster è dotata dello stile e del feel Fender autentico. E'' pronta a servire la tua visione musicale, è abbastanza versatile da gestire qualsiasi stile ed è la piattaforma perfetta per creare il tuo suono. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il pickup al ponte, dandoti un maggiore controllo sul suono nelle posizioni del pickup 1 e 2.\n', 639.00),
+(4, 'EJ41 Light', 'Daddario', 'Le corde Daddario EJ41 in nylon per chitarra classica sono perfette per i principianti, gli studenti e i professionisti. Questo set di corde a tensione normale contiene 3 cantini in nylon e 3 bassi Silver-plated Copper wound per garantire un ottimo bilanciamento tra timbri caldi e timbri nitidi e duraturi.', 12.00),
+(5, 'Champion 40', 'Fender', 'Compatto, facile da usare e abbastanza versatile per qualsiasi tipo di chitarra, il Champion 40 da 40 watt è la scelta ideale come tuo primo amplificatore da stage. Controlli intuitivi, effetti fantastici e suoni versatili facilitano la creazione dei suoni giusti per rock, blues, metal, country, jazz e altro. Oltre al fantastico suono incolore, gli amplificatori Fender sono dotati di effetti che offrono una ricchezza di colori, atmosfere e trame sonore. Include riverbero, delay, chorus, tremolo e molto altro.', 199.00),
+(6, 'RC-3', 'BOSS', 'RC-3 garantisce tre ore di registrazione stereo direttamente nella sua memoria interna. Ora potrete registrare senza dovervi preoccupare del limite di tempo ed avrete a disposizione 99 locazioni di memoria per salvare e richiamare immediatamente le vostre creazioni. Per tutti coloro che utilizzano strumenti stereofonici RC-3 dispone di I/O stereo. Una volta create le vostre performance potrete comodamente trasferirle su un PC grazie alla porta USB 2.0.', 149.99),
+(7, 'AF75 BS', 'Ibanez', 'Ibanez ha introdotto la serie Artcore nel 2002 ed è stata la chitarra hollow-body preferita dai musicisti degli ultimi 10 anni. La combinazione Artcore di qualità di lavorazione e convenienza ha creato schiere di fan da diversi generi come blues, country, rock e jazz. Artcore è molto rispettata per il suo suono, il sustain e il modo in cui tiene l''accordatura.', 421.00),
+(8, 'S300V Vintage Sunburst', 'Eko', 'Dopo la ricerca e le sperimentazioni del nostro laboratorio di liuteria abbiamo trovato interessante proporre strumenti dallo stile vintage, stile che non perde mai il suo fascino. Grazie a particolari colorazioni e finiture potrai vivere l''esperienza di suonare uno strumento dallo stile vintage intramontabile ad un prezzo contenuto.', 119.99),
+(9, 'Pacifica 212 VFM', 'Yamaha', 'Si presenta con accattivanti figure in acero sulla parte superiore del body e sulla paletta, la Pacifica212VFM è una variante della Pacifica 112V sviluppato appositamente, e che è stato molto apprezzato con la Pacifica112J. Questo modello offre le stesse caratteristiche della Pacifica112V, come i pickup in Alnico e la funzione coil tap, mentre il suo bellissimo top acero fiammato offre una presenza senza precedenti con il suo look di alta classe. Questo modello ha anche figure in acero sulla sua paletta con una finitura corrispondente. Sono disponibili tre colori trasparenti per mettere in evidenza i disegni dell''acero con un look di alta classe.', 330.00),
+(10, 'Marco Polo SO', 'Eko', 'Marco Polo SO è la chitarra di Eko Guitars costruita con top in Abete Italiano, fasce e fondo in Ovangkol e manico in Mogano, tastiera e ponte in South American Roupanà. Grazie alle sue dimensioni ridotte, scala da 610 mm e larghezza al capotasto da 43 mm, la Marco Polo SO è la traveler guitar ideale per il musicista sempre in movimento.', 689.99),
+(11, 'Axis Capo Gold', 'ErnieBall', 'Le caratteristiche ergonomiche di Ernie Ball Axis Capo consentono cambi di chiavi con una sola mano veloci e precisi. Il design a doppio raggio è conforme alle tastiere piatte o curve, assicurando un funzionamento senza ronzio su chitarre elettriche e acustiche a 6 o 7 corde.\r\nAdatto a tutti i tipi di chitarra', 12.00);
 
 -- --------------------------------------------------------
 
@@ -154,7 +177,9 @@ CREATE TABLE `produttore` (
 --
 
 INSERT INTO `produttore` (`ragione_sociale`, `email`, `telefono`, `citta`, `indirizzo`, `cap`) VALUES
+('BOSS', 'info@boss.it', '345018212', 'Verona', 'via Verdi, 109', '32421'),
 ('Cort ', 'info@cort.it', '345902392', 'Padova', 'via Paolotti, 120', '35010'),
+('Daddario', 'info@daddario.it', '348765920', 'Roma', 'via Verdi 22', '20101'),
 ('Eko', 'info@eko.com', '002689312', 'Milano', 'via Garibaldi, 33', '56021'),
 ('Epiphone', 'epiphone@gibson.com', '0265931541', 'Milano', 'via Milano 110', '20019'),
 ('ErnieBall', 'info@ernieball.it', '001560332', 'Firenza', 'via Rossi, 65', '42739'),
@@ -265,7 +290,7 @@ ALTER TABLE `immagine`
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Limiti per le tabelle scaricate
 --
