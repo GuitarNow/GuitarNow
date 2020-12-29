@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 24, 2020 alle 13:42
--- Versione del server: 10.4.11-MariaDB
--- Versione PHP: 7.4.4
+-- Creato il: Dic 25, 2020 alle 10:14
+-- Versione del server: 10.1.19-MariaDB
+-- Versione PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -72,7 +71,6 @@ CREATE TABLE `commento` (
 
 --
 -- Struttura stand-in per le viste `getaccessori`
--- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getaccessori` (
 `codice_prodotto` int(11)
@@ -87,7 +85,6 @@ CREATE TABLE `getaccessori` (
 
 --
 -- Struttura stand-in per le viste `getchitarre`
--- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getchitarre` (
 `codice_prodotto` int(11)
@@ -133,9 +130,9 @@ CREATE TABLE `prodotto` (
 --
 
 INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione`, `prezzo_vendita`) VALUES
-(1, 'Les Paul Standard HP', 'Gibson', 'La Les Paul Standard HP conserva molte caratteristiche Gibson popolari, tra cui il profilo asimmetrico del manico Slim Taper, migliorando l\'uso con un aggiornamento dei venerati pick-up humbucker PAF ed un top in acero figurato AAA+ con abbellimenti di alto livello. Il modello HP offre innovazioni all\'avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista, capotasto zero-fret e sellette regolabili in titanio. Una varietà timbrica eccezionale fornita da 4 potenziometri push-pull con DIP switch per oltre 150 possibilità di rewiring istantanei reversibili.\r\n', 2.60),
-(2, 'Les Paul Standard HP 2018', 'Gibson', 'La Les Paul Standard HP conserva molte caratteristiche Gibson popolari, tra cui il profilo asimmetrico del manico Slim Taper, migliorando l\'uso con un aggiornamento dei venerati pick-up humbucker PAF ed un top in acero figurato AAA+ con abbellimenti di alto livello. Il modello HP offre innovazioni all\'avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista, capotasto zero-fret e sellette regolabili in titanio. Una varietà timbrica eccezionale fornita da 4 potenziometri push-pull con DIP switch per oltre 150 possibilità di rewiring istantanei reversibili.\r\n', 2599.00),
-(3, 'Player Stratocaster MN Black', 'Fender', 'Il suono ispiratore di una Stratocaster è uno dei fondamenti Fender. Caratterizzato da un suono classico, high-end squillanti, medi potenti ed una fascia bassa robusta, abbinato ad una articolazione cristallina, la Player Stratocaster è dotata dello stile e del feel Fender autentico. E\' pronta a servire la tua visione musicale, è abbastanza versatile da gestire qualsiasi stile ed è la piattaforma perfetta per creare il tuo suono. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il pickup al ponte, dandoti un maggiore controllo sul suono nelle posizioni del pickup 1 e 2.\r\n<br/>\r\nCaratteristiche\r\n<br/>\r\n\r\n<ul>\r\n    <li></li>\r\n</ul> \r\n<li>Body: Ontano</li>\r\n<li>Finitura: Poliestere lucido</li>\r\n<li>Manico: Acero</li>\r\n<li>Finitura: Satinata</li>\r\n<li>Profilo: Modern \"C\"</li>\r\n<li>Scala: 25,5\" (648mm)</li>\r\n<li>Tastiera: Acero</li>\r\n<li>Raggio: 9.5\" (241mm)</li>\r\n<li>Tasti: 22</li>\r\n<li>Dimensione: Jumbo medium</li>\r\n<li>Capotasto: Osso sintetico</li>\r\n<li>Larghezza: 1,650\" (42mm)</li>\r\n<li>Intarsi: Dot neri</li>\r\n<li>Truss Rod: Standard con dado di regolazione esagonale da 3/16\"</li>\r\n<li>Pickup: Player Series Alnico 5 Strat Single-Coil</li>\r\n<li>Controlli: Master Volume, Tone 1 (Neck / Middle), Tone 2 (Bridge), Selettore pick up a 5 posizioni</li>\r\n<li>Ponte: Tremolo sincronizzato a 2 punti con selle in acciaio piegato</li>\r\n<li>Hardware: Nichel / Cromo</li>\r\n<li>Meccaniche: Standard Cast / Sealed</li>\r\n<li>Battipenna: Color pergamena a 3 strati</li>\r\n<li>Manopole: Plastica color pergamena</li>\r\n<li>Piastra: 4 Bulloni con \"F\" stampata</li>\r\n<li>Finitura: Nera</li>\r\n<li>N.B. Custodia NON inclusa</li>', 639.00);
+(1, 'Les Paul Custom 1990', 'Gibson', 'La Les Paul Standard HP conserva molte caratteristiche Gibson popolari, tra cui il profilo asimmetrico del manico Slim Taper, migliorando l''uso con un aggiornamento dei venerati pick-up humbucker PAF ed un top in acero figurato AAA+ con abbellimenti di alto livello. Il modello HP offre innovazioni all''avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista, capotasto zero-fret e sellette regolabili in titanio. Una varietà timbrica eccezionale fornita da 4 potenziometri push-pull con DIP switch per oltre 150 possibilità di rewiring istantanei reversibili.\r\n', 3000.00),
+(2, 'Les Paul Standard HP 2018', 'Gibson', 'La Les Paul Standard HP conserva molte caratteristiche Gibson popolari, tra cui il profilo asimmetrico del manico Slim Taper, migliorando l''uso con un aggiornamento dei venerati pick-up humbucker PAF ed un top in acero figurato AAA+ con abbellimenti di alto livello. Il modello HP offre innovazioni all''avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista, capotasto zero-fret e sellette regolabili in titanio. Una varietà timbrica eccezionale fornita da 4 potenziometri push-pull con DIP switch per oltre 150 possibilità di rewiring istantanei reversibili.\n', 2599.00),
+(3, 'Player Stratocaster MN Black', 'Fender', 'Il suono ispiratore di una Stratocaster è uno dei fondamenti Fender. Caratterizzato da un suono classico, high-end squillanti, medi potenti ed una fascia bassa robusta, abbinato ad una articolazione cristallina, la Player Stratocaster è dotata dello stile e del feel Fender autentico. E'' pronta a servire la tua visione musicale, è abbastanza versatile da gestire qualsiasi stile ed è la piattaforma perfetta per creare il tuo suono. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il pickup al ponte, dandoti un maggiore controllo sul suono nelle posizioni del pickup 1 e 2.\n<br/>\nCaratteristiche\n<br/>\n\n<ul>\n    <li></li>\n</ul> \n<li>Body: Ontano</li>\n<li>Finitura: Poliestere lucido</li>\n<li>Manico: Acero</li>\n<li>Finitura: Satinata</li>\n<li>Profilo: Modern "C"</li>\n<li>Scala: 25,5" (648mm)</li>\n<li>Tastiera: Acero</li>\n<li>Raggio: 9.5" (241mm)</li>\n<li>Tasti: 22</li>\n<li>Dimensione: Jumbo medium</li>\n<li>Capotasto: Osso sintetico</li>\n<li>Larghezza: 1,650" (42mm)</li>\n<li>Intarsi: Dot neri</li>\n<li>Truss Rod: Standard con dado di regolazione esagonale da 3/16"</li>\n<li>Pickup: Player Series Alnico 5 Strat Single-Coil</li>\n<li>Controlli: Master Volume, Tone 1 (Neck / Middle), Tone 2 (Bridge), Selettore pick up a 5 posizioni</li>\n<li>Ponte: Tremolo sincronizzato a 2 punti con selle in acciaio piegato</li>\n<li>Hardware: Nichel / Cromo</li>\n<li>Meccaniche: Standard Cast / Sealed</li>\n<li>Battipenna: Color pergamena a 3 strati</li>\n<li>Manopole: Plastica color pergamena</li>\n<li>Piastra: 4 Bulloni con "F" stampata</li>\n<li>Finitura: Nera</li>\n<li>N.B. Custodia NON inclusa</li>', 639.00);
 
 -- --------------------------------------------------------
 
@@ -157,10 +154,16 @@ CREATE TABLE `produttore` (
 --
 
 INSERT INTO `produttore` (`ragione_sociale`, `email`, `telefono`, `citta`, `indirizzo`, `cap`) VALUES
+('Cort ', 'info@cort.it', '345902392', 'Padova', 'via Paolotti, 120', '35010'),
+('Eko', 'info@eko.com', '002689312', 'Milano', 'via Garibaldi, 33', '56021'),
 ('Epiphone', 'epiphone@gibson.com', '0265931541', 'Milano', 'via Milano 110', '20019'),
-('Fender', 'info@fender.com', '0265931546', 'Roma', 'via roma 120', '0010'),
+('ErnieBall', 'info@ernieball.it', '001560332', 'Firenza', 'via Rossi, 65', '42739'),
+('Esp', 'info@esp.com', '00291023', 'Padova', 'via Garibaldi, 67', '35010'),
+('Fender', 'info@fender.com', '0265931546', 'Roma', 'via roma 120', '0020'),
 ('Gibson', 'info@gibson.com', '0265931542', 'Milano', 'via roma 100', '20019'),
-('Ibanez', 'info@ibanez.com', '0265931544', 'Roma', 'via roma 121', '0020');
+('Ibanez', 'info@ibanez.com', '0265931544', 'Roma', 'via roma 121', '0020'),
+('Marshall', 'info@marshall.com', '006271311', 'Roma', 'via Verdi, 113', '0030'),
+('Yamaha', 'info@yamaha.it', '34269540', 'Milano', 'via Verdi, 120', '20012');
 
 -- --------------------------------------------------------
 
@@ -177,20 +180,20 @@ CREATE TABLE `user` (
 -- --------------------------------------------------------
 
 --
--- Struttura per vista `getaccessori`
+-- Struttura per la vista `getaccessori`
 --
 DROP TABLE IF EXISTS `getaccessori`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getaccessori`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`accessorio`.`categoria` AS `categoria` from ((`accessorio` join `prodotto` on(`accessorio`.`codice_accessorio` = `prodotto`.`codice_prodotto`)) join `produttore` on(`prodotto`.`produttore` = `produttore`.`ragione_sociale`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getaccessori`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`accessorio`.`categoria` AS `categoria` from ((`accessorio` join `prodotto` on((`accessorio`.`codice_accessorio` = `prodotto`.`codice_prodotto`))) join `produttore` on((`prodotto`.`produttore` = `produttore`.`ragione_sociale`))) ;
 
 -- --------------------------------------------------------
 
 --
--- Struttura per vista `getchitarre`
+-- Struttura per la vista `getchitarre`
 --
 DROP TABLE IF EXISTS `getchitarre`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipo_chitarra` from ((`chitarra` join `prodotto` on(`chitarra`.`cod_chitarra` = `prodotto`.`codice_prodotto`)) join `produttore` on(`prodotto`.`produttore` = `produttore`.`ragione_sociale`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipo_chitarra` from ((`chitarra` join `prodotto` on((`chitarra`.`cod_chitarra` = `prodotto`.`codice_prodotto`))) join `produttore` on((`prodotto`.`produttore` = `produttore`.`ragione_sociale`))) ;
 
 --
 -- Indici per le tabelle scaricate
@@ -253,19 +256,16 @@ ALTER TABLE `user`
 --
 ALTER TABLE `commento`
   MODIFY `id_commento` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT per la tabella `immagine`
 --
 ALTER TABLE `immagine`
   MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
   MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- Limiti per le tabelle scaricate
 --
@@ -300,7 +300,6 @@ ALTER TABLE `immagine`
 --
 ALTER TABLE `prodotto`
   ADD CONSTRAINT `prodotto_ibfk_1` FOREIGN KEY (`produttore`) REFERENCES `produttore` (`ragione_sociale`) ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

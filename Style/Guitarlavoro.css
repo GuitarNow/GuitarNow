@@ -19,36 +19,36 @@ body{
     font-family:"Comic Sans MS", cursive, sans-serif;
     font-size:100%;
     color: #000;
+    border-left: 0.5px solid #000;
+    border-right: 0.5px solid #000;
+    border-bottom: 1px solid #000;
 }
 
 
 
 /*--------------------------------------------------------------------------------------
 -----------------------------------------HEADER-------------------------------*/
-
-
 #header{   
-    padding: 2em;
+    padding-top: 1em;
+    padding-bottom:1em;
     overflow: auto;
     text-align:center;
-    margin:auto;
+    margin: auto;
     background-color:#4E1600;
 }
 
 #logo{
     float:left;
-    width:17%;
-    padding-right:1em;
-    
+    width:25%; 
+    margin-left:2%;  
 }
+
 
 #accesso{
-   
+    width:30%;
     float:right; 
-    margin:auto;
-    margin-right: 6%;     
+    margin-right:4%;;     
 }
-
 
 
 #accedi, #registrati{   
@@ -57,66 +57,69 @@ body{
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     background-color: #ec9b30;
-    padding: 0.6em;
+    padding: 0.7em;
     font-size:1.1em;
     color:#000;
-    
+    border-radius:5px;
     
 }
+
+
 #accedi{
     padding-left: 1em;
     padding-right:1em;
+    margin-right:4%;
 }
-#registrati{
-    margin-left: 1em;
-}
+
+
 
 #accedi:hover, #registrati:hover{
 background-color:#392D20;
     color: #DDD;
 }
 
+
 #menu{
-    display: flex;
-    align-items: center;
-    font-size:1.1em;
-    list-style:none;
+    float: center;
+    width: 70%;
     
 }
 
 #menu  li {
-    border-right: 1px solid #000;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
+        
+    background-color: #ec9b30;  
+    font-size:1.1em;
+    color:#000;
     display: inline-block;
-}
-
-#menu li:first-child{
-    border-left: 1px solid #000;
+    margin: 0 -3px;
 }
 
 #menu a{
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
     text-decoration: none;
-    display: inline-block;
-    color: #000;
-    background-color: #ec9b30;
-    text-align: center;
-    padding: 0.5em;
+    display:inline-block;
+    color: #000;  
+    background-color: #ec9b30;  
+    text-align: center;   
+    padding:0.6em;
 }
 
-#menu a:hover {
+#menu a:hover{
     background-color: #392D20;
     color: #DDD;
+    border: 1px solid #000;
 }
 
-
-#linkCorrente{
+li#linkCorrente{
     background-color:#392D20;
     color: #DDD;
     text-align: left;
-    padding: 0.5em;
+    padding: 0.6em;
+    border: 1px solid #000;
 }
-
 
 /*------------------------------------------------------------------------------
 -----------------------------------home--------------------------------*/
@@ -142,6 +145,8 @@ h1{
     font-size:1.5em;
 }
 
+
+
 /*------------------------------------------------------------------------------
 --------------------------------contenutoHome----------------------------------*/
 
@@ -150,8 +155,8 @@ h1{
     
 }
 .contenuto{
-    margin-left:1.5em;
-    margin-right: 1.5em;
+    margin-left:5%;
+    margin-right: 5%;
 }
 
 .contenuto h1{
@@ -164,42 +169,40 @@ h1{
 
 
 .chitCard, .accCard{
-    margin:0 -10px;
-    padding: 0;
-    margin-left: 0.5%;
     list-style: none;
-    display: flex;
-    
+    display: flex; 
     flex-wrap: wrap;
-    width:80%;
+    width:100%;
+    align-items: center;
     
 }
 
 .chitCard li, .accCard li{
     background-color: #fff0f6;
     border: 1px solid #fcc2d7;
+  /* background-color: #e5dbff;
+border: 1px solid #d0bfff; */
     margin: 0 10px 20px 10px;
     padding: 10px;
-    border-radius:10px;
-    
+    border-radius:12px;
     flex:0 0 100%;
     text-align: center;
-    font-size: 1.1em;
-    
+    font-size: 1.1em;     
 }
 
 .chitCard a, .accCard a{
     width:25%;
     color: #000;
-    text-decoration: none;
-}
-
-.piccola{
-    padding-bottom:12%;
+    text-decoration: none; 
 }
 
 .chitarre{
     width: 75%;
+    border-radius: 15%; 
+}
+
+.accessori{
+    border-radius: 15%;
 }
 
 #acc1{
@@ -249,33 +252,30 @@ h1{
 }
 
 /*------------------------------------------------------------------------------
---------------------------------contenuto LOGIN----------------------------------*/
-
-#form{
+----------------------contenuto LOGIN--REGISTRATI--------------------------------*/
+form{
 	border:1px solid black;
 	border-radius:5px 5px;
 	height:60%;
-	width:35%;
+	width:45%;
 	font-size:18px;
-	margin-left:32.5%;
-	margin-top:20%;
-	margin-bottom:15%;
+	margin-left:28%;
+	margin-top:10%;
+	margin-bottom:10%;
 	background-color:#A0A0A0;
 }
 
-#form label{
-	margin-left:20%;
-	margin-top:2em;
-	
+form label{
+	margin-left:20%;	
 }
 
-#form a{ 
-	margin-left:20%;
+form a{ 
+	margin-left:25%;
 	margin-top:2em;
 	color:#2C3539;
 }
 
-#login_accedi{
+#loginAccedi, #registratiAccedi{
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
@@ -284,33 +284,31 @@ h1{
     font-size:1.1em;
     width:60%;
     margin-bottom: 0.5em;
+    margin-top:3%;
 }
 
-#user, #password{
+#nome, #cognome, #email, #nascita ,#username, #password, #ridigitaPassword{
     width:60%;
     margin-bottom: 0.7em;
 }
 
-#form input{
+form input{
 	margin-left:20%;	
 	border:1px solid black;
 	height:2em;
 } 
 
-#form img{
+form img{
 	width:80%;
 	height:20%;
 }
 
-#link_form{
-	font-size:0.85em;
-}
 
-#cambpass{
+
+#cambpass, #giaAccount{
     margin-bottom: 0.5em;
     margin-left:0.7em;
 }
-
 
 /*------------------------------------------------------------------------------
 --------------------------------footer----------------------------------*/
@@ -430,15 +428,27 @@ padding-top: 0.5%;
 
 #specifiche_prodotto{
 	width:70%;
-	display:block;
 	background-color:white;
-	float:right;
 	margin-top:5%;
-	margin-right:5%;
+	margin-left:15%;
     border-radius:10px;
 	
 }
 	
 #elementi_contenuto{
 		overflow:hidden;		
+}
+
+
+#anteprima_img{
+    width:50%;
+    height:30%;
+    margin-left:25%;
+	
+}
+
+#specifiche_prodotto p
+{
+    margin-left:3%;
+    margin-right:3%;
 }

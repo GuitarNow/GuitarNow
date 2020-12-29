@@ -31,7 +31,11 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 
 
 
-	$contenuto='<div id="specifiche_prodotto"><h1>'.$prodotto_selezionato['produttore'].' '.$prodotto_selezionato['modello'].'</h1></div>';
+	$contenuto='<div id="specifiche_prodotto">
+				<h1>'.$prodotto_selezionato['produttore'].' '.$prodotto_selezionato['modello'].'</h1>
+				<img src="Images/EPIPHONE-JOE-PASS-EMPEROR-II-PRO-VINTAGE-SUNBURST.jpg" id="anteprima_img" />
+				<p>'.$prodotto_selezionato['descrizione'].'</p>
+				</div>';
 
 	$web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
 
