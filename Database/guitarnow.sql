@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 29, 2020 alle 22:06
+-- Creato il: Dic 30, 2020 alle 21:21
 -- Versione del server: 10.1.19-MariaDB
 -- Versione PHP: 5.6.28
 
@@ -82,6 +82,16 @@ CREATE TABLE `commento` (
   `user` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dump dei dati per la tabella `commento`
+--
+
+INSERT INTO `commento` (`id_commento`, `descrizione`, `voto`, `data`, `codice_prodotto`, `user`) VALUES
+(1, 'Ne ho comprata una circa 2 mesi fa. Ottimo prodotto per un chitarrista che vuole upgradare la propria strumentazione. ', 4, '2020-12-01', 1, 'Mark'),
+(2, 'Prima volta che acquisto presso GuitarNow  e sono veramente soddisfatto del servizio ricevuto. Ottimi commessi disponibili e preparati. Per quanto riguarda il prodotto che dire assolutamente soddisfatto dell''acquisto. ', 5, '2019-06-12', 11, 'Mark'),
+(3, 'Non male ma mi aspettavo qualcosa di meglio.', 2, '2020-12-07', 6, 'Marco90'),
+(4, 'Buon rapporto qualità. Consiglio l''acquisto.', 3, '2020-12-01', 6, 'Marco90');
+
 -- --------------------------------------------------------
 
 --
@@ -115,6 +125,46 @@ CREATE TABLE `getchitarre` (
 -- --------------------------------------------------------
 
 --
+-- Struttura stand-in per le viste `getspecificheaccesssorii`
+--
+CREATE TABLE `getspecificheaccesssorii` (
+`codice_accessorio` int(11)
+,`categoria` varchar(15)
+,`path` tinytext
+,`long_desc` text
+,`short_desc` tinytext
+,`codice_prodotto` int(11)
+,`modello` varchar(50)
+,`produttore` varchar(30)
+,`descrizione` text
+,`prezzo_vendita` float(6,2)
+,`ragione_sociale` varchar(30)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura stand-in per le viste `getspecifichechitarre`
+--
+CREATE TABLE `getspecifichechitarre` (
+`cod_chitarra` int(11)
+,`legno_manico` varchar(30)
+,`legno_corpo` varchar(30)
+,`tipo_chitarra` varchar(20)
+,`path` tinytext
+,`long_desc` text
+,`short_desc` tinytext
+,`codice_prodotto` int(11)
+,`modello` varchar(50)
+,`produttore` varchar(30)
+,`descrizione` text
+,`prezzo_vendita` float(6,2)
+,`ragione_sociale` varchar(30)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `immagine`
 --
 
@@ -125,6 +175,23 @@ CREATE TABLE `immagine` (
   `short_desc` tinytext NOT NULL,
   `codice_prodotto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `immagine`
+--
+
+INSERT INTO `immagine` (`id_immagine`, `path`, `long_desc`, `short_desc`, `codice_prodotto`) VALUES
+(1, 'Images/Les_paul_studio.jpg', 'da inserire', 'anteprima Epiphone Les Paul Studio in vendita ', 1),
+(2, 'Images/Les_paul_standard_hp_2018.jpg', 'da inserire', 'anteprima Gibson Les Paul Standard HP 2018 in vendita ', 2),
+(3, 'Images/Stratocaster_MN_black.jpg', 'da inserire', 'anteprima Fender Stratocaster MN Black in vendita', 3),
+(4, 'Images/Daddario_Ej4_light.jpg', 'da fare', 'anteprima Daddario Ej4 Light in vendita', 4),
+(5, 'Images/Fender_champion_40.jpg', 'da fare', 'anteprima Fender Champion40 in vendita', 5),
+(6, 'Images/RC3.jpg', 'da fare', 'anteprima Boss RC-3 in vendita', 6),
+(7, 'Images/AF75_BS.jpg', 'da fare', 'anteprima Ibanez AF75 BS in vendita', 7),
+(8, 'Images/S300_vintage_sunburst.jpg', 'da fare', 'anteprima Eko S300 Vintage Sunburst in vendita', 8),
+(9, 'Images/Pacifica_212_vfm.jpg', 'da fare', 'anteprima Yamaha Pacifica 212 VFM in vendita', 9),
+(10, 'Images/Marco_polo_so.jpg', 'da fare', 'anteprima Eko Marco Polo SO in vendita', 10),
+(12, 'Images/Axis_capo_gold.jpg', 'da fare', 'anteprima ErnieBall Axis Gold in vendita', 11);
 
 -- --------------------------------------------------------
 
@@ -145,7 +212,7 @@ CREATE TABLE `prodotto` (
 --
 
 INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione`, `prezzo_vendita`) VALUES
-(1, 'Les Paul Studio', 'Epiphone', 'La chitarra elettrica Epiphone Les Paul Studio, appartenente alla "Inspired by Gibson Collection", offre agli appassionati del marchio di Nashville il modello progettato da Gibson negli anni ''80 per offrire ad un prezzo contenuto una vera Les Paul semplice ma completa Il suono di questa chitarra elettrica è generato da una coppia di pickup Alnico Classic ed Alnico Classic Plus, dal suono caldo e corposo, ottimi sia sui suoni puliti che sui distorti. A completare lo strumento troviamo potenziometri CTS e meccaniche Grover Rotomatic.', 3000.00),
+(1, 'Les Paul Studio', 'Epiphone', 'La chitarra elettrica Epiphone Les Paul Studio, appartenente alla "Inspired by Gibson Collection", offre agli appassionati del marchio di Nashville il modello progettato da Gibson negli anni ''80 per offrire ad un prezzo contenuto una vera Les Paul semplice ma completa Il suono di questa chitarra elettrica è generato da una coppia di pickup Alnico Classic ed Alnico Classic Plus, dal suono caldo e corposo, ottimi sia sui suoni puliti che sui distorti. A completare lo strumento troviamo potenziometri CTS e meccaniche Grover Rotomatic.', 450.00),
 (2, 'Les Paul Standard HP 2018', 'Gibson', 'La Les Paul Standard HP conserva molte caratteristiche Gibson popolari, tra cui il profilo asimmetrico del manico Slim Taper, migliorando l''uso con un aggiornamento dei venerati pick-up humbucker PAF ed un top in acero figurato AAA+ con abbellimenti di alto livello. Il modello HP offre innovazioni all''avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista, capotasto zero-fret e sellette regolabili in titanio. Una varietà timbrica eccezionale fornita da 4 potenziometri push-pull con DIP switch per oltre 150 possibilità di rewiring istantanei reversibili.\n', 2599.00),
 (3, 'Stratocaster MN Black', 'Fender', 'Il suono ispiratore di una Stratocaster è uno dei fondamenti Fender. Caratterizzato da un suono classico, high-end squillanti, medi potenti ed una fascia bassa robusta, abbinato ad una articolazione cristallina, la Player Stratocaster è dotata dello stile e del feel Fender autentico. E'' pronta a servire la tua visione musicale, è abbastanza versatile da gestire qualsiasi stile ed è la piattaforma perfetta per creare il tuo suono. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il pickup al ponte, dandoti un maggiore controllo sul suono nelle posizioni del pickup 1 e 2.\n', 639.00),
 (4, 'EJ41 Light', 'Daddario', 'Le corde Daddario EJ41 in nylon per chitarra classica sono perfette per i principianti, gli studenti e i professionisti. Questo set di corde a tensione normale contiene 3 cantini in nylon e 3 bassi Silver-plated Copper wound per garantire un ottimo bilanciamento tra timbri caldi e timbri nitidi e duraturi.', 12.00),
@@ -202,6 +269,14 @@ CREATE TABLE `user` (
   `email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dump dei dati per la tabella `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `email`) VALUES
+('Marco90', '134', 'marco.rossi@yhaoo.com'),
+('Mark', '123', 'mark@gamil.com');
+
 -- --------------------------------------------------------
 
 --
@@ -219,6 +294,24 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `getchitarre`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipo_chitarra` from ((`chitarra` join `prodotto` on((`chitarra`.`cod_chitarra` = `prodotto`.`codice_prodotto`))) join `produttore` on((`prodotto`.`produttore` = `produttore`.`ragione_sociale`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura per la vista `getspecificheaccesssorii`
+--
+DROP TABLE IF EXISTS `getspecificheaccesssorii`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecificheaccesssorii`  AS  select distinct `a`.`codice_accessorio` AS `codice_accessorio`,`a`.`categoria` AS `categoria`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo_vendita`,`p2`.`ragione_sociale` AS `ragione_sociale` from (((`accessorio` `a` join `immagine` `i`) join `prodotto` `p1`) join `produttore` `p2`) where ((`a`.`codice_accessorio` = `p1`.`codice_prodotto`) and (`p2`.`ragione_sociale` = `p1`.`produttore`) and (`i`.`codice_prodotto` = `p1`.`codice_prodotto`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura per la vista `getspecifichechitarre`
+--
+DROP TABLE IF EXISTS `getspecifichechitarre`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecifichechitarre`  AS  select distinct `c`.`cod_chitarra` AS `cod_chitarra`,`c`.`legno_manico` AS `legno_manico`,`c`.`legno_corpo` AS `legno_corpo`,`c`.`tipo_chitarra` AS `tipo_chitarra`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo_vendita`,`p2`.`ragione_sociale` AS `ragione_sociale` from (((`chitarra` `c` join `immagine` `i`) join `prodotto` `p1`) join `produttore` `p2`) where ((`c`.`cod_chitarra` = `p1`.`codice_prodotto`) and (`p2`.`ragione_sociale` = `p1`.`produttore`) and (`i`.`codice_prodotto` = `p1`.`codice_prodotto`)) ;
 
 --
 -- Indici per le tabelle scaricate
@@ -280,12 +373,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT per la tabella `commento`
 --
 ALTER TABLE `commento`
-  MODIFY `id_commento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_commento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT per la tabella `immagine`
 --
 ALTER TABLE `immagine`
-  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
 --

@@ -19,7 +19,7 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre"), MYSQLI_ASSOC);
     }
     public function get_specifiche_chitarre($id){
-        return mysqli_fetch_assoc($this->prodotto->get_result_query("select * from getChitarre WHERE codice_prodotto =".$id));
+        return mysqli_fetch_assoc($this->prodotto->get_result_query("select * from getspecificheChitarre WHERE codice_prodotto =".$id));
     }
 
     public function get_produttori_chitarre(){
@@ -42,7 +42,7 @@ class ManageProdotti
     }
 
     public function get_specifiche_accessori($id){
-        return mysqli_fetch_assoc($this->prodotto->get_result_query("select * from getAccessori WHERE codice_prodotto =".$id));
+        return mysqli_fetch_assoc($this->prodotto->get_result_query("select * from getspecificheaccesssorii WHERE codice_prodotto =".$id));
     }
 
     public function get_produttori_accessori(){

@@ -473,14 +473,25 @@ padding-top: 0.5%;
 
 
 #anteprima_img{
-    width:50%;
+    width:45%;
     height:30%;
-    margin-left:25%;
-	
+    margin-left:15%;
+	margin-top:3%;
 }
 
 #specifiche_prodotto p
 {
     margin-left:3%;
     margin-right:3%;
+}
+
+#dati_prodotto
+{
+    float:right;
+    background-color:#ec9b30;
+    margin-right:15%;
+    margin-top:30%;
+    border:1px solid black;
+    width:20%;
+    border-radius: 10px;
 }

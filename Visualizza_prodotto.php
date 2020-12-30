@@ -33,7 +33,12 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 
 	$contenuto='<div id="specifiche_prodotto">
 				<h1>'.$prodotto_selezionato['produttore'].' '.$prodotto_selezionato['modello'].'</h1>
-				<img src="Images/EPIPHONE-JOE-PASS-EMPEROR-II-PRO-VINTAGE-SUNBURST.jpg" id="anteprima_img" />
+				<span id="dati_prodotto">
+				<p>INFO GENERALI</p>
+				<p>Prezzo: '.$prodotto_selezionato['prezzo_vendita'].'&#128</p>
+				<p>Voto medio: 5 </p>
+				</span>
+				<img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" id="anteprima_img" />
 				<p>'.$prodotto_selezionato['descrizione'].'</p>
 				</div>';
 
