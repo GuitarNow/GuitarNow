@@ -273,14 +273,11 @@ border: 1px solid #d0bfff; */
     padding-right: 1em;
 }
 
-#destra a p{
-    text-align:right;
-}
-
-#maps{
+iframe{
     float:right;
-       margin-top: 9%;
-    width: 50%;  
+       margin-top: 10%;
+       width: 50%;
+       
 }
 
 /*------------------------------------------------------------------------------
