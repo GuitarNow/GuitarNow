@@ -145,11 +145,11 @@ class ManageProdotti
 
             if($prezzo == "principiante"){
             
-                $query .= "prezzo_vendita <= 150";
+                $query .= "prezzo <= 150";
             }else if ($prezzo == "intermedia"){
-                $query .= "prezzo_vendita >= 150 AND prezzo_vendita <=600";
+                $query .= "prezzo >= 150 AND prezzo <=600";
             }else if ($prezzo == "professionale"){
-                $query .= "prezzo_vendita >=600";
+                $query .= "prezzo >=600";
             }
             
         }
