@@ -193,7 +193,9 @@ border: 1px solid #d0bfff; */
     border-radius:12px;
     flex:0 0 100%;
     text-align: center;
-    font-size: 1.1em;     
+    font-size: 1.1em;   
+    height:220px;  
+    
 }
 
 .chitCard a, .accCard a{
