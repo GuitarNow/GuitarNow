@@ -270,14 +270,14 @@ border: 1px solid #d0bfff; */
     margin-right:55%;
     border-right: 1px solid #000;
     text-align:justify;
-    padding-right: 1em;
+    padding-right: 2em;
 }
 
 iframe{
     float:right;
-       margin-top: 10%;
+       margin-top: 6%;
        width: 50%;
-       
+       height:300px;
 }
 
 /*------------------------------------------------------------------------------
