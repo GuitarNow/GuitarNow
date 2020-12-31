@@ -7,39 +7,41 @@
 </ul>
 
 
-<form method="post">
+<form action="Prodotti.php" method="GET">
 <fieldset>
     <legend>Prouttore</legend>
     <select name="produttore" id= "produttore">
+        <option value =""> -- Seleziona Produttore --</option>
         <filtro_produttore/>
     </select>
 </fieldset>
 
 <fieldset>
     <legend>Tipologia prodotto</legend>
-    <select name="produttore" id= "produttore">
+    <select name="tipologia" id= "tipologia">
+        <option value = ""> -- Seleziona Tipo --</option>
         <filtro_tipologia/>
     </select>
 </fieldset>
 
-<fieldset>
+<!--<fieldset>
 <legend>Ordina per</legend>
 <input type="radio" id="piu_recente" name="ordinamento" value="piu_recente">
 <label for="piu_recente">Data(crescente)</label><br />
 
 <input type="radio" id="meno_recente" name="ordinamento" value="meno_recente">
-<label for="meno_recente">Data(decrescente)</label><br />
+<label for="meno_recente">Data(decrescente)</label><br /> 
 
 <input type="radio" id="economica" name="ordinamento" value="economica">
 <label for="economica">Prezzo(crescente)</label><br />
 
 <input type="radio" id="costosa" name="ordinamento" value="costosa">
 <label for="costosa">Prezzo(decrescente)</label><br />
-</fieldset>
+</fieldset> -->
 <fieldset>
 <legend>Fascia di prezzo</legend>
 
-<input type="radio" id="principianti" name="prezzo" value="principianti">
+<input type="radio" id="principianti" name="prezzo" value="principiante">
 <label for="principianti">Sotto i 150&#128;</label><br />
 
 <input type="radio" id="intermedia" name="prezzo" value="intermedia">
@@ -49,6 +51,8 @@
 <label for="professionale">Sopra i 600&#128;</label><br />
 
 
+<categoria_da_passare/>
+<input type="submit" name="Cerca" value="Cerca" id="CercaSubmit" />
 
 
  

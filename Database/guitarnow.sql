@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 30, 2020 alle 21:21
--- Versione del server: 10.1.19-MariaDB
--- Versione PHP: 5.6.28
+-- Creato il: Dic 31, 2020 alle 03:45
+-- Versione del server: 10.4.11-MariaDB
+-- Versione PHP: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -88,21 +89,23 @@ CREATE TABLE `commento` (
 
 INSERT INTO `commento` (`id_commento`, `descrizione`, `voto`, `data`, `codice_prodotto`, `user`) VALUES
 (1, 'Ne ho comprata una circa 2 mesi fa. Ottimo prodotto per un chitarrista che vuole upgradare la propria strumentazione. ', 4, '2020-12-01', 1, 'Mark'),
-(2, 'Prima volta che acquisto presso GuitarNow  e sono veramente soddisfatto del servizio ricevuto. Ottimi commessi disponibili e preparati. Per quanto riguarda il prodotto che dire assolutamente soddisfatto dell''acquisto. ', 5, '2019-06-12', 11, 'Mark'),
+(2, 'Prima volta che acquisto presso GuitarNow  e sono veramente soddisfatto del servizio ricevuto. Ottimi commessi disponibili e preparati. Per quanto riguarda il prodotto che dire assolutamente soddisfatto dell\'acquisto. ', 5, '2019-06-12', 11, 'Mark'),
 (3, 'Non male ma mi aspettavo qualcosa di meglio.', 2, '2020-12-07', 6, 'Marco90'),
-(4, 'Buon rapporto qualità. Consiglio l''acquisto.', 3, '2020-12-01', 6, 'Marco90');
+(4, 'Buon rapporto qualità. Consiglio l\'acquisto.', 3, '2020-12-01', 6, 'Marco90');
 
 -- --------------------------------------------------------
 
 --
 -- Struttura stand-in per le viste `getaccessori`
+-- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getaccessori` (
 `codice_prodotto` int(11)
 ,`modello` varchar(50)
+,`path` tinytext
 ,`produttore` varchar(30)
 ,`descrizione` text
-,`prezzo_vendita` float(6,2)
+,`prezzo` float(6,2)
 ,`categoria` varchar(15)
 );
 
@@ -110,13 +113,15 @@ CREATE TABLE `getaccessori` (
 
 --
 -- Struttura stand-in per le viste `getchitarre`
+-- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getchitarre` (
 `codice_prodotto` int(11)
+,`path` tinytext
 ,`modello` varchar(50)
 ,`produttore` varchar(30)
 ,`descrizione` text
-,`prezzo_vendita` float(6,2)
+,`prezzo` float(6,2)
 ,`legno_manico` varchar(30)
 ,`legno_corpo` varchar(30)
 ,`tipo_chitarra` varchar(20)
@@ -126,6 +131,7 @@ CREATE TABLE `getchitarre` (
 
 --
 -- Struttura stand-in per le viste `getspecificheaccesssorii`
+-- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getspecificheaccesssorii` (
 `codice_accessorio` int(11)
@@ -137,7 +143,7 @@ CREATE TABLE `getspecificheaccesssorii` (
 ,`modello` varchar(50)
 ,`produttore` varchar(30)
 ,`descrizione` text
-,`prezzo_vendita` float(6,2)
+,`prezzo` float(6,2)
 ,`ragione_sociale` varchar(30)
 );
 
@@ -145,6 +151,7 @@ CREATE TABLE `getspecificheaccesssorii` (
 
 --
 -- Struttura stand-in per le viste `getspecifichechitarre`
+-- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getspecifichechitarre` (
 `cod_chitarra` int(11)
@@ -158,7 +165,7 @@ CREATE TABLE `getspecifichechitarre` (
 ,`modello` varchar(50)
 ,`produttore` varchar(30)
 ,`descrizione` text
-,`prezzo_vendita` float(6,2)
+,`prezzo` float(6,2)
 ,`ragione_sociale` varchar(30)
 );
 
@@ -212,15 +219,15 @@ CREATE TABLE `prodotto` (
 --
 
 INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione`, `prezzo_vendita`) VALUES
-(1, 'Les Paul Studio', 'Epiphone', 'La chitarra elettrica Epiphone Les Paul Studio, appartenente alla "Inspired by Gibson Collection", offre agli appassionati del marchio di Nashville il modello progettato da Gibson negli anni ''80 per offrire ad un prezzo contenuto una vera Les Paul semplice ma completa Il suono di questa chitarra elettrica è generato da una coppia di pickup Alnico Classic ed Alnico Classic Plus, dal suono caldo e corposo, ottimi sia sui suoni puliti che sui distorti. A completare lo strumento troviamo potenziometri CTS e meccaniche Grover Rotomatic.', 450.00),
-(2, 'Les Paul Standard HP 2018', 'Gibson', 'La Les Paul Standard HP conserva molte caratteristiche Gibson popolari, tra cui il profilo asimmetrico del manico Slim Taper, migliorando l''uso con un aggiornamento dei venerati pick-up humbucker PAF ed un top in acero figurato AAA+ con abbellimenti di alto livello. Il modello HP offre innovazioni all''avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista, capotasto zero-fret e sellette regolabili in titanio. Una varietà timbrica eccezionale fornita da 4 potenziometri push-pull con DIP switch per oltre 150 possibilità di rewiring istantanei reversibili.\n', 2599.00),
-(3, 'Stratocaster MN Black', 'Fender', 'Il suono ispiratore di una Stratocaster è uno dei fondamenti Fender. Caratterizzato da un suono classico, high-end squillanti, medi potenti ed una fascia bassa robusta, abbinato ad una articolazione cristallina, la Player Stratocaster è dotata dello stile e del feel Fender autentico. E'' pronta a servire la tua visione musicale, è abbastanza versatile da gestire qualsiasi stile ed è la piattaforma perfetta per creare il tuo suono. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il pickup al ponte, dandoti un maggiore controllo sul suono nelle posizioni del pickup 1 e 2.\n', 639.00),
+(1, 'Les Paul Studio', 'Epiphone', 'La chitarra elettrica Epiphone Les Paul Studio, appartenente alla \"Inspired by Gibson Collection\", offre agli appassionati del marchio di Nashville il modello progettato da Gibson negli anni \'80 per offrire ad un prezzo contenuto una vera Les Paul semplice ma completa Il suono di questa chitarra elettrica è generato da una coppia di pickup Alnico Classic ed Alnico Classic Plus, dal suono caldo e corposo, ottimi sia sui suoni puliti che sui distorti. A completare lo strumento troviamo potenziometri CTS e meccaniche Grover Rotomatic.', 450.00),
+(2, 'Les Paul Standard HP 2018', 'Gibson', 'La Les Paul Standard HP conserva molte caratteristiche Gibson popolari, tra cui il profilo asimmetrico del manico Slim Taper, migliorando l\'uso con un aggiornamento dei venerati pick-up humbucker PAF ed un top in acero figurato AAA+ con abbellimenti di alto livello. Il modello HP offre innovazioni all\'avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista, capotasto zero-fret e sellette regolabili in titanio. Una varietà timbrica eccezionale fornita da 4 potenziometri push-pull con DIP switch per oltre 150 possibilità di rewiring istantanei reversibili.\n', 2599.00),
+(3, 'Stratocaster MN Black', 'Fender', 'Il suono ispiratore di una Stratocaster è uno dei fondamenti Fender. Caratterizzato da un suono classico, high-end squillanti, medi potenti ed una fascia bassa robusta, abbinato ad una articolazione cristallina, la Player Stratocaster è dotata dello stile e del feel Fender autentico. E\' pronta a servire la tua visione musicale, è abbastanza versatile da gestire qualsiasi stile ed è la piattaforma perfetta per creare il tuo suono. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il pickup al ponte, dandoti un maggiore controllo sul suono nelle posizioni del pickup 1 e 2.\n', 639.00),
 (4, 'EJ41 Light', 'Daddario', 'Le corde Daddario EJ41 in nylon per chitarra classica sono perfette per i principianti, gli studenti e i professionisti. Questo set di corde a tensione normale contiene 3 cantini in nylon e 3 bassi Silver-plated Copper wound per garantire un ottimo bilanciamento tra timbri caldi e timbri nitidi e duraturi.', 12.00),
 (5, 'Champion 40', 'Fender', 'Compatto, facile da usare e abbastanza versatile per qualsiasi tipo di chitarra, il Champion 40 da 40 watt è la scelta ideale come tuo primo amplificatore da stage. Controlli intuitivi, effetti fantastici e suoni versatili facilitano la creazione dei suoni giusti per rock, blues, metal, country, jazz e altro. Oltre al fantastico suono incolore, gli amplificatori Fender sono dotati di effetti che offrono una ricchezza di colori, atmosfere e trame sonore. Include riverbero, delay, chorus, tremolo e molto altro.', 199.00),
 (6, 'RC-3', 'BOSS', 'RC-3 garantisce tre ore di registrazione stereo direttamente nella sua memoria interna. Ora potrete registrare senza dovervi preoccupare del limite di tempo ed avrete a disposizione 99 locazioni di memoria per salvare e richiamare immediatamente le vostre creazioni. Per tutti coloro che utilizzano strumenti stereofonici RC-3 dispone di I/O stereo. Una volta create le vostre performance potrete comodamente trasferirle su un PC grazie alla porta USB 2.0.', 149.99),
-(7, 'AF75 BS', 'Ibanez', 'Ibanez ha introdotto la serie Artcore nel 2002 ed è stata la chitarra hollow-body preferita dai musicisti degli ultimi 10 anni. La combinazione Artcore di qualità di lavorazione e convenienza ha creato schiere di fan da diversi generi come blues, country, rock e jazz. Artcore è molto rispettata per il suo suono, il sustain e il modo in cui tiene l''accordatura.', 421.00),
-(8, 'S300V Vintage Sunburst', 'Eko', 'Dopo la ricerca e le sperimentazioni del nostro laboratorio di liuteria abbiamo trovato interessante proporre strumenti dallo stile vintage, stile che non perde mai il suo fascino. Grazie a particolari colorazioni e finiture potrai vivere l''esperienza di suonare uno strumento dallo stile vintage intramontabile ad un prezzo contenuto.', 119.99),
-(9, 'Pacifica 212 VFM', 'Yamaha', 'Si presenta con accattivanti figure in acero sulla parte superiore del body e sulla paletta, la Pacifica212VFM è una variante della Pacifica 112V sviluppato appositamente, e che è stato molto apprezzato con la Pacifica112J. Questo modello offre le stesse caratteristiche della Pacifica112V, come i pickup in Alnico e la funzione coil tap, mentre il suo bellissimo top acero fiammato offre una presenza senza precedenti con il suo look di alta classe. Questo modello ha anche figure in acero sulla sua paletta con una finitura corrispondente. Sono disponibili tre colori trasparenti per mettere in evidenza i disegni dell''acero con un look di alta classe.', 330.00),
+(7, 'AF75 BS', 'Ibanez', 'Ibanez ha introdotto la serie Artcore nel 2002 ed è stata la chitarra hollow-body preferita dai musicisti degli ultimi 10 anni. La combinazione Artcore di qualità di lavorazione e convenienza ha creato schiere di fan da diversi generi come blues, country, rock e jazz. Artcore è molto rispettata per il suo suono, il sustain e il modo in cui tiene l\'accordatura.', 421.00),
+(8, 'S300V Vintage Sunburst', 'Eko', 'Dopo la ricerca e le sperimentazioni del nostro laboratorio di liuteria abbiamo trovato interessante proporre strumenti dallo stile vintage, stile che non perde mai il suo fascino. Grazie a particolari colorazioni e finiture potrai vivere l\'esperienza di suonare uno strumento dallo stile vintage intramontabile ad un prezzo contenuto.', 119.99),
+(9, 'Pacifica 212 VFM', 'Yamaha', 'Si presenta con accattivanti figure in acero sulla parte superiore del body e sulla paletta, la Pacifica212VFM è una variante della Pacifica 112V sviluppato appositamente, e che è stato molto apprezzato con la Pacifica112J. Questo modello offre le stesse caratteristiche della Pacifica112V, come i pickup in Alnico e la funzione coil tap, mentre il suo bellissimo top acero fiammato offre una presenza senza precedenti con il suo look di alta classe. Questo modello ha anche figure in acero sulla sua paletta con una finitura corrispondente. Sono disponibili tre colori trasparenti per mettere in evidenza i disegni dell\'acero con un look di alta classe.', 330.00),
 (10, 'Marco Polo SO', 'Eko', 'Marco Polo SO è la chitarra di Eko Guitars costruita con top in Abete Italiano, fasce e fondo in Ovangkol e manico in Mogano, tastiera e ponte in South American Roupanà. Grazie alle sue dimensioni ridotte, scala da 610 mm e larghezza al capotasto da 43 mm, la Marco Polo SO è la traveler guitar ideale per il musicista sempre in movimento.', 689.99),
 (11, 'Axis Capo Gold', 'ErnieBall', 'Le caratteristiche ergonomiche di Ernie Ball Axis Capo consentono cambi di chiavi con una sola mano veloci e precisi. Il design a doppio raggio è conforme alle tastiere piatte o curve, assicurando un funzionamento senza ronzio su chitarre elettriche e acustiche a 6 o 7 corde.\r\nAdatto a tutti i tipi di chitarra', 12.00);
 
@@ -280,38 +287,38 @@ INSERT INTO `user` (`username`, `password`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura per la vista `getaccessori`
+-- Struttura per vista `getaccessori`
 --
 DROP TABLE IF EXISTS `getaccessori`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getaccessori`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`accessorio`.`categoria` AS `categoria` from ((`accessorio` join `prodotto` on((`accessorio`.`codice_accessorio` = `prodotto`.`codice_prodotto`))) join `produttore` on((`prodotto`.`produttore` = `produttore`.`ragione_sociale`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getaccessori`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`immagine`.`path` AS `path`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo`,`accessorio`.`categoria` AS `categoria` from (((`accessorio` join `prodotto` on(`accessorio`.`codice_accessorio` = `prodotto`.`codice_prodotto`)) join `produttore` on(`prodotto`.`produttore` = `produttore`.`ragione_sociale`)) join `immagine` on(`prodotto`.`codice_prodotto` = `immagine`.`codice_prodotto`)) ;
 
 -- --------------------------------------------------------
 
 --
--- Struttura per la vista `getchitarre`
+-- Struttura per vista `getchitarre`
 --
 DROP TABLE IF EXISTS `getchitarre`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo_vendita`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipo_chitarra` from ((`chitarra` join `prodotto` on((`chitarra`.`cod_chitarra` = `prodotto`.`codice_prodotto`))) join `produttore` on((`prodotto`.`produttore` = `produttore`.`ragione_sociale`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`immagine`.`path` AS `path`,`prodotto`.`modello` AS `modello`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipo_chitarra` from (((`chitarra` join `prodotto` on(`chitarra`.`cod_chitarra` = `prodotto`.`codice_prodotto`)) join `produttore` on(`prodotto`.`produttore` = `produttore`.`ragione_sociale`)) join `immagine` on(`prodotto`.`codice_prodotto` = `immagine`.`codice_prodotto`)) ;
 
 -- --------------------------------------------------------
 
 --
--- Struttura per la vista `getspecificheaccesssorii`
+-- Struttura per vista `getspecificheaccesssorii`
 --
 DROP TABLE IF EXISTS `getspecificheaccesssorii`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecificheaccesssorii`  AS  select distinct `a`.`codice_accessorio` AS `codice_accessorio`,`a`.`categoria` AS `categoria`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo_vendita`,`p2`.`ragione_sociale` AS `ragione_sociale` from (((`accessorio` `a` join `immagine` `i`) join `prodotto` `p1`) join `produttore` `p2`) where ((`a`.`codice_accessorio` = `p1`.`codice_prodotto`) and (`p2`.`ragione_sociale` = `p1`.`produttore`) and (`i`.`codice_prodotto` = `p1`.`codice_prodotto`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecificheaccesssorii`  AS  select distinct `a`.`codice_accessorio` AS `codice_accessorio`,`a`.`categoria` AS `categoria`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo`,`p2`.`ragione_sociale` AS `ragione_sociale` from (((`accessorio` `a` join `immagine` `i`) join `prodotto` `p1`) join `produttore` `p2`) where `a`.`codice_accessorio` = `p1`.`codice_prodotto` and `p2`.`ragione_sociale` = `p1`.`produttore` and `i`.`codice_prodotto` = `p1`.`codice_prodotto` ;
 
 -- --------------------------------------------------------
 
 --
--- Struttura per la vista `getspecifichechitarre`
+-- Struttura per vista `getspecifichechitarre`
 --
 DROP TABLE IF EXISTS `getspecifichechitarre`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecifichechitarre`  AS  select distinct `c`.`cod_chitarra` AS `cod_chitarra`,`c`.`legno_manico` AS `legno_manico`,`c`.`legno_corpo` AS `legno_corpo`,`c`.`tipo_chitarra` AS `tipo_chitarra`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo_vendita`,`p2`.`ragione_sociale` AS `ragione_sociale` from (((`chitarra` `c` join `immagine` `i`) join `prodotto` `p1`) join `produttore` `p2`) where ((`c`.`cod_chitarra` = `p1`.`codice_prodotto`) and (`p2`.`ragione_sociale` = `p1`.`produttore`) and (`i`.`codice_prodotto` = `p1`.`codice_prodotto`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecifichechitarre`  AS  select distinct `c`.`cod_chitarra` AS `cod_chitarra`,`c`.`legno_manico` AS `legno_manico`,`c`.`legno_corpo` AS `legno_corpo`,`c`.`tipo_chitarra` AS `tipo_chitarra`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo`,`p2`.`ragione_sociale` AS `ragione_sociale` from (((`chitarra` `c` join `immagine` `i`) join `prodotto` `p1`) join `produttore` `p2`) where `c`.`cod_chitarra` = `p1`.`codice_prodotto` and `p2`.`ragione_sociale` = `p1`.`produttore` and `i`.`codice_prodotto` = `p1`.`codice_prodotto` ;
 
 --
 -- Indici per le tabelle scaricate
@@ -374,16 +381,19 @@ ALTER TABLE `user`
 --
 ALTER TABLE `commento`
   MODIFY `id_commento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT per la tabella `immagine`
 --
 ALTER TABLE `immagine`
   MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
   MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- Limiti per le tabelle scaricate
 --
@@ -418,6 +428,7 @@ ALTER TABLE `immagine`
 --
 ALTER TABLE `prodotto`
   ADD CONSTRAINT `prodotto_ibfk_1` FOREIGN KEY (`produttore`) REFERENCES `produttore` (`ragione_sociale`) ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

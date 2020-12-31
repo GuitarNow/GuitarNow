@@ -1,5 +1,38 @@
 <?php
 
+if (!isset($_REQUEST['categoria'])) {
+    $_REQUEST['categoria']="chitarre";
+}
+
+$tipologia_ricevuta = null;
+$produttore = null;
+$prezzo = null;
+
+if (isset($_REQUEST['cercato'])) {
+    
+    $_REQUEST['categoria']= $_REQUEST['cercato'];
+
+if (isset($_REQUEST['tipologia'])) {
+    $tipologia_ricevuta = $_REQUEST['tipologia'];
+    
+}
+
+if (isset($_REQUEST['produttore'])) {
+    $produttore = $_REQUEST['produttore'];
+}
+
+
+if (isset($_REQUEST['prezzo'])) {
+    $prezzo = $_REQUEST['prezzo'];
+
+}
+
+
+}
+
+
+
+
 $categoria = $_REQUEST['categoria'];
 
 require_once("PHP/back/ManageProdotti.php");
@@ -71,6 +104,12 @@ foreach($tipo as $tipi_da_visualizzare){
 $filtri = str_replace('<filtro_tipologia/>', $filtro_tipo, $filtri);
 
 
+
+$filtri = str_replace('<categoria_da_passare/>', '<input type="hidden" id="cercato" name="cercato" value="'.$categoria.'">', $filtri);
+
+
+
+
 // ----------------FILTRO ---------------------------
 $contenuto_pagina ="<div id='container_prodotti_filtri'>";
 $contenuto_pagina .=$filtri;
@@ -84,9 +123,9 @@ $contenuto_pagina .='<ul class="chitCard">';
 $prodotti_manage = new ManageProdotti();
 
 if($categoria == "accessori"){
-    $prodotti_database = $prodotti_manage->get_accessori();
+    $prodotti_database = $prodotti_manage->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo);
 }else{
-    $prodotti_database = $prodotti_manage->get_chitarra();
+    $prodotti_database = $prodotti_manage->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo);
 }
 
 
@@ -96,9 +135,9 @@ if($categoria == "accessori"){
 foreach($prodotti_database as $prodotti)
 {
     $contenuto_pagina.= '<a href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li>
-    <img class="chitarre" src="Images/CHITARRA-ACUSTICA-YAMAHA-F-370.jpg" alt="Chitarra acustica" />'.
+    <img class="chitarre" src="'.$prodotti['path'].'" alt="Chitarra acustica" />'.
     '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
-    '</p><p>'.$prodotti['prezzo_vendita'].'€</p>
+    '</p><p>'.$prodotti['prezzo'].'€</p>
     </li></a>';
 }
 

@@ -23,11 +23,11 @@ class ManageProdotti
     }
 
     public function get_produttori_chitarre(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select produttore FROM getChitarre"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct produttore FROM getChitarre"), MYSQLI_ASSOC);
     }
 
     public function get_tipo_chitarre(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select tipo_chitarra as tipo FROM getChitarre"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct tipo_chitarra as tipo FROM getChitarre"), MYSQLI_ASSOC);
     }
 
 
@@ -62,30 +62,42 @@ class ManageProdotti
         if($categoria != NULL)
         {
             if ($primo){
-                $query.= "WHERE ";
+                $query.= " WHERE ";
                 $primo = false;
             }else{
                 $query .="AND "; 
             }
-            $query .= "categoria =".$categoria;
+            $query .= "categoria ='".$categoria."'";
             
-        }elseif($produttore != NULL)
+        }
+        if($produttore != NULL)
         {
             if ($primo){
-                $query.= "WHERE ";
+                $query.= " WHERE ";
                 $primo = false;
             }else{
                 $query .="AND "; 
             }
-            $query .= "produttore =".$produttore;
-        }elseif ($prezzo != NULL) {
+            $query .= " produttore ='".$produttore."'";
+        }
+        
+        if ($prezzo != NULL) {
             if ($primo){
-                $query.= "WHERE ";
+                $query.= " WHERE ";
                 $primo = false;
             }else{
                 $query .="AND "; 
             }
-            $query .= "prezzo <=".$prezzo;
+
+            if($prezzo == "principiante"){
+        
+                $query .= "prezzo <= 150";
+            }else if ($prezzo == "intermedia"){
+                $query .= "prezzo >= 150 AND prezzo <=600";
+            }else if ($prezzo == "professionale"){
+                $query .= "prezzo >= 150 AND prezzo >=600";
+            }
+            
         }
         
         return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
@@ -96,38 +108,52 @@ class ManageProdotti
     //------------- FILTRI CHITARRE --------------------
 
     public function filtri_chitarre($categoria=NULL, $produttore=NULL, $prezzo=NULL){
+
+       
         $query = "SELECT * FROM getChitarre";
         $primo = true;
 
         if($categoria != NULL)
         {
             if ($primo){
-                $query.= "WHERE ";
+                $query.= " WHERE ";
                 $primo = false;
             }else{
                 $query .="AND "; 
             }
-            $query .= "categoria =".$categoria;
+            $query .= "tipo_chitarra ='".$categoria."'";
             
-        }elseif($produttore != NULL)
+        }
+        if($produttore != NULL)
         {
             if ($primo){
-                $query.= "WHERE ";
+                $query.= " WHERE ";
                 $primo = false;
             }else{
                 $query .="AND "; 
             }
-            $query .= "produttore =".$produttore;
-        }elseif ($prezzo != NULL) {
-            if ($primo){
-                $query.= "WHERE ";
-                $primo = false;
-            }else{
-                $query .="AND "; 
-            }
-            $query .= "prezzo <=".$prezzo;
+            $query .= " produttore ='".$produttore."'";
         }
         
+        if ($prezzo != NULL) {
+            if ($primo){
+                $query.= " WHERE ";
+                $primo = false;
+            }else{
+                $query .="AND "; 
+            }
+
+            if($prezzo == "principiante"){
+            
+                $query .= "prezzo <= 150";
+            }else if ($prezzo == "intermedia"){
+                $query .= "prezzo >= 150 AND prezzo <=600";
+            }else if ($prezzo == "professionale"){
+                $query .= "prezzo >= 150 AND prezzo >=600";
+            }
+            
+        }
+      
         return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
         
     }
@@ -135,11 +161,5 @@ class ManageProdotti
     
 }
 
-  /*  $prod = new ManageProdotti();
-    $p = $prod->get_chitarra();
-    foreach($p as $pp)
-    {
-        echo $pp['modello']."<br/>";
-    }
-   */ 
+
 ?>
