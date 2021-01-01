@@ -52,6 +52,14 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query("select distinct categoria as tipo FROM getAccessori"), MYSQLI_ASSOC);
     }
 
+    //----------- COMMENTI -----------------------------
+    public function get_commenti($id)
+    {
+        $query="select * FROM getCommenti WHERE codice_prodotto=".$id;
+        return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
+    }
+
+
     //------------- FILTRI ACCESSORI --------------------
     
 

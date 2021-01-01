@@ -463,7 +463,7 @@ padding-top: 0.5%;
 	margin-top:5%;
 	margin-left:15%;
     border-radius:10px;
-	
+	margin-bottom:5%;
 }
 	
 #elementi_contenuto{
@@ -493,4 +493,26 @@ padding-top: 0.5%;
     border:1px solid black;
     width:20%;
     border-radius: 10px;
+}
+
+#specifiche_prodotto h2
+{
+    text-align:center;
+}
+
+#commento
+{
+    border:1px solid black;
+    border-radius: 10px;
+    background-color:#ec9b30;
+    width:95%;
+    margin-left:2.5%;
+    list-style: none;
+    margin-top:2%;
+    
+}
+
+#commento::first-line
+{
+    font-weight:bold;
 }

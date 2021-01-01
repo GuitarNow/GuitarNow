@@ -8,6 +8,7 @@ $web_page = file_get_contents('Html/template.html');
 
 
 $manage_prodoto=new ManageProdotti();
+$manage_commenti=new ManageProdotti();
 
 $prodotto_selezionato='';
 if($tipo_prodotto=='chitarre')
@@ -40,8 +41,25 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				</span>
 				<img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" id="anteprima_img" />
 				<p>'.$prodotto_selezionato['descrizione'].'</p>
-				</div>';
-
+				<h2>Sezione commenti</h2>';
+	$commenti=$manage_commenti->get_commenti($id_prodotto);
+	$sezione_commenti='';
+	foreach($commenti as $c) /* Gestire caso zero commenti */
+	{			
+	$sezione_commenti=$sezione_commenti.'
+				<ul>
+				<li id="commento">
+				<p>'.$c['username'].'</p>
+				<p>'.$c['data'].'</p>
+				<p>'.$c['descrizione'].'</p>
+				<p>Voto: '.$c['voto'].'</p>
+				</li>
+	
+	
+			   </ul>';
+	}
+	$sezione_commenti=$sezione_commenti.'</div>';
+	$contenuto=$contenuto.$sezione_commenti;
 	$web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
 
 echo $web_page;
