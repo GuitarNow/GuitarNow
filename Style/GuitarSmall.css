@@ -1,1 +1,75 @@
+  /*-----------------------------------------------------------------------------------
+ ---------------------HEADER-------------------------------------------------------*/
+
+ #header{
+    padding-top: 3em;
+    padding-bottom:3em;
+ }
+
+ #logo{
+     width:60%;
+ }
  
+
+ #menu{
+     display:block;
+     background-image: url('../Images/menumobile.png');
+     background-position: center;
+    background-size: 8em 8em;
+    width: 8em;
+    height: 8em;
+    float:right;
+    margin-right:3%;
+ }
+
+ #menu a{
+     display:none;
+ }
+
+ #menu #linkCorrente{
+     display:none;
+ }
+
+ #accesso{
+    display:block;
+    background-image: url('../Images/loginmobile.jpg');
+    background-position: center;
+   background-size: 11em 8em;
+   width: 8em;
+   height: 8em;
+   float:left;
+    margin-left: 3%;
+}
+
+#accesso input{
+    display:none;
+}
+
+/*----------------------------------------------------------------------------------
+---------------------------CONTENUTOHOME---------------------------------------*/
+.chitCard, .accCard{  
+    display:inline-block; 
+    margin-left: 10%;
+    width:80%
+}
+
+.chitarre{
+    width:50%;  
+}
+
+.accessori{
+    width:50%;  
+}
+
+p{
+    font-size:1.8em;
+}
+
+.contenuto h1{
+    font-size:4em;
+}
+
+
+
+/*------------------------------------------------------------------------------------
+------------------------------FOOTER------------------------------------------------*/
