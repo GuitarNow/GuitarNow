@@ -6,7 +6,7 @@ session_start();
 if(isset($_SESSION['login_user'])){
     $database = new DatabaseConnection();
     
-    echo session_id();
+   // echo session_id();
 
     $user_check=$_SESSION['login_user'];
 $psw_check=$_SESSION['psw'];
