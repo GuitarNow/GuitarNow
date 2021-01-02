@@ -2,25 +2,39 @@
  ---------------------HEADER-------------------------------------------------------*/
 
  #header{
-    padding-top: 3em;
-    padding-bottom:3em;
+    padding-top: 1.5em;
+    padding-bottom:1.5em;
+    display: flex;
+    justify-content: space-between;
  }
 
  #logo{
      width:60%;
+     
+  
+     
  }
- 
+
 
  #menu{
      display:block;
      background-image: url('../Images/menumobile.png');
      background-position: center;
-    background-size: 8em 8em;
-    width: 8em;
-    height: 8em;
+     background-repeat: no-repeat;
+    background-size: 120px 120px;
+    width: 120px;
+    height: 120px;
     float:right;
-    margin-right:3%;
+    margin-top: 1%;
+    margin-right: 4% ;
+    
+ 
+  
  }
+ 
+#accesso{
+    display: none;
+}
 
  #menu a{
      display:none;
@@ -30,16 +44,7 @@
      display:none;
  }
 
- #accesso{
-    display:block;
-    background-image: url('../Images/loginmobile.jpg');
-    background-position: center;
-   background-size: 11em 8em;
-   width: 8em;
-   height: 8em;
-   float:left;
-    margin-left: 3%;
-}
+
 
 #accesso input{
     display:none;
