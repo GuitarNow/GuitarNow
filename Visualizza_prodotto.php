@@ -6,6 +6,7 @@ require_once('PHP/back/ManageProdotti.php');
 
 $web_page = file_get_contents('Html/template.html');
 
+/*------ QUERY -------*/
 
 $manage_prodoto=new ManageProdotti();
 $manage_commenti=new ManageProdotti();
@@ -20,6 +21,11 @@ else
 	$prodotto_selezionato= $manage_prodoto->get_specifiche_accessori($id_prodotto);
 }
 
+$commenti=$manage_commenti->get_commenti($id_prodotto);
+
+
+/*------- DESCRIZIONE PRODOTTO -------*/
+
 $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 
 	$nav_bar = '       <li  class="link" role="none" xml:lang="en"><a href="Home.php" role="menuitem">Home</a></li> 
@@ -30,22 +36,45 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 
 	$web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Specifiche prodotto", $web_page);
 
-
-
-	$contenuto='<div id="specifiche_prodotto">
+	$num_commenti=0;
+	$somma_commenti=0;
+	foreach($commenti as $c)
+	{
+		$num_commenti=$num_commenti+1;
+		$somma_commenti=$somma_commenti+$c['voto'];
+	}
+	if($num_commenti>0)
+	{
+		$valutazione=$somma_commenti/$num_commenti;
+	}
+	else
+	{
+		$valutazione='/';
+	}
+	$contenuto='<div id="scheda_prodotto">
 				<h1>'.$prodotto_selezionato['produttore'].' '.$prodotto_selezionato['modello'].'</h1>
-				<span id="dati_prodotto">
-				<p>INFO GENERALI</p>
+				<span id="specifiche_prodotto">
+				<p>SPECIFICHE</p>
 				<p>prezzo: '.$prodotto_selezionato['prezzo'].'&#128</p>
-				<p>Voto medio: 5 </p>
-				</span>
-				<img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" id="anteprima_img" />
-				<p>'.$prodotto_selezionato['descrizione'].'</p>
-				<h2>Sezione commenti</h2>';
-	$commenti=$manage_commenti->get_commenti($id_prodotto);
+				<p>Voto medio: '.$valutazione.'</p>';
+	if($tipo_prodotto=='chitarre')
+	{
+		$contenuto=$contenuto.'<p>Manico: '.$prodotto_selezionato['legno_manico'].'</p>
+				  			   <p>Corpo: '.$prodotto_selezionato['legno_corpo'].'</p>';
+	}
+	$contenuto=$contenuto.'</span>
+						   <img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" id="anteprima_img" />
+				           <p>'.$prodotto_selezionato['descrizione'].'</p>
+				           <h2>Sezione commenti</h2>';
+
+
+	/*------- COMMENTI -------*/
+
 	$sezione_commenti='';
+	$nessun_commento=true;
 	foreach($commenti as $c) /* Gestire caso zero commenti */
-	{			
+	{		
+		$nessun_commento=false;	
 	$sezione_commenti=$sezione_commenti.'
 				<ul>
 				<li id="commento">
@@ -57,6 +86,10 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	
 	
 			   </ul>';
+	}
+	if($nessun_commento==true)
+	{
+		$sezione_commenti='<p>Nessun commento disponibile</p>';
 	}
 	$sezione_commenti=$sezione_commenti.'</div>';
 	$contenuto=$contenuto.$sezione_commenti;
