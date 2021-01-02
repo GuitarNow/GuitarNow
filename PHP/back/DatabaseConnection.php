@@ -23,7 +23,9 @@ class DatabaseConnection
         }   
     }
     
-
+    public function escape_string($string){
+        return mysqli_real_escape_string($this->connection,$string);
+    }
 
   
     public function disconnect()

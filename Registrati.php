@@ -1,5 +1,5 @@
 <?php
-
+include('PHP/back/Session.php');
 $web_page = file_get_contents('Html/Template.html');
 
 $web_page = str_replace('<title_page/>', "Registrati", $web_page);

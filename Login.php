@@ -1,5 +1,14 @@
 <?php
 
+require_once('PHP/back/ManageLogin.php'); // includo ManageLogin php
+
+if(isset($_SESSION['login_user'])){
+    header("location: home.php");
+    $_SESSION['cnt'] = 0;
+}
+
+
+
 $web_page = file_get_contents('Html/Template.html');
 
 $web_page = str_replace('<title_page/>', "Accedi", $web_page);
@@ -16,4 +25,9 @@ $web_page = str_replace('<contenuto_to_insert/>', file_get_contents('Html/Login.
 
 echo $web_page;
 
+
+
+
 ?>
+
+

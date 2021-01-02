@@ -1,4 +1,5 @@
 <?php
+include('PHP/back/Session.php');
 
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";

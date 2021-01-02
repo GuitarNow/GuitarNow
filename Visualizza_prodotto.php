@@ -1,4 +1,7 @@
 <?php
+
+include('PHP/back/Session.php');
+
 $id_prodotto = $_GET['prodotto'];
 $tipo_prodotto= $_GET['tipo'];
 
