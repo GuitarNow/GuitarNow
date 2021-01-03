@@ -159,6 +159,12 @@ h1{
 /*------------------------------------------------------------------------------
 --------------------------------contenutoHome----------------------------------*/
 
+#contenutoHome{
+    width: 95%;
+    margin: unset;
+    margin-left: 2.5% ;
+}
+
 #container_prodotti_filtri{
     display: flex;
     
@@ -198,39 +204,31 @@ border: 1px solid #d0bfff; */
     text-align: center;
     font-size: 1.1em;   
     height:220px;  
+   
     
 }
 
+
 .chitCard a, .accCard a{
-    width:25%;
+    width: 25%;
     color: #000;
     text-decoration: none; 
 }
 
 .chitarre{
-    width: 75%;
+    width: 8em ;
+    height: 8em;
     border-radius: 15%; 
+    
 }
+
 
 .accessori{
     border-radius: 15%;
+    width: 8em ;
+    height: 8em;
 }
 
-#acc1{
-    width:91%;
-}
-
-#acc2{
-    width:86%;
-}
-
-#acc3{
-    width:80%;
-}
-
-#acc4{
-    width:76%
-}
 
 #descrizione{
     color: #000;

@@ -56,15 +56,22 @@
     display:inline-block; 
     margin-left: 10%;
     width:80%
+    
 }
+
+
 
 .chitarre{
     width:50%;  
 }
 
-.accessori{
-    width:50%;  
+.accessori, .chitarre{
+    width: 13em;
+    height: 13em;
+    margin-bottom: 20px;
+    margin-top: 5px;
 }
+
 
 p{
     font-size:1.8em;
@@ -73,6 +80,13 @@ p{
 .contenuto h1{
     font-size:4em;
 }
+
+.chitCard li, .accCard li{
+  
+  height: 400px;
+}
+
+
 
 
 

@@ -1,0 +1,15 @@
+.chitCard a, .accCard a{
+    width: 40%;
+    color: #000;
+    text-decoration: none; 
+}
+
+.chitCard, .accCard{
+ margin-left: 10% ;
+ margin-right: 10% ;
+}
+
+.chitCard li, .accCard li{
+  
+    font-size: 1.15em;   
+}
