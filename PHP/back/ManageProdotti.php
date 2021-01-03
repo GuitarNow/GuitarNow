@@ -30,6 +30,10 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query("select distinct tipo_chitarra as tipo FROM getChitarre"), MYSQLI_ASSOC);
     }
 
+    public function get_ultimi_arrivi_chitarre(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre ORDER BY codice_prodotto DESC LIMIT 4"), MYSQLI_ASSOC);
+    }
+
 
     
 
@@ -50,6 +54,10 @@ class ManageProdotti
     }
     public function get_tipo_accessori(){
         return mysqli_fetch_all($this->prodotto->get_result_query("select distinct categoria as tipo FROM getAccessori"), MYSQLI_ASSOC);
+    }
+
+    public function get_ultimi_arrivi_accessori(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori ORDER BY codice_prodotto DESC LIMIT 4"), MYSQLI_ASSOC);
     }
 
     //----------- COMMENTI -----------------------------

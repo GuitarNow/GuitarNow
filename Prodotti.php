@@ -1,5 +1,6 @@
 <?php
 include('PHP/back/Session.php');
+require_once("PHP/back/ManageProdotti.php");
 
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";
@@ -36,7 +37,7 @@ if (isset($_REQUEST['prezzo'])) {
 
 $categoria = $_REQUEST['categoria'];
 
-require_once("PHP/back/ManageProdotti.php");
+
 
 $web_page = file_get_contents('html/template.html');
 
