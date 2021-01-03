@@ -11,5 +11,32 @@
 
 .chitCard li, .accCard li{
   
-    font-size: 1.15em;   
+    font-size: 1.15em;
+   
+}
+
+.chitCard li.chitarre_prodotti{
+  
+    width: 80%;
+    margin-right: unset;
+}
+
+li.chitarre_prodotti{
+    
+    margin-left: 1em;
+}
+
+.page_prodotti.chitCard{
+    margin: unset ;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+}
+.chitCard a.a_page_prodotti{
+    width: 33%;
+    
+   
+}
+
+#colonna_filtri{
+    display: none;
 }

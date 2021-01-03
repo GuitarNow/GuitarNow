@@ -205,15 +205,20 @@ margin: 0 10px 20px 10px;
     text-align: center;
     font-size: 1.1em;   
     height:235px;  
-   
     
 }
+
+li.chitarre_prodotti{
+   margin-top: 1em;
+}
+
 
 
 .chitCard a, .accCard a{
     width: 25%;
     color: #000;
     text-decoration: none; 
+    
 }
 
 .chitarre{

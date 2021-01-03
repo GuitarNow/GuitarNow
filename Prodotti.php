@@ -121,7 +121,7 @@ $contenuto_pagina .=$filtri;
 
 
 
-$contenuto_pagina .='<ul class="chitCard">';
+$contenuto_pagina .='<ul class="page_prodotti chitCard">';
 $prodotti_manage = new ManageProdotti();
 
 if($categoria == "accessori"){
@@ -136,8 +136,8 @@ if($categoria == "accessori"){
 // Predisposizione di un campo nascosto nella carta dove inserire l'id della chitarra , in modo da reindirizzare alla pagina_dettaglio della chitarra
 foreach($prodotti_database as $prodotti)
 {
-    $contenuto_pagina.= '<a href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li>
-    <img class="chitarre" src="'.$prodotti['path'].'" alt="Chitarra acustica" />'.
+    $contenuto_pagina.= '<a class="a_page_prodotti" href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li class="chitarre_prodotti">
+    <img class="chitarre " src="'.$prodotti['path'].'" alt="Chitarra acustica" />'.
     '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
     '</p><p>'.$prodotti['prezzo'].'€</p>
     </li></a>';
