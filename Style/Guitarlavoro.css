@@ -48,6 +48,7 @@ body{
     width:20%; 
     margin-left:2%;  
     margin-right: 4%;
+    height: 20%;
 }
 
 
@@ -271,17 +272,22 @@ margin: 0 10px 20px 10px;
 
 #descrizioneChi{
     font-size:1.1em;
-    margin-right:55%;
+    width: 45%;
     border-right: 1px solid #000;
     text-align:justify;
     padding-right: 2em;
+    float: left;
+    margin-bottom: 1em;
 }
 
 iframe{
-    float:right;
+    float: right;
        margin-top: 6%;
-       width: 50%;
+       width: 45%;
        height:300px;
+       position: relative;
+       bottom: 1em;
+
 }
 
 /*------------------------------------------------------------------------------
