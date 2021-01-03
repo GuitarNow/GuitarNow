@@ -197,13 +197,13 @@ h1{
     border: 1px solid #fcc2d7;
   /* background-color: #e5dbff;
 border: 1px solid #d0bfff; */
-    margin: 0 10px 20px 10px;
+margin: 0 10px 20px 10px;
     padding: 10px;
     border-radius:12px;
     flex:0 0 100%;
     text-align: center;
     font-size: 1.1em;   
-    height:220px;  
+    height:235px;  
    
     
 }

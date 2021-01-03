@@ -82,12 +82,89 @@ p{
 }
 
 .chitCard li, .accCard li{
-  
-  height: 400px;
+    
+    height: 400px;
+    
+}
+
+/*--------------------------------------------------------------------------------------
+----------------------------------SERVIZI---------------------------------------------------*/
+
+.img_servizi{
+    display:none;
+}
+
+/*------------------------------------------------------------------------------------------------------
+---------------------------------CHISIAMO----------------------------------------------*/
+iframe{
+    display:none;
+}
+
+#descrizioneChi{
+    margin-right:0;
+    border-right: 0;
+    
+}
+
+/*-----------------------------------------------------------------------------------------
+--------------------------------PRODOTTI-FILTRI--------------------------------------------*/
+#colonna_filtri{
+    width:700px;
+}
+
+#colonna_filtri form fieldset{
+    
+    margin-bottom: 10%;
+}
+
+#colonna_filtri form fieldset label{
+    font-size:1.8em; 
+    
+}
+
+input[type='radio'] {
+    margin-bottom:5%;
+    width: 20px;
+    height: 20px;
+}
+
+#colonna_filtri form fieldset legend{
+    font-size:1.7em;
+    
+}
+#tipologia{
+    width:300px;
+    font-size:1.9em;
+}
+
+#produttore{
+    width:400px;
+    font-size:1.9em;
+}
+
+#CercaSubmit{
+    margin-left:23%;
+    margin-bottom: 5%;
+    width:200px;
+    height: 50px;
+    font-size: 2em;
+    border: 1px solid #000;
 }
 
 
+#menuProdotti a, #linkCorrenteProdotti{
+    padding: 0.7em;
+    width:155px;
+    font-size:2.1em;
+}
 
+/*-------------------------------------------------------------------------------------
+------------------------------SPECIFICHEPRODOTTO------------------------------------*/
+
+#specifiche_prodotto
+{
+    width:200px;
+}
 
 
 /*------------------------------------------------------------------------------------
