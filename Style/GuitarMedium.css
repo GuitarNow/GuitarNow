@@ -22,7 +22,7 @@
 }
 
 li.chitarre_prodotti{
-    
+    float: right;
     margin-left: 1em;
 }
 
@@ -40,3 +40,4 @@ li.chitarre_prodotti{
 #colonna_filtri{
     display: none;
 }
+

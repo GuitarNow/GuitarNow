@@ -210,6 +210,7 @@ margin: 0 10px 20px 10px;
 
 li.chitarre_prodotti{
    margin-top: 1em;
+   
 }
 
 
@@ -357,11 +358,21 @@ iframe{
 /*------------------------------------------------------------------------------
 --------------------------------footer----------------------------------*/
 
+
+
+
+#img_footer{
+   
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7em;
+ }
+
 #footer{
     background-color: #4E1600;
     color:rgb(255, 255, 255);
-    font-size: 0.7em;
     font-style: italic;
+    font-size:0.7em;
     padding: 0.5em;
     padding-top: 1em;
     border-top: 1px solid #000;
@@ -384,7 +395,7 @@ padding-top: 0.5%;
 
 .ontatti{
     
-    padding-top: 1.3%;
+    padding-top: 0.8%;
     padding-left: 3%;
    
 }
