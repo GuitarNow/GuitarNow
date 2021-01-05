@@ -2,20 +2,13 @@
 
 $web_page = file_get_contents('Amministratore.html');
 
-$web_page = str_replace('<title_page/>', "Amministrazione", $web_page);
+$web_page = str_replace('<title_page/>', 'Amministrazione', $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>','Amministrazione', $web_page);
 
-$web_page = str_replace('<contenuto_to_insert/>', '<div id="headerAmm">
-<img id="logo" src="../Images/logo_bianco.png" alt="" />
-</div>
-<div id="breadcrumbsAmm">
-<p>Ti trovi in: 
-       <breadcrumbs_to_insert/>           
-</p>
-</div>
+$web_page = str_replace('<contenuto_to_insert/>', '
 <div id="contenutoAmm" class="contenuto">
-<form action="PHP/back/ManageLogin.php" method="post"  class="form" >
+<form action="" method="post"  class="form" >
 <fieldset>
 <img src="../Images/logo_bianco.png" alt="" />
 <label for="username">Username</label>
