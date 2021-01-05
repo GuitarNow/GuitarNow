@@ -559,3 +559,40 @@ padding-top: 0.5%;
     text-align:center;
     
 }
+
+/*---------------------------------------------------------------------
+-------------------------Amministratore---------------------------------*/
+
+#headerAmm{
+    padding-top: 1em;
+    padding-bottom:1em;
+    overflow: auto;
+    text-align:center;
+    margin: auto;
+    background-color:#4E1600;
+}
+
+#breadcrumbsAmm{
+    background-color:#4E1600;
+    color: #DDD;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 0.2em;
+}
+
+#passwordAmm, #usernameAmm{
+    width:60%;
+    margin-bottom: 0.7em;
+}
+
+#loginAmm{
+    background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+    width:60%;
+    margin-bottom: 0.5em;
+    margin-top:3%;
+}
