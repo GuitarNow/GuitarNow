@@ -427,6 +427,8 @@ padding-top: 0.5%;
 /*--------------------------------------------------------------------------
 -----------------------Filtri------------------------------------------*/
 
+
+
 #colonna_filtri{
 	width:20%;
 	height:100%;
@@ -440,6 +442,10 @@ padding-top: 0.5%;
     align-items: center;
     font-size:1.1em;
     list-style:none;
+}
+
+#menuProdotti #btnFiltri{
+    display: none;
 }
 
 #menuProdotti  li {
@@ -473,6 +479,10 @@ padding-top: 0.5%;
     color: #DDD;
     text-align: left;
     padding: 0.5em;
+}
+
+#produttore, #tipologia{
+    width: 100%;
 }
 
 /*--------------------------------------------------------------------------
