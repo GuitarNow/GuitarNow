@@ -1,4 +1,10 @@
 <?php
+require_once('manageAmministratore.php'); // includo manageAmministratore.php php
+
+if(isset($_SESSION['login_admin'])){
+    header("location: ../Home.php");
+    $_SESSION['cnt'] = 0;
+}
 
 $web_page = file_get_contents('Amministratore.html');
 
