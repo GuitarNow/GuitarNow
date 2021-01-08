@@ -37,7 +37,16 @@ li.chitarre_prodotti{
    
 }
 
-#colonna_filtri{
-    display: none;
+#menuProdotti li{
+    font-size:81.5% ;
+}
+
+li.chitarre_prodotti{
+    font-size: 99%;
+}
+
+.page_prodotti.chitCard{
+    margin-right:1em;
+    margin-left:unset;
 }
 
