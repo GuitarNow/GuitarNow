@@ -14,17 +14,22 @@ $web_page = file_get_contents('Html/template.html');
 $manage_prodoto=new ManageProdotti();
 $manage_commenti=new ManageProdotti();
 
+
 $prodotto_selezionato='';
 if($tipo_prodotto=='chitarre')
 {
 	$prodotto_selezionato= $manage_prodoto->get_specifiche_chitarre($id_prodotto);	
+	
 }
 else
 {
 	$prodotto_selezionato= $manage_prodoto->get_specifiche_accessori($id_prodotto);
+	
 }
 
 $commenti=$manage_commenti->get_commenti($id_prodotto);
+
+
 
 
 /*------- DESCRIZIONE PRODOTTO -------*/

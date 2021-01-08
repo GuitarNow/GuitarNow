@@ -34,7 +34,9 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre ORDER BY codice_prodotto DESC LIMIT 4"), MYSQLI_ASSOC);
     }
 
-
+    public function get_numero_chitarre(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select count(*) as Num from getChitarre "), MYSQLI_ASSOC);
+    }
     
 
     //------------- ACCESSORI --------------------
@@ -58,6 +60,10 @@ class ManageProdotti
 
     public function get_ultimi_arrivi_accessori(){
         return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori ORDER BY codice_prodotto DESC LIMIT 4"), MYSQLI_ASSOC);
+    }
+
+    public function get_numero_accessori(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select count(*) as Num from getAccessori "), MYSQLI_ASSOC);
     }
 
     //----------- COMMENTI -----------------------------
