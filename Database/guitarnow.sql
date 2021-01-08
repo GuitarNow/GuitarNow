@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 02, 2021 alle 12:39
+-- Creato il: Gen 08, 2021 alle 09:33
 -- Versione del server: 10.1.19-MariaDB
 -- Versione PHP: 5.6.28
 
@@ -61,11 +61,13 @@ CREATE TABLE `chitarra` (
 INSERT INTO `chitarra` (`cod_chitarra`, `legno_manico`, `legno_corpo`, `tipo_chitarra`) VALUES
 (1, 'palissandro', 'palissandro', 'Elettrica'),
 (2, 'mogano', 'palissandro', 'Elettrica'),
-(3, 'acero', 'acero', 'Classica'),
+(3, 'acero', 'acero', 'Elettrica'),
 (7, 'abete', 'acero', 'Semiacustica'),
 (8, 'otano', 'acero', 'Elettrica'),
 (9, 'otano', 'palissandro', 'Elettrica'),
-(10, 'mogano', 'abete', 'Acustica');
+(10, 'mogano', 'abete', 'Acustica'),
+(12, 'acero', 'palissandro', 'Elettrica'),
+(13, 'mogano', 'abete', 'Classica');
 
 -- --------------------------------------------------------
 
@@ -206,7 +208,9 @@ INSERT INTO `immagine` (`id_immagine`, `path`, `long_desc`, `short_desc`, `codic
 (8, 'Images/S300_vintage_sunburst.jpg', 'da fare', 'anteprima Eko S300 Vintage Sunburst in vendita', 8),
 (9, 'Images/Pacifica_212_vfm.jpg', 'da fare', 'anteprima Yamaha Pacifica 212 VFM in vendita', 9),
 (10, 'Images/Marco_polo_so.jpg', 'da fare', 'anteprima Eko Marco Polo SO in vendita', 10),
-(12, 'Images/Axis_capo_gold.jpg', 'da fare', 'anteprima ErnieBall Axis Gold in vendita', 11);
+(11, 'Images/Axis_capo_gold.jpg', 'da fare', 'anteprima ErnieBall Axis Gold in vendita', 11),
+(13, 'Images/Roadcore_premium.jpg', 'da fare', 'anteprima Ibanez Roadcore Premium da inserire', 12),
+(14, 'Images/Cort_AC100.jpg', 'da fare', 'anteprima Cort AC100 in vendita', 13);
 
 -- --------------------------------------------------------
 
@@ -227,17 +231,19 @@ CREATE TABLE `prodotto` (
 --
 
 INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione`, `prezzo_vendita`) VALUES
-(1, 'Les Paul Studio', 'Epiphone', 'La chitarra elettrica Epiphone Les Paul Studio, appartenente alla "Inspired by Gibson Collection", offre agli appassionati del marchio di Nashville il modello progettato da Gibson negli anni ''80 per offrire ad un prezzo contenuto una vera Les Paul semplice ma completa Il suono di questa chitarra elettrica è generato da una coppia di pickup Alnico Classic ed Alnico Classic Plus, dal suono caldo e corposo, ottimi sia sui suoni puliti che sui distorti. A completare lo strumento troviamo potenziometri CTS e meccaniche Grover Rotomatic.', 450.00),
-(2, 'Les Paul Standard HP 2018', 'Gibson', 'La Les Paul Standard HP conserva molte caratteristiche Gibson popolari, tra cui il profilo asimmetrico del manico Slim Taper, migliorando l''uso con un aggiornamento dei venerati pick-up humbucker PAF ed un top in acero figurato AAA+ con abbellimenti di alto livello. Il modello HP offre innovazioni all''avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista, capotasto zero-fret e sellette regolabili in titanio. Una varietà timbrica eccezionale fornita da 4 potenziometri push-pull con DIP switch per oltre 150 possibilità di rewiring istantanei reversibili.\n', 2599.00),
-(3, 'Stratocaster MN Black', 'Fender', 'Il suono ispiratore di una Stratocaster è uno dei fondamenti Fender. Caratterizzato da un suono classico, high-end squillanti, medi potenti ed una fascia bassa robusta, abbinato ad una articolazione cristallina, la Player Stratocaster è dotata dello stile e del feel Fender autentico. E'' pronta a servire la tua visione musicale, è abbastanza versatile da gestire qualsiasi stile ed è la piattaforma perfetta per creare il tuo suono. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il pickup al ponte, dandoti un maggiore controllo sul suono nelle posizioni del pickup 1 e 2.\n', 639.00),
-(4, 'EJ41 Light', 'Daddario', 'Le corde Daddario EJ41 in nylon per chitarra classica sono perfette per i principianti, gli studenti e i professionisti. Questo set di corde a tensione normale contiene 3 cantini in nylon e 3 bassi Silver-plated Copper wound per garantire un ottimo bilanciamento tra timbri caldi e timbri nitidi e duraturi.', 12.00),
-(5, 'Champion 40', 'Fender', 'Compatto, facile da usare e abbastanza versatile per qualsiasi tipo di chitarra, il Champion 40 da 40 watt è la scelta ideale come tuo primo amplificatore da stage. Controlli intuitivi, effetti fantastici e suoni versatili facilitano la creazione dei suoni giusti per rock, blues, metal, country, jazz e altro. Oltre al fantastico suono incolore, gli amplificatori Fender sono dotati di effetti che offrono una ricchezza di colori, atmosfere e trame sonore. Include riverbero, delay, chorus, tremolo e molto altro.', 199.00),
-(6, 'RC-3', 'BOSS', 'RC-3 garantisce tre ore di registrazione stereo direttamente nella sua memoria interna. Ora potrete registrare senza dovervi preoccupare del limite di tempo ed avrete a disposizione 99 locazioni di memoria per salvare e richiamare immediatamente le vostre creazioni. Per tutti coloro che utilizzano strumenti stereofonici RC-3 dispone di I/O stereo. Una volta create le vostre performance potrete comodamente trasferirle su un PC grazie alla porta USB 2.0.', 149.99),
-(7, 'AF75 BS', 'Ibanez', 'Ibanez ha introdotto la serie Artcore nel 2002 ed è stata la chitarra hollow-body preferita dai musicisti degli ultimi 10 anni. La combinazione Artcore di qualità di lavorazione e convenienza ha creato schiere di fan da diversi generi come blues, country, rock e jazz. Artcore è molto rispettata per il suo suono, il sustain e il modo in cui tiene l''accordatura.', 421.00),
-(8, 'S300V Vintage Sunburst', 'Eko', 'Dopo la ricerca e le sperimentazioni del nostro laboratorio di liuteria abbiamo trovato interessante proporre strumenti dallo stile vintage, stile che non perde mai il suo fascino. Grazie a particolari colorazioni e finiture potrai vivere l''esperienza di suonare uno strumento dallo stile vintage intramontabile ad un prezzo contenuto.', 119.99),
-(9, 'Pacifica 212 VFM', 'Yamaha', 'Si presenta con accattivanti figure in acero sulla parte superiore del body e sulla paletta, la Pacifica212VFM è una variante della Pacifica 112V sviluppato appositamente, e che è stato molto apprezzato con la Pacifica112J. Questo modello offre le stesse caratteristiche della Pacifica112V, come i pickup in Alnico e la funzione coil tap, mentre il suo bellissimo top acero fiammato offre una presenza senza precedenti con il suo look di alta classe. Questo modello ha anche figure in acero sulla sua paletta con una finitura corrispondente. Sono disponibili tre colori trasparenti per mettere in evidenza i disegni dell''acero con un look di alta classe.', 330.00),
-(10, 'Marco Polo SO', 'Eko', 'Marco Polo SO è la chitarra di Eko Guitars costruita con top in Abete Italiano, fasce e fondo in Ovangkol e manico in Mogano, tastiera e ponte in South American Roupanà. Grazie alle sue dimensioni ridotte, scala da 610 mm e larghezza al capotasto da 43 mm, la Marco Polo SO è la traveler guitar ideale per il musicista sempre in movimento.', 689.99),
-(11, 'Axis Capo Gold', 'ErnieBall', 'Le caratteristiche ergonomiche di Ernie Ball Axis Capo consentono cambi di chiavi con una sola mano veloci e precisi. Il design a doppio raggio è conforme alle tastiere piatte o curve, assicurando un funzionamento senza ronzio su chitarre elettriche e acustiche a 6 o 7 corde.\r\nAdatto a tutti i tipi di chitarra', 12.00);
+(1, 'Les Paul Studio', 'Epiphone', 'La chitarra elettrica <span xml:lang="en" >Epiphone Les Paul Studio</span>, appartenente alla <span xml:lang="en" >"Inspired by Gibson Collection"</span>, offre agli appassionati del marchio il modello progettato da <span xml:lang="en" >Gibson</span> negli anni 80 per offrire ad un prezzo contenuto una vera <span xml:lang="en" >Les Paul</span> semplice ma completa. Il suono di questa chitarra elettrica &egrave; generato da una coppia di <span xml:lang="en" >pickup Alnico Classic</span> ed <span xml:lang="en" >Alnico Classic Plus</span>, dal suono caldo e corposo, ottimi sia sui suoni puliti che sui distorti.', 450.00),
+(2, 'Les Paul Standard HP 2018', 'Gibson', 'La <span xml:lang="en" >Les Paul Standard HP</span> conserva molte caratteristiche delle <span xml:lang="en" >Gibson</span> popolari, tra cui il profilo asimmetrico del manico <span xml:lang="en" >Slim Taper</span>. Il modello <span xml:lang="en" >HP</span> offre innovazioni all''avanguardia per i chitarristi che guardano oltre, tra le quali un accesso veloce alla parte bassa della tastiera, larghezza del manico da solista e sellette regolabili in titanio. La chitarra garantisce una variet&agrave; timbrica eccezionale.\r\n', 2599.00),
+(3, 'Stratocaster MN Black', 'Fender', 'Il suono ispiratore di una <span xml:lang="en" >Stratocaster</span> &egrave; uno dei fondamenti <span xml:lang="en" >Fender</span>. &Egrave; caratterizzata da un suono classico, medi potenti ed una fascia bassa robusta. Lo strumento inoltre &egrave; abbastanza versatile e permette di gestire qualsiasi stile. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il <span xml:lang="en" >pickup</span> al ponte, dando un maggiore controllo sul suono nelle posizioni del <span xml:lang="en" >pickup</span> 1 e 2.\r\n', 639.00),
+(4, 'EJ41 Light', 'Daddario', 'Le corde Daddario EJ41 in <span xml:lang="en" >nylon</span> per chitarra classica sono perfette per i principianti, gli studenti e i professionisti. Questo set di corde a tensione normale contiene 3 cant&igrave;ni in <span xml:lang="en" >nylon</span> e 3 bassi <span xml:lang="en" >Silver-plated</span> <span xml:lang="en" >Copper-wound</span> per garantire un ottimo bilanciamento tra timbri caldi e timbri nitidi.', 12.00),
+(5, 'Champion 40', 'Fender', 'Compatto, facile da usare e versatile per qualsiasi tipo di chitarra. Il <span xml:lang="en" >Champion</span> da 40 <span xml:lang="en" >watt</span> &egrave; la scelta ideale come tuo primo amplificatore. Controlli intuitivi, effetti fantastici facilitano la creazione dei suoni giusti per <span xml:lang="en" >rock</span>, <span xml:lang="en" >blues</span>, <span xml:lang="en" >metal</span> e altro. Gli amplificatori <span xml:lang="en" >Fender</span> sono dotati di effetti che offrono una ricchezza di colori, atmosfere e trame sonore. Include riverbero, <span xml:lang="en" >delay</span>, <span xml:lang="en" >chorus</span>, tremolo e molto altro.', 199.00),
+(6, 'RC-3', 'BOSS', 'RC-3 garantisce tre ore di registrazione stereo direttamente nella sua memoria interna. Ora potrete registrare senza dovervi preoccupare del limite di tempo ed avrete a disposizione 99 locazioni di memoria per salvare e richiamare immediatamente le vostre creazioni. Una volta create le vostre <span xml:lang="en" >performance</span> potrete comodamente trasferirle su un PC grazie alla porta USB 2.0.', 149.99),
+(7, 'AF75 BS', 'Ibanez', 'Ibanez ha introdotto la serie <span xml:lang="en" >Artcore</span> nel 2002 ed &egrave; stata la chitarra <span xml:lang="en" >hollow-body</span> preferita dai musicisti degli ultimi 10 anni. La combinazione tra qualit&agrave; di lavorazione e convenienza ha creato schiere di fan da diversi generi come <span xml:lang="en" >blues</span>, <span xml:lang="en" >country</span>, <span xml:lang="en" >rock</span> e <span xml:lang="en" >jazz</span>. <span xml:lang="en" >Artcore</span> &egrave; molto rispettata per il suo suono, il <span xml:lang="en" >sustain</span> e il modo in cui tiene l''accordatura.', 421.00),
+(8, 'S300V Vintage Sunburst', 'Eko', 'Dopo la ricerca e le sperimentazioni del nostro laboratorio di liuteria abbiamo trovato interessante proporre strumenti dallo stile <span xml:lang="en" >vintage</span>, stile che non perde mai il suo fascino. Grazie a particolari colorazioni e finiture potrai vivere l''esperienza di suonare uno strumento dallo stile intramontabile ad un prezzo contenuto.', 119.99),
+(9, 'Pacifica 212 VFM', 'Yamaha', 'Si presenta con accattivanti figure in acero sulla parte superiore del corpo e sulla paletta, la Pacifica 212VFM &egrave; una variante della Pacifica 112V sviluppato appositamente. Questo modello offre <span xml:lang="en" >pickup</span> in Alnico e la funzione <span xml:lang="en" >coil-tap</span>, mentre il suo bellissimo corpo in acero fiammato offre una presenza senza precedenti con il suo <span xml:lang="en" >look</span> di alta classe. Questo modello ha anche figure in acero sulla sua paletta con una finitura corrispondente. Sono disponibili tre colori trasparenti per mettere in evidenza i disegni di alta classe.', 330.00),
+(10, 'Marco Polo SO', 'Eko', 'Marco Polo SO &egrave; la chitarra di <span xml:lang="en" >Eko Guitars</span> costruita con corpo in Abete Italiano, fasce e fondo in palissandro e manico in Mogano. Grazie alle sue dimensioni ridotte, scala da 610 millimetri e larghezza al capotasto da 43 millimetri, la Marco Polo SO &egrave; la chitarra da viaggio ideale per il musicista sempre in movimento.', 689.99),
+(11, 'Axis Capo Gold', 'ErnieBall', 'Le caratteristiche ergonomiche di <span xml:lang="en" >ErnieBall</span> <span xml:lang="en" >Axis</span> Capo consentono cambi di chiavi con una sola mano veloci e precisi. Il <span xml:lang="en" >design</span> a doppio raggio &egrave; conforme alle tastiere piatte o curve, assicurando un funzionamento senza ronzio su chitarre elettriche e acustiche a 6 o 7 corde.\r\nAdatto a tutti i tipi di chitarra', 12.00),
+(12, 'Roadcore Premium', 'Ibanez', 'L''<span xml:lang="en" >Ibanez</span> <span xml:lang="en" >Roadcore</span> <span xml:lang="en" >Premium</span> dispone di un corpo in palissandro e un manico in acero con una tastiera in palissandro. Il suono  caldo di questo strumento &egrave; generato dai <span xml:lang="en" >pickup</span> cromati. Dispone inoltre di un custodia rigida inclusa.', 799.99),
+(13, 'AC100', 'Cort ', 'I modelli in stile AC tradizionali sono stati rielaborati per migliorare la risonanza e per ottenere un suono di chitarra classica autentico. La buona combinazione di legni produce un suono tradizionale, profondo e piacevolmente morbido. La serie <span xml:lang="en" >Cort</span> AC &egrave; molto indulgente verso gli errori degli studenti, poich&egrave; richiede meno precisione e nitidezza per avere un buon suono.', 160.00);
 
 -- --------------------------------------------------------
 
@@ -402,12 +408,12 @@ ALTER TABLE `commento`
 -- AUTO_INCREMENT per la tabella `immagine`
 --
 ALTER TABLE `immagine`
-  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- Limiti per le tabelle scaricate
 --
