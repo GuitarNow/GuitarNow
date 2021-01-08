@@ -58,11 +58,11 @@ $menu_prodotto ="";
 if($categoria == "chitarre" || $categoria == NULL){
     $menu_prodotto = '
 <li id="linkCorrenteProdotti" class="link" role="none" >Chitarre</li> 
-<li class="link" role="none"><a href="Prodotti.php?categoria=accessori" role="menuitem">Accessori</a></li>
+<li id="btn_accessori" class="link" role="none"><a href="Prodotti.php?categoria=accessori" role="menuitem">Accessori</a></li>
     ';
 }elseif($categoria == "accessori"){
     $menu_prodotto = '
-    <li  class="link" role="none"><a href="Prodotti.php?categoria=chitarre" role="menuitem">Chitarre</a></li> 
+    <li id="btn_chitarre" class="link" role="none"><a href="Prodotti.php?categoria=chitarre" role="menuitem">Chitarre</a></li> 
     <li id="linkCorrenteProdotti" class="link" role="none">Accessori</a></li>';
 }
 

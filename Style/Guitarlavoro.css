@@ -434,6 +434,7 @@ padding-top: 0.5%;
 	height:100%;
 	background-color:white;
     float:left;	
+    height: min-content;
 }
 
 
@@ -444,7 +445,7 @@ padding-top: 0.5%;
     list-style:none;
 }
 
-#menuProdotti #btnFiltri{
+#btnFiltri{
     display: none;
 }
 

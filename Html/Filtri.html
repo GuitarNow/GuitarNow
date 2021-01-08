@@ -2,14 +2,15 @@
 <div id="colonna_filtri">
 <ul id="menuProdotti" role="menubar">
     <menu_prodotti/>
-    <li><a class="link" id="btnFiltri">Filtri</a></li>
+   
     
     <!--buttare in php-->
 
 </ul>
+<a class="link" id="btnFiltri" onclick="dNone()">Filtri</a>
 
 
-<form action="Prodotti.php" method="GET">
+<form id="form_filtri" class="dN" action="Prodotti.php" method="GET">
 <fieldset>
     <legend>Prouttore</legend>
     <select name="produttore" id= "produttore">
@@ -60,3 +61,17 @@
  
 </form>
 </div> 
+
+<script>
+    function dNone(){
+        var el = document.getElementById('form_filtri');
+        if(el.className==='dN'){
+            el.style.display='unset';
+            el.classList.remove('dN');
+        }
+         else{
+            el.style.display='none';
+            el.classList.add('dN');
+         }
+    }
+</script>
