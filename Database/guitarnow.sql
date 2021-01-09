@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 08, 2021 alle 09:33
+-- Creato il: Gen 09, 2021 alle 14:49
 -- Versione del server: 10.1.19-MariaDB
 -- Versione PHP: 5.6.28
 
@@ -63,11 +63,12 @@ INSERT INTO `chitarra` (`cod_chitarra`, `legno_manico`, `legno_corpo`, `tipo_chi
 (2, 'mogano', 'palissandro', 'Elettrica'),
 (3, 'acero', 'acero', 'Elettrica'),
 (7, 'abete', 'acero', 'Semiacustica'),
-(8, 'otano', 'acero', 'Elettrica'),
-(9, 'otano', 'palissandro', 'Elettrica'),
+(8, 'ontano', 'acero', 'Elettrica'),
+(9, 'ontano', 'palissandro', 'Elettrica'),
 (10, 'mogano', 'abete', 'Acustica'),
 (12, 'acero', 'palissandro', 'Elettrica'),
-(13, 'mogano', 'abete', 'Classica');
+(13, 'mogano', 'abete', 'Classica'),
+(14, 'ontano', 'acero', 'Elettrica');
 
 -- --------------------------------------------------------
 
@@ -210,7 +211,8 @@ INSERT INTO `immagine` (`id_immagine`, `path`, `long_desc`, `short_desc`, `codic
 (10, 'Images/Marco_polo_so.jpg', 'da fare', 'anteprima Eko Marco Polo SO in vendita', 10),
 (11, 'Images/Axis_capo_gold.jpg', 'da fare', 'anteprima ErnieBall Axis Gold in vendita', 11),
 (13, 'Images/Roadcore_premium.jpg', 'da fare', 'anteprima Ibanez Roadcore Premium da inserire', 12),
-(14, 'Images/Cort_AC100.jpg', 'da fare', 'anteprima Cort AC100 in vendita', 13);
+(14, 'Images/Cort_AC100.jpg', 'da fare', 'anteprima Cort AC100 in vendita', 13),
+(15, 'Images/Telecaster.jpg', 'da fare', 'anteprima Fender Telecaster MN in vendita', 14);
 
 -- --------------------------------------------------------
 
@@ -243,7 +245,8 @@ INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione
 (10, 'Marco Polo SO', 'Eko', 'Marco Polo SO &egrave; la chitarra di <span xml:lang="en" >Eko Guitars</span> costruita con corpo in Abete Italiano, fasce e fondo in palissandro e manico in Mogano. Grazie alle sue dimensioni ridotte, scala da 610 millimetri e larghezza al capotasto da 43 millimetri, la Marco Polo SO &egrave; la chitarra da viaggio ideale per il musicista sempre in movimento.', 689.99),
 (11, 'Axis Capo Gold', 'ErnieBall', 'Le caratteristiche ergonomiche di <span xml:lang="en" >ErnieBall</span> <span xml:lang="en" >Axis</span> Capo consentono cambi di chiavi con una sola mano veloci e precisi. Il <span xml:lang="en" >design</span> a doppio raggio &egrave; conforme alle tastiere piatte o curve, assicurando un funzionamento senza ronzio su chitarre elettriche e acustiche a 6 o 7 corde.\r\nAdatto a tutti i tipi di chitarra', 12.00),
 (12, 'Roadcore Premium', 'Ibanez', 'L''<span xml:lang="en" >Ibanez</span> <span xml:lang="en" >Roadcore</span> <span xml:lang="en" >Premium</span> dispone di un corpo in palissandro e un manico in acero con una tastiera in palissandro. Il suono  caldo di questo strumento &egrave; generato dai <span xml:lang="en" >pickup</span> cromati. Dispone inoltre di un custodia rigida inclusa.', 799.99),
-(13, 'AC100', 'Cort ', 'I modelli in stile AC tradizionali sono stati rielaborati per migliorare la risonanza e per ottenere un suono di chitarra classica autentico. La buona combinazione di legni produce un suono tradizionale, profondo e piacevolmente morbido. La serie <span xml:lang="en" >Cort</span> AC &egrave; molto indulgente verso gli errori degli studenti, poich&egrave; richiede meno precisione e nitidezza per avere un buon suono.', 160.00);
+(13, 'AC100', 'Cort ', 'I modelli in stile AC tradizionali sono stati rielaborati per migliorare la risonanza e per ottenere un suono di chitarra classica autentico. La buona combinazione di legni produce un suono tradizionale, profondo e piacevolmente morbido. La serie <span xml:lang="en" >Cort</span> AC &egrave; molto indulgente verso gli errori degli studenti, poich&egrave; richiede meno precisione e nitidezza per avere un buon suono.', 160.00),
+(14, 'Telecaster MN', 'Fender', 'La <span xml:lang="en" >Telecaster</span> MN &egrave; progettata per l''aspirante chitarrista. Caratterizzata dai toni iconici di <span xml:lang="en" >Fender</span> e dallo stile accoppiato con componenti moderni. Il classico corpo <span xml:lang="en" >Telecaster</span> a singola spalla mancante, realizzato in ontano, offre un suono ben bilanciato e dinamico. Sia il manico che la tastiera sono costruiti in acero, che migliora il tono con un sacco di luminosit&agrave; e sostegno.', 699.99);
 
 -- --------------------------------------------------------
 
@@ -408,12 +411,12 @@ ALTER TABLE `commento`
 -- AUTO_INCREMENT per la tabella `immagine`
 --
 ALTER TABLE `immagine`
-  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- Limiti per le tabelle scaricate
 --
