@@ -77,7 +77,7 @@ class ManageProdotti
     //------------- FILTRI ACCESSORI --------------------
     
 
-    public function filtri_accessori($categoria=NULL, $produttore=NULL, $prezzo=NULL){
+    public function filtri_accessori($categoria=NULL, $produttore=NULL, $prezzo=NULL,$inizio=0,$fine=1000000){
         $query = "SELECT * FROM getAccessori";
         $primo = true;
 
@@ -121,15 +121,16 @@ class ManageProdotti
             }
             
         }
-        
+        $query .=" LIMIT ".$inizio.",".$fine;
         return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
         
     }
 
+   
     
     //------------- FILTRI CHITARRE --------------------
 
-    public function filtri_chitarre($categoria=NULL, $produttore=NULL, $prezzo=NULL){
+    public function filtri_chitarre($categoria=NULL, $produttore=NULL, $prezzo=NULL,$inizio=0,$fine=1000000){
 
        
         $query = "SELECT * FROM getChitarre";
@@ -175,7 +176,7 @@ class ManageProdotti
             }
             
         }
-        
+        $query .=" LIMIT ".$inizio.",".$fine;
         return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
         
     }

@@ -123,26 +123,16 @@ $contenuto_pagina .=$filtri;
 
 
 $contenuto_pagina .='<ul class="page_prodotti chitCard">';
-$prodotti_manage = new ManageProdotti();
-
+$prodotti_count = new ManageProdotti();
+$prodotti_get=new ManageProdotti();
 if($categoria == "accessori"){
-    $prodotti_database = $prodotti_manage->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo);
+    $prodotti_database = $prodotti_count->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo);
 }else{
-    $prodotti_database = $prodotti_manage->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo);
+    $prodotti_database = $prodotti_count->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo);
 }
 
 /*------IMPAGINAZIONE PRODOTTI---*/
-/*$manage_numero_prodotti=new ManageProdotti();
-if($categoria=='chitarre')
-{
-	$numero_prodotti=$manage_numero_prodotti->get_numero_chitarre();
-}
-else
-{
-	$numero_prodotti=$manage_numero_prodotti->get_numero_accessori();
-}
-foreach($numero_prodotti as $num)
-{$num_pagine=ceil($num['Num']/8);}*/
+
 if(isset($_REQUEST['pagina']))
 {
     $pagina_corrente=$_REQUEST['pagina'];
@@ -152,12 +142,21 @@ else
     $pagina_corrente=1;
 }
 $numero_prodotti=0;
+
 foreach($prodotti_database as $p)
 {
     $numero_prodotti+=1;
 }
 
 $num_pagine=ceil($numero_prodotti/8);
+
+ $fine=$pagina_corrente*8;
+ $inizio=$fine-8;
+if($categoria == "accessori"){
+    $prodotti_database = $prodotti_get->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
+}else{
+    $prodotti_database = $prodotti_get->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
+}
 
 
 
@@ -181,7 +180,7 @@ if($pagina_corrente!=1)
 $contenuto_pagina.='<p>'.$pagina_corrente.'/'.$num_pagine.'</p>';
 if($pagina_corrente!=$num_pagine)
 {
-    $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente+1).'" >Avanti</a>';
+    $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" >Avanti</a>';
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 
