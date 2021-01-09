@@ -132,7 +132,7 @@ if($categoria == "accessori"){
 }
 
 /*------IMPAGINAZIONE PRODOTTI---*/
-$manage_numero_prodotti=new ManageProdotti();
+/*$manage_numero_prodotti=new ManageProdotti();
 if($categoria=='chitarre')
 {
 	$numero_prodotti=$manage_numero_prodotti->get_numero_chitarre();
@@ -142,14 +142,25 @@ else
 	$numero_prodotti=$manage_numero_prodotti->get_numero_accessori();
 }
 foreach($numero_prodotti as $num)
-{$num_pagine=ceil($num['Num']/8);}
-
-if (isset($_REQUEST['pagina'])) {
-    
-    $pagina_corrente= 1;
+{$num_pagine=ceil($num['Num']/8);}*/
+if(isset($_REQUEST['pagina']))
+{
+    $pagina_corrente=$_REQUEST['pagina'];
+}
+else
+{
+    $pagina_corrente=1;
+}
+$numero_prodotti=0;
+foreach($prodotti_database as $p)
+{
+    $numero_prodotti+=1;
 }
 
-$pagina_corrente=1;
+$num_pagine=ceil($numero_prodotti/8);
+
+
+
 
 
 // Predisposizione di un campo nascosto nella carta dove inserire l'id della chitarra , in modo da reindirizzare alla pagina_dettaglio della chitarra
@@ -165,12 +176,12 @@ foreach($prodotti_database as $prodotti)
 $contenuto_pagina .= '</ul></div>';
 if($pagina_corrente!=1)
 {
-    $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina="'. ($pagina_corrente - 1) .'">Indietro</a>';
+    $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'">Indietro</a>';
 }
 $contenuto_pagina.='<p>'.$pagina_corrente.'/'.$num_pagine.'</p>';
 if($pagina_corrente!=$num_pagine)
 {
-    $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagima="' . ($pagina_corrente + 1) .'">Avanti</a>';
+    $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente+1).'" >Avanti</a>';
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 
