@@ -9,9 +9,9 @@ if (!isset($_REQUEST['categoria'])) {
 $tipologia_ricevuta = null;
 $produttore = null;
 $prezzo = null;
-
+$cercato= false;
 if (isset($_REQUEST['cercato'])) {
-    
+    $cercato=true;
     $_REQUEST['categoria']= $_REQUEST['cercato'];
 
 if (isset($_REQUEST['tipologia'])) {
@@ -180,7 +180,12 @@ if($pagina_corrente!=1)
 $contenuto_pagina.='<p>'.$pagina_corrente.'/'.$num_pagine.'</p>';
 if($pagina_corrente!=$num_pagine)
 {
-    $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" >Avanti</a>';
+    if($cercato!=null){
+        $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" >Avanti</a>';
+    }else{
+        $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Avanti</a>';
+    }
+    
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 
