@@ -30,7 +30,7 @@ if ($username == $utente['username'] && $password == $utente['password']) {
 echo "siamo entrati";
 $_SESSION['login_admin']=$username; 
 $_SESSION['psw']=$password;
-header("location: ../Home.php"); // indirizzamento
+header("location: ../Home.php"); // indirizzamento (cambiare)
 } else {
 $error = "Username or Password is invalid";
 }
