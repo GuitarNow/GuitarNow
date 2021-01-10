@@ -52,14 +52,14 @@ body{
 }
 
 
-#accesso{
+#accesso, #logout{
     width:220px;
     float:right; 
     margin-right:2%;   
 }
 
 
-#accedi, #registrati{   
+#accedi, #registrati, #logout{   
     border-right: 1px solid #000;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
@@ -596,4 +596,38 @@ padding-top: 0.5%;
     width:60%;
     margin-bottom: 0.5em;
     margin-top:3%;
+}
+
+/*---------------------------------------------------------------------
+-------------------------modifica creaProdotto Admin------------------------*/
+
+
+#Salva, #Annulla, #Elimina{
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+    width:60%;
+    margin-bottom: 0.5em;
+    margin-top:3%;
+}
+
+#produttore, #prezzo, #codice, textarea{
+    width:60%;
+    margin-bottom: 0.7em;
+}
+
+.form textarea{
+	margin-left:20%;	
+	border:1px solid black;
+	height:12em;
+}
+
+#file{
+    background-color:gray; 
+    margin-left:20%;	
+    border:1px solid black;
+    height: 2em;
 }

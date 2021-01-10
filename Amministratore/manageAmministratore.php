@@ -28,7 +28,7 @@ $utente = mysqli_fetch_assoc($database->get_result_query("select username, passw
 
 if ($username == $utente['username'] && $password == $utente['password']) {
 echo "siamo entrati";
-$_SESSION['login_admin']=$username; 
+$_SESSION['login_user']=$username; 
 $_SESSION['psw']=$password;
 header("location: ../Home.php"); // indirizzamento (cambiare)
 } else {

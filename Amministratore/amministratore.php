@@ -1,7 +1,7 @@
 <?php
 require_once('manageAmministratore.php'); // includo manageAmministratore.php php
 
-if(isset($_SESSION['login_admin'])){
+if(isset($_SESSION['login_user'])){
     header("location: ../Home.php"); // cambiare
     $_SESSION['cnt'] = 0;
 }

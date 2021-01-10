@@ -1,5 +1,5 @@
-<?php
 
+<?php
 include('PHP/back/Session.php');
 
 $id_prodotto = $_GET['prodotto'];
