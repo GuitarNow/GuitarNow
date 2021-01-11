@@ -27,7 +27,7 @@ class ManageProdotti
     }
 
     public function get_tipo_chitarre(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct tipo_chitarra as tipo FROM getChitarre"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct tipologia as tipo FROM getChitarre"), MYSQLI_ASSOC);
     }
 
     public function get_ultimi_arrivi_chitarre(){
