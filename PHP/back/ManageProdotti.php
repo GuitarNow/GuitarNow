@@ -144,7 +144,7 @@ class ManageProdotti
             }else{
                 $query .="AND "; 
             }
-            $query .= "tipo_chitarra ='".$categoria."'";
+            $query .= "tipologia ='".$categoria."'";
             
         }
         if($produttore != NULL)

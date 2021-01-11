@@ -142,50 +142,60 @@ else
     $pagina_corrente=1;
 }
 $numero_prodotti=0;
-
-foreach($prodotti_database as $p)
+if($prodotti_database!=NULL)
 {
-    $numero_prodotti+=1;
-}
-
-$num_pagine=ceil($numero_prodotti/8);
-
- $fine=$pagina_corrente*8;
- $inizio=$fine-8;
-if($categoria == "accessori"){
-    $prodotti_database = $prodotti_get->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
-}else{
-    $prodotti_database = $prodotti_get->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
-}
-
-
-
-
-
-// Predisposizione di un campo nascosto nella carta dove inserire l'id della chitarra , in modo da reindirizzare alla pagina_dettaglio della chitarra
-foreach($prodotti_database as $prodotti)
-{
-    $contenuto_pagina.= '<a class="a_page_prodotti" href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li class="chitarre_prodotti">
-    <img class="chitarre " src="'.$prodotti['path'].'" alt="'.$prodotti['alt'].'" />'.
-    '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
-    '</p><p>'.$prodotti['prezzo'].'€</p>
-    </li></a>';
-}
-
-$contenuto_pagina .= '</ul></div>';
-if($pagina_corrente!=1)
-{
-    $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'">Indietro</a>';
-}
-$contenuto_pagina.='<p>'.$pagina_corrente.'/'.$num_pagine.'</p>';
-if($pagina_corrente!=$num_pagine)
-{
-    if($cercato!=null){
-        $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" >Avanti</a>';
-    }else{
-        $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Avanti</a>';
+    foreach($prodotti_database as $p)
+    {
+        $numero_prodotti+=1;
     }
-    
+}
+
+
+if($numero_prodotti!=0)
+{
+    $num_pagine=ceil($numero_prodotti/8);
+
+    $fine=$pagina_corrente*8;
+    $inizio=$fine-8;
+    if($categoria == "accessori"){
+        $prodotti_database = $prodotti_get->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
+    }else{
+        $prodotti_database = $prodotti_get->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
+    }
+
+
+
+
+
+    // Predisposizione di un campo nascosto nella carta dove inserire l'id della chitarra , in modo da reindirizzare alla pagina_dettaglio della chitarra
+    foreach($prodotti_database as $prodotti)
+    {
+        $contenuto_pagina.= '<a class="a_page_prodotti" href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li class="chitarre_prodotti">
+        <img class="chitarre " src="'.$prodotti['path'].'" alt="'.$prodotti['alt'].'" />'.
+        '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
+        '</p><p>'.$prodotti['prezzo'].'€</p>
+        </li></a>';
+    }
+
+    $contenuto_pagina .= '</ul></div>';
+    if($pagina_corrente!=1)
+    {
+        $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'">Indietro</a>';
+    }
+    $contenuto_pagina.='<p>'.$pagina_corrente.'/'.$num_pagine.'</p>';
+    if($pagina_corrente!=$num_pagine)
+    {
+        if($cercato!=null){
+            $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" >Avanti</a>';
+        }else{
+            $contenuto_pagina.='<a  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Avanti</a>';
+        }
+        
+    }
+}
+else
+{
+    $contenuto_pagina.='<p>Nessun prodotto trovato</p>';
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 
