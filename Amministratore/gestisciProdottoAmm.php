@@ -17,7 +17,7 @@ $web_page = str_replace('<contenuto_to_insert/>', '<div id="contenutoRegistrati"
     <label for="codice">Codice</label>
     <input type="text" name="codice" id="codice" /> 
     <label for="produttore">Produttore</label>
-    <input type="text" name="produttore" id="produttore" maxlength="20" />
+    <input type="text" name="produttore" id="produttoreAmm" maxlength="20" />
     <label for="Descrizione">Descrizione</label>
     <textarea rows=“40" cols="40" name="message"> </textarea>
     <label for="immagine">Importa immagine</label>

@@ -614,7 +614,7 @@ padding-top: 0.5%;
     margin-top:3%;
 }
 
-#produttore, #prezzo, #codice, textarea{
+#produttoreAmm, #prezzo, #codice, textarea{
     width:60%;
     margin-bottom: 0.7em;
 }

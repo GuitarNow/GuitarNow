@@ -183,6 +183,8 @@ if($pagina_corrente!=$num_pagine)
 
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 
+$web_page = str_replace('<action_to_insert/>', '"prodottiAmm.php"', $web_page);
+
 echo $web_page;
 
 ?>
