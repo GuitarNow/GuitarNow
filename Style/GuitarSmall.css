@@ -135,11 +135,8 @@ iframe{
 
 
 
-
 /*-----------------------------------------------------------------------------------------
 --------------------------------PRODOTTI-FILTRI--------------------------------------------*/
-
-
 
 
 
@@ -180,7 +177,7 @@ input[type='radio'] {
 }
 
 #CercaSubmit{
-    margin-left:23%;
+    margin-left:28%;
     margin-bottom: 5%;
     width:200px;
     height: 50px;
@@ -192,23 +189,48 @@ input[type='radio'] {
     display: flex;
 }
 
-
 #menuProdotti a{
-    padding: 0.7em;
-    width:155px;
+    padding: 0.7em 0 0.7em 0;
+    width: 100%;
+}
+
+#menuProdotti  li {
+    padding: unset;
+    flex-grow: 1;
+}
+
+#menuProdotti #btn_chitarre,#menuProdotti #btn_accessori{
+padding: unset;
+}
+
+#menuProdotti .link{
+    padding: 0.7em 0 0.7em 0;
     font-size:2.1em;
     text-align: center;
 }
 
-#btn_accessori, #btn_chitarre{
-    flex-grow: 1;
-}
-
-
-
 #form_filtri{
     display: none;
     
+}
+
+#btnFiltri{
+    display: unset;
+    background-color: #ec9b30;
+    text-align: center;
+    font-size: 2.1em ;
+    width: 100%;
+    position: relative;
+    top: 0.5em;
+    padding: 0.5em 0;
+    
+
+}
+
+#produttore, #tipologia{
+    width: 100%;
+    padding: 0.3em;
+    margin-bottom: 7%;
 }
 
 /*-------------------------------------------------------------------------------------
