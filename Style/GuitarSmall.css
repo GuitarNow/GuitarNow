@@ -215,7 +215,7 @@ padding: unset;
   display: flex;
   width: 100%;
     position: relative;
-   background-color: rgb(226, 226, 226);
+   background-color: #e2e2e2;
 }
 
 #produttore, #tipologia{
@@ -226,7 +226,7 @@ padding: unset;
 
 
 #linea{
-    color: white;
+    color: #e2e2e2;
     height: 1%;
     border-bottom: 2px solid black ;
     width: 60%;
@@ -254,10 +254,13 @@ flex-grow: 1;
  display: unset;
 }
 
-ul.page_prodotti{
-   margin-top: 10em;
+.margin_less{
+    margin-top: 10em;
 }
 
+.margin_plus{
+    margin-top: 54.5em;
+}
 
 
 /*-------------------------------------------------------------------------------------

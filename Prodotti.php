@@ -122,7 +122,7 @@ $contenuto_pagina .=$filtri;
 
 
 
-$contenuto_pagina .='<ul id="pg_prodotti" class="page_prodotti chitCard">';
+$contenuto_pagina .='<ul id="pg_prodotti" class="page_prodotti chitCard margin_less">';
 $prodotti_count = new ManageProdotti();
 $prodotti_get=new ManageProdotti();
 if($categoria == "accessori"){
