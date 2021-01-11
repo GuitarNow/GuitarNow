@@ -58,6 +58,9 @@ body{
     margin-right:2%;   
 }
 
+#logout{
+    width:75%;
+}
 
 #accedi, #registrati, #logout{   
     border-right: 1px solid #000;
@@ -645,4 +648,17 @@ padding-top: 0.5%;
     margin-left:20%;	
     border:1px solid black;
     height: 2em;
+}
+
+#Crea{
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:2.5em;
+    font-size:1.1em;
+    width:60%;
+    margin-bottom: 0.5em;
+    margin-left:40%;
+    width:20%
 }

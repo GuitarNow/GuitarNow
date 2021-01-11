@@ -6,7 +6,7 @@ if(isset($_SESSION['login_user'])){
     $_SESSION['cnt'] = 0;
 }
 
-$web_page = file_get_contents('Amministratore.html');
+$web_page = file_get_contents('templateAmm.html');
 
 $web_page = str_replace('<title_page/>', 'Amministrazione', $web_page);
 
