@@ -52,7 +52,7 @@
 <input type="radio" id="principianti" name="prezzo" value="principiante">
 <label for="principianti">Sotto i 150&#128;</label><br />
 
-<input type="radio" id="intermedia" name="prezzo" value="intermedia">
+<input type="radio" id="intermedia"    name="prezzo" value="intermedia">
 <label for="intermedia">Da 150&#128; a 600&#128;</label><br />
 
 <input type="radio" id="professionale" name="prezzo" value="professionale">
@@ -67,23 +67,4 @@
 </form>
 </div> 
 
-<script>
-    function dNone(){
-        var el = document.getElementById('form_filtri');
-        var pg =  document.getElementById('pg_prodotti');
-       
-        if(el.className==='dN'){
-           
-            el.classList.remove('dN');
-            el.classList.add('dU');
-            pg.classList.remove('margin_less');
-            pg.classList.add('margin_plus');
-        }
-         else{
-            el.classList.remove('dU');
-            el.classList.add('dN');
-            pg.classList.remove('margin_plus');
-            pg.classList.add('margin_less');
-         }
-    }
-</script>
+

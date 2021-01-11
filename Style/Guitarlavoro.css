@@ -433,7 +433,7 @@ padding-top: 0.5%;
 	height:100%;
 	background-color:white;
     float:left;	
-    height: min-content;
+    height: min-content; 
 }
 
 
@@ -576,6 +576,10 @@ padding-top: 0.5%;
 {
     text-align:center;
     
+}
+
+.paginazione{
+    float: right;
 }
 
 /*---------------------------------------------------------------------

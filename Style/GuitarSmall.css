@@ -144,12 +144,10 @@ iframe{
     display: unset;
     position: absolute;
     width: 100%;
+   
 }
 
-#colonna_filtri form fieldset{
-    
-    margin-bottom: 10%;
-}
+
 
 #colonna_filtri form fieldset label{
     font-size:1.8em; 
@@ -157,7 +155,7 @@ iframe{
 }
 
 input[type='radio'] {
-    margin-bottom:5%;
+    margin-bottom:0.5em;
     width: 20px;
     height: 20px;
 }
@@ -177,8 +175,8 @@ input[type='radio'] {
 }
 
 #CercaSubmit{
-    margin-left:28%;
-    margin-bottom: 5%;
+    margin-left:32%;
+    margin-bottom: 1em;
     width:200px;
     height: 50px;
     font-size: 2em;
@@ -211,17 +209,19 @@ padding: unset;
 
 
 
+
 #btnFiltri{
   display: flex;
   width: 100%;
     position: relative;
    background-color: #e2e2e2;
+   padding-bottom: 0.5em;
 }
 
 #produttore, #tipologia{
     width: 100%;
     padding: 0.3em;
-    margin-bottom: 7%;
+    margin-bottom: 1.5em;
 }
 
 
@@ -259,8 +259,9 @@ flex-grow: 1;
 }
 
 .margin_plus{
-    margin-top: 54.5em;
+    margin-top: 44.3em;
 }
+
 
 
 /*-------------------------------------------------------------------------------------
