@@ -59,7 +59,7 @@ body{
 }
 
 #logout{
-    width:75%;
+    width:13%;
 }
 
 #accedi, #registrati, #logout{   
@@ -76,15 +76,11 @@ body{
 }
 
 
-
-
 #accedi{
     padding-left: 1em;
     padding-right:1em;
     margin-right:1%;
 }
-
-
 
 #accedi:hover, #registrati:hover{
 background-color:#392D20;
@@ -620,7 +616,7 @@ padding-top: 0.5%;
 -------------------------modifica creaProdotto Admin------------------------*/
 
 
-#Salva, #Annulla, #Elimina{
+.Salva, .Annulla, #Elimina{
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
@@ -628,7 +624,7 @@ padding-top: 0.5%;
 	height:1.7em;
     font-size:1.1em;
     width:60%;
-    margin-bottom: 0.5em;
+    margin-bottom: 2%;
     margin-top:3%;
 }
 
@@ -641,6 +637,7 @@ padding-top: 0.5%;
 	margin-left:20%;	
 	border:1px solid black;
 	height:12em;
+	 margin-bottom: 3%;
 }
 
 #file{
@@ -648,6 +645,10 @@ padding-top: 0.5%;
     margin-left:20%;	
     border:1px solid black;
     height: 2em;
+    font-size:0.8em;
+    width:60%;
+    padding:0.1em;
+    margin-bottom: 3%;
 }
 
 #Crea{
@@ -661,4 +662,21 @@ padding-top: 0.5%;
     margin-bottom: 0.5em;
     margin-left:40%;
     width:20%
+}
+
+#produttoreAmm, #tipologiaAmm{
+   margin-left: 20%;
+   height: 1.7em;
+   width: 60%;
+   font-size:1em;
+   margin-bottom: 3%;
+}
+
+#formElimina{
+	margin-top: -10%;
+    border-top: #A0A0A0;
+}
+
+#formSopra{
+	border-bottom: #A0A0A0;
 }
