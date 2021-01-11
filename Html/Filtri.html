@@ -7,7 +7,12 @@
     <!--buttare in php-->
 
 </ul>
-<a  id="btnFiltri" onclick="dNone()">Filtri</a>
+<a  id="btnFiltri" onclick="dNone()">
+    <div id="linea">.</div>
+    <p id="text_filtri">  FILTRI</p>
+    <img id="logo_filtri" src="Images/logo_filtri.png">
+
+</a>
 
 
 <form id="form_filtri" class="dN" action=<action_to_insert/> method="GET">
@@ -65,13 +70,17 @@
 <script>
     function dNone(){
         var el = document.getElementById('form_filtri');
+         
         if(el.className==='dN'){
-            el.style.display='unset';
+           
             el.classList.remove('dN');
+            el.classList.add('dU');
+            document.getElementById('pg_prodotti').style.marginTop="54.5em";
         }
          else{
-            el.style.display='none';
+            el.classList.remove('dU');
             el.classList.add('dN');
+            document.getElementById('pg_prodotti').style.marginTop="10em";
          }
     }
 </script>
