@@ -305,6 +305,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`username`, `password`, `email`, `permessi`) VALUES
 ('Marco90', '134', 'marco.rossi@yhaoo.com', 0),
+('admin', 'admin', 'admini@gmail.com', 1),
 ('Mark', '123', 'mark@gamil.com', 0);
 
 -- --------------------------------------------------------

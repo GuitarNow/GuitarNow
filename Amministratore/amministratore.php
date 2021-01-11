@@ -2,7 +2,7 @@
 require_once('manageAmministratore.php'); // includo manageAmministratore.php php
 
 if(isset($_SESSION['login_user'])){
-    header("location: ../Home.php"); // cambiare
+    header("location: prodottiAmm.php"); // cambiare
     $_SESSION['cnt'] = 0;
 }
 
