@@ -484,6 +484,21 @@ padding-top: 0.5%;
 
 #produttore, #tipologia{
     width: 100%;
+    padding: 0.3em;
+    margin-bottom: 7%;
+}
+
+#CercaSubmit{
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+    width:60%;
+    margin-bottom: 4%;
+    margin-top:4%;
+    margin-left:16%;
 }
 
 /*--------------------------------------------------------------------------
