@@ -15,13 +15,28 @@ $web_page = str_replace('<contenuto_to_insert/>', '<div id="contenutoRegistrati"
     
     <img src="../Images/logo_bianco.png" alt="" />
     <label for="codice">Codice</label>
-    <input type="text" name="codice" id="codice" /> 
+    <input type="text" name="codice" id="codice" placeholder="auto" /> 
     <label for="produttore">Produttore</label>
-    <input type="text" name="produttore" id="produttoreAmm" maxlength="20" />
+    <select name="produttoreAmm" id="produttoreAmm">
+            <option>Epiphone</option>
+            <option>Gibson</option>
+            <option>Fender</option>
+            <option>Ibanez</option>
+            <option>Eko</option>
+            <option>Yamaha</option>
+            <option>Cort</option>
+     </select>
+    <label for="tipologia">Tipologia</label>
+    <select name="tipologiaAmm" id="tipologiaAmm">
+        <option>Elettrica</option>
+        <option>Semiacustica</option>
+         <option>Acustica</option>
+         <option>Classica</option>
+    </select>
     <label for="Descrizione">Descrizione</label>
     <textarea rows=“40" cols="40" name="message"> </textarea>
     <label for="immagine">Importa immagine</label>
-    <input type="file" enctype= “multipart/form-data” id="file" />
+    <input type="file"  enctype= “multipart/form-data” id="file" />
     <label for="prezzo">Prezzo</label>
     <input type="text" name="prezzo" id="prezzo" />
     <input type="submit" name="Salva" value="Salva Prodotto" id="Salva" />
