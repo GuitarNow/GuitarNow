@@ -166,7 +166,7 @@ if($categoria == "accessori"){
 foreach($prodotti_database as $prodotti)
 {
     $contenuto_pagina.= '<a class="a_page_prodotti" href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li class="chitarre_prodotti">
-    <img class="chitarre " src="'.$prodotti['path'].'" alt="Chitarra acustica" />'.
+    <img class="chitarre " src="'.$prodotti['path'].'" alt="'.$prodotti['alt'].'" />'.
     '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
     '</p><p>'.$prodotti['prezzo'].'€</p>
     </li></a>';
