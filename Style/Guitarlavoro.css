@@ -342,6 +342,10 @@ iframe{
 	height:2em;
 } 
 
+.form select{
+border:1px solid black;
+height:2em;
+} 
 .form img{
 	width:80%;
 	height:20%;
@@ -580,6 +584,11 @@ padding-top: 0.5%;
 
 .paginazione{
     float: right;
+}
+/*-----------------------Prodotto-------------------------------------*/
+
+#Nessun_prodotto{ 
+    margin-left:25%;
 }
 
 /*---------------------------------------------------------------------

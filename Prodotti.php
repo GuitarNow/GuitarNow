@@ -195,7 +195,7 @@ if($numero_prodotti!=0)
 }
 else
 {
-    $contenuto_pagina.='<p>Nessun prodotto trovato</p>';
+    $contenuto_pagina.='<img src="Images/Nessun_prodotto.png" alt="Nessun prodotto trovato." id="Nessun_prodotto">';
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 

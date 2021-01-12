@@ -80,10 +80,10 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 
 	$sezione_commenti='';
 	$nessun_commento=true;
-	foreach($commenti as $c) /* Gestire caso zero commenti */
+	foreach($commenti as $c) 
 	{		
 		$nessun_commento=false;	
-	$sezione_commenti=$sezione_commenti.'
+		$sezione_commenti=$sezione_commenti.'
 				<ul>
 				<li id="commento">
 				<p>'.$c['username'].'</p>
@@ -91,9 +91,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				<p>'.$c['descrizione'].'</p>
 				<p>Voto: '.$c['voto'].'</p>
 				</li>
-	
-	
-			   </ul>';
+				</ul>';
 	}
 	if($nessun_commento==true)
 	{
