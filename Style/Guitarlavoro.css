@@ -632,16 +632,25 @@ padding-top: 0.5%;
 -------------------------modifica creaProdotto Admin------------------------*/
 
 
-.Salva, .Annulla, #Elimina{
+.Salva, .Annulla, #Elimina, #Modifica{
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
 	color:#DDD;
-	height:1.7em;
+	height:1.8em;
     font-size:1.1em;
-    width:60%;
-    margin-bottom: 2%;
+    width:30%;
+    margin-bottom: 3%;
     margin-top:3%;
+    
+}
+
+#Elimina{
+    margin-left: 5%;
+}
+
+#Modifica{
+    margin-left: 16%;
 }
 
 #produttoreAmm, #prezzo, #codice, textarea{

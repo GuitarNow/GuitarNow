@@ -72,12 +72,16 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	}
 	$contenuto=$contenuto.'</span>
 						   <img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" id="anteprima_img" />
-				           <p>'.$prodotto_selezionato['descrizione'].'</p>
-				           <h2>Sezione commenti</h2>';
+				           <p>'.$prodotto_selezionato['descrizione'].'</p>';
 
+	/*--------BottoniAmm--------*/
+	if($_SESSION['permessi']==1){
+	$bottoniAmm='<input type="button" name="Modifica" value="Modifica Prodotto" id="Modifica" />'.'<input type="submit" name="Elimina" value="Elimina Prodotto" id="Elimina" />';
+	$contenuto=$contenuto.$bottoniAmm;
+	}
 
 	/*------- COMMENTI -------*/
-
+	$contenuto=$contenuto.'<h2>Sezione commenti</h2>';
 	$sezione_commenti='';
 	$nessun_commento=true;
 	foreach($commenti as $c) 
