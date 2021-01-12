@@ -2,6 +2,13 @@
 include('PHP/back/Session.php');
 require_once("PHP/back/ManageProdotti.php");
 
+if(isset($_SESSION['login_user'])){
+	$permessi=$_SESSION['permessi'];
+}
+else{
+	$permessi=-1;
+}
+
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";
 }
@@ -199,7 +206,7 @@ else
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 
-if($_SESSION['permessi']==1){
+if($permessi==1){
     $web_page = str_replace('<amministratorCrea />', 
 ' <hr/>
 <input id="Crea" type="button" name ="Crea" value="Crea" >', $web_page);

@@ -9,6 +9,13 @@ require_once('PHP/back/ManageProdotti.php');
 
 $web_page = file_get_contents('Html/template.html');
 
+if(isset($_SESSION['login_user'])){
+	$permessi=$_SESSION['permessi'];
+}
+else{
+	$permessi=-1;
+}
+
 /*------ QUERY -------*/
 
 $manage_prodoto=new ManageProdotti();
@@ -75,7 +82,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				           <p>'.$prodotto_selezionato['descrizione'].'</p>';
 
 	/*--------BottoniAmm--------*/
-	if($_SESSION['permessi']==1){
+	if($permessi==1){
 	$bottoniAmm='<input type="button" name="Modifica" value="Modifica Prodotto" id="Modifica" />'.'<input type="submit" name="Elimina" value="Elimina Prodotto" id="Elimina" />';
 	$contenuto=$contenuto.$bottoniAmm;
 	}
