@@ -24,12 +24,13 @@ $password = stripslashes($password);
 $username = $database->escape_string($username);
 $password = $database->escape_string($password);
 
-$utente = mysqli_fetch_assoc($database->get_result_query("select username, password from user where (password='$password' AND username='$username') AND permessi = 0"));	
+$utente = mysqli_fetch_assoc($database->get_result_query("select username, password, permessi from user where (password='$password' AND username='$username') "));	
 
 if ($username == $utente['username'] && $password == $utente['password']) {
 echo "siamo entrati";
 $_SESSION['login_user']=$username; 
 $_SESSION['psw']=$password;
+$_SESSION['permessi']=$utente['permessi'];
 header("location: ../../Home.php"); // indirizzamento
 } else {
 $error = "Username or Password is invalid";

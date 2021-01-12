@@ -199,7 +199,11 @@ else
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 
-$web_page = str_replace('<action_to_insert/>', '"prodotti.php"', $web_page);
+if($_SESSION['permessi']==1){
+    $web_page = str_replace('<amministratorCrea />', 
+' <hr/>
+<input id="Crea" type="button" name ="Crea" value="Crea" >', $web_page);
+}
 
 echo $web_page;
 
