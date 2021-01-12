@@ -110,6 +110,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	}
 	$sezione_commenti=$sezione_commenti.'</div>';
 	$contenuto=$contenuto.$sezione_commenti;
+	$contenuto=$contenuto.'<p><a id="floatDestra" href="prodotti.php">Torna ai prodotti</a></p>';
 	$web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
 
 echo $web_page;
