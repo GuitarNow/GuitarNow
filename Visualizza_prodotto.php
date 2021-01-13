@@ -11,9 +11,11 @@ $web_page = file_get_contents('Html/template.html');
 
 if(isset($_SESSION['login_user'])){
 	$permessi=$_SESSION['permessi'];
+	$utente_login=$_SESSION['login_user'];
 }
 else{
 	$permessi=-1;
+	$utente_login="";
 }
 
 /*------ QUERY -------*/
@@ -100,8 +102,11 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				<p>'.$c['username'].'</p>
 				<p>'.$c['data'].'</p>
 				<p>'.$c['descrizione'].'</p>
-				<p>Voto: '.$c['voto'].'</p>
-				</li>
+				<p>Voto: '.$c['voto'].'</p>';
+				if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
+					'<input id="elimina_commento" type="button" name ="Crea" value="Elimina commento" >';
+				}
+				$sezione_commenti.='</li>
 				</ul>';
 	}
 	if($nessun_commento==true)
