@@ -184,7 +184,13 @@ class ManageProdotti
 
 
     
+
+
+
+  //-------------------CREAZIONE PRODOTTI------------------------
+    public function crea_prodotto($produttoreAmm, $tipologia, $descrizione, $prezzo_vendita){
+    $query="INSERT INTO produttore VALUES ".$produttoreAmm.",".$tipologia."," .$descrizione.",". $prezzo_vendita;
+    return $this->prodotto->crea_prodotto($query);
 }
-
-
+}
 ?>

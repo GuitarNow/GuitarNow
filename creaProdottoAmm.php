@@ -102,13 +102,13 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
     </select>';
   }
     $contenuto.='<label for="Descrizione">Descrizione</label>
-    <textarea rows=“40" cols="40" name="message" > </textarea>
+    <textarea rows=“40" cols="40" name="descrizione" > </textarea>
     <label for="immagine">Importa immagine</label>
-    <input type="file"  enctype= “multipart/form-data” id="file"/>
+    <input type="file" name="file" enctype= “multipart/form-data” id="file"/>
     <label for="DescrizioneImmagineL">Descrizione lunga immagine</label>
-    <textarea rows=“40" cols="40" name="message" > </textarea>
+    <textarea rows=“40" cols="40" name="long_desc" > </textarea>
     <label for="DescrizioneImmagineC">Descrizione corta immagine</label>
-    <input type="text" name="immagineC" class="immagineC" placeholder="rappresentazione della chitarra acustica fender" />
+    <input type="text" name="short_desc" class="immagineC" placeholder="rappresentazione della chitarra acustica fender" />
     <label for="prezzo">Prezzo</label>
     <input type="text" name="prezzo" class="prezzo" value="€" />
     <input type="submit" name="Salva" value="Crea Prodotto" class="Salva" />
@@ -119,7 +119,30 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
 </div>';
 $web_page = str_replace('<contenuto_to_insert/>',$contenuto, $web_page);
 
+
+    
+     
+if($categoria == "accessori"){
+    
+    $produttoreAmm = $_POST['produttoreAmm'];
+    $tipologia = $_POST['tipologiaAmm'];
+    }else{
+        $produttoreAmm = $_POST['produttoreAmm'];
+        $tipo_chitarra = $_POST['tipologiaAmm'];
+        $legno_manico = $_POST['legnoManico'];
+        $legno_corpo = $_POST['legnoCorpo'];
+    }
+    $descrizione = $_POST['descrizione'];
+    # $ = $_POST['']; #inserire immagine
+        $long_desc = $_POST['long_desc'];
+        $short_desc = $_POST['short_desc'];
+        $prezzo_vendita = $_POST['prezzo'];
+
+
+    
+
 echo $web_page;
 }
+
 
 ?>
