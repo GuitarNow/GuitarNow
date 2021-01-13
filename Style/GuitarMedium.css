@@ -1,0 +1,52 @@
+.chitCard a, .accCard a{
+    width: 40%;
+    color: #000;
+    text-decoration: none; 
+}
+
+.chitCard, .accCard{
+ margin-left: 10% ;
+ margin-right: 10% ;
+}
+
+.chitCard li, .accCard li{
+  
+    font-size: 1.15em;
+   
+}
+
+.chitCard li.chitarre_prodotti{
+  
+    width: 80%;
+    margin-right: unset;
+}
+
+li.chitarre_prodotti{
+    float: right;
+    margin-left: 1em;
+}
+
+.page_prodotti.chitCard{
+    margin: unset ;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+}
+.chitCard a.a_page_prodotti{
+    width: 33%;
+    
+   
+}
+
+#menuProdotti li{
+    font-size:81.5% ;
+}
+
+li.chitarre_prodotti{
+    font-size: 99%;
+}
+
+.page_prodotti.chitCard{
+    margin-right:1em;
+    margin-left:unset;
+}
+

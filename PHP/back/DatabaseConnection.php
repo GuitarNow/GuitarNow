@@ -43,6 +43,15 @@ class DatabaseConnection
         
     }
 
+    public function delete_query($query){
+
+        if (mysqli_query($this->connection, $query)) {
+            return "eliminazione andata a buon fine";
+            } else {
+            return "Errore durante l'eliminazione: " . mysqli_error($conn);
+            }
+    }
+
 }
 
 ?>

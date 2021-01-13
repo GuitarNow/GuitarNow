@@ -1,26 +1,43 @@
   /*-----------------------------------------------------------------------------------
  ---------------------HEADER-------------------------------------------------------*/
 
- #header{
-    padding-top: 3em;
-    padding-bottom:3em;
+ header{
+    padding-top: 0.1em;
+    padding-bottom:0.1em;
+    display: flex;
+    justify-content: space-between;
  }
 
  #logo{
      width:60%;
+     margin-top: 0.7em ;
+     margin-bottom: 1%;
+     
+  
+     
  }
- 
+
 
  #menu{
      display:block;
      background-image: url('../Images/menumobile.png');
      background-position: center;
-    background-size: 8em 8em;
-    width: 8em;
-    height: 8em;
+     background-repeat: no-repeat;
+    background-size: 100px 100px;
+    width: 110px;
+    height: 110px;
     float:right;
-    margin-right:3%;
+    margin-top:1em;
+    margin-right: 4% ;
+    margin-bottom: 1%;
+    
+ 
+  
  }
+ 
+#accesso{
+    display: none;
+}
 
  #menu a{
      display:none;
@@ -30,16 +47,7 @@
      display:none;
  }
 
- #accesso{
-    display:block;
-    background-image: url('../Images/loginmobile.jpg');
-    background-position: center;
-   background-size: 11em 8em;
-   width: 8em;
-   height: 8em;
-   float:left;
-    margin-left: 3%;
-}
+
 
 #accesso input{
     display:none;
@@ -51,15 +59,22 @@
     display:inline-block; 
     margin-left: 10%;
     width:80%
+    
 }
+
+
 
 .chitarre{
     width:50%;  
 }
 
-.accessori{
-    width:50%;  
+.accessori, .chitarre{
+    width: 13em;
+    height: 13em;
+    margin-bottom: 20px;
+    margin-top: 5px;
 }
+
 
 p{
     font-size:1.8em;
@@ -69,7 +84,205 @@ p{
     font-size:4em;
 }
 
+.chitCard li, .accCard li{
+    
+    height: 400px;
+    
+}
+
+/*--------------------------------------------------------------------------------------
+----------------------------------SERVIZI---------------------------------------------------*/
+
+.img_servizi{
+    display:none;
+}
+
+#contenutoServizi p{
+    padding-bottom: 0.5em;
+    width: 100%;
+}
+
+.email{
+    
+    font-size: 1.6em;
+}
+
+/*------------------------------------------------------------------------------------------------------
+---------------------------------CHISIAMO----------------------------------------------*/
+iframe{
+    width: 100%;
+    position: unset;
+    margin-left: unset;
+    margin-bottom: 3em;
+    height: 400px;
+
+}
+
+#descrizioneChi{
+    margin-right:0;
+    border-right: 0;
+    width: 100%;
+    margin-bottom: unset;
+    
+}
+
+
+/*-----------------------------------------------------------------------------------------
+--------------------------------PRODOTTI---------------------------------------------------*/
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+--------------------------------PRODOTTI-FILTRI--------------------------------------------*/
+
+
+
+#colonna_filtri{
+    display: unset;
+    position: absolute;
+    width: 100%;
+   
+}
+
+
+
+#colonna_filtri form fieldset label{
+    font-size:1.8em; 
+    
+}
+
+input[type='radio'] {
+    margin-bottom:0.5em;
+    width: 20px;
+    height: 20px;
+}
+
+#colonna_filtri form fieldset legend{
+    font-size:1.7em;
+    
+}
+#tipologia{
+    width:300px;
+    font-size:1.9em;
+}
+
+#produttore{
+    width:400px;
+    font-size:1.9em;
+}
+
+#CercaSubmit{
+    margin-left:32%;
+    margin-bottom: 1em;
+    width:200px;
+    height: 50px;
+    font-size: 2em;
+    border: 1px solid #000;
+}
+
+#menuProdotti{
+    display: flex;
+}
+
+#menuProdotti a{
+    padding: 0.7em 0 0.7em 0;
+    width: 100%;
+}
+
+#menuProdotti  li {
+    padding: unset;
+    flex-grow: 1;
+}
+
+#menuProdotti #btn_chitarre,#menuProdotti #btn_accessori{
+padding: unset;
+}
+
+#menuProdotti .link{
+    padding: 0.7em 0 0.7em 0;
+    font-size:2.1em;
+    text-align: center;
+}
+
+
+
+
+#btnFiltri{
+  display: flex;
+  width: 100%;
+    position: relative;
+   background-color: #e2e2e2;
+   padding-bottom: 0.5em;
+}
+
+#produttore, #tipologia{
+    width: 100%;
+    padding: 0.3em;
+    margin-bottom: 1.5em;
+}
+
+
+#linea{
+    color: #e2e2e2;
+    height: 1%;
+    border-bottom: 2px solid black ;
+    width: 60%;
+    margin-right: 10%;
+    position: relative;
+    left: 1.5em;
+    flex-grow: 2;
+}
+
+#text_filtri{
+flex-grow: 1;
+}
+
+#logo_filtri{
+    height: 2.5em;
+    width: 2.2em;
+    flex-grow: 1;
+}
+
+.dN{
+ display: none;
+}
+
+.dU{
+ display: unset;
+}
+
+.margin_less{
+    margin-top: 10em;
+}
+
+.margin_plus{
+    margin-top: 44.3em;
+}
+
+
+
+/*-------------------------------------------------------------------------------------
+------------------------------SPECIFICHEPRODOTTO------------------------------------*/
+
+#specifiche_prodotto
+{
+    width:200px;
+}
 
 
 /*------------------------------------------------------------------------------------
 ------------------------------FOOTER------------------------------------------------*/
+
+.icone_footer{
+    margin-top: 1.3%;
+}
+
+
+
+
+
+
+

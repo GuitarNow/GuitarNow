@@ -27,10 +27,16 @@ class ManageProdotti
     }
 
     public function get_tipo_chitarre(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct tipo_chitarra as tipo FROM getChitarre"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct tipologia as tipo FROM getChitarre"), MYSQLI_ASSOC);
     }
 
+    public function get_ultimi_arrivi_chitarre(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre ORDER BY codice_prodotto DESC LIMIT 4"), MYSQLI_ASSOC);
+    }
 
+    public function get_numero_chitarre(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select count(*) as Num from getChitarre "), MYSQLI_ASSOC);
+    }
     
 
     //------------- ACCESSORI --------------------
@@ -52,18 +58,20 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query("select distinct categoria as tipo FROM getAccessori"), MYSQLI_ASSOC);
     }
 
-    //----------- COMMENTI -----------------------------
-    public function get_commenti($id)
-    {
-        $query="select * FROM getCommenti WHERE codice_prodotto=".$id;
-        return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
+    public function get_ultimi_arrivi_accessori(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori ORDER BY codice_prodotto DESC LIMIT 4"), MYSQLI_ASSOC);
     }
+
+    public function get_numero_accessori(){
+        return mysqli_fetch_all($this->prodotto->get_result_query("select count(*) as Num from getAccessori "), MYSQLI_ASSOC);
+    }
+
 
 
     //------------- FILTRI ACCESSORI --------------------
     
 
-    public function filtri_accessori($categoria=NULL, $produttore=NULL, $prezzo=NULL){
+    public function filtri_accessori($categoria=NULL, $produttore=NULL, $prezzo=NULL,$inizio=0,$fine=1000000){
         $query = "SELECT * FROM getAccessori";
         $primo = true;
 
@@ -107,15 +115,16 @@ class ManageProdotti
             }
             
         }
-        
+        $query .=" LIMIT ".$inizio.",".$fine;
         return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
         
     }
 
+   
     
     //------------- FILTRI CHITARRE --------------------
 
-    public function filtri_chitarre($categoria=NULL, $produttore=NULL, $prezzo=NULL){
+    public function filtri_chitarre($categoria=NULL, $produttore=NULL, $prezzo=NULL,$inizio=0,$fine=1000000){
 
        
         $query = "SELECT * FROM getChitarre";
@@ -129,7 +138,7 @@ class ManageProdotti
             }else{
                 $query .="AND "; 
             }
-            $query .= "tipo_chitarra ='".$categoria."'";
+            $query .= "tipologia ='".$categoria."'";
             
         }
         if($produttore != NULL)
@@ -161,13 +170,23 @@ class ManageProdotti
             }
             
         }
-        
+        $query .=" LIMIT ".$inizio.",".$fine;
         return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
         
     }
 
-    
+    //Delete
+    public function delete_prodotti($id)
+    {
+        $query="DELETE FROM prodotto where codice_prodotto=".$id;
+        return $this->prodotto->delete_query($query);
+    }
+
+  //-------------------CREAZIONE PRODOTTI------------------------
+    public function crea_prodotto($produttore, $modello, $descrizione, $prezzo_vendita){
+    $query="INSERT INTO prodotto (produttore,modello,descrizione,prezzo_vendita) VALUES (".$produttore.",".$modello.",".$descrizione.",". $prezzo_vendita.")";
+    $this->prodotto->get_result_query($query);
+    return $query;
 }
-
-
+}
 ?>

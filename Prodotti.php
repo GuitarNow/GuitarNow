@@ -1,5 +1,13 @@
 <?php
 include('PHP/back/Session.php');
+require_once("PHP/back/ManageProdotti.php");
+
+if(isset($_SESSION['login_user'])){
+	$permessi=$_SESSION['permessi'];
+}
+else{
+	$permessi=-1;
+}
 
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";
@@ -8,9 +16,9 @@ if (!isset($_REQUEST['categoria'])) {
 $tipologia_ricevuta = null;
 $produttore = null;
 $prezzo = null;
-
+$cercato= false;
 if (isset($_REQUEST['cercato'])) {
-    
+    $cercato=true;
     $_REQUEST['categoria']= $_REQUEST['cercato'];
 
 if (isset($_REQUEST['tipologia'])) {
@@ -36,7 +44,7 @@ if (isset($_REQUEST['prezzo'])) {
 
 $categoria = $_REQUEST['categoria'];
 
-require_once("PHP/back/ManageProdotti.php");
+
 
 $web_page = file_get_contents('html/template.html');
 
@@ -57,11 +65,11 @@ $menu_prodotto ="";
 if($categoria == "chitarre" || $categoria == NULL){
     $menu_prodotto = '
 <li id="linkCorrenteProdotti" class="link" role="none" >Chitarre</li> 
-<li class="link" role="none"><a href="Prodotti.php?categoria=accessori" role="menuitem">Accessori</a></li>
+<li id="btn_accessori" class="link" role="none"><a href="Prodotti.php?categoria=accessori" role="menuitem">Accessori</a></li>
     ';
 }elseif($categoria == "accessori"){
     $menu_prodotto = '
-    <li  class="link" role="none"><a href="Prodotti.php?categoria=chitarre" role="menuitem">Chitarre</a></li> 
+    <li id="btn_chitarre" class="link" role="none"><a id="a_chitarre" href="Prodotti.php?categoria=chitarre" role="menuitem">Chitarre</a></li> 
     <li id="linkCorrenteProdotti" class="link" role="none">Accessori</a></li>';
 }
 
@@ -73,6 +81,7 @@ $filtri = str_replace('<menu_prodotti/>', $menu_prodotto, $filtri);
 
 //-------------------FILTRO PRODUTTORI ----------------
 $produttori_manage = new ManageProdotti();
+
 $produttori="";
 $filtro_produttori ="";
 if($categoria == "accessori"){
@@ -120,31 +129,91 @@ $contenuto_pagina .=$filtri;
 
 
 
-$contenuto_pagina .='<ul class="chitCard">';
-$prodotti_manage = new ManageProdotti();
-
+$contenuto_pagina .='<ul id="pg_prodotti" class="page_prodotti chitCard margin_less">';
+$prodotti_count = new ManageProdotti();
+$prodotti_get=new ManageProdotti();
 if($categoria == "accessori"){
-    $prodotti_database = $prodotti_manage->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo);
+    $prodotti_database = $prodotti_count->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo);
 }else{
-    $prodotti_database = $prodotti_manage->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo);
+    $prodotti_database = $prodotti_count->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo);
 }
 
+/*------IMPAGINAZIONE PRODOTTI---*/
 
-
-
-// Predisposizione di un campo nascosto nella carta dove inserire l'id della chitarra , in modo da reindirizzare alla pagina_dettaglio della chitarra
-foreach($prodotti_database as $prodotti)
+if(isset($_REQUEST['pagina']))
 {
-    $contenuto_pagina.= '<a href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li>
-    <img class="chitarre" src="'.$prodotti['path'].'" alt="Chitarra acustica" />'.
-    '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
-    '</p><p>'.$prodotti['prezzo'].'€</p>
-    </li></a>';
+    $pagina_corrente=$_REQUEST['pagina'];
+}
+else
+{
+    $pagina_corrente=1;
+}
+$numero_prodotti=0;
+if($prodotti_database!=NULL)
+{
+    foreach($prodotti_database as $p)
+    {
+        $numero_prodotti+=1;
+    }
 }
 
-$contenuto_pagina .= '</ul></div>';
 
+if($numero_prodotti!=0)
+{
+    $num_pagine=ceil($numero_prodotti/8);
+
+    $fine=$pagina_corrente*8;
+    $inizio=$fine-8;
+    if($categoria == "accessori"){
+        $prodotti_database = $prodotti_get->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
+    }else{
+        $prodotti_database = $prodotti_get->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
+    }
+
+
+
+
+
+    // Predisposizione di un campo nascosto nella carta dove inserire l'id della chitarra , in modo da reindirizzare alla pagina_dettaglio della chitarra
+    foreach($prodotti_database as $prodotti)
+    {
+        $contenuto_pagina.= '<a class="a_page_prodotti" href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li class="chitarre_prodotti">
+        <img class="chitarre " src="'.$prodotti['path'].'" alt="'.'a'/*$prodotti['alt']*/.'" />'.
+        '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
+        '</p><p>'.$prodotti['prezzo'].'€</p>
+        </li></a>';
+    }
+
+    $contenuto_pagina .= '</ul></div>';
+    if($pagina_corrente!=1)
+    {
+        $contenuto_pagina.='<a class="paginazione" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   >Indietro</a>';
+    }
+    $contenuto_pagina.='<p class="paginazione">'.$pagina_corrente.'/'.$num_pagine.'</p>';
+    if($pagina_corrente!=$num_pagine)
+    {
+        if($cercato!=null){
+            $contenuto_pagina.='<a  class="paginazione"  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" >Avanti</a>';
+        }else{
+            $contenuto_pagina.='<a  class="paginazione"   href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Avanti</a>';
+        }
+        
+    }
+}
+else
+{
+    $contenuto_pagina.='<img src="Images/Nessun_prodotto.png" alt="Nessun prodotto trovato." id="Nessun_prodotto">';
+}
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
+
+if($permessi==1){
+    $web_page = str_replace('<amministratorCrea />', 
+' <hr/>
+<input id="Crea" type="button" name ="Crea" value="Crea" >', $web_page);
+}
+else{
+    $web_page = str_replace('<amministratorCrea />','', $web_page);
+}
 
 echo $web_page;
 

@@ -2,12 +2,20 @@
 <div id="colonna_filtri">
 <ul id="menuProdotti" role="menubar">
     <menu_prodotti/>
+   
+    
     <!--buttare in php-->
 
 </ul>
+<a  id="btnFiltri" onclick="dNone()">
+    <div id="linea">-</div>
+    <p id="text_filtri">  FILTRI</p>
+    <img id="logo_filtri" src="Images/logo_filtri.png">
+
+</a>
 
 
-<form action="Prodotti.php" method="GET">
+<form id="form_filtri" class="dN" action="prodotti.php" method="GET">
 <fieldset>
     <legend>Prouttore</legend>
     <select name="produttore" id= "produttore">
@@ -44,17 +52,19 @@
 <input type="radio" id="principianti" name="prezzo" value="principiante">
 <label for="principianti">Sotto i 150&#128;</label><br />
 
-<input type="radio" id="intermedia" name="prezzo" value="intermedia">
+<input type="radio" id="intermedia"    name="prezzo" value="intermedia">
 <label for="intermedia">Da 150&#128; a 600&#128;</label><br />
 
 <input type="radio" id="professionale" name="prezzo" value="professionale">
 <label for="professionale">Sopra i 600&#128;</label><br />
-
+</fieldset>
 
 <categoria_da_passare/>
 <input type="submit" name="Cerca" value="Cerca" id="CercaSubmit" />
 
-
+<amministratorCrea />
  
 </form>
 </div> 
+
+

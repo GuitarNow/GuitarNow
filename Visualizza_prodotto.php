@@ -1,30 +1,48 @@
-<?php
 
+<?php
 include('PHP/back/Session.php');
 
 $id_prodotto = $_GET['prodotto'];
 $tipo_prodotto= $_GET['tipo'];
 
 require_once('PHP/back/ManageProdotti.php');
+require_once('PHP/back/ManageCommenti.php');
 
 $web_page = file_get_contents('Html/template.html');
+
+if(isset($_SESSION['login_user'])){
+	$permessi=$_SESSION['permessi'];
+	$utente_login=$_SESSION['login_user'];
+}
+else{
+	$permessi=-1;
+	$utente_login="";
+}
+
+
+$gia_commentato=false;
 
 /*------ QUERY -------*/
 
 $manage_prodoto=new ManageProdotti();
-$manage_commenti=new ManageProdotti();
+$manage_commenti=new ManageCommenti();
+
 
 $prodotto_selezionato='';
 if($tipo_prodotto=='chitarre')
 {
 	$prodotto_selezionato= $manage_prodoto->get_specifiche_chitarre($id_prodotto);	
+	
 }
 else
 {
 	$prodotto_selezionato= $manage_prodoto->get_specifiche_accessori($id_prodotto);
+	
 }
 
 $commenti=$manage_commenti->get_commenti($id_prodotto);
+
+
 
 
 /*------- DESCRIZIONE PRODOTTO -------*/
@@ -67,35 +85,63 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	}
 	$contenuto=$contenuto.'</span>
 						   <img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" id="anteprima_img" />
-				           <p>'.$prodotto_selezionato['descrizione'].'</p>
-				           <h2>Sezione commenti</h2>';
+				           <p>'.$prodotto_selezionato['descrizione'].'</p>';
 
+	/*--------BottoniAmm--------*/
+	if($permessi==1){
+	$bottoniAmm='<input type="button" name="Modifica" value="Modifica Prodotto" id="Modifica" />'.'<input type="submit" name="Elimina" value="Elimina Prodotto" id="Elimina" />';
+	$contenuto=$contenuto.$bottoniAmm;
+	}
 
 	/*------- COMMENTI -------*/
-
+	$contenuto=$contenuto.'<h2>Sezione commenti</h2>';
 	$sezione_commenti='';
 	$nessun_commento=true;
-	foreach($commenti as $c) /* Gestire caso zero commenti */
+	if($num_commenti>0)
+	{
+		$contenuto.='<ul>';
+	}
+	foreach($commenti as $c) 
 	{		
-		$nessun_commento=false;	
-	$sezione_commenti=$sezione_commenti.'
-				<ul>
+		if ($utente_login==$c['username']){
+			$gia_commentato= true;
+		}
+		$nessun_commento= false;
+		$sezione_commenti=$sezione_commenti.'
+				
 				<li id="commento">
 				<p>'.$c['username'].'</p>
 				<p>'.$c['data'].'</p>
 				<p>'.$c['descrizione'].'</p>
-				<p>Voto: '.$c['voto'].'</p>
-				</li>
-	
-	
-			   </ul>';
+				<p>Voto: '.$c['voto'].'</p>';
+				
+				if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
+
+					$sezione_commenti.='<a  href="PHP/back/DeleteCommenti.php?commento=' . $c['id_commento'] .'">ELIMINA</a>	';			
+				}
+				$sezione_commenti.='</li>
+				';
+	}
+	if($num_commenti>0)
+	{
+		$contenuto.='<ul>';
 	}
 	if($nessun_commento==true)
 	{
-		$sezione_commenti='<p>Nessun commento disponibile</p>';
+		$sezione_commenti='<p id="commentonascosto">Nessun commento disponibile</p>';
 	}
-	$sezione_commenti=$sezione_commenti.'</div>';
+
+	
+	
+	$sezione_commenti=$sezione_commenti;
 	$contenuto=$contenuto.$sezione_commenti;
+	
+	if($permessi==0 && $gia_commentato==false)
+	{
+		
+		$contenuto.='</br><a href="Inserisci_commento.php" class="bottone_std">Commenta</a>';
+	}
+	$contenuto=$contenuto.'</div><p><a id="floatDestra" class="aiuto" href="prodotti.php">Torna ai prodotti</a></p>';
 	$web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
 
 echo $web_page;
