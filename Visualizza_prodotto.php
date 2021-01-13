@@ -4,6 +4,7 @@ include('PHP/back/Session.php');
 
 $id_prodotto = $_GET['prodotto'];
 $tipo_prodotto= $_GET['tipo'];
+$nessun_commento=false;	
 
 require_once('PHP/back/ManageProdotti.php');
 
@@ -95,7 +96,9 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	$nessun_commento=true;
 	foreach($commenti as $c) 
 	{		
-		$nessun_commento=false;	
+		if ($utente_login==$c['username']){
+			$nessun_commento= true;
+		}
 		$sezione_commenti=$sezione_commenti.'
 				<ul>
 				<li id="commento">
@@ -103,9 +106,8 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				<p>'.$c['data'].'</p>
 				<p>'.$c['descrizione'].'</p>
 				<p>Voto: '.$c['voto'].'</p>';
-				if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
-					'<input id="elimina_commento" type="button" name ="Crea" value="Elimina commento" >';
-				}
+				//if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
+			//		'<a  href="" >ELIMINA</a>'				}
 				$sezione_commenti.='</li>
 				</ul>';
 	}
