@@ -5,8 +5,6 @@ include('PHP/back/Session.php');
 $id_prodotto = $_GET['prodotto'];
 $tipo_prodotto= $_GET['tipo'];
 
-$nessun_commento=false;	
-
 require_once('PHP/back/ManageProdotti.php');
 require_once('PHP/back/ManageCommenti.php');
 
@@ -20,6 +18,9 @@ else{
 	$permessi=-1;
 	$utente_login="";
 }
+
+
+$gia_commentato=false;
 
 /*------ QUERY -------*/
 
@@ -95,13 +96,13 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	/*------- COMMENTI -------*/
 	$contenuto=$contenuto.'<h2>Sezione commenti</h2>';
 	$sezione_commenti='';
-	
+	$nessun_commento=true;
 	foreach($commenti as $c) 
 	{		
 		if ($utente_login==$c['username']){
-			$nessun_commento= true;
+			$gia_commentato= true;
 		}
-		$nessun_commento= true;
+		$nessun_commento= false;
 		$sezione_commenti=$sezione_commenti.'
 				<ul>
 				<li id="commento">
@@ -121,7 +122,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 		$sezione_commenti='<p>Nessun commento disponibile</p>';
 	}
 
-	$gia_commentato=false;
+	
 	
 	$sezione_commenti=$sezione_commenti;
 	$contenuto=$contenuto.$sezione_commenti;
@@ -129,10 +130,9 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	if($permessi==0 && $gia_commentato==false)
 	{
 		
-		$contenuto.='</br><a href="Inserisci_commento.php" class="bottone_std">Commenta</a>';
+		$contenuto.='<input type="submit" action="" name="Aggiungi commmento" vlaue="Aggiungi commento" ></div>';
 	}
-
-	$contenuto=$contenuto.'</div><p><a id="floatDestra" href="prodotti.php">Torna ai prodotti</a></p>';
+	$contenuto=$contenuto.'<p><a id="floatDestra" href="prodotti.php">Torna ai prodotti</a></p>';
 	$web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
 
 echo $web_page;
