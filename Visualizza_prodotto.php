@@ -114,9 +114,10 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				<p>'.$c['data'].'</p>
 				<p>'.$c['descrizione'].'</p>
 				<p>Voto: '.$c['voto'].'</p>';
+				
 				if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
 
-					'<a  href="PHP/back/DeleteCommenti.php?commento=' . $c['id_commento'] .'">ELIMINA</a>	';			
+					$sezione_commenti.='<a  href="PHP/back/DeleteCommenti.php?commento=' . $c['id_commento'] .'">ELIMINA</a>	';			
 				}
 				$sezione_commenti.='</li>
 				';
