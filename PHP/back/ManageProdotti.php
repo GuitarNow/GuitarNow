@@ -66,12 +66,6 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query("select count(*) as Num from getAccessori "), MYSQLI_ASSOC);
     }
 
-    //----------- COMMENTI -----------------------------
-    public function get_commenti($id)
-    {
-        $query="select * FROM getCommenti WHERE codice_prodotto=".$id;
-        return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
-    }
 
 
     //------------- FILTRI ACCESSORI --------------------
@@ -180,6 +174,14 @@ class ManageProdotti
         return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
         
     }
+
+    //Delete
+    public function delete_prodotti($id)
+    {
+        $query="DELETE FROM prodotto where codice_prodotto=".$id;
+        return $this->prodotto->delete_query($query);
+    }
+
 
     
 }
