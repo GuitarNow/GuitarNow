@@ -49,7 +49,7 @@ $categoria = $_REQUEST['categoria'];
 
 $contenuto='<div id="contenutoRegistrati" class="contenuto">
 
-    <form method="post" class="form" id="formCrea" action="prodotti.php" >
+    <form method="post" class="form" id="formCrea" action="creaProdottoAmm.php" >
     <fieldset>
     
     <img src="Images/logo_bianco.png" alt="" />
@@ -137,6 +137,10 @@ if($categoria == "accessori"){
         $long_desc = $_POST['long_desc'];
         $short_desc = $_POST['short_desc'];
         $prezzo_vendita = $_POST['prezzo'];
+
+    $creazione = new ManageProdotti();
+    $creazione->crea_prodotto($produttoreAmm, $tipologia, $descrizione, $prezzo_vendita);
+
     }
     
 
