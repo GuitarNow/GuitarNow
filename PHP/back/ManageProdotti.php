@@ -190,7 +190,9 @@ class ManageProdotti
   //-------------------CREAZIONE PRODOTTI------------------------
     public function crea_prodotto($produttoreAmm, $tipologia, $descrizione, $prezzo_vendita){
     $query="INSERT INTO prodotto (produttore,modello,descrizione,prezzo_vendita) VALUES (".$produttoreAmm.",".$tipologia."," .$descrizione.",". $prezzo_vendita.")";
-    return $this->prodotto->crea_prodotto($query);
+    echo $query;
+    $this->prodotto->get_result_query($query);
+    return $query;
 }
 }
 ?>

@@ -47,6 +47,32 @@ if (isset($_REQUEST['prezzo'])) {
 $categoria = $_REQUEST['categoria'];
 
 
+if(isset($_REQUEST['prezzo'])){
+if($categoria == "accessori"){
+    
+        $produttoreAmm = $_POST['produttoreAmm'];
+    $tipologia = $_POST['tipologiaAmm'];
+    }else{
+        $produttoreAmm = $_POST['produttoreAmm'];
+        $tipo_chitarra = $_POST['tipologiaAmm'];
+        $legno_manico = $_POST['legnoManico'];
+        $legno_corpo = $_POST['legnoCorpo'];
+    }
+    $descrizione = $_POST['descrizione'];
+    # $ = $_POST['']; #inserire immagine
+        $long_desc = $_POST['long_desc'];
+        $short_desc = $_POST['short_desc'];
+        $prezzo_vendita = $_POST['prezzo'];
+
+    $creazione = new ManageProdotti();
+    echo "ciao";
+    echo $creazione->crea_prodotto($produttoreAmm, $tipologia, $descrizione, $prezzo_vendita);
+    
+    }
+    
+
+
+
 $contenuto='<div id="contenutoRegistrati" class="contenuto">
 
     <form method="post" class="form" id="formCrea" action="creaProdottoAmm.php" >
@@ -111,7 +137,7 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
     <input type="text" name="short_desc" class="immagineC" placeholder="rappresentazione della chitarra acustica fender" />
     <label for="prezzo">Prezzo</label>
     <input type="text" name="prezzo" class="prezzo" value="€" />
-    <input type="submit" name="Salva" value="Crea Prodotto" class="Salva" />
+    <input type="submit" name="Salva" value="Salva" class="Salva" />
     <input type="submit" name="Annulla" value="Annulla" class="Annulla"  />  
     </fieldset>
     </form>
@@ -120,28 +146,6 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
 $web_page = str_replace('<contenuto_to_insert/>',$contenuto, $web_page);
 
 
-    
-     
-if($categoria == "accessori"){
-    if(isset($_POST['Salva'])){
-        $produttoreAmm = $_POST['produttoreAmm'];
-    $tipologia = $_POST['tipologiaAmm'];
-    }else{
-        $produttoreAmm = $_POST['produttoreAmm'];
-        $tipo_chitarra = $_POST['tipologiaAmm'];
-        $legno_manico = $_POST['legnoManico'];
-        $legno_corpo = $_POST['legnoCorpo'];
-    }
-    $descrizione = $_POST['descrizione'];
-    # $ = $_POST['']; #inserire immagine
-        $long_desc = $_POST['long_desc'];
-        $short_desc = $_POST['short_desc'];
-        $prezzo_vendita = $_POST['prezzo'];
-
-    $creazione = new ManageProdotti();
-    $creazione->crea_prodotto($produttoreAmm, $tipologia, $descrizione, $prezzo_vendita);
-
-    }
     
 
 
