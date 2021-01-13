@@ -20,7 +20,7 @@ class ManageCommenti
     public function delete_commenti($id)
     {
         $query="DELETE FROM commenti where id_commento=".$id;
-        return mysqli_fetch_all($this->prodotto->delete_query($query), MYSQLI_ASSOC);
+        return $this->prodotto->delete_query($query)
     }
 
 
