@@ -127,7 +127,9 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
      <option>abete</option>
     </select>';
   }
-    $contenuto.='<label for="Descrizione">Descrizione</label>
+    $contenuto.='<label for="modello">Modello</label>
+    <input type="text" name="modello" class="modello"  />
+    <label for="Descrizione">Descrizione</label>
     <textarea rows=“40" cols="40" name="descrizione" > </textarea>
     <label for="immagine">Importa immagine</label>
     <input type="file" name="file" enctype= “multipart/form-data” id="file"/>

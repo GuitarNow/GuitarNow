@@ -684,7 +684,7 @@ padding-top: 0.5%;
     margin-left: 16%;
 }
 
-.produttoreAmm, .prezzo, .tipologiaAmm, textarea, .legnoManico, .legnoCorpo, .immagineC{
+.produttoreAmm, .prezzo, .tipologiaAmm, textarea, .legnoManico, .legnoCorpo, .immagineC, .modello{
     width:60%;
     margin-bottom: 0.7em;
 }
