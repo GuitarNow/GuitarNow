@@ -97,8 +97,10 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	$contenuto=$contenuto.'<h2>Sezione commenti</h2>';
 	$sezione_commenti='';
 	$nessun_commento=true;
-	echo $permessi;
-	echo $utente_login;
+	if($num_commenti>0)
+	{
+		$contenuto.='<ul>';
+	}
 	foreach($commenti as $c) 
 	{		
 		if ($utente_login==$c['username']){
@@ -106,18 +108,23 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 		}
 		$nessun_commento= false;
 		$sezione_commenti=$sezione_commenti.'
-				<ul>
+				
 				<li id="commento">
 				<p>'.$c['username'].'</p>
 				<p>'.$c['data'].'</p>
 				<p>'.$c['descrizione'].'</p>
 				<p>Voto: '.$c['voto'].'</p>';
+				
 				if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
 
-					'<a  href="PHP/back/DeleteCommenti.php?commento=' . $c['id_commento'] .'">ELIMINA</a>	';			
+					$sezione_commenti.='<a  href="PHP/back/DeleteCommenti.php?commento=' . $c['id_commento'] .'">ELIMINA</a>	';			
 				}
 				$sezione_commenti.='</li>
-				</ul>';
+				';
+	}
+	if($num_commenti>0)
+	{
+		$contenuto.='<ul>';
 	}
 	if($nessun_commento==true)
 	{
@@ -134,7 +141,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 		
 		$contenuto.='</br><a href="Inserisci_commento.php" class="bottone_std">Commenta</a>';
 	}
-	$contenuto=$contenuto.'<p><a id="floatDestra" href="prodotti.php">Torna ai prodotti</a></p>';
+	$contenuto=$contenuto.'</div><p><a id="floatDestra" href="prodotti.php">Torna ai prodotti</a></p>';
 	$web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
 
 echo $web_page;
