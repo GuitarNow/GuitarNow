@@ -211,6 +211,9 @@ if($permessi==1){
 ' <hr/>
 <input id="Crea" type="button" name ="Crea" value="Crea" >', $web_page);
 }
+else{
+    $web_page = str_replace('<amministratorCrea />','', $web_page);
+}
 
 echo $web_page;
 

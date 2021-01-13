@@ -115,8 +115,17 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	{
 		$sezione_commenti='<p>Nessun commento disponibile</p>';
 	}
-	$sezione_commenti=$sezione_commenti.'</div>';
+
+	$gia_commentato=false;
+	
+	$sezione_commenti=$sezione_commenti;
 	$contenuto=$contenuto.$sezione_commenti;
+	
+	if($permessi==0 && $gia_commentato==false)
+	{
+		
+		$contenuto.='<input type="submit" action="" name="Aggiungi commmento" vlaue="Aggiungi commento" ></div>';
+	}
 	$contenuto=$contenuto.'<p><a id="floatDestra" href="prodotti.php">Torna ai prodotti</a></p>';
 	$web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
 
