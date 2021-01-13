@@ -34,7 +34,7 @@ body{
 
 /*--------------------------------------------------------------------------------------
 -----------------------------------------HEADER-------------------------------*/
-#header{   
+header{   
     padding-top: 1em;
     padding-bottom:1em;
     overflow: auto;
@@ -371,7 +371,7 @@ height:2em;
     font-size: 0.7em;
  }
 
-#footer{
+footer{
     background-color: #4E1600;
     color:rgb(255, 255, 255);
     font-style: italic;
