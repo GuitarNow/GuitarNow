@@ -1,3 +1,72 @@
  html{
      font-family: 'Times New Roman', Times, serif;
+     font-size: 12pt;
  }
+
+ #accesso{
+     display:none;
+ }
+
+#menu{
+    display: none;
+}
+
+img{
+    height: 17em;
+    width: 37%;
+}
+
+ #logo{
+     display: none;
+ }
+
+.no{
+    display:none;
+}
+
+.a_page_prodotti, #contenutoHome ul a{
+    color:black;
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+
+ footer img{
+     display:none;
+ }
+
+ #colonna_filtri{
+     display:none;
+ }
+
+ #pg_prodotti ul li{
+    color:black;
+    text-decoration: none;
+}
+
+ .paginazione{
+     display:none;
+ }
+
+ #contenutoServizi img{
+    display:none;
+ }
+
+ iframe{
+     display:none;
+ }
+
+ .aiuto{
+     display:none;
+    }
+
+    #scheda_prodotto ul{
+        display:none;
+    }
+
+#scheda_prodotto h2, #commentonascosto{
+    display:none;
+}

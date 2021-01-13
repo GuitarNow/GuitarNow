@@ -128,7 +128,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	}
 	if($nessun_commento==true)
 	{
-		$sezione_commenti='<p>Nessun commento disponibile</p>';
+		$sezione_commenti='<p id="commentonascosto">Nessun commento disponibile</p>';
 	}
 
 	
@@ -141,7 +141,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 		
 		$contenuto.='</br><a href="Inserisci_commento.php" class="bottone_std">Commenta</a>';
 	}
-	$contenuto=$contenuto.'</div><p><a id="floatDestra" href="prodotti.php">Torna ai prodotti</a></p>';
+	$contenuto=$contenuto.'</div><p><a id="floatDestra" class="aiuto" href="prodotti.php">Torna ai prodotti</a></p>';
 	$web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
 
 echo $web_page;
