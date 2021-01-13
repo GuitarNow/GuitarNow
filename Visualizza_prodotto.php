@@ -4,9 +4,11 @@ include('PHP/back/Session.php');
 
 $id_prodotto = $_GET['prodotto'];
 $tipo_prodotto= $_GET['tipo'];
+
 $nessun_commento=false;	
 
 require_once('PHP/back/ManageProdotti.php');
+require_once('PHP/back/ManageCommenti.php');
 
 $web_page = file_get_contents('Html/template.html');
 
@@ -22,7 +24,7 @@ else{
 /*------ QUERY -------*/
 
 $manage_prodoto=new ManageProdotti();
-$manage_commenti=new ManageProdotti();
+$manage_commenti=new ManageCommenti();
 
 
 $prodotto_selezionato='';
@@ -93,12 +95,13 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	/*------- COMMENTI -------*/
 	$contenuto=$contenuto.'<h2>Sezione commenti</h2>';
 	$sezione_commenti='';
-	$nessun_commento=true;
+	
 	foreach($commenti as $c) 
 	{		
 		if ($utente_login==$c['username']){
 			$nessun_commento= true;
 		}
+		$nessun_commento= true;
 		$sezione_commenti=$sezione_commenti.'
 				<ul>
 				<li id="commento">
@@ -106,8 +109,10 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				<p>'.$c['data'].'</p>
 				<p>'.$c['descrizione'].'</p>
 				<p>Voto: '.$c['voto'].'</p>';
-				//if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
-			//		'<a  href="" >ELIMINA</a>'				}
+				if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
+
+					'<a  href="PHP/back/DeleteCommenti.php?commento=' . $c['id_commento'] .'">ELIMINA</a>	';			
+				}
 				$sezione_commenti.='</li>
 				</ul>';
 	}
