@@ -50,14 +50,15 @@ $categoria = $_REQUEST['categoria'];
 if(isset($_REQUEST['prezzo'])){
 if($categoria == "accessori"){
     
-        $produttoreAmm = $_POST['produttoreAmm'];
-    $tipologia = $_POST['tipologiaAmm'];
+        $produttore = $_POST['produttoreAmm'];
+    $tipologiaAmm = $_POST['tipologiaAmm'];
     }else{
-        $produttoreAmm = $_POST['produttoreAmm'];
+        $produttore = $_POST['produttoreAmm'];
         $tipo_chitarra = $_POST['tipologiaAmm'];
         $legno_manico = $_POST['legnoManico'];
         $legno_corpo = $_POST['legnoCorpo'];
     }
+    $modello = $_POST['modello'];
     $descrizione = $_POST['descrizione'];
     # $ = $_POST['']; #inserire immagine
         $long_desc = $_POST['long_desc'];
@@ -65,8 +66,7 @@ if($categoria == "accessori"){
         $prezzo_vendita = $_POST['prezzo'];
 
     $creazione = new ManageProdotti();
-    echo "ciao";
-    echo $creazione->crea_prodotto($produttoreAmm, $tipologia, $descrizione, $prezzo_vendita);
+   $creazione->crea_prodotto($produttore, $modello, $descrizione, $prezzo_vendita);
     
     }
     
