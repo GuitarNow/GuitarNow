@@ -123,8 +123,8 @@ $web_page = str_replace('<contenuto_to_insert/>',$contenuto, $web_page);
     
      
 if($categoria == "accessori"){
-    
-    $produttoreAmm = $_POST['produttoreAmm'];
+    if(isset($_POST['Salva'])){
+        $produttoreAmm = $_POST['produttoreAmm'];
     $tipologia = $_POST['tipologiaAmm'];
     }else{
         $produttoreAmm = $_POST['produttoreAmm'];
@@ -137,6 +137,8 @@ if($categoria == "accessori"){
         $long_desc = $_POST['long_desc'];
         $short_desc = $_POST['short_desc'];
         $prezzo_vendita = $_POST['prezzo'];
+    }
+    
 
 
     
