@@ -106,7 +106,6 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
     $contenuto.='<label for="Descrizione">Descrizione</label>
     <textarea rows=“40" cols="40" name="message" > </textarea>
     <label for="immagine">Importa immagine</label>
-    <input type="file"  enctype= “multipart/form-data” id="file"/>
     <label for="DescrizioneImmagineL">Descrizione lunga immagine</label>
     <textarea rows=“40" cols="40" name="message" > </textarea>
     <label for="DescrizioneImmagineC">Descrizione corta immagine</label>
