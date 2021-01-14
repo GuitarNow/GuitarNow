@@ -59,16 +59,16 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
     <fieldset>
     
     <img src="Images/logo_bianco.png" alt="" />
-    <label for="produttore">Produttore</label>';
+    <label for="produttoreAmmMod">Produttore</label>';
   if($categoria == "accessori"){
-    $contenuto.='<select name="produttoreAmm" class="produttoreAmm">
+    $contenuto.='<select name="produttoreAmmMod" class="produttoreAmm">
     <option>Daddario</option>
     <option>BOSS/option>
     <option>Fender</option>
     <option>ErnieBall</option>
 </select>
-<label for="tipologia">Tipologia</label>
-<select name="tipologiaAmm" class="tipologiaAmm">
+<label for="tipologiaAmmMod">Tipologia</label>
+<select name="tipologiaAmmMod" class="tipologiaAmm">
 <option>Corde</option>
 <option>Amplificatori</option>
  <option>Effetti</option>
@@ -76,7 +76,7 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
 </select>';
   }else{
       
-    $contenuto.='<select name="produttoreAmm" class="produttoreAmm">
+    $contenuto.='<select name="produttoreAmmMod" class="produttoreAmm">
             <option>Epiphone</option>
             <option>Gibson</option>
             <option>Fender</option>
@@ -85,37 +85,37 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
             <option>Yamaha</option>
             <option>Cort</option>
      </select>
-    <label for="tipologia">Tipologia</label>
-    <select name="tipologiaAmm" class="tipologiaAmm">
+    <label for="tipologiaAmmMod">Tipologia</label>
+    <select name="tipologiaAmmMod" class="tipologiaAmm">
         <option>Elettrica</option>
         <option>Semiacustica</option>
          <option>Acustica</option>
          <option>Classica</option>
     </select>
-    <label for="legnoManico">Legno del manico</label>
-    <select name="legnoManico" class="legnoManico">
+    <label for="legnoManicoMod">Legno del manico</label>
+    <select name="legnoManicoMod" class="legnoManico">
         <option>palissandro</option>
         <option>mogano</option>
          <option>acero</option>
          <option>abete</option>
          <option>ontano</option>
     </select>
-    <label for="legnoCorpo">Legno del corpo</label>
-    <select name="legnoCorpo" class="legnoCorpo">
+    <label for="legnoCorpoMod">Legno del corpo</label>
+    <select name="legnoCorpoMod" class="legnoCorpo">
     <option>palissandro</option>
      <option>acero</option>
      <option>abete</option>
     </select>';
   }
-    $contenuto.='<label for="Descrizione">Descrizione</label>
-    <textarea rows=“40" cols="40" name="message" > </textarea>
-    <label for="DescrizioneImmagineL">Descrizione lunga immagine</label>
-    <textarea rows=“40" cols="40" name="message" > </textarea>
-    <label for="DescrizioneImmagineC">Descrizione corta immagine</label>
-    <input type="text" name="immagineC" class="immagineC" />
-    <label for="prezzo">Prezzo</label>
-    <input type="text" name="prezzo" class="prezzo" />
-    <input type="submit" name="Salva" value="Salva Prodotto" class="Salva" />
+    $contenuto.='<label for="DescrizioneMod">Descrizione</label>
+    <textarea rows=“40" cols="40" name="DescrizioneMod" > </textarea>
+    <label for="DescrizioneImmagineLMod">Descrizione lunga immagine</label>
+    <textarea rows=“40" cols="40" name="long_descMod" > </textarea>
+    <label for="DescrizioneImmagineCMod">Descrizione corta immagine</label>
+    <input type="text" name="immagineCMod" class="immagineC" />
+    <label for="prezzoMod">Prezzo</label>
+    <input type="text" name="prezzoMod" class="prezzo" />
+    <input type="submit" name="SalvaMod" value="Salva Prodotto" class="Salva" />
     <input type="submit" name="Annulla" value="Annulla" class="Annulla"  />  
     </fieldset>
     </form>
