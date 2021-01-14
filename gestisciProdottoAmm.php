@@ -16,6 +16,10 @@ $web_page = str_replace('<title_page/>', "Gestisci Prodotti Amministrazione", $w
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Gestisci Prodotti - Amministrazione", $web_page);
 
 
+$web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="GET">
+    <input  id="logout" type="submit" name ="logout" value="Logout" > 
+     </form> ', $web_page); 
+
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";
 }
@@ -105,7 +109,6 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
   }
     $contenuto.='<label for="Descrizione">Descrizione</label>
     <textarea rows=“40" cols="40" name="message" > </textarea>
-    <label for="immagine">Importa immagine</label>
     <label for="DescrizioneImmagineL">Descrizione lunga immagine</label>
     <textarea rows=“40" cols="40" name="message" > </textarea>
     <label for="DescrizioneImmagineC">Descrizione corta immagine</label>

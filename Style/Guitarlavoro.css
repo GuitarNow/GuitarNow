@@ -52,14 +52,18 @@ header{
 }
 
 
-#accesso, #logout{
+#accesso{
     width:220px;
     float:right; 
     margin-right:2%;   
 }
 
+#accesso form{
+	display:inline;  
+}
+
 #logout{
-    width:13%;
+    width:50%;
 }
 
 #accedi, #registrati, #logout{   
@@ -654,7 +658,7 @@ padding-top: 0.5%;
 -------------------------modifica creaProdotto Admin------------------------*/
 
 
-.Salva, .Annulla, #Elimina, #Modifica{
+ #Elimina, #Modifica{
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
@@ -666,15 +670,6 @@ padding-top: 0.5%;
     margin-top:3%;
 }
 
-#formMod .Salva, #formCrea .Salva{
-	margin-left:22%;
-    width:26%;
-}
-
-#formCrea .Annulla, #formMod .Annulla{
-	margin-left:5%;
-    width:25%;
-}
 
 #Elimina{
     margin-left: 5%;
@@ -733,4 +728,33 @@ padding-top: 0.5%;
 #formMod, #formCrea{
 width:100%;
 margin-left:0;
+}
+
+#scheda_prodotto form{
+    display:inline;
+}
+
+#contenutoRegistrati form .Salva{
+	width:30%;
+	margin-left:35%;
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:2em;
+    font-size:1.1em;
+    margin-bottom:2%;
+    margin-top:2%;
+}
+
+#contenutoRegistrati form .Annulla{
+	width:30%;
+	margin-left:35%;
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:2em;
+    font-size:1.1em;
+    margin-bottom:3%;
 }

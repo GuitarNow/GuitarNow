@@ -2,13 +2,6 @@
 include('PHP/back/Session.php');
 require_once("PHP/back/ManageProdotti.php");
 
-if(isset($_SESSION['login_user'])){
-	$permessi=$_SESSION['permessi'];
-}
-else{
-	$permessi=-1;
-}
-
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";
 }
@@ -59,6 +52,27 @@ $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Chitarre", $web_page);
 
+//login logout
+if(isset($_SESSION['login_user'])){
+	$permessi=$_SESSION['permessi'];
+}
+else{
+	$permessi=-1;
+}
+
+if($permessi==-1){
+$web_page = str_replace('<gestioneAccesso/>', '<form  action="Login.php" method="GET">
+            <input  id="accedi" type="submit" name ="accedi" value="Accedi" >    
+             </form>    
+             <form  action="Registrati.php" method="GET">       
+            <input  id="registrati" type="submit" name="registrati" value="Registrati">
+            </form>', $web_page);
+}
+else{
+    $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="GET">
+    <input  id="logout" type="submit" name ="logout" value="Logout" > 
+     </form> ', $web_page);  
+}
 
 // ----- FILTRO CATEGORIA PRODOTTO -------
 $menu_prodotto ="";
@@ -209,7 +223,9 @@ $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 if($permessi==1){
     $web_page = str_replace('<amministratorCrea />', 
 ' <hr/>
-<input id="Crea" type="button" name ="Crea" value="Crea" >', $web_page);
+<form action="creaProdottoAmm.php" method="GET">
+<input id="Crea" type="submit" name ="Crea" value="Crea" >
+</form>', $web_page);
 }
 else{
     $web_page = str_replace('<amministratorCrea />','', $web_page);

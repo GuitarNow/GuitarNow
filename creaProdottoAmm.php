@@ -14,6 +14,10 @@ $web_page = str_replace('<title_page/>', "Crea Prodotti Amministrazione", $web_p
 
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Crea Prodotto - Amministrazione", $web_page);
 
+$web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="GET">
+    <input  id="logout" type="submit" name ="logout" value="Logout" > 
+     </form> ', $web_page); 
+
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";
 }
@@ -75,9 +79,8 @@ if($categoria == "accessori"){
 
 $contenuto='<div id="contenutoRegistrati" class="contenuto">
 
-    <form method="post" class="form" id="formCrea" action="creaProdottoAmm.php" >
+    <form method="POST" class="form" id="formCrea" action="creaProdottoAmm.php" >    
     <fieldset>
-    
     <img src="Images/logo_bianco.png" alt="" />
     <label for="produttore">Produttore</label>';
   if($categoria == "accessori"){
@@ -139,19 +142,15 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
     <input type="text" name="short_desc" class="immagineC" placeholder="rappresentazione della chitarra acustica fender" />
     <label for="prezzo">Prezzo</label>
     <input type="text" name="prezzo" class="prezzo" value="€" />
-    <input type="submit" name="Salva" value="Salva" class="Salva" />
-    <input type="submit" name="Annulla" value="Annulla" class="Annulla"  />  
+    <input type="submit" name="Salva" value="Crea Prodotto" class="Salva" />   
+    </form>
+    <form method="GET" action="prodotti.php" >
+    <input type="submit" name="Annulla" value="Annulla" class="Annulla"  />
     </fieldset>
     </form>
-    
 </div>';
 $web_page = str_replace('<contenuto_to_insert/>',$contenuto, $web_page);
-
-
-    
-
-
-    
+   
 
 echo $web_page;
 }

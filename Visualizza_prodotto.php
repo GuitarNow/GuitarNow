@@ -43,7 +43,27 @@ else
 $commenti=$manage_commenti->get_commenti($id_prodotto);
 
 
+//login logout
+if(isset($_SESSION['login_user'])){
+	$permessi=$_SESSION['permessi'];
+}
+else{
+	$permessi=-1;
+}
 
+if($permessi==-1){
+$web_page = str_replace('<gestioneAccesso/>', '<form  action="Login.php" method="GET">
+            <input  id="accedi" type="submit" name ="accedi" value="Accedi" >    
+             </form>    
+             <form  action="Registrati.php" method="GET">       
+            <input  id="registrati" type="submit" name="registrati" value="Registrati">
+            </form>', $web_page);
+}
+else{
+    $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="GET">
+    <input  id="logout" type="submit" name ="logout" value="Logout" > 
+     </form> ', $web_page);  
+}
 
 /*------- DESCRIZIONE PRODOTTO -------*/
 
@@ -89,7 +109,8 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 
 	/*--------BottoniAmm--------*/
 	if($permessi==1){
-	$bottoniAmm='<input type="button" name="Modifica" value="Modifica Prodotto" id="Modifica" />'.'<input type="submit" name="Elimina" value="Elimina Prodotto" id="Elimina" />';
+	$bottoniAmm='<form action="gestisciProdottoAmm.php" method="GET"><input type="submit" name="Modifica" value="Modifica Prodotto" id="Modifica" /></form>'.
+	'<form action="prodotti.php" method="GET"><input type="submit" name="Elimina" value="Elimina Prodotto" id="Elimina" /></form>';
 	$contenuto=$contenuto.$bottoniAmm;
 	}
 
