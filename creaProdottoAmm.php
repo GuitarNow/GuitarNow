@@ -51,23 +51,22 @@ if (isset($_REQUEST['prezzo'])) {
 $categoria = $_REQUEST['categoria'];
 
 
-if(isset($_REQUEST['prezzo'])){
+if(isset($_REQUEST['prezzoCrea'])){
 if($categoria == "accessori"){
-    
-        $produttore = $_POST['produttoreAmm'];
-    $tipologiaAmm = $_POST['tipologiaAmm'];
+    $produttore = $_POST['produttoreAmmCreaA'];
+    $tipo = $_POST['tipologiaAmmCreaA'];
     }else{
-        $produttore = $_POST['produttoreAmm'];
-        $tipo_chitarra = $_POST['tipologiaAmm'];
-        $legno_manico = $_POST['legnoManico'];
-        $legno_corpo = $_POST['legnoCorpo'];
+        $produttore = $_POST['produttoreAmmCreaC'];
+        $tipo = $_POST['tipologiaAmmCreaC'];
+        $legno_manico = $_POST['legnoManicoCrea'];
+        $legno_corpo = $_POST['legnoCorpoCrea'];
     }
-    $modello = $_POST['modello'];
-    $descrizione = $_POST['descrizione'];
+    $modello = $_POST['modelloCrea'];
+    $descrizione = $_POST['descrizioneCrea'];
     # $ = $_POST['']; #inserire immagine
-        $long_desc = $_POST['long_desc'];
-        $short_desc = $_POST['short_desc'];
-        $prezzo_vendita = $_POST['prezzo'];
+        $long_desc = $_POST['long_descCrea'];
+        $short_desc = $_POST['short_descCrea'];
+        $prezzo_vendita = $_POST['prezzoCrea'];
 
     $creazione = new ManageProdotti();
    $creazione->crea_prodotto($produttore, $modello, $descrizione, $prezzo_vendita);
@@ -77,21 +76,22 @@ if($categoria == "accessori"){
 
 
 
-$contenuto='<div id="contenutoRegistrati" class="contenuto">
+$contenuto='<div id="contenutoCrea" class="contenuto">
 
     <form method="POST" class="form" id="formCrea" action="creaProdottoAmm.php" >    
     <fieldset>
-    <img src="Images/logo_bianco.png" alt="" />
-    <label for="produttore">Produttore</label>';
+    <img src="Images/logo_bianco.png" alt="" />';
   if($categoria == "accessori"){
-    $contenuto.='<select name="produttoreAmm" class="produttoreAmm">
+    $contenuto.='
+    <label for="produttoreAmmCreaA">Produttore</label>
+    <select name="produttoreAmmCreaA" class="produttoreAmm">
     <option>Daddario</option>
     <option>BOSS/option>
     <option>Fender</option>
     <option>ErnieBall</option>
 </select>
-<label for="tipologia">Tipologia</label>
-<select name="tipologiaAmm" class="tipologiaAmm">
+<label for="tipologiaAmmCreaA">Tipologia</label>
+<select name="tipologiaAmmCreaA" class="tipologiaAmm">
 <option>Corde</option>
 <option>Amplificatori</option>
  <option>Effetti</option>
@@ -99,7 +99,9 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
 </select>';
   }else{
       
-    $contenuto.='<select name="produttoreAmm" class="produttoreAmm">
+    $contenuto.='
+    <label for="produttoreAmmCreaC">Produttore</label>
+    <select name="produttoreAmmCreaC" class="produttoreAmm">
             <option>Epiphone</option>
             <option>Gibson</option>
             <option>Fender</option>
@@ -108,41 +110,41 @@ $contenuto='<div id="contenutoRegistrati" class="contenuto">
             <option>Yamaha</option>
             <option>Cort</option>
      </select>
-    <label for="tipologia">Tipologia</label>
-    <select name="tipologiaAmm" class="tipologiaAmm">
+    <label for="tipologiaAmmCreaC">Tipologia</label>
+    <select name="tipologiaAmmCreaC" class="tipologiaAmm">
         <option>Elettrica</option>
         <option>Semiacustica</option>
          <option>Acustica</option>
          <option>Classica</option>
     </select>
-    <label for="legnoManico">Legno del manico</label>
-    <select name="legnoManico" class="legnoManico">
+    <label for="legnoManicoCrea">Legno del manico</label>
+    <select name="legnoManicoCrea" class="legnoManico">
         <option>palissandro</option>
         <option>mogano</option>
          <option>acero</option>
          <option>abete</option>
          <option>ontano</option>
     </select>
-    <label for="legnoCorpo">Legno del corpo</label>
-    <select name="legnoCorpo" class="legnoCorpo">
+    <label for="legnoCorpoCrea">Legno del corpo</label>
+    <select name="legnoCorpoCrea" class="legnoCorpo">
     <option>palissandro</option>
      <option>acero</option>
      <option>abete</option>
     </select>';
   }
-    $contenuto.='<label for="modello">Modello</label>
-    <input type="text" name="modello" class="modello"  />
-    <label for="Descrizione">Descrizione</label>
-    <textarea rows=“40" cols="40" name="descrizione" > </textarea>
-    <label for="immagine">Importa immagine</label>
+    $contenuto.='<label for="modelloCrea">Modello</label>
+    <input type="text" name="modelloCrea" class="modello"  />
+    <label for="descrizioneCrea">Descrizione</label>
+    <textarea rows=“40" cols="40" name="descrizioneCrea" > </textarea>
+    <label for="immagineCrea">Importa immagine</label>
     <input type="file" name="file" enctype= “multipart/form-data” id="file"/>
-    <label for="DescrizioneImmagineL">Descrizione lunga immagine</label>
-    <textarea rows=“40" cols="40" name="long_desc" > </textarea>
-    <label for="DescrizioneImmagineC">Descrizione corta immagine</label>
-    <input type="text" name="short_desc" class="immagineC" placeholder="rappresentazione della chitarra acustica fender" />
-    <label for="prezzo">Prezzo</label>
-    <input type="text" name="prezzo" class="prezzo" value="€" />
-    <input type="submit" name="Salva" value="Crea Prodotto" class="Salva" />   
+    <label for="DescrizioneImmagineLCrea">Descrizione lunga immagine</label>
+    <textarea rows=“40" cols="40" name="long_descCrea" > </textarea>
+    <label for="DescrizioneImmagineCCrea">Descrizione corta immagine</label>
+    <input type="text" name="short_descCrea" class="immagineC" placeholder="rappresentazione della chitarra acustica fender" />
+    <label for="prezzoCrea">Prezzo</label>
+    <input type="text" name="prezzoCrea" class="prezzo" value="€" />
+    <input type="submit" name="SalvaCrea" value="Crea Prodotto" class="Salva" />   
     </form>
     <form method="GET" action="prodotti.php" >
     <input type="submit" name="Annulla" value="Annulla" class="Annulla"  />
