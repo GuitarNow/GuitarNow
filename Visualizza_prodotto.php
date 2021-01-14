@@ -92,21 +92,24 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	{
 		$valutazione='/';
 	}
+	
 	$contenuto='<div id="scheda_prodotto">
 				<h1>'.$prodotto_selezionato['produttore'].' '.$prodotto_selezionato['modello'].'</h1>
-				<span id="specifiche_prodotto">
-				<p>SPECIFICHE</p>
-				<p>prezzo: '.$prodotto_selezionato['prezzo'].'&#128</p>
-				<p>Voto medio: '.$valutazione.'</p>';
+				<img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" id="anteprima_img" />
+				<span id="prezzo"><p>'.$prodotto_selezionato['prezzo'].'&#128</p></span>
+				<h2>SPECIFICHE</h2>
+				<p>'.$prodotto_selezionato['descrizione'].'</p>';
+	if($valutazione!='/')
+	{
+		$contenuto.='<p>Valutazione media degli utenti: '.$valutazione.' su 5</p>';
+	}			
 	if($tipo_prodotto=='chitarre')
 	{
-		$contenuto=$contenuto.'<p>Manico: '.$prodotto_selezionato['legno_manico'].'</p>
-				  			   <p>Corpo: '.$prodotto_selezionato['legno_corpo'].'</p>';
+		$contenuto.='<p>Legno manico: '.$prodotto_selezionato['legno_manico'].'</p>
+				  	 <p>Legno corpo: '.$prodotto_selezionato['legno_corpo'].'</p>';
 	}
-	$contenuto=$contenuto.'</span>
-						   <img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" id="anteprima_img" />
-				           <p>'.$prodotto_selezionato['descrizione'].'</p>';
-
+	
+	
 	/*--------BottoniAmm--------*/
 	if($permessi==1){
 	$bottoniAmm='<form action="gestisciProdottoAmm.php" method="GET"><input type="submit" name="Modifica" value="Modifica Prodotto" id="Modifica" /></form>'.

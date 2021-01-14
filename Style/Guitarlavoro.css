@@ -513,15 +513,12 @@ padding-top: 0.5%;
    
 /*--------------------------------------------------------------------------
 -----------------------Visualizza prodotto------------------------------------------*/
-#specifiche_prodotto
-{
-    float:right;
-    background-color:#ec9b30;
-    margin-right:10%;
-    border:1px solid black;
-    width:25%;
-    border-radius: 10px;
-    margin-top:3%;
+#prezzo{
+    font-weight: bold;
+    font-size:1.5em;
+    text-align:center;
+    font-family:"Arial", sans-serif;
+    padding-right:20%;
 }
 
 #specifiche_prodotto::first-line
@@ -546,9 +543,9 @@ padding-top: 0.5%;
 
 
 #anteprima_img{
-    width:45%;
+    width:50%;
     height:30%;
-    margin-left:15%;
+    margin-left:25%;
 	margin-top:3%;
 }
 
