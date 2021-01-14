@@ -53,11 +53,11 @@ $categoria = $_REQUEST['categoria'];
 
 if(isset($_REQUEST['prezzoCrea'])){
 if($categoria == "accessori"){
-    $produttoreA = $_POST['produttoreAmmCreaA'];
-    $tipologiaAmmA = $_POST['tipologiaAmmCreaA'];
+    $produttore = $_POST['produttoreAmmCreaA'];
+    $tipo = $_POST['tipologiaAmmCreaA'];
     }else{
-        $produttoreC = $_POST['produttoreAmmCreaC'];
-        $tipo_chitarra = $_POST['tipologiaAmmCreaC'];
+        $produttore = $_POST['produttoreAmmCreaC'];
+        $tipo = $_POST['tipologiaAmmCreaC'];
         $legno_manico = $_POST['legnoManicoCrea'];
         $legno_corpo = $_POST['legnoCorpoCrea'];
     }
@@ -69,7 +69,7 @@ if($categoria == "accessori"){
         $prezzo_vendita = $_POST['prezzoCrea'];
 
     $creazione = new ManageProdotti();
-   $creazione->crea_prodotto($produttoreC, $modello, $descrizione, $prezzo_vendita);
+   $creazione->crea_prodotto($produttore, $modello, $descrizione, $prezzo_vendita);
     
     }
     
