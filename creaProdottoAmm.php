@@ -76,7 +76,7 @@ if($categoria == "accessori"){
 
 
 
-$contenuto='<div id="contenutoRegistrati" class="contenuto">
+$contenuto='<div id="contenutoCrea" class="contenuto">
 
     <form method="POST" class="form" id="formCrea" action="creaProdottoAmm.php" >    
     <fieldset>

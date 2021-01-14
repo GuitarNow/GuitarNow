@@ -734,7 +734,7 @@ margin-left:0;
     display:inline;
 }
 
-#contenutoRegistrati form .Salva{
+#contenutoCrea form .Salva{
 	width:30%;
 	margin-left:35%;
 	background-color:#990000;
@@ -747,7 +747,32 @@ margin-left:0;
     margin-top:2%;
 }
 
-#contenutoRegistrati form .Annulla{
+#contenutoCrea form .Annulla{
+	width:30%;
+	margin-left:35%;
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:2em;
+    font-size:1.1em;
+    margin-bottom:3%;
+}
+
+#contenutoGestisci form .Salva{
+	width:30%;
+	margin-left:35%;
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:2em;
+    font-size:1.1em;
+    margin-bottom:2%;
+    margin-top:2%;
+}
+
+#contenutoGestisci form .Annulla{
 	width:30%;
 	margin-left:35%;
 	background-color:#990000;

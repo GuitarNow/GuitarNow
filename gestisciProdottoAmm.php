@@ -53,7 +53,7 @@ if (isset($_REQUEST['prezzo'])) {
 $categoria = $_REQUEST['categoria'];
 
 
-$contenuto='<div id="contenutoRegistrati" class="contenuto">
+$contenuto='<div id="contenutoGestisci" class="contenuto">
 
     <form method="post" class="form" id="formMod" action="prodotti.php" >
     <fieldset>
