@@ -23,7 +23,7 @@ class ManageCommenti
         return $this->prodotto->delete_query($query);
     }
 
-
+  
 }
 
 
