@@ -83,6 +83,7 @@ $contenuto='<div id="contenutoCrea" class="contenuto">
     <img src="Images/logo_bianco.png" alt="" />';
   if($categoria == "accessori"){
     $contenuto.='
+    <input type="hidden" name="codiceProdottoCrea"" value=""/>
     <label for="produttoreAmmCreaA">Produttore</label>
     <select name="produttoreAmmCreaA" class="produttoreAmm">
     <option>Daddario</option>
