@@ -20,34 +20,15 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
     <input  id="logout" type="submit" name ="logout" value="Logout" > 
      </form> ', $web_page); 
 
+
+
+
+
+
+
+
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";
-}
-
-$tipologia_ricevuta = null;
-$produttore = null;
-$prezzo = null;
-$cercato= false;
-if (isset($_REQUEST['cercato'])) {
-    $cercato=true;
-    $_REQUEST['categoria']= $_REQUEST['cercato'];
-
-if (isset($_REQUEST['tipologia'])) {
-    $tipologia_ricevuta = $_REQUEST['tipologia'];
-    
-}
-
-if (isset($_REQUEST['produttore'])) {
-    $produttore = $_REQUEST['produttore'];
-}
-
-
-if (isset($_REQUEST['prezzo'])) {
-    $prezzo = $_REQUEST['prezzo'];
-
-}
-
-
 }
 
 $categoria = $_REQUEST['categoria'];

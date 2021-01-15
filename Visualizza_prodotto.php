@@ -4,6 +4,7 @@ include('PHP/back/Session.php');
 
 $id_prodotto = $_GET['prodotto'];
 $tipo_prodotto= $_GET['tipo'];
+$categoria = $tipo_prodotto;
 
 require_once('PHP/back/ManageProdotti.php');
 require_once('PHP/back/ManageCommenti.php');
@@ -112,8 +113,9 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	
 	/*--------BottoniAmm--------*/
 	if($permessi==1){
-	$bottoniAmm='<form action="gestisciProdottoAmm.php" method="GET"><input type="submit" name="Modifica" value="Modifica Prodotto" id="Modifica" /></form>'.
-	'<form action="prodotti.php" method="GET"><input type="submit" name="Elimina" value="Elimina Prodotto" id="Elimina" /></form>';
+	$bottoniAmm='<a href="gestisciProdottoAmm.php?categoria='.$categoria.'" id="Modifica" >Modifica</a>'
+	.
+	'<a href="PHP/back/DeleteProduct.php?prodotto='.$id_prodotto.'" id="Elimina" >Elimina</a>';
 	$contenuto=$contenuto.$bottoniAmm;
 	}
 

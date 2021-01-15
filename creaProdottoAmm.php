@@ -26,32 +26,13 @@ $tipologia_ricevuta = null;
 $produttore = null;
 $prezzo = null;
 $cercato= false;
-if (isset($_REQUEST['cercato'])) {
-    $cercato=true;
-    $_REQUEST['categoria']= $_REQUEST['cercato'];
-
-if (isset($_REQUEST['tipologia'])) {
-    $tipologia_ricevuta = $_REQUEST['tipologia'];
-    
-}
-
-if (isset($_REQUEST['produttore'])) {
-    $produttore = $_REQUEST['produttore'];
-}
-
-
-if (isset($_REQUEST['prezzo'])) {
-    $prezzo = $_REQUEST['prezzo'];
-
-}
-
-
-}
 
 $categoria = $_REQUEST['categoria'];
 
 
-if(isset($_REQUEST['prezzoCrea'])){
+
+if(isset($_REQUEST['SalvaCrea'])){
+
 if($categoria == "accessori"){
     $produttore = $_POST['produttoreAmmCreaA'];
     $tipo = $_POST['tipologiaAmmCreaA'];
@@ -101,6 +82,15 @@ $contenuto='<div id="contenutoCrea" class="contenuto">
   }else{
       
     $contenuto.='
+    <input list="browsers" name="browser">
+<datalist id="browsers">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+ 
+</datalist>
     <label for="produttoreAmmCreaC">Produttore</label>
     <select name="produttoreAmmCreaC" class="produttoreAmm">
             <option>Epiphone</option>
@@ -135,6 +125,7 @@ $contenuto='<div id="contenutoCrea" class="contenuto">
   }
     $contenuto.='<label for="modelloCrea">Modello</label>
     <input type="text" name="modelloCrea" class="modello"  />
+
     <label for="descrizioneCrea">Descrizione</label>
     <textarea rows=“40" cols="40" name="descrizioneCrea" > </textarea>
     <label for="immagineCrea">Importa immagine</label>
@@ -144,7 +135,7 @@ $contenuto='<div id="contenutoCrea" class="contenuto">
     <label for="DescrizioneImmagineCCrea">Descrizione corta immagine</label>
     <input type="text" name="short_descCrea" class="immagineC" placeholder="rappresentazione della chitarra acustica fender" />
     <label for="prezzoCrea">Prezzo</label>
-    <input type="text" name="prezzoCrea" class="prezzo" value="€" />
+    <input type="text" name="prezzoCrea" class="prezzo" placeholder="€" value="" />
     <input type="submit" name="SalvaCrea" value="Crea Prodotto" class="Salva" />   
     </form>
     <form method="GET" action="prodotti.php" >

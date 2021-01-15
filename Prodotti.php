@@ -223,9 +223,8 @@ $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 if($permessi==1){
     $web_page = str_replace('<amministratorCrea />', 
 ' <hr/>
-<form action="creaProdottoAmm.php" method="GET">
-<input id="Crea" type="submit" name ="Crea" value="Crea" >
-</form>', $web_page);
+
+<a href="creaProdottoAmm.php?categoria='.$categoria.'" id="Crea" >Crea</a>' , $web_page);
 }
 else{
     $web_page = str_replace('<amministratorCrea />','', $web_page);
