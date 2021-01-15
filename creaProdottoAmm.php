@@ -69,7 +69,7 @@ if($categoria == "accessori"){
         $prezzo_vendita = $_POST['prezzoCrea'];
 
     $creazione = new ManageProdotti();
-   $creazione->crea_prodotto($produttore, $modello, $descrizione, $prezzo_vendita);
+   $creazione->crea_prodotto($modello, $produttore, $descrizione, $prezzo_vendita);
     
     }
     
