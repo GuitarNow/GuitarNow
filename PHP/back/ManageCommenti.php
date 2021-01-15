@@ -23,6 +23,12 @@ class ManageCommenti
         return $this->prodotto->delete_query($query);
     }
 
+    public function inserisci_commento($commento,$voto,$codice_prodotto,$user){
+        $query = "INSERT INTO commento (descrizione,voto,data,codice_prodotto,user) VALUES ('".$commento."','".$voto."', CURDATE(),'".$codice_prodotto."','".$user."')";
+       
+        return $this->prodotto->insert_query($query);
+    }
+
   
 }
 

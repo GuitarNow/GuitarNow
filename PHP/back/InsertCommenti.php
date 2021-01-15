@@ -1,17 +1,33 @@
 <?php
-require_once('ManageCommenti.php');
-$voto=$_POST['valutazione'];
-$testo=$_POST['commento'];
+
+include('Session.php');
+require_once("ManageCommenti.php");
+
+$id_prodotto = $_REQUEST['codice_prodotto'];
+$descrizione = $_REQUEST['commento'];
+$voto = $_REQUEST['valutazione'];
 
 
-$query='INSERT INTO commento (descrizione,voto,data) VALUES ("'.$testo.'","'.$voto.'","'.date("1").'");';
-echo $query;
-if(mysqli_query($query)){
-    echo "si";
-}else{
-    echo "no";
+if(isset($_SESSION['login_user'])){
+	$permessi=$_SESSION['permessi'];
+	$utente_login=$_SESSION['login_user'];
+}
+else{
+	$permessi=-1;
+	$utente_login="";
 }
 
+
+if($permessi ==0){
+
+    $manage_comemnto=new ManageCommenti();
+    $risultato = $manage_comemnto->inserisci_commento($descrizione,$voto,$id_prodotto,$utente_login);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    
+}else{
+//reindirizzare a page 404
+
+}
 
 
 ?>

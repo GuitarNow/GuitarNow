@@ -1,6 +1,12 @@
 <?php
 include('PHP/back/Session.php');
+
+if (isset($_REQUEST['codice_prodotto'])) {
+    $codice_p=$_REQUEST['codice_prodotto'];
+}
+
 $web_page = file_get_contents('Html/Template.html');
+
 
 $web_page = str_replace('<title_page/>', "Inserisci commento", $web_page);
 
@@ -12,7 +18,12 @@ $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>','Insersci commento', $web_page);
 
-$web_page = str_replace('<contenuto_to_insert/>', file_get_contents('Html/Inserisci_commento.html'), $web_page);
+ 
+$commenti = file_get_contents('Html/Inserisci_commento.html');
+
+$commenti = str_replace('<label_id/>', '<input type="hidden" id="codice_prodotto" name="codice_prodotto" value="'.$codice_p.'"/>', $commenti);
+
+$web_page = str_replace('<contenuto_to_insert/>', $commenti, $web_page);
 
 echo $web_page;
 

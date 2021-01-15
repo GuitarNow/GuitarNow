@@ -52,6 +52,15 @@ class DatabaseConnection
             }
     }
 
+    public function insert_query($query){
+
+        if (mysqli_query($this->connection, $query)) {
+            return "inserimento andato a buon fine";
+            } else {
+            return "Errore durante l'inserimento: " . mysqli_error($conn);
+            }
+    }
+
 }
 
 ?>
