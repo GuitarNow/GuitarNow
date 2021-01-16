@@ -53,12 +53,8 @@ else{
 }
 
 if($permessi==-1){
-$web_page = str_replace('<gestioneAccesso/>', '<form  action="Login.php" method="GET">
-            <input  id="accedi" type="submit" name ="accedi" value="Accedi" >    
-             </form>    
-             <form  action="Registrati.php" method="GET">       
-            <input  id="registrati" type="submit" name="registrati" value="Registrati">
-            </form>', $web_page);
+$web_page = str_replace('<gestioneAccesso/>', '<a href="Login.php" id="accedi">Accedi</a>     
+<a href="Registrati.php" id="registrati">Registrati</a> ', $web_page);
 }
 else{
     $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="GET">
@@ -100,14 +96,15 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				<span id="prezzo"><p>'.$prodotto_selezionato['prezzo'].'&#128</p></span>
 				<h2>SPECIFICHE</h2>
 				<p>'.$prodotto_selezionato['descrizione'].'</p>';
-	if($valutazione!='/')
-	{
-		$contenuto.='<p>Valutazione media degli utenti: '.$valutazione.' su 5</p>';
-	}			
+				
 	if($tipo_prodotto=='chitarre')
 	{
 		$contenuto.='<p>Legno manico: '.$prodotto_selezionato['legno_manico'].'</p>
 				  	 <p>Legno corpo: '.$prodotto_selezionato['legno_corpo'].'</p>';
+	}
+	if($valutazione!='/')
+	{
+		$contenuto.='<p>Valutazione media degli utenti: '.$valutazione.' su 5</p>';
 	}
 	
 	
@@ -143,7 +140,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				
 				if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
 
-					$sezione_commenti.='<a  href="PHP/back/DeleteCommenti.php?commento=' . $c['id_commento'] .'">ELIMINA</a>	';			
+					$sezione_commenti.='<a  href="PHP/back/DeleteCommenti.php?commento=' . $c['id_commento'] .' id="eliminaC"">ELIMINA</a>	';			
 				}
 				$sezione_commenti.='</li>
 				';

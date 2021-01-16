@@ -61,12 +61,8 @@ else{
 }
 
 if($permessi==-1){
-$web_page = str_replace('<gestioneAccesso/>', '<form  action="Login.php" method="GET">
-            <input  id="accedi" type="submit" name ="accedi" value="Accedi" >    
-             </form>    
-             <form  action="Registrati.php" method="GET">       
-            <input  id="registrati" type="submit" name="registrati" value="Registrati">
-            </form>', $web_page);
+$web_page = str_replace('<gestioneAccesso/>', '<a href="Login.php" id="accedi">Accedi</a>     
+<a href="Registrati.php" id="registrati">Registrati</a> ', $web_page);
 }
 else{
     $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="GET">
@@ -224,7 +220,7 @@ if($permessi==1){
     $web_page = str_replace('<amministratorCrea />', 
 ' <hr/>
 
-<a href="creaProdottoAmm.php?categoria='.$categoria.'" id="Crea" >Crea</a>' , $web_page);
+<a href="creaProdottoAmm.php?categoria='.$categoria.'" id="Crea" ><span class="tasto">Crea</span></a>' , $web_page);
 }
 else{
     $web_page = str_replace('<amministratorCrea />','', $web_page);

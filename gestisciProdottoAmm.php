@@ -97,7 +97,7 @@ $contenuto='<div id="contenutoGestisci" class="contenuto">
     <label for="prezzoMod">Prezzo</label>
     <input type="text" name="prezzoMod" class="prezzo" />
     <input type="submit" name="SalvaMod" value="Salva Prodotto" class="Salva" />
-    <input type="submit" name="Annulla" value="Annulla" class="Annulla"  />  
+    <a href="prodotti.php" class="Annulla">Annulla</a>  
     </fieldset>
     </form>
     

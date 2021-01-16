@@ -62,8 +62,9 @@ header{
 	display:inline;  
 }
 
-#logout{
-    width:50%;
+#accedi, #registrati{
+    text-decoration:none;
+    line-height:45px;
 }
 
 #accedi, #registrati, #logout{   
@@ -72,11 +73,16 @@ header{
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     background-color: #ec9b30;
-    padding: 0.7em;
+    padding: 0.5em;
     font-size:1.1em;
     color:#000;
-    border-radius:5px;
+    border-radius:5px;  
     
+}
+
+#logout{
+    width:50%;
+    padding: 0.7em;
 }
 
 
@@ -331,7 +337,7 @@ iframe{
 	height:1.7em;
     font-size:1.1em;
     width:60%;
-    margin-bottom: 0.5em;
+    margin-bottom: 3%;
     margin-top:3%;
 }
 
@@ -433,8 +439,9 @@ padding-top: 0.5%;
 
 /*--------------------------------------------------------------------------
 -----------------------Filtri------------------------------------------*/
-
-
+#form_filtri{
+	margin-bottom:4%
+}
 
 #colonna_filtri{
 	width:20%;
@@ -506,10 +513,12 @@ padding-top: 0.5%;
     margin-bottom: 4%;
     margin-top:4%;
     margin-left:16%;
+    border:1px solid #000;
 }
 
-
-
+hr{
+	margin-bottom:4%
+}
    
 /*--------------------------------------------------------------------------
 -----------------------Visualizza prodotto------------------------------------------*/
@@ -518,7 +527,7 @@ padding-top: 0.5%;
     font-size:1.5em;
     text-align:center;
     font-family:"Arial", sans-serif;
-    padding-right:20%;
+    margin-right:20%;
 }
 
 #specifiche_prodotto::first-line
@@ -553,11 +562,13 @@ padding-top: 0.5%;
 {
     margin-left:3%;
     margin-right:3%;
+    margin-bottom:1%;
 }
 
 #scheda_prodotto h2
 {
     text-align:center;
+    margin-top:2%;
 }
 
 #commento
@@ -655,26 +666,33 @@ padding-top: 0.5%;
 -------------------------modifica creaProdotto Admin------------------------*/
 
 
- #Elimina, #Modifica{
+#Elimina, #Modifica{
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
 	color:#DDD;
-	height:1.8em;
+	height:1.7em;
     font-size:1.1em;
-    width:30%;
-    margin-bottom: 3%;
-    margin-top:3%;
+    width:60%;   
+    text-decoration: none;  
+    padding-top:0.1em;
+    padding-bottom:0.1em;
+    border:1px solid #000;
 }
 
 
 #Elimina{
     margin-left: 5%;
+    padding-left: 2.2em;
+    padding-right: 2.2em;
 }
 
 #Modifica{
-    margin-left: 16%;
+    margin-left: 27%;
+    padding-left:2em;
+    padding-right:2em;
 }
+
 
 .produttoreAmm, .prezzo, .tipologiaAmm, textarea, .legnoManico, .legnoCorpo, .immagineC, .modello{
     width:60%;
@@ -709,9 +727,13 @@ padding-top: 0.5%;
 	height:1.7em;
     font-size:1.1em;
     width:60%;
-    margin-bottom: 3%;
-    margin-top: 3%;
     margin-left:17%;
+    text-decoration: none;
+    padding-left:2em;
+    padding-right:2em;
+    padding-top:0.1em;
+    padding-bottom:0.1em;
+    border:1px solid #000;
 }
 
 .produttoreAmm, .tipologiaAmm, .legnoManico, .legnoCorpo{
@@ -732,8 +754,7 @@ margin-left:0;
 }
 
 #contenutoCrea form .Salva{
-	width:30%;
-	margin-left:35%;
+	width:23%;
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
@@ -742,23 +763,28 @@ margin-left:0;
     font-size:1.1em;
     margin-bottom:2%;
     margin-top:2%;
+    margin-left:25%;
 }
 
 #contenutoCrea form .Annulla{
-	width:30%;
-	margin-left:35%;
-	background-color:#990000;
+    background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
 	color:#DDD;
-	height:2em;
+	height:1.7em;
     font-size:1.1em;
-    margin-bottom:3%;
+    width:60%;
+    margin-left:5%;
+    text-decoration: none;
+    padding-left:3.5em;
+    padding-right:3.5em;
+    padding-top:0.25em;
+    padding-bottom:0.25em;
+    border:1px solid #000;
 }
 
 #contenutoGestisci form .Salva{
-	width:30%;
-	margin-left:35%;
+	width:23%;
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
@@ -767,16 +793,64 @@ margin-left:0;
     font-size:1.1em;
     margin-bottom:2%;
     margin-top:2%;
+    margin-left:25%;
+    
 }
 
 #contenutoGestisci form .Annulla{
-	width:30%;
-	margin-left:35%;
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
 	color:#DDD;
-	height:2em;
+	height:1.7em;
     font-size:1.1em;
-    margin-bottom:3%;
+    width:60%;
+    margin-left:5%;
+    text-decoration: none;
+    padding-left:3.5em;
+    padding-right:3.5em;
+    padding-top:0.25em;
+    padding-bottom:0.25em;
+    border:1px solid #000;
+}
+
+#scheda_prodotto li a{
+    background-color:#990000;
+        border-radius:10px 10px;
+        font-family:"Comic Sans MS", cursive, sans-serif;
+        color:#DDD;
+        height:1.7em;
+        font-size:1.1em;
+        width:12%;
+        margin-left:2%;
+        padding-right:0.4em;
+        padding-left:0.4em;
+        text-decoration: none;
+        border:1px solid #000;    
+    }
+
+    #scheda_prodotto ul li{
+    	padding-bottom:0.8em
+    }
+
+    /*-----------------------------------------------
+    ----------------INSERISCICOMMENTO-----------------*/
+#Conferma{
+    background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+    width:60%;
+    margin-bottom: 3%;
+    margin-top:3%;
+}
+
+#formInsC textarea{
+	margin-left:20%;	
+	border:1px solid black;
+	height:12em;
+     margin-bottom: 3%;
+     resize:none;
 }

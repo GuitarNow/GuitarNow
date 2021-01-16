@@ -1,9 +1,9 @@
-<div id="contenutoLogin" class="contenuto">
-    <form action="PHP/back/InsertCommenti.php" method="post"  class="form" >
+<div id="contenutoInsComm" class="contenuto">
+    <form action="PHP/back/InsertCommenti.php" method="post"  class="form" id="formInsC">
     <fieldset>
     <img src="Images/logo_bianco.png" alt="" />
-	<label for="commento"></label>
-    <textarea name="commento"  maxlength="500" >Inserisci commento(Max 500 caratteri)</textarea>
+	<label for="commento">Inserisci commento:</label>
+    <textarea name="commento"  maxlength="500" id="inscommento"></textarea>
     <label_id/>
     <label type="text" name="id"  ></label>
     <label for="valutazione">Valutazione</label>
@@ -14,7 +14,7 @@
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
-	<input type="submit" name="submit" value="Conferma" id="loginAccedi" />
+	<input type="submit" name="submit" value="Conferma" id="Conferma" />
     
     </fieldset>
 	</form>

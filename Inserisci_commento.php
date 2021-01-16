@@ -18,6 +18,10 @@ $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>','Insersci commento', $web_page);
 
+
+        $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="GET">
+        <input  id="logout" type="submit" name ="logout" value="Logout" > 
+         </form> ', $web_page);  
  
 $commenti = file_get_contents('Html/Inserisci_commento.html');
 

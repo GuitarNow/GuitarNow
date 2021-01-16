@@ -137,9 +137,7 @@ $contenuto='<div id="contenutoCrea" class="contenuto">
     <label for="prezzoCrea">Prezzo</label>
     <input type="text" name="prezzoCrea" class="prezzo" placeholder="€" value="" />
     <input type="submit" name="SalvaCrea" value="Crea Prodotto" class="Salva" />   
-    </form>
-    <form method="GET" action="prodotti.php" >
-    <input type="submit" name="Annulla" value="Annulla" class="Annulla"  />
+    <a href="prodotti.php" class="Annulla">Annulla</a>
     </fieldset>
     </form>
 </div>';
