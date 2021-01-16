@@ -180,12 +180,25 @@ class ManageProdotti
     {
         $query="DELETE FROM prodotto where codice_prodotto=".$id;
         return $this->prodotto->delete_query($query);
+        
     }
 
   //-------------------CREAZIONE PRODOTTI------------------------
-    public function crea_prodotto( $modello, $produttore, $descrizione, $prezzo_vendita){
+    public function crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita){
     $query="INSERT INTO prodotto (modello, produttore, descrizione, prezzo_vendita) VALUES ('".$modello."', '".$produttore."', '".$descrizione."', '". $prezzo_vendita."')";
+   return $this->prodotto->insert_query($query);
+
+}
+
+public function crea_chitC($tipo, $legno_manico, $legno_corpo){
+    $query="INSERT INTO chitarra (legno_manico, legno_corpo, tipo_chitarra) VALUES ('".$legno_manico."', '".$legno_corpo."', '".$tipo."')"; 
     return $this->prodotto->insert_query($query);
 }
+
+public function crea_chitI($immagine, $short_desc, $long_desc){
+    $query="INSERT INTO immagine ( long_desc, short_desc) VALUES ('".$immagine."', '".$long_desc."', '".$short_desc."')"; 
+    return $this->prodotto->insert_query($query);
+}
+
 }
 ?>

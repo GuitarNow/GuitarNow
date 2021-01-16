@@ -44,13 +44,15 @@ if($categoria == "accessori"){
     }
     $modello = $_POST['modelloCrea'];
     $descrizione = $_POST['descrizioneCrea'];
-    # $ = $_POST['']; #inserire immagine
+    $immagine = $_POST['fileCrea']; #inserire immagine
         $long_desc = $_POST['long_descCrea'];
         $short_desc = $_POST['short_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
 
     $creazione = new ManageProdotti();
-   $creazione->crea_prodotto($modello, $produttore, $descrizione, $prezzo_vendita);
+   $creazione->crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita);
+   $creazione->crea_chitC($tipo, $legno_manico, $legno_corpo);
+   $creazione->crea_chitI($immagine, $short_desc, $long_desc);
     
     }
     
