@@ -22,8 +22,26 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
 
 
 
+     if(isset($_REQUEST['SalvaMod'])){
 
-
+      if($categoria == "accessori"){
+          $produttore = $_POST['produttoreAmmModA'];
+          $tipo = $_POST['tipologiaAmmModA'];
+          }else{
+              $produttore = $_POST['produttoreAmmModC'];
+              $tipo = $_POST['tipologiaAmmModC'];
+              $legno_manico = $_POST['legnoManicoMod'];
+              $legno_corpo = $_POST['legnoCorpoMod'];
+          }
+          $modello = $_POST['modelloMod'];
+          $descrizione = $_POST['descrizioneMod'];
+          #inserire immagine
+              $long_desc = $_POST['long_descMod'];
+              $short_desc = $_POST['short_descMod'];
+              $prezzo_vendita = $_POST['prezzoMod'];
+      
+          $modifica = new ManageProdotti();
+          $modifica->modificaProdotto($modello, $produttore, $descrizione, $prezzo_vendita);
 
 
 
