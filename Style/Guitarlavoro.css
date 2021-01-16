@@ -693,11 +693,20 @@ hr{
     padding-right:2em;
 }
 
-
-.produttoreAmm, .prezzo, .tipologiaAmm, textarea, .legnoManico, .legnoCorpo, .immagineC, .modello{
+.prezzo, textarea, .immagineC, .modello{
     width:60%;
-    margin-bottom: 0.7em;
 }
+
+
+#produttoreAmmCreaA, #produttoreAmmCreaC, #tipologiaAmmCreaC, #tipologiaAmmCreaA, #legnoManicoCrea, #legnoCorpoCrea,
+#produttoreAmmModA, #produttoreAmmModC, #tipologiaAmmModC, #tipologiaAmmModA, #legnoManicoMod, #legnoCorpoMod{
+    margin-left: 20%;
+    height: 1.7em;
+    margin-bottom:1%;
+    display:inline-block;
+ }
+
+
 
 #formMod textarea, #formCrea textarea{
 	margin-left:20%;	
@@ -736,13 +745,6 @@ hr{
     border:1px solid #000;
 }
 
-.produttoreAmm, .tipologiaAmm, .legnoManico, .legnoCorpo{
-   margin-left: 20%;
-   height: 1.7em;
-   width: 60%;
-   font-size:1em;
-   margin-bottom: 3%;
-}
 
 #formMod, #formCrea{
 width:100%;

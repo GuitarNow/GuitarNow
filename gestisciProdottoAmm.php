@@ -39,54 +39,62 @@ $contenuto='<div id="contenutoGestisci" class="contenuto">
     <form method="post" class="form" id="formMod" action="prodotti.php" >
     <fieldset>
     
-    <img src="Images/logo_bianco.png" alt="" />
-    <label for="produttoreAmmMod">Produttore</label>';
+    <img src="Images/logo_bianco.png" alt="" />';
   if($categoria == "accessori"){
-    $contenuto.='<select name="produttoreAmmMod" class="produttoreAmm">
-    <option>Daddario</option>
-    <option>BOSS/option>
-    <option>Fender</option>
-    <option>ErnieBall</option>
-</select>
-<label for="tipologiaAmmMod">Tipologia</label>
-<select name="tipologiaAmmMod" class="tipologiaAmm">
-<option>Corde</option>
-<option>Amplificatori</option>
- <option>Effetti</option>
- <option>Gadget</option>
-</select>';
+    $contenuto.=' <input type="hidden" name="codiceProdottoMod"" value=""/>
+    <label for="produttoreAmmModA">Produttore</label>
+    <input list="produttoreAmmModA" name="produttoreAmmModA">
+    <datalist id="produttoreAmmModA">
+      <option value="Daddario">
+      <option value="BOSS">
+      <option value="Fender">
+      <option value="ErnieBall">
+    </datalist>
+<label for="tipologiaAmmModA">Tipologia</label>
+<input list="tipologiaAmmModA" name="tipologiaAmmModA">
+<datalist id="tipologiaAmmModA">
+  <option value="Corde">
+  <option value="Amplificatori">
+  <option value="Effetti">
+  <option value="Gadget">
+</datalist>';
   }else{
       
-    $contenuto.='<select name="produttoreAmmMod" class="produttoreAmm">
-            <option>Epiphone</option>
-            <option>Gibson</option>
-            <option>Fender</option>
-            <option>Ibanez</option>
-            <option>Eko</option>
-            <option>Yamaha</option>
-            <option>Cort</option>
-     </select>
-    <label for="tipologiaAmmMod">Tipologia</label>
-    <select name="tipologiaAmmMod" class="tipologiaAmm">
-        <option>Elettrica</option>
-        <option>Semiacustica</option>
-         <option>Acustica</option>
-         <option>Classica</option>
-    </select>
+    $contenuto.='   <label for="produttoreAmmModC">Produttore</label>
+    <input list="produttoreAmmModC" name="produttoreAmmModC">
+    <datalist id="produttoreAmmModC">
+      <option value="Epiphone">
+      <option value="Gibson">
+      <option value="Fender">
+      <option value="Ibanez">
+      <option value="Eko">
+      <option value="Yamaha">
+      <option value="Cort">
+    </datalist>
+    <label for="tipologiaAmmModC">Tipologia</label>
+    <input list="tipologiaAmmModC" name="tipologiaAmmModC">
+    <datalist id="tipologiaAmmModC">
+      <option value="Elettrica">
+      <option value="Semiacustica">
+      <option value="Acustica">
+      <option value="Classica">
+    </datalist>
     <label for="legnoManicoMod">Legno del manico</label>
-    <select name="legnoManicoMod" class="legnoManico">
-        <option>palissandro</option>
-        <option>mogano</option>
-         <option>acero</option>
-         <option>abete</option>
-         <option>ontano</option>
-    </select>
+    <input list="legnoManicoMod" name="legnoManicoMod">
+    <datalist id="legnoManicoMod">
+      <option value="palissandro">
+      <option value="mogano">
+      <option value="acero">
+      <option value="abete">
+      <option value="ontano">
+    </datalist>
     <label for="legnoCorpoMod">Legno del corpo</label>
-    <select name="legnoCorpoMod" class="legnoCorpo">
-    <option>palissandro</option>
-     <option>acero</option>
-     <option>abete</option>
-    </select>';
+    <input list="legnoCorpoMod" name="legnoCorpoMod">
+    <datalist id="legnoCorpoMod">
+      <option value="palissandro">
+      <option value="acero">
+      <option value="abete">
+    </datalist>';
   }
     $contenuto.='<label for="DescrizioneMod">Descrizione</label>
     <textarea rows=“40" cols="40" name="DescrizioneMod" > </textarea>

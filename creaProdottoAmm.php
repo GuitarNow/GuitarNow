@@ -66,62 +66,61 @@ $contenuto='<div id="contenutoCrea" class="contenuto">
     $contenuto.='
     <input type="hidden" name="codiceProdottoCrea"" value=""/>
     <label for="produttoreAmmCreaA">Produttore</label>
-    <select name="produttoreAmmCreaA" class="produttoreAmm">
-    <option>Daddario</option>
-    <option>BOSS/option>
-    <option>Fender</option>
-    <option>ErnieBall</option>
-</select>
+    <input list="produttoreAmmCreaA" name="produttoreAmmCreaA">
+    <datalist id="produttoreAmmCreaA">
+      <option value="Daddario">
+      <option value="BOSS">
+      <option value="Fender">
+      <option value="ErnieBall">
+    </datalist>
 <label for="tipologiaAmmCreaA">Tipologia</label>
-<select name="tipologiaAmmCreaA" class="tipologiaAmm">
-<option>Corde</option>
-<option>Amplificatori</option>
- <option>Effetti</option>
- <option>Gadget</option>
-</select>';
+<input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA">
+<datalist id="tipologiaAmmCreaA">
+  <option value="Corde">
+  <option value="Amplificatori">
+  <option value="Effetti">
+  <option value="Gadget">
+</datalist>';
   }else{
       
     $contenuto.='
-    <input list="browsers" name="browser">
-<datalist id="browsers">
-  <option value="Internet Explorer">
-  <option value="Firefox">
-  <option value="Chrome">
-  <option value="Opera">
-  <option value="Safari">
- 
-</datalist>
+
     <label for="produttoreAmmCreaC">Produttore</label>
-    <select name="produttoreAmmCreaC" class="produttoreAmm">
-            <option>Epiphone</option>
-            <option>Gibson</option>
-            <option>Fender</option>
-            <option>Ibanez</option>
-            <option>Eko</option>
-            <option>Yamaha</option>
-            <option>Cort</option>
-     </select>
+    <input list="produttoreAmmCreaC" name="produttoreAmmCreaC">
+    <datalist id="produttoreAmmCreaC">
+      <option value="Epiphone">
+      <option value="Gibson">
+      <option value="Fender">
+      <option value="Ibanez">
+      <option value="Eko">
+      <option value="Yamaha">
+      <option value="Cort">
+    </datalist>
     <label for="tipologiaAmmCreaC">Tipologia</label>
-    <select name="tipologiaAmmCreaC" class="tipologiaAmm">
-        <option>Elettrica</option>
-        <option>Semiacustica</option>
-         <option>Acustica</option>
-         <option>Classica</option>
-    </select>
+    <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC">
+    <datalist id="tipologiaAmmCreaC">
+      <option value="Elettrica">
+      <option value="Semiacustica">
+      <option value="Acustica">
+      <option value="Classica">
+    </datalist>
     <label for="legnoManicoCrea">Legno del manico</label>
-    <select name="legnoManicoCrea" class="legnoManico">
-        <option>palissandro</option>
-        <option>mogano</option>
-         <option>acero</option>
-         <option>abete</option>
-         <option>ontano</option>
-    </select>
+    <input list="legnoManicoCrea" name="legnoManicoCrea">
+    <datalist id="legnoManicoCrea">
+      <option value="palissandro">
+      <option value="mogano">
+      <option value="acero">
+      <option value="abete">
+      <option value="ontano">
+    </datalist>
     <label for="legnoCorpoCrea">Legno del corpo</label>
-    <select name="legnoCorpoCrea" class="legnoCorpo">
-    <option>palissandro</option>
-     <option>acero</option>
-     <option>abete</option>
-    </select>';
+    <input list="legnoCorpoCrea" name="legnoCorpoCrea">
+    <datalist id="legnoCorpoCrea">
+      <option value="palissandro">
+      <option value="acero">
+      <option value="abete">
+    </datalist>';
+   
   }
     $contenuto.='<label for="modelloCrea">Modello</label>
     <input type="text" name="modelloCrea" class="modello"  />
