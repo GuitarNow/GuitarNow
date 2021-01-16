@@ -12,6 +12,5 @@ $username = $_POST['username'];
     $reg = new ManageRegistrati();
    $reg->registrati($email, $username, $password);
    header('Location: ../../Login.php  ');
-   
     }
 ?>

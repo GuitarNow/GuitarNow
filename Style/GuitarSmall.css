@@ -144,7 +144,7 @@ iframe{
     display: unset;
     position: absolute;
     width: 100%;
-   
+    padding-bottom:2em;
 }
 
 
@@ -175,6 +175,15 @@ input[type='radio'] {
 }
 
 #CercaSubmit{
+    margin-left:32%;
+    margin-bottom: 1em;
+    width:200px;
+    height: 50px;
+    font-size: 2em;
+    border: 1px solid #000;
+}
+
+#Crea{
     margin-left:32%;
     margin-bottom: 1em;
     width:200px;
@@ -272,6 +281,13 @@ flex-grow: 1;
     width:200px;
 }
 
+.Salva{
+
+}
+
+#Modifica{
+    margin-left:18%;   
+   }
 
 /*------------------------------------------------------------------------------------
 ------------------------------FOOTER------------------------------------------------*/
