@@ -55,15 +55,9 @@ if($categoria == "accessori"){
     }
     
 
-
-
-$contenuto='<div id="contenutoCrea" class="contenuto">
-
-    <form method="POST" class="form" id="formCrea" action="creaProdottoAmm.php" >    
-    <fieldset>
-    <img src="Images/logo_bianco.png" alt="" />';
+    $data=file_get_contents('Html/creaProdotto.html');
   if($categoria == "accessori"){
-    $contenuto.='
+    $data = str_replace('<creaAcc/>','
     <input type="hidden" name="codiceProdottoCrea"" value=""/>
     <label for="produttoreAmmCreaA">Produttore</label>
     <input list="produttoreAmmCreaA" name="produttoreAmmCreaA">
@@ -80,10 +74,10 @@ $contenuto='<div id="contenutoCrea" class="contenuto">
   <option value="Amplificatori">
   <option value="Effetti">
   <option value="Gadget">
-</datalist>';
+</datalist>', $data);
   }else{
       
-    $contenuto.='
+    $data = str_replace('<creaChit/>','
 
     <label for="produttoreAmmCreaC">Produttore</label>
     <input list="produttoreAmmCreaC" name="produttoreAmmCreaC">
@@ -119,28 +113,10 @@ $contenuto='<div id="contenutoCrea" class="contenuto">
       <option value="palissandro">
       <option value="acero">
       <option value="abete">
-    </datalist>';
+    </datalist>', $data);
    
   }
-    $contenuto.='<label for="modelloCrea">Modello</label>
-    <input type="text" name="modelloCrea" class="modello"  />
-
-    <label for="descrizioneCrea">Descrizione</label>
-    <textarea rows=“40" cols="40" name="descrizioneCrea" > </textarea>
-    <label for="immagineCrea">Importa immagine</label>
-    <input type="file" name="file" enctype= “multipart/form-data” id="file"/>
-    <label for="DescrizioneImmagineLCrea">Descrizione lunga immagine</label>
-    <textarea rows=“40" cols="40" name="long_descCrea" > </textarea>
-    <label for="DescrizioneImmagineCCrea">Descrizione corta immagine</label>
-    <input type="text" name="short_descCrea" class="immagineC" placeholder="rappresentazione della chitarra acustica fender" />
-    <label for="prezzoCrea">Prezzo</label>
-    <input type="text" name="prezzoCrea" class="prezzo" placeholder="€" value="" />
-    <input type="submit" name="SalvaCrea" value="Crea Prodotto" class="Salva" />   
-    <a href="prodotti.php" class="Annulla">Annulla</a>
-    </fieldset>
-    </form>
-</div>';
-$web_page = str_replace('<contenuto_to_insert/>',$contenuto, $web_page);
+$web_page = str_replace('<contenuto_to_insert/>',$data, $web_page);
    
 
 echo $web_page;

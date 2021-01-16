@@ -695,6 +695,7 @@ hr{
 
 .prezzo, textarea, .immagineC, .modello{
     width:60%;
+    margin-bottom:1%;
 }
 
 
@@ -714,6 +715,7 @@ hr{
 	height:12em;
      margin-bottom: 3%;
      resize:none;
+     margin-bottom:1%;
 }
 
 

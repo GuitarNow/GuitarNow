@@ -34,14 +34,9 @@ if (!isset($_REQUEST['categoria'])) {
 $categoria = $_REQUEST['categoria'];
 
 
-$contenuto='<div id="contenutoGestisci" class="contenuto">
-
-    <form method="post" class="form" id="formMod" action="prodotti.php" >
-    <fieldset>
-    
-    <img src="Images/logo_bianco.png" alt="" />';
+$dataMod=file_get_contents('Html/gestisciProdotto.html');
   if($categoria == "accessori"){
-    $contenuto.=' <input type="hidden" name="codiceProdottoMod"" value=""/>
+    $dataMod = str_replace('<modAcc/>',' <input type="hidden" name="codiceProdottoMod"" value=""/>
     <label for="produttoreAmmModA">Produttore</label>
     <input list="produttoreAmmModA" name="produttoreAmmModA">
     <datalist id="produttoreAmmModA">
@@ -57,10 +52,10 @@ $contenuto='<div id="contenutoGestisci" class="contenuto">
   <option value="Amplificatori">
   <option value="Effetti">
   <option value="Gadget">
-</datalist>';
+</datalist>',$dataMod);
   }else{
       
-    $contenuto.='   <label for="produttoreAmmModC">Produttore</label>
+    $dataMod = str_replace('<modChit/>','   <label for="produttoreAmmModC">Produttore</label>
     <input list="produttoreAmmModC" name="produttoreAmmModC">
     <datalist id="produttoreAmmModC">
       <option value="Epiphone">
@@ -94,23 +89,9 @@ $contenuto='<div id="contenutoGestisci" class="contenuto">
       <option value="palissandro">
       <option value="acero">
       <option value="abete">
-    </datalist>';
+    </datalist>', $dataMod);
   }
-    $contenuto.='<label for="DescrizioneMod">Descrizione</label>
-    <textarea rows=“40" cols="40" name="DescrizioneMod" > </textarea>
-    <label for="DescrizioneImmagineLMod">Descrizione lunga immagine</label>
-    <textarea rows=“40" cols="40" name="long_descMod" > </textarea>
-    <label for="DescrizioneImmagineCMod">Descrizione corta immagine</label>
-    <input type="text" name="immagineCMod" class="immagineC" />
-    <label for="prezzoMod">Prezzo</label>
-    <input type="text" name="prezzoMod" class="prezzo" />
-    <input type="submit" name="SalvaMod" value="Salva Prodotto" class="Salva" />
-    <a href="prodotti.php" class="Annulla">Annulla</a>  
-    </fieldset>
-    </form>
-    
-</div>';
-$web_page = str_replace('<contenuto_to_insert/>',$contenuto, $web_page);
+$web_page = str_replace('<contenuto_to_insert/>',$dataMod, $web_page);
 
 echo $web_page;
 }
