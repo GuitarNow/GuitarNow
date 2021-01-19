@@ -201,10 +201,11 @@ public function crea_chitI($immagine, $short_desc, $long_desc){
 }
 
 //-----------------------------MODIFICA PRODOTTI-------------------------------------
-public function modificaProdotto($modello, $produttore, $descrizione, $prezzo_vendita){
-    $query="";
-    return $this->prodotto->insert_query($query);
-}
+
+//public function modificaProdotto($modello, $produttore, $descrizione, $prezzo_vendita){
+  //  $query="";
+  //  return $this->prodotto->insert_query($query);
+//}
 
 }
 ?>
