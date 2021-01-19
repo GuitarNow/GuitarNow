@@ -20,7 +20,7 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
     <input  id="logout" type="submit" name ="logout" value="Logout" > 
      </form> ', $web_page); 
 
-
+/*
 
      if(isset($_REQUEST['SalvaMod'])){
 
@@ -43,7 +43,7 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
           $modifica = new ManageProdotti();
           $modifica->modificaProdotto($modello, $produttore, $descrizione, $prezzo_vendita);
 
-
+*/
 
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";
