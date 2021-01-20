@@ -6,19 +6,20 @@ function menuOn(){
     if(menu.className==='menu'){
         menu.classList.remove('menu');
         menu.classList.add('menu_on');
+        /*
         for(var i=0;i<3;i++){
-            a[i].classList.add('a_on');
-            a[i].classList.remove('a_header');
+            a[i].classList.add('');
+            a[i].classList.remove('');
            
         }
-        close.classList.remove('dN');
+        */
+        close.classList.remove('scompare');
         close.classList.add('dU');
-        
     }else{
         menu.classList.remove('menu_on');
         menu.classList.add('menu');
         close.classList.remove('dU');
-        close.classList.add('dN');
+        close.classList.add('scompare');
 
     }
     

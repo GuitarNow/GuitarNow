@@ -106,6 +106,12 @@ background-color:#392D20;
     
 }
 
+.scompare{
+    display: none;
+}
+
+
+
 #menu  li {
         
     background-color: #ec9b30;  
@@ -121,7 +127,6 @@ background-color:#392D20;
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     text-decoration: none;
-    
     color: #000;  
     background-color: #ec9b30;  
     text-align: center;   
