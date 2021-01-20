@@ -37,8 +37,7 @@ if($tipo_prodotto=='chitarre')
 }
 else
 {
-	$prodotto_selezionato= $manage_prodoto->get_specifiche_accessori($id_prodotto);
-	
+	$prodotto_selezionato= $manage_prodoto->get_specifiche_accessori($id_prodotto);	
 }
 
 $commenti=$manage_commenti->get_commenti($id_prodotto);

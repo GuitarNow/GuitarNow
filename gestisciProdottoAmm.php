@@ -1,6 +1,11 @@
 
 <?php
 include('PHP/back/Session.php');
+
+$id_prodotto = $_GET['prodotto'];
+$tipo_prodotto= $_GET['tipo'];
+$categoria = $tipo_prodotto;
+
 require_once("PHP/back/ManageProdotti.php");
 if(isset($_SESSION['login_user'])){
 	$permessi=$_SESSION['permessi'];
@@ -19,6 +24,26 @@ $web_page = str_replace('<breadcrumbs_to_insert/>', "Gestisci Prodotti - Amminis
 $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="GET">
     <input  id="logout" type="submit" name ="logout" value="Logout" > 
      </form> ', $web_page); 
+
+
+     $manage_prodoto=new ManageProdotti();
+        
+     $prodotto_selezionato='';
+     if($tipo_prodotto=='chitarre')
+     {
+       $prodotto_selezionato= $manage_prodoto->get_specifiche_chitarre($id_prodotto);	
+       
+     }
+     else
+     {
+       $prodotto_selezionato= $manage_prodoto->get_specifiche_accessori($id_prodotto);	
+     }
+  
+     if (!isset($_REQUEST['categoria'])) {
+      $_REQUEST['categoria']="chitarre";
+  }
+  
+  $categoria = $_REQUEST['categoria'];
 
 /*
 
@@ -44,13 +69,6 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
           $modifica->modificaProdotto($modello, $produttore, $descrizione, $prezzo_vendita);
 
 */
-
-if (!isset($_REQUEST['categoria'])) {
-    $_REQUEST['categoria']="chitarre";
-}
-
-$categoria = $_REQUEST['categoria'];
-
 
 $dataMod=file_get_contents('Html/gestisciProdotto.html');
   if($categoria == "accessori"){

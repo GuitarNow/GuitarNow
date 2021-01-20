@@ -22,11 +22,6 @@ if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";
 }
 
-$tipologia_ricevuta = null;
-$produttore = null;
-$prezzo = null;
-$cercato= false;
-
 $categoria = $_REQUEST['categoria'];
 
 
