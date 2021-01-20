@@ -43,6 +43,8 @@ header{
     background-color:#4E1600;
 }
 
+
+
 #logo{
     float:left;
     width:20%; 
@@ -119,7 +121,7 @@ background-color:#392D20;
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     text-decoration: none;
-    display:inline-block;
+    
     color: #000;  
     background-color: #ec9b30;  
     text-align: center;   

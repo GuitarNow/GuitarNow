@@ -17,31 +17,46 @@
      
  }
 
+ #logo_chiusura {
+    
+    float: right;
+    margin: 0.5em;
+    border-radius: 5em;
+    }
+
+    #logo_chiusura:hover{
+        background-color: #e4e4e4;
+    }
+
+ .menu{
+    width: 110px;
+    height: 110px;
+    background-image: url('../Images/menumobile.png');
+    margin-top:1em;
+
+ }
 
  #menu{
      display:block;
-     background-image: url('../Images/menumobile.png');
      background-position: center;
      background-repeat: no-repeat;
     background-size: 100px 100px;
-    width: 110px;
-    height: 110px;
     float:right;
-    margin-top:1em;
     margin-right: 4% ;
     margin-bottom: 1%;
-    
+    width: 100%;
  
   
+ }
+
+ #menu li{
+     display: unset;
  }
  
 #accesso{
     display: none;
 }
 
- #menu a{
-     display:none;
- }
 
  #menu #linkCorrente{
      display:none;
@@ -53,6 +68,23 @@
     display:none;
 }
 
+.menu_on{
+  background-color: white;
+  background-image: unset;
+  width: unset;
+  width: 100%;
+  height: unset;
+  height: -webkit-fill-available;
+  position: fixed;
+}
+
+.a_on{
+  display: unset;
+}
+
+.a_header{
+    display: none;
+}
 /*----------------------------------------------------------------------------------
 ---------------------------CONTENUTOHOME---------------------------------------*/
 .chitCard, .accCard{  
@@ -138,13 +170,31 @@ iframe{
 /*-----------------------------------------------------------------------------------------
 --------------------------------PRODOTTI-FILTRI--------------------------------------------*/
 
+#Crea{
+    flex-grow: 1;
+}
+
+#CercaSubmit{
+    flex-grow: 1;
+}
+
+#div_filtri_amministratore{
+    display: flex;
+    width: 90%;
+    margin-left: 1.7em;
+
+}
+
+#div_filtri_amministratore hr{
+    display: none;
+}
 
 
 #colonna_filtri{
     display: unset;
     position: absolute;
     width: 100%;
-    padding-bottom:2em;
+    
 }
 
 

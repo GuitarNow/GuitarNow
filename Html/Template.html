@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="Style/GuitarMedium.css" media="handheld, screen and (min-width:785px) and (max-width:1000px), only screen and (min-device-width:1000px) and (max-device-width:1000px)"/>
     <link rel="stylesheet" href="Style/GuitarPrint.css" media="print"/>
     <script src="filtri.js"></script>
+    <script src="menu.js"></script>
 
 </head>
 
@@ -29,7 +30,8 @@
         <div id="accesso">
             <gestioneAccesso/>
         </div>
-        <ul id="menu" role="menubar">
+        <ul id="menu" class="menu" role="menubar" onclick="menuOn()">
+         <img src="Images/logo_chiusura.png" class="dN" id="logo_chiusura" onclick="menuOff()">
             <menu_to_insert/>
         </ul>
     </header>
