@@ -106,6 +106,12 @@ background-color:#392D20;
     
 }
 
+.scompare{
+    display: none;
+}
+
+
+
 #menu  li {
         
     background-color: #ec9b30;  
@@ -121,7 +127,6 @@ background-color:#392D20;
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     text-decoration: none;
-    
     color: #000;  
     background-color: #ec9b30;  
     text-align: center;   
@@ -695,14 +700,14 @@ hr{
     padding-right:2em;
 }
 
-.prezzo, textarea, .immagineC, .modello{
+.prezzo, textarea, .immagineC, .modello, .legnoManico, .legnoCorpo{
     width:60%;
     margin-bottom:1%;
 }
 
 
-#produttoreAmmCreaA, #produttoreAmmCreaC, #tipologiaAmmCreaC, #tipologiaAmmCreaA, #legnoManicoCrea, #legnoCorpoCrea,
-#produttoreAmmModA, #produttoreAmmModC, #tipologiaAmmModC, #tipologiaAmmModA, #legnoManicoMod, #legnoCorpoMod{
+#produttoreAmmCreaA, #produttoreAmmCreaC, #tipologiaAmmCreaC, #tipologiaAmmCreaA,
+#produttoreAmmModA, #produttoreAmmModC, #tipologiaAmmModC, #tipologiaAmmModA{
     margin-left: 20%;
     height: 1.7em;
     margin-bottom:1%;
@@ -721,7 +726,8 @@ hr{
 }
 
 
-#file{
+
+.file{
     background-color:gray; 
     margin-left:20%;	
     border:1px solid black;

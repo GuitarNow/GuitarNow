@@ -2,10 +2,6 @@
 <?php
 include('PHP/back/Session.php');
 
-$id_prodotto = $_GET['prodotto'];
-$tipo_prodotto= $_GET['tipo'];
-$categoria = $tipo_prodotto;
-
 require_once("PHP/back/ManageProdotti.php");
 if(isset($_SESSION['login_user'])){
 	$permessi=$_SESSION['permessi'];
@@ -25,19 +21,9 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
     <input  id="logout" type="submit" name ="logout" value="Logout" > 
      </form> ', $web_page); 
 
+    
 
-     $manage_prodoto=new ManageProdotti();
-        
-     $prodotto_selezionato='';
-     if($tipo_prodotto=='chitarre')
-     {
-       $prodotto_selezionato= $manage_prodoto->get_specifiche_chitarre($id_prodotto);	
-       
-     }
-     else
-     {
-       $prodotto_selezionato= $manage_prodoto->get_specifiche_accessori($id_prodotto);	
-     }
+  
   
      if (!isset($_REQUEST['categoria'])) {
       $_REQUEST['categoria']="chitarre";
@@ -45,7 +31,27 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
   
   $categoria = $_REQUEST['categoria'];
 
-/*
+
+/*------------------QUERY------------------------------*/
+$id_prodotto = $_GET['prodotto'];
+
+$manage_prodotto=new ManageProdotti();
+
+
+$prodotto_selezionato='';
+if($categoria=='chitarre')
+{
+	$prodotto_selezionato= $manage_prodotto->get_specifiche_chitarre($id_prodotto);	
+	
+}
+else
+{
+	$prodotto_selezionato= $manage_prodotto->get_specifiche_accessori($id_prodotto);	
+}
+
+
+
+
 
      if(isset($_REQUEST['SalvaMod'])){
 
@@ -65,16 +71,22 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
               $short_desc = $_POST['short_descMod'];
               $prezzo_vendita = $_POST['prezzoMod'];
       
-          $modifica = new ManageProdotti();
-          $modifica->modificaProdotto($modello, $produttore, $descrizione, $prezzo_vendita);
+          $modificaP = new ManageProdotti();
+          $modificaP->modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita);
+          $modificaC = new ManageProdotti();
+          $modificaC->modifica_prodC($tipo, $legno_manico, $legno_corpo);
+          $modificaI = new ManageProdotti();
+          $modificaI->modifica_prodI($immagine, $short_desc, $long_desc);
+           
+           }
+        }
 
-*/
 
 $dataMod=file_get_contents('Html/gestisciProdotto.html');
   if($categoria == "accessori"){
     $dataMod = str_replace('<modAcc/>',' <input type="hidden" name="codiceProdottoMod"" value=""/>
     <label for="produttoreAmmModA">Produttore</label>
-    <input list="produttoreAmmModA" name="produttoreAmmModA">
+    <input list="produttoreAmmModA" name="produttoreAmmModA" value="'.$prodotto_selezionato['produttore'].'">
     <datalist id="produttoreAmmModA">
       <option value="Daddario">
       <option value="BOSS">
@@ -82,7 +94,7 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
       <option value="ErnieBall">
     </datalist>
 <label for="tipologiaAmmModA">Tipologia</label>
-<input list="tipologiaAmmModA" name="tipologiaAmmModA">
+<input list="tipologiaAmmModA" name="tipologiaAmmModA" value="'.$prodotto_selezionato['categoria'].'">
 <datalist id="tipologiaAmmModA">
   <option value="Corde">
   <option value="Amplificatori">
@@ -92,8 +104,8 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
   }else{
       
     $dataMod = str_replace('<modChit/>','   <label for="produttoreAmmModC">Produttore</label>
-    <input list="produttoreAmmModC" name="produttoreAmmModC">
-    <datalist id="produttoreAmmModC">
+    <input list="produttoreAmmModC" name="produttoreAmmModC" value="'.$prodotto_selezionato['produttore'].'">
+    <datalist id="produttoreAmmModC" >
       <option value="Epiphone">
       <option value="Gibson">
       <option value="Fender">
@@ -103,7 +115,7 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
       <option value="Cort">
     </datalist>
     <label for="tipologiaAmmModC">Tipologia</label>
-    <input list="tipologiaAmmModC" name="tipologiaAmmModC">
+    <input list="tipologiaAmmModC" name="tipologiaAmmModC" value="'.$prodotto_selezionato['tipo_chitarra'].'">
     <datalist id="tipologiaAmmModC">
       <option value="Elettrica">
       <option value="Semiacustica">
@@ -111,23 +123,17 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
       <option value="Classica">
     </datalist>
     <label for="legnoManicoMod">Legno del manico</label>
-    <input list="legnoManicoMod" name="legnoManicoMod">
-    <datalist id="legnoManicoMod">
-      <option value="palissandro">
-      <option value="mogano">
-      <option value="acero">
-      <option value="abete">
-      <option value="ontano">
-    </datalist>
+    <input type="text" name="legnoManicoMod" class="legnoManico" value="'.$prodotto_selezionato['legno_manico'].'">
     <label for="legnoCorpoMod">Legno del corpo</label>
-    <input list="legnoCorpoMod" name="legnoCorpoMod">
-    <datalist id="legnoCorpoMod">
-      <option value="palissandro">
-      <option value="acero">
-      <option value="abete">
-    </datalist>', $dataMod);
+    <input type="text" name="legnoCorpoMod" class="legnoCorpo" value="'.$prodotto_selezionato['legno_corpo'].'">
+    ', $dataMod);
   }
 $web_page = str_replace('<contenuto_to_insert/>',$dataMod, $web_page);
+
+$web_page = str_replace('<prezzoV/>',$prodotto_selezionato['prezzo'], $web_page);
+$web_page = str_replace('<descrCV/>',$prodotto_selezionato['short_desc'], $web_page);
+$web_page = str_replace('<descrLV/>',$prodotto_selezionato['long_desc'], $web_page);
+$web_page = str_replace('<descrProdV/>',$prodotto_selezionato['descrizione'], $web_page);
 
 echo $web_page;
 }
