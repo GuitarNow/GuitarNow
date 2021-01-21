@@ -33,7 +33,7 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
 
 
 /*------------------QUERY------------------------------*/
-$id_prodotto = $_GET['Visualizza_prodotto'];
+$id_prodotto = $_GET['prodotto'];
 
 $manage_prodotto=new ManageProdotti();
 
@@ -117,21 +117,10 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
       <option value="Classica">
     </datalist>
     <label for="legnoManicoMod">Legno del manico</label>
-    <input list="legnoManicoMod" name="legnoManicoMod">
-    <datalist id="legnoManicoMod">
-      <option value="palissandro">
-      <option value="mogano">
-      <option value="acero">
-      <option value="abete">
-      <option value="ontano">
-    </datalist>
+    <input type="text" name="legnoManicoMod" class="legnoManico">
     <label for="legnoCorpoMod">Legno del corpo</label>
-    <input list="legnoCorpoMod" name="legnoCorpoMod">
-    <datalist id="legnoCorpoMod">
-      <option value="palissandro">
-      <option value="acero">
-      <option value="abete">
-    </datalist>', $dataMod);
+    <input type="text" name="legnoCorpoMod" class="legnoCorpo">
+    ', $dataMod);
   }
 $web_page = str_replace('<contenuto_to_insert/>',$dataMod, $web_page);
 
