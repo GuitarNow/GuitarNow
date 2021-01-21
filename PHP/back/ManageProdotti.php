@@ -211,20 +211,25 @@ public function crea_chitI($immagine, $short_desc, $long_desc){
 
 //-----------------------------MODIFICA PRODOTTI-------------------------------------
 
-//public function modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita){
- //   $query="INSERT INTO prodotto (modello, produttore, descrizione, prezzo_vendita) VALUES ('".$modello."', '".$produttore."', '".$descrizione."', '". $prezzo_vendita."')";
- //  return $this->prodotto->insert_query($query);
-//}
+public function modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita, $id_prodotto){
+    $query="UPDATE prodotto SET modello='".$modello."', produttore='".$produttore."', descrizione='".$descrizione."', prezzo_vendita='".$prezzo_vendita."' WHERE codice_prodotto=".$id_prodotto; 
+   return $this->prodotto->insert_query($query);
+}
 
-//public function modifica_prodC($tipo, $legno_manico, $legno_corpo){
- //  $query="INSERT INTO chitarra (legno_manico, legno_corpo, tipo_chitarra) VALUES ('".$legno_manico."', '".$legno_corpo."', '".$tipo."')"; 
- //   return $this->prodotto->insert_query($query);
-//}
+public function modifica_prodC($tipo, $legno_manico, $legno_corpo, $id_prodotto){
+    $query="UPDATE chitarra SET tipo_chitarra='".$tipo."', legno_manico='".$legno_manico."', legno_corpo='".$legno_corpo."' WHERE cod_chitarra=".$id_prodotto; 
+   return $this->prodotto->insert_query($query);
+}
 
-//public function modifica_prodI($immagine, $short_desc, $long_desc){
-  //  $query="INSERT INTO immagine ( long_desc, short_desc) VALUES ('".$immagine."', '".$long_desc."', '".$short_desc."')"; 
-  //  return $this->prodotto->insert_query($query);
-//}
+public function modifica_prodA($tipo, $id_prodotto){
+    $query="UPDATE accessorio SET categoria='".$tipo."' WHERE codice_accessorio=".$id_prodotto; 
+   return $this->prodotto->insert_query($query);
+}
+
+public function modifica_prodI($file_name, $short_desc, $long_desc, $id_prodotto){
+    $query="UPDATE immagine SET path='".$file_name."', short_desc='".$short_desc."', long_desc='".$long_desc."' WHERE codice_prodotto=".$id_prodotto; 
+    return $this->prodotto->insert_query($query);
+}
 
 }
 ?>

@@ -127,21 +127,9 @@ if($categoria == "accessori"){
       <option value="Classica">
     </datalist>
     <label for="legnoManicoCrea">Legno del manico</label>
-    <input list="legnoManicoCrea" name="legnoManicoCrea">
-    <datalist id="legnoManicoCrea">
-      <option value="palissandro">
-      <option value="mogano">
-      <option value="acero">
-      <option value="abete">
-      <option value="ontano">
-    </datalist>
+    <input type="text" name="legnoManicoCrea" class="legnoManico">
     <label for="legnoCorpoCrea">Legno del corpo</label>
-    <input list="legnoCorpoCrea" name="legnoCorpoCrea">
-    <datalist id="legnoCorpoCrea">
-      <option value="palissandro">
-      <option value="acero">
-      <option value="abete">
-    </datalist>', $data);
+    <input type="text" name="legnoCorpoCrea" class="legnoCorpo">', $data);
    
   }
 $web_page = str_replace('<contenuto_to_insert/>',$data, $web_page);
