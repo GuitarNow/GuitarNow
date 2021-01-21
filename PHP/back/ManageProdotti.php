@@ -188,7 +188,7 @@ class ManageProdotti
     public function crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita){
     $query="INSERT INTO prodotto (modello, produttore, descrizione, prezzo_vendita) VALUES ('".$modello."', '".$produttore."', '".$descrizione."', '". $prezzo_vendita."')";
    
-   echo $query;
+   
     return $this->prodotto->insert_query($query);
 
 }
@@ -197,7 +197,7 @@ public function crea_chitC($tipo, $legno_manico, $legno_corpo){
     $prodotto_inserito= new DatabaseConnection();
     $id_prodotto_inserito = mysqli_fetch_assoc($prodotto_inserito->get_result_query("SELECT MAX(codice_prodotto) as id FROM prodotto"));
     $query="INSERT INTO chitarra (cod_chitarra,legno_manico, legno_corpo, tipo_chitarra) VALUES ('".$id_prodotto_inserito['id']."','". $legno_manico."', '".$legno_corpo."', '".$tipo."')"; 
- echo $query;
+
     return $this->prodotto->insert_query($query);
 }
 
@@ -205,7 +205,7 @@ public function crea_chitI($immagine, $short_desc, $long_desc){
     $prodotto_inserito= new DatabaseConnection();
     $id_prodotto_inserito = mysqli_fetch_assoc($prodotto_inserito->get_result_query("SELECT MAX(codice_prodotto) as id FROM prodotto"));
     $query="INSERT INTO immagine (path,long_desc, short_desc, codice_prodotto) VALUES ('".$immagine."', '".$long_desc."', '".$short_desc."', '".$id_prodotto_inserito['id']."')"; 
-    echo $query;
+   
     return $this->prodotto->insert_query($query);
 }
 
@@ -227,7 +227,7 @@ public function modifica_prodA($tipo, $id_prodotto){
 }
 
 public function modifica_prodI($file_name, $short_desc, $long_desc, $id_prodotto){
-    $query="UPDATE immagine SET path='Images/".$file_name."', short_desc='".$short_desc."', long_desc='".$long_desc."' WHERE codice_prodotto=".$id_prodotto; 
+    $query="UPDATE immagine SET path='".$file_name."', short_desc='".$short_desc."', long_desc='".$long_desc."' WHERE codice_prodotto=".$id_prodotto; 
     return $this->prodotto->insert_query($query);
 }
 
