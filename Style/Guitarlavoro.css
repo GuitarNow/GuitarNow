@@ -726,7 +726,8 @@ hr{
 }
 
 
-#file{
+
+.file{
     background-color:gray; 
     margin-left:20%;	
     border:1px solid black;

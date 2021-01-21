@@ -203,8 +203,18 @@ public function crea_chitI($immagine, $short_desc, $long_desc){
 
 //-----------------------------MODIFICA PRODOTTI-------------------------------------
 
-//public function modificaProdotto($modello, $produttore, $descrizione, $prezzo_vendita){
-  //  $query="";
+//public function modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita){
+ //   $query="INSERT INTO prodotto (modello, produttore, descrizione, prezzo_vendita) VALUES ('".$modello."', '".$produttore."', '".$descrizione."', '". $prezzo_vendita."')";
+ //  return $this->prodotto->insert_query($query);
+//}
+
+//public function modifica_prodC($tipo, $legno_manico, $legno_corpo){
+ //  $query="INSERT INTO chitarra (legno_manico, legno_corpo, tipo_chitarra) VALUES ('".$legno_manico."', '".$legno_corpo."', '".$tipo."')"; 
+ //   return $this->prodotto->insert_query($query);
+//}
+
+//public function modifica_prodI($immagine, $short_desc, $long_desc){
+  //  $query="INSERT INTO immagine ( long_desc, short_desc) VALUES ('".$immagine."', '".$long_desc."', '".$short_desc."')"; 
   //  return $this->prodotto->insert_query($query);
 //}
 

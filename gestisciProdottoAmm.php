@@ -51,7 +51,7 @@ else
 
 
 
-/*
+
 
      if(isset($_REQUEST['SalvaMod'])){
 
@@ -71,16 +71,22 @@ else
               $short_desc = $_POST['short_descMod'];
               $prezzo_vendita = $_POST['prezzoMod'];
       
-          $modifica = new ManageProdotti();
-          $modifica->modificaProdotto($modello, $produttore, $descrizione, $prezzo_vendita);
+          $modificaP = new ManageProdotti();
+          $modificaP->modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita);
+          $modificaC = new ManageProdotti();
+          $modificaC->modifica_prodC($tipo, $legno_manico, $legno_corpo);
+          $modificaI = new ManageProdotti();
+          $modificaI->modifica_prodI($immagine, $short_desc, $long_desc);
+           
+           }
+        }
 
-*/
 
 $dataMod=file_get_contents('Html/gestisciProdotto.html');
   if($categoria == "accessori"){
     $dataMod = str_replace('<modAcc/>',' <input type="hidden" name="codiceProdottoMod"" value=""/>
     <label for="produttoreAmmModA">Produttore</label>
-    <input list="produttoreAmmModA" name="produttoreAmmModA">
+    <input list="produttoreAmmModA" name="produttoreAmmModA" value="'.$prodotto_selezionato['produttore'].'">
     <datalist id="produttoreAmmModA">
       <option value="Daddario">
       <option value="BOSS">
@@ -88,7 +94,7 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
       <option value="ErnieBall">
     </datalist>
 <label for="tipologiaAmmModA">Tipologia</label>
-<input list="tipologiaAmmModA" name="tipologiaAmmModA">
+<input list="tipologiaAmmModA" name="tipologiaAmmModA" value="'.$prodotto_selezionato['categoria'].'">
 <datalist id="tipologiaAmmModA">
   <option value="Corde">
   <option value="Amplificatori">
@@ -98,8 +104,8 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
   }else{
       
     $dataMod = str_replace('<modChit/>','   <label for="produttoreAmmModC">Produttore</label>
-    <input list="produttoreAmmModC" name="produttoreAmmModC">
-    <datalist id="produttoreAmmModC">
+    <input list="produttoreAmmModC" name="produttoreAmmModC" value="'.$prodotto_selezionato['produttore'].'">
+    <datalist id="produttoreAmmModC" >
       <option value="Epiphone">
       <option value="Gibson">
       <option value="Fender">
@@ -109,7 +115,7 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
       <option value="Cort">
     </datalist>
     <label for="tipologiaAmmModC">Tipologia</label>
-    <input list="tipologiaAmmModC" name="tipologiaAmmModC">
+    <input list="tipologiaAmmModC" name="tipologiaAmmModC" value="'.$prodotto_selezionato['tipo_chitarra'].'">
     <datalist id="tipologiaAmmModC">
       <option value="Elettrica">
       <option value="Semiacustica">
