@@ -102,6 +102,7 @@ if(isset($_REQUEST['SalvaMod'])){
         }else{
            print_r($errors);
         }
+        
       $modificaI = new ManageProdotti();
       $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $long_desc, $id_prodotto);
       }
