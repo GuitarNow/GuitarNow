@@ -25,10 +25,10 @@ if (!isset($_REQUEST['categoria'])) {
 }
 
 $categoria = $_REQUEST['categoria'];
+error_reporting(0);
 
 
-
-if(isset($POST['SalvaCrea'])){
+if(isset($_REQUEST['SalvaCrea'])){
 
 if($categoria == "accessori"){
     $produttore = $_POST['produttoreAmmCreaA'];
@@ -72,7 +72,7 @@ if($categoria == "accessori"){
     
     if(empty($errors)==true){
        move_uploaded_file($file_tmp,"Images/".$file_name);
-       echo "Success";
+     //  echo "Success";
     }else{
        print_r($errors);
     }
