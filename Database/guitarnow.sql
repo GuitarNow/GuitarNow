@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 13, 2021 alle 19:24
+-- Creato il: Gen 21, 2021 alle 20:02
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.4
 
@@ -70,7 +70,12 @@ INSERT INTO `chitarra` (`cod_chitarra`, `legno_manico`, `legno_corpo`, `tipo_chi
 (12, 'acero', 'palissandro', 'Elettrica'),
 (13, 'mogano', 'abete', 'Classica'),
 (14, 'ontano', 'acero', 'Elettrica'),
-(16, 'abete', 'acero', 'Elettrica');
+(16, 'abete', 'acero', 'Elettrica'),
+(42, 'mogano', 'acero', 'Semiacustica'),
+(43, 'mogano', 'acero', 'Semiacustica'),
+(44, 'mogano', 'acero', 'Semiacustica'),
+(46, 'palissandro', 'acero', 'Elettrica'),
+(48, 'mogano', 'acero', 'Elettrica');
 
 -- --------------------------------------------------------
 
@@ -82,7 +87,7 @@ CREATE TABLE `commento` (
   `id_commento` int(11) NOT NULL,
   `descrizione` text NOT NULL,
   `voto` int(1) NOT NULL,
-  `data` date NOT NULL,
+  `data` date NOT NULL DEFAULT current_timestamp(),
   `codice_prodotto` int(11) NOT NULL,
   `user` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -95,7 +100,9 @@ INSERT INTO `commento` (`id_commento`, `descrizione`, `voto`, `data`, `codice_pr
 (1, 'Ne ho comprata una circa 2 mesi fa. Ottimo prodotto per un chitarrista che vuole upgradare la propria strumentazione. ', 4, '2020-12-01', 1, 'Mark'),
 (2, 'Prima volta che acquisto presso GuitarNow  e sono veramente soddisfatto del servizio ricevuto. Ottimi commessi disponibili e preparati. Per quanto riguarda il prodotto che dire assolutamente soddisfatto dell\'acquisto. ', 5, '2019-06-12', 11, 'Mark'),
 (3, 'Buon rapporto qualità prezzo. Consiglio l\'acquisto.', 3, '2020-12-07', 6, 'Marco90'),
-(4, 'Deluso dall\'acquisto. Mi aspettavo di meglio.', 1, '2021-01-01', 1, 'Marco90');
+(4, 'Deluso dall\'acquisto. Mi aspettavo di meglio.', 1, '2021-01-01', 1, 'Marco90'),
+(15, 'ssaa', 3, '2021-01-15', 9, 'Mark'),
+(16, 'ssaa', 3, '2021-01-15', 9, 'Mark');
 
 -- --------------------------------------------------------
 
@@ -155,17 +162,6 @@ CREATE TABLE `getcommenti` (
 -- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getspecificheaccesssorii` (
-`codice_accessorio` int(11)
-,`categoria` varchar(15)
-,`path` tinytext
-,`long_desc` text
-,`short_desc` tinytext
-,`codice_prodotto` int(11)
-,`modello` varchar(50)
-,`produttore` varchar(30)
-,`descrizione` text
-,`prezzo` float(6,2)
-,`ragione_sociale` varchar(30)
 );
 
 -- --------------------------------------------------------
@@ -175,19 +171,6 @@ CREATE TABLE `getspecificheaccesssorii` (
 -- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getspecifichechitarre` (
-`cod_chitarra` int(11)
-,`legno_manico` varchar(30)
-,`legno_corpo` varchar(30)
-,`tipo_chitarra` varchar(20)
-,`path` tinytext
-,`long_desc` text
-,`short_desc` tinytext
-,`codice_prodotto` int(11)
-,`modello` varchar(50)
-,`produttore` varchar(30)
-,`descrizione` text
-,`prezzo` float(6,2)
-,`ragione_sociale` varchar(30)
 );
 
 -- --------------------------------------------------------
@@ -223,7 +206,8 @@ INSERT INTO `immagine` (`id_immagine`, `path`, `long_desc`, `short_desc`, `codic
 (13, 'Images/Roadcore_premium.jpg', 'da fare', 'anteprima Ibanez Roadcore Premium da inserire', 12),
 (14, 'Images/Cort_AC100.jpg', 'da fare', 'anteprima Cort AC100 in vendita', 13),
 (15, 'Images/Telecaster.jpg', 'da fare', 'anteprima Fender Telecaster MN in vendita', 14),
-(16, 'Images/Ibanez_RG.jpg', 'da fare', 'anteprima Ibanez RG in vendita', 16);
+(16, 'Images/Ibanez_RG.jpg', 'da fare', 'anteprima Ibanez RG in vendita', 16),
+(23, 'Images/logo3.png', ' prova3', 'prova3', 48);
 
 -- --------------------------------------------------------
 
@@ -258,40 +242,12 @@ INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione
 (12, 'Roadcore Premium', 'Ibanez', 'L\'<span xml:lang=\"en\" >Ibanez</span> <span xml:lang=\"en\" >Roadcore</span> <span xml:lang=\"en\" >Premium</span> dispone di un corpo in palissandro e un manico in acero con una tastiera in palissandro. Il suono  caldo di questo strumento &egrave; generato dai <span xml:lang=\"en\" >pickup</span> cromati. Dispone inoltre di un custodia rigida inclusa.', 799.99),
 (13, 'AC100', 'Cort ', 'I modelli in stile AC tradizionali sono stati rielaborati per migliorare la risonanza e per ottenere un suono di chitarra classica autentico. La buona combinazione di legni produce un suono tradizionale, profondo e piacevolmente morbido. La serie <span xml:lang=\"en\" >Cort</span> AC &egrave; molto indulgente verso gli errori degli studenti, poich&egrave; richiede meno precisione e nitidezza per avere un buon suono.', 160.00),
 (14, 'Telecaster MN', 'Fender', 'La <span xml:lang=\"en\" >Telecaster</span> MN &egrave; progettata per l\'aspirante chitarrista. Caratterizzata dai toni iconici di <span xml:lang=\"en\" >Fender</span> e dallo stile accoppiato con componenti moderni. Il classico corpo <span xml:lang=\"en\" >Telecaster</span> a singola spalla mancante, realizzato in ontano, offre un suono ben bilanciato e dinamico. Sia il manico che la tastiera sono costruiti in acero, che migliora il tono con un sacco di luminosit&agrave; e sostegno.', 699.99),
-(16, 'RG Standard', 'Ibanez', 'La chitarra Ibanez RG Standard &egrave; perfetta per tutti quei chitarristi che vogliono acquistare uno strumento semi professionale ad un prezzo accessibile. I legni della chitarra le danno un aspetto esotico e naturale perfetto per tutti gli amanti delle chitarre vintage.  ', 600.00);
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `produttore`
---
-
-CREATE TABLE `produttore` (
-  `ragione_sociale` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `telefono` varchar(15) NOT NULL,
-  `citta` varchar(30) NOT NULL,
-  `indirizzo` varchar(40) NOT NULL,
-  `cap` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `produttore`
---
-
-INSERT INTO `produttore` (`ragione_sociale`, `email`, `telefono`, `citta`, `indirizzo`, `cap`) VALUES
-('BOSS', 'info@boss.it', '345018212', 'Verona', 'via Verdi, 109', '32421'),
-('Cort ', 'info@cort.it', '345902392', 'Padova', 'via Paolotti, 120', '35010'),
-('Daddario', 'info@daddario.it', '348765920', 'Roma', 'via Verdi 22', '20101'),
-('Eko', 'info@eko.com', '002689312', 'Milano', 'via Garibaldi, 33', '56021'),
-('Epiphone', 'epiphone@gibson.com', '0265931541', 'Milano', 'via Milano 110', '20019'),
-('ErnieBall', 'info@ernieball.it', '001560332', 'Firenza', 'via Rossi, 65', '42739'),
-('Esp', 'info@esp.com', '00291023', 'Padova', 'via Garibaldi, 67', '35010'),
-('Fender', 'info@fender.com', '0265931546', 'Roma', 'via roma 120', '0020'),
-('Gibson', 'info@gibson.com', '0265931542', 'Milano', 'via roma 100', '20019'),
-('Ibanez', 'info@ibanez.com', '0265931544', 'Roma', 'via roma 121', '0020'),
-('Marshall', 'info@marshall.com', '006271311', 'Roma', 'via Verdi, 113', '0030'),
-('Yamaha', 'info@yamaha.it', '34269540', 'Milano', 'via Verdi, 120', '20012');
+(16, 'RG Standard', 'Ibanez', 'La chitarra Ibanez RG Standard &egrave; perfetta per tutti quei chitarristi che vogliono acquistare uno strumento semi professionale ad un prezzo accessibile. I legni della chitarra le danno un aspetto esotico e naturale perfetto per tutti gli amanti delle chitarre vintage.  ', 600.00),
+(42, '1231', 'Fender', ' 32131', 123.00),
+(43, '1231', 'Fender', ' 32131', 123.00),
+(44, 'fafa', 'Gibson', ' faaf', 12.00),
+(46, 'dsadsa', 'Gibson', ' dasdada', 123.00),
+(48, 'prova3', 'Epiphone', ' prova3 ', 1234.00);
 
 -- --------------------------------------------------------
 
@@ -313,7 +269,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`username`, `password`, `email`, `permessi`) VALUES
 ('admin', 'admin', 'admini@gmail.com', 1),
 ('Marco90', '134', 'marco.rossi@yhaoo.com', 0),
-('Mark', '123', 'mark@gamil.com', 0);
+('Mark', '123', 'mark@gamil.com', 0),
+('user', 'user', 'user@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -322,7 +279,7 @@ INSERT INTO `user` (`username`, `password`, `email`, `permessi`) VALUES
 --
 DROP TABLE IF EXISTS `getaccessori`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getaccessori`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`immagine`.`path` AS `path`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo`,`accessorio`.`categoria` AS `categoria` from (((`accessorio` join `prodotto` on(`accessorio`.`codice_accessorio` = `prodotto`.`codice_prodotto`)) join `produttore` on(`prodotto`.`produttore` = `produttore`.`ragione_sociale`)) join `immagine` on(`prodotto`.`codice_prodotto` = `immagine`.`codice_prodotto`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getaccessori`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`immagine`.`path` AS `path`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo`,`accessorio`.`categoria` AS `categoria` from ((`accessorio` join `prodotto` on(`accessorio`.`codice_accessorio` = `prodotto`.`codice_prodotto`)) join `immagine` on(`prodotto`.`codice_prodotto` = `immagine`.`codice_prodotto`)) ;
 
 -- --------------------------------------------------------
 
@@ -331,7 +288,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `getchitarre`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipologia`,`produttore`.`ragione_sociale` AS `produttore`,`immagine`.`path` AS `path`,`immagine`.`long_desc` AS `long_desc`,`immagine`.`short_desc` AS `alt` from (((`chitarra` join `prodotto`) join `produttore`) join `immagine`) where `prodotto`.`codice_prodotto` = `chitarra`.`cod_chitarra` and `produttore`.`ragione_sociale` = `prodotto`.`produttore` and `immagine`.`codice_prodotto` = `prodotto`.`codice_prodotto` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipologia`,`prodotto`.`produttore` AS `produttore`,`immagine`.`path` AS `path`,`immagine`.`long_desc` AS `long_desc`,`immagine`.`short_desc` AS `alt` from ((`chitarra` join `prodotto`) join `immagine`) where `prodotto`.`codice_prodotto` = `chitarra`.`cod_chitarra` and `immagine`.`codice_prodotto` = `prodotto`.`codice_prodotto` ;
 
 -- --------------------------------------------------------
 
@@ -397,14 +354,7 @@ ALTER TABLE `immagine`
 -- Indici per le tabelle `prodotto`
 --
 ALTER TABLE `prodotto`
-  ADD PRIMARY KEY (`codice_prodotto`),
-  ADD KEY `produttore` (`produttore`);
-
---
--- Indici per le tabelle `produttore`
---
-ALTER TABLE `produttore`
-  ADD PRIMARY KEY (`ragione_sociale`);
+  ADD PRIMARY KEY (`codice_prodotto`);
 
 --
 -- Indici per le tabelle `user`
@@ -420,19 +370,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT per la tabella `commento`
 --
 ALTER TABLE `commento`
-  MODIFY `id_commento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_commento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT per la tabella `immagine`
 --
 ALTER TABLE `immagine`
-  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Limiti per le tabelle scaricate
