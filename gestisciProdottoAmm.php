@@ -2,10 +2,6 @@
 <?php
 include('PHP/back/Session.php');
 
-$id_prodotto = $_GET['prodotto'];
-$tipo_prodotto= $_GET['tipo'];
-$categoria = $tipo_prodotto;
-
 require_once("PHP/back/ManageProdotti.php");
 if(isset($_SESSION['login_user'])){
 	$permessi=$_SESSION['permessi'];
@@ -25,25 +21,34 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
     <input  id="logout" type="submit" name ="logout" value="Logout" > 
      </form> ', $web_page); 
 
+    
 
-     $manage_prodoto=new ManageProdotti();
-        
-     $prodotto_selezionato='';
-     if($tipo_prodotto=='chitarre')
-     {
-       $prodotto_selezionato= $manage_prodoto->get_specifiche_chitarre($id_prodotto);	
-       
-     }
-     else
-     {
-       $prodotto_selezionato= $manage_prodoto->get_specifiche_accessori($id_prodotto);	
-     }
+  
   
      if (!isset($_REQUEST['categoria'])) {
       $_REQUEST['categoria']="chitarre";
   }
   
   $categoria = $_REQUEST['categoria'];
+
+
+/*------------------QUERY------------------------------*/
+
+$manage_prodotto=new ManageProdotti();
+
+
+$prodotto_selezionato='';
+if($categoria=='chitarre')
+{
+	$prodotto_selezionato= $manage_prodotto->get_chitarra();	
+	
+}
+else
+{
+	$prodotto_selezionato= $manage_prodotto->get_accessori();	
+}
+
+
 
 /*
 
@@ -128,6 +133,11 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
     </datalist>', $dataMod);
   }
 $web_page = str_replace('<contenuto_to_insert/>',$dataMod, $web_page);
+
+$web_page = str_replace('<prezzoV/>','', $web_page);
+$web_page = str_replace('<descrCV/>','', $web_page);
+$web_page = str_replace('<descrLV/>','', $web_page);
+$web_page = str_replace('<descrProdV/>','', $web_page);
 
 echo $web_page;
 }
