@@ -1,19 +1,21 @@
 <div id="contenutoGestisci" class="contenuto">
 
-    <form method="post" class="form" id="formMod" action="prodotti.php" >
+    <form method="POST" class="form" id="formMod" action="gestisciProdottoAmm.php?categoria=<catModF/>&prodotto=<proModF/>" >
     <fieldset>
     
     <img src="Images/logo_bianco.png" alt="" />
     <modAcc/>
     <modChit/>
-    <label for="DescrizioneMod">Descrizione</label>
-    <textarea rows=“40" cols="40" name="DescrizioneMod" ><descrProdV/> </textarea>
+    <label for="modelloMod">Modello</label>
+    <input type="text" name="modelloMod" class="modello" value="<modelloV/>" />
+    <label for="descrizioneMod">Descrizione</label>
+    <textarea rows=“40" cols="40" name="descrizioneMod" ><descrProdV/> </textarea>
     <label for="immagineMod">Importa nuova immagine</label>
     <input type="file" name="fileMod" enctype= “multipart/form-data” class="file"/>
     <label for="DescrizioneImmagineLMod">Descrizione lunga immagine</label>
     <textarea rows=“40" cols="40" name="long_descMod" ><descrLV/></textarea>
     <label for="DescrizioneImmagineCMod">Descrizione corta immagine</label>
-    <input type="text" name="immagineCMod" class="immagineC" value="<descrCV/>"/>
+    <input type="text" name="short_descMod" class="immagineC" value="<descrCV/>"/>
     <label for="prezzoMod">Prezzo</label>
     <input type="text" name="prezzoMod" class="prezzo" value="<prezzoV/>"/>
     <input type="submit" name="SalvaMod" value="Salva Prodotto" class="Salva" />
