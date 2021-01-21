@@ -1,6 +1,6 @@
 <div id="contenutoCrea" class="contenuto">
 
-    <form method="POST" class="form" id="formCrea" action="creaProdottoAmm.php" >    
+    <form method="POST" class="form" id="formCrea" enctype= "multipart/form-data" action="creaProdottoAmm.php" >    
     <fieldset>
     <img src="Images/logo_bianco.png" alt="" />
     <creaAcc/>
@@ -11,7 +11,7 @@
     <label for="descrizioneCrea">Descrizione</label>
     <textarea rows=“40" cols="40" name="descrizioneCrea" > </textarea>
     <label for="immagineCrea">Importa immagine</label>
-    <input type="file" name="fileCrea" enctype= “multipart/form-data” id="file"/>
+    <input type="file" name="image" id="file"/>
     <label for="DescrizioneImmagineLCrea">Descrizione lunga immagine</label>
     <textarea rows=“40" cols="40" name="long_descCrea" > </textarea>
     <label for="DescrizioneImmagineCCrea">Descrizione corta immagine</label>

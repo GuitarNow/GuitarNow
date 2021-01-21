@@ -1,4 +1,5 @@
 <?php
+
 include('PHP/back/Session.php');
 require_once("PHP/back/ManageProdotti.php");
 if(isset($_SESSION['login_user'])){
@@ -7,6 +8,7 @@ if(isset($_SESSION['login_user'])){
 else{
 	$permessi=-1;
 }
+
 if($permessi==1){
 $web_page = file_get_contents('Html/template.html');
 
@@ -14,7 +16,7 @@ $web_page = str_replace('<title_page/>', "Crea Prodotti Amministrazione", $web_p
 
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Crea Prodotto - Amministrazione", $web_page);
 
-$web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="GET">
+$web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="POST">
     <input  id="logout" type="submit" name ="logout" value="Logout" > 
      </form> ', $web_page); 
 
@@ -26,7 +28,7 @@ $categoria = $_REQUEST['categoria'];
 
 
 
-if(isset($_REQUEST['SalvaCrea'])){
+if(isset($POST['SalvaCrea'])){
 
 if($categoria == "accessori"){
     $produttore = $_POST['produttoreAmmCreaA'];
@@ -39,7 +41,7 @@ if($categoria == "accessori"){
     }
     $modello = $_POST['modelloCrea'];
     $descrizione = $_POST['descrizioneCrea'];
-    $immagine = $_POST['fileCrea']; #inserire immagine
+    
         $long_desc = $_POST['long_descCrea'];
         $short_desc = $_POST['short_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
@@ -48,8 +50,35 @@ if($categoria == "accessori"){
    $creazioneP->crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita);
    $creazioneC = new ManageProdotti();
    $creazioneC->crea_chitC($tipo, $legno_manico, $legno_corpo);
-   $creazioneI = new ManageProdotti();
-   $creazioneI->crea_chitI($immagine, $short_desc, $long_desc);
+
+
+   if(isset($_FILES['image'])){
+    $errors= array();
+    $file_name = $_FILES['image']['name'];
+    $file_size =$_FILES['image']['size'];
+    $file_tmp =$_FILES['image']['tmp_name'];
+    $file_type=$_FILES['image']['type'];
+    $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+    
+    $extensions= array("jpeg","jpg","png");
+    
+    if(in_array($file_ext,$extensions)=== false){
+       $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+    }
+    
+    if($file_size > 2097152){
+       $errors[]='File size must be excately 2 MB';
+    }
+    
+    if(empty($errors)==true){
+       move_uploaded_file($file_tmp,"Images/".$file_name);
+       echo "Success";
+    }else{
+       print_r($errors);
+    }
+    $creazioneI = new ManageProdotti();
+    $creazioneI->crea_chitI("Images/".$file_name, $short_desc, $long_desc);
+ }
     
     }
     
@@ -66,7 +95,7 @@ if($categoria == "accessori"){
       <option value="Fender">
       <option value="ErnieBall">
     </datalist>
-<label for="tipologiaAmmCreaA">Tipologia</label>
+<label for="tipologiaAmmCreaA">Tipologia</label>  
 <input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA">
 <datalist id="tipologiaAmmCreaA">
   <option value="Corde">

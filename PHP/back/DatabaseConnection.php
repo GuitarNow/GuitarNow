@@ -48,7 +48,7 @@ class DatabaseConnection
         if (mysqli_query($this->connection, $query)) {
             return "eliminazione andata a buon fine";
             } else {
-            return "Errore durante l'eliminazione: " . mysqli_error($conn);
+            return "Errore durante l'eliminazione: " . mysqli_error($this->connection);
             }
     }
 
@@ -57,7 +57,7 @@ class DatabaseConnection
         if (mysqli_query($this->connection, $query)) {
             return "inserimento andato a buon fine";
             } else {
-            return "Errore durante l'inserimento: " . mysqli_error($conn);
+            return "Errore durante l'inserimento: " . mysqli_error($this->connection);
             }
     }
 
