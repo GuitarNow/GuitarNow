@@ -33,6 +33,7 @@ $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method
 
 
 /*------------------QUERY------------------------------*/
+$id_prodotto = $_GET['Visualizza_prodotto'];
 
 $manage_prodotto=new ManageProdotti();
 
@@ -40,12 +41,12 @@ $manage_prodotto=new ManageProdotti();
 $prodotto_selezionato='';
 if($categoria=='chitarre')
 {
-	$prodotto_selezionato= $manage_prodotto->get_chitarra();	
+	$prodotto_selezionato= $manage_prodotto->get_specifiche_chitarre($id_prodotto);	
 	
 }
 else
 {
-	$prodotto_selezionato= $manage_prodotto->get_accessori();	
+	$prodotto_selezionato= $manage_prodotto->get_specifiche_accessori($id_prodotto);	
 }
 
 
