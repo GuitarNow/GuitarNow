@@ -117,17 +117,17 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
       <option value="Classica">
     </datalist>
     <label for="legnoManicoMod">Legno del manico</label>
-    <input type="text" name="legnoManicoMod" class="legnoManico">
+    <input type="text" name="legnoManicoMod" class="legnoManico" value="'.$prodotto_selezionato['legno_manico'].'">
     <label for="legnoCorpoMod">Legno del corpo</label>
-    <input type="text" name="legnoCorpoMod" class="legnoCorpo">
+    <input type="text" name="legnoCorpoMod" class="legnoCorpo" value="'.$prodotto_selezionato['legno_corpo'].'">
     ', $dataMod);
   }
 $web_page = str_replace('<contenuto_to_insert/>',$dataMod, $web_page);
 
-$web_page = str_replace('<prezzoV/>','', $web_page);
-$web_page = str_replace('<descrCV/>','', $web_page);
-$web_page = str_replace('<descrLV/>','', $web_page);
-$web_page = str_replace('<descrProdV/>','', $web_page);
+$web_page = str_replace('<prezzoV/>',$prodotto_selezionato['prezzo'], $web_page);
+$web_page = str_replace('<descrCV/>',$prodotto_selezionato['short_desc'], $web_page);
+$web_page = str_replace('<descrLV/>',$prodotto_selezionato['long_desc'], $web_page);
+$web_page = str_replace('<descrProdV/>',$prodotto_selezionato['descrizione'], $web_page);
 
 echo $web_page;
 }
