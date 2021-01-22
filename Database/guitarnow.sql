@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 21, 2021 alle 20:02
+-- Creato il: Gen 22, 2021 alle 16:52
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.4
 
@@ -75,7 +75,7 @@ INSERT INTO `chitarra` (`cod_chitarra`, `legno_manico`, `legno_corpo`, `tipo_chi
 (43, 'mogano', 'acero', 'Semiacustica'),
 (44, 'mogano', 'acero', 'Semiacustica'),
 (46, 'palissandro', 'acero', 'Elettrica'),
-(48, 'mogano', 'acero', 'Elettrica');
+(48, 'mogano', 'acero', 'pippo');
 
 -- --------------------------------------------------------
 
@@ -162,6 +162,16 @@ CREATE TABLE `getcommenti` (
 -- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getspecificheaccesssorii` (
+`codice_accessorio` int(11)
+,`categoria` varchar(15)
+,`path` tinytext
+,`long_desc` text
+,`short_desc` tinytext
+,`codice_prodotto` int(11)
+,`modello` varchar(50)
+,`produttore` varchar(30)
+,`descrizione` text
+,`prezzo` float(6,2)
 );
 
 -- --------------------------------------------------------
@@ -171,6 +181,18 @@ CREATE TABLE `getspecificheaccesssorii` (
 -- (Vedi sotto per la vista effettiva)
 --
 CREATE TABLE `getspecifichechitarre` (
+`cod_chitarra` int(11)
+,`legno_manico` varchar(30)
+,`legno_corpo` varchar(30)
+,`tipo_chitarra` varchar(20)
+,`path` tinytext
+,`long_desc` text
+,`short_desc` tinytext
+,`codice_prodotto` int(11)
+,`modello` varchar(50)
+,`produttore` varchar(30)
+,`descrizione` text
+,`prezzo` float(6,2)
 );
 
 -- --------------------------------------------------------
@@ -207,7 +229,7 @@ INSERT INTO `immagine` (`id_immagine`, `path`, `long_desc`, `short_desc`, `codic
 (14, 'Images/Cort_AC100.jpg', 'da fare', 'anteprima Cort AC100 in vendita', 13),
 (15, 'Images/Telecaster.jpg', 'da fare', 'anteprima Fender Telecaster MN in vendita', 14),
 (16, 'Images/Ibanez_RG.jpg', 'da fare', 'anteprima Ibanez RG in vendita', 16),
-(23, 'Images/logo3.png', ' prova3', 'prova3', 48);
+(23, 'Images/logo4.png', ' prova3', 'prova3', 48);
 
 -- --------------------------------------------------------
 
@@ -247,7 +269,7 @@ INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione
 (43, '1231', 'Fender', ' 32131', 123.00),
 (44, 'fafa', 'Gibson', ' faaf', 12.00),
 (46, 'dsadsa', 'Gibson', ' dasdada', 123.00),
-(48, 'prova3', 'Epiphone', ' prova3 ', 1234.00);
+(48, 'prova3', 'Epiphone', ' prova3  ', 1234.00);
 
 -- --------------------------------------------------------
 
@@ -306,7 +328,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `getspecificheaccesssorii`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecificheaccesssorii`  AS  select distinct `a`.`codice_accessorio` AS `codice_accessorio`,`a`.`categoria` AS `categoria`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo`,`p2`.`ragione_sociale` AS `ragione_sociale` from (((`accessorio` `a` join `immagine` `i`) join `prodotto` `p1`) join `produttore` `p2`) where `a`.`codice_accessorio` = `p1`.`codice_prodotto` and `p2`.`ragione_sociale` = `p1`.`produttore` and `i`.`codice_prodotto` = `p1`.`codice_prodotto` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecificheaccesssorii`  AS  select distinct `a`.`codice_accessorio` AS `codice_accessorio`,`a`.`categoria` AS `categoria`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo` from ((`accessorio` `a` join `immagine` `i`) join `prodotto` `p1`) where `a`.`codice_accessorio` = `p1`.`codice_prodotto` and `i`.`codice_prodotto` = `p1`.`codice_prodotto` ;
 
 -- --------------------------------------------------------
 
@@ -315,7 +337,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `getspecifichechitarre`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecifichechitarre`  AS  select distinct `c`.`cod_chitarra` AS `cod_chitarra`,`c`.`legno_manico` AS `legno_manico`,`c`.`legno_corpo` AS `legno_corpo`,`c`.`tipo_chitarra` AS `tipo_chitarra`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo`,`p2`.`ragione_sociale` AS `ragione_sociale` from (((`chitarra` `c` join `immagine` `i`) join `prodotto` `p1`) join `produttore` `p2`) where `c`.`cod_chitarra` = `p1`.`codice_prodotto` and `p2`.`ragione_sociale` = `p1`.`produttore` and `i`.`codice_prodotto` = `p1`.`codice_prodotto` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecifichechitarre`  AS  select distinct `c`.`cod_chitarra` AS `cod_chitarra`,`c`.`legno_manico` AS `legno_manico`,`c`.`legno_corpo` AS `legno_corpo`,`c`.`tipo_chitarra` AS `tipo_chitarra`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo` from ((`chitarra` `c` join `immagine` `i`) join `prodotto` `p1`) where `c`.`cod_chitarra` = `p1`.`codice_prodotto` and `i`.`codice_prodotto` = `p1`.`codice_prodotto` ;
 
 --
 -- Indici per le tabelle scaricate
