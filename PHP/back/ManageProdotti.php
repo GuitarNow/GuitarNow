@@ -188,7 +188,6 @@ class ManageProdotti
     public function crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita){
     $query="INSERT INTO prodotto (modello, produttore, descrizione, prezzo_vendita) VALUES ('".$modello."', '".$produttore."', '".$descrizione."', '". $prezzo_vendita."')";
    
-   echo $query;
     return $this->prodotto->insert_query($query);
 
 }
