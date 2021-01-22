@@ -11,7 +11,7 @@ else{
 
 if($permessi==1){
 $web_page = file_get_contents('Html/template.html');
-
+$web_this = file_get_contents('creaProdottoAmm.php');
 $web_page = str_replace('<title_page/>', "Crea Prodotti Amministrazione", $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Crea Prodotto - Amministrazione", $web_page);
@@ -27,7 +27,7 @@ if (!isset($_REQUEST['categoria'])) {
 $categoria = $_REQUEST['categoria'];
 error_reporting(0);
 
-
+$data=file_get_contents('Html/creaProdotto.html');
 if(isset($_REQUEST['SalvaCrea'])){
 
 if($categoria == "accessori"){
@@ -42,12 +42,13 @@ if($categoria == "accessori"){
     $modello = $_POST['modelloCrea'];
     $descrizione = $_POST['descrizioneCrea'];
     
-        $long_desc = $_POST['long_descCrea'];
         $short_desc = $_POST['short_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
 
+        if (($modello) !=0 && ($produttore) != 0 && ($descrizione)> 10 && is_numeric($prezzo_vendita) && ($tipo)!=0 && ($short_desc)>5 && ($legno_manico)!=0 && ($legno_corpo)!=0) {
     $creazioneP = new ManageProdotti();
    $creazioneP->crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita);
+      
    $creazioneC = new ManageProdotti();
    $creazioneC->crea_chitC($tipo, $legno_manico, $legno_corpo);
 
@@ -77,17 +78,47 @@ if($categoria == "accessori"){
        print_r($errors);
     }
     $creazioneI = new ManageProdotti();
-    $creazioneI->crea_chitI("Images/".$file_name, $short_desc, $long_desc);
+    $creazioneI->crea_chitI("Images/".$file_name, $short_desc);
  }
-    
+ $data = str_replace('<tip/>',$categoria, $data);
+}
+else{
+  
+  if($modello<1){
+    $data = str_replace('<erroreModCrea/>','Devi assegnare un valore', $data);
+  }
+  if($produttoree<1){
+    $web_page =str_replace('<erroreProdCrea/>','Assegna un valore', $web_page);
+     }
+     if(($descrizione) <10){
+      $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 10 caratteri', $data);
+       }
+       if($tipo<1){
+        $data = str_replace('<erroreTipCrea/>','Devi assegnare un valore', $data);
+         }
+         if(!is_numeric($prezzo_vendita)){
+          $data = str_replace('<errorePrezzoCrea/>','Devi assegnare un valore numerico', $data);
+           }
+           if(($short_desc) <5){
+            $data = str_replace('<erroreSICrea/>','Deve contenere più di 5 caratteri', $data);
+             }
+             if($legno_manico<1){
+              $data = str_replace('<erroreLMCrea/>','Devi assegnare un valore', $data);
+               }
+               if($legno_corpo<1){
+                $web_page= str_replace('<erroreLCCrea/>','Devi assegnare un valore', $web_page);
+                 }
+                 
+                 $data = str_replace('<tip/>',$categoria, $data);
+} 
     }
     
 
-    $data=file_get_contents('Html/creaProdotto.html');
+    
   if($categoria == "accessori"){
     $data = str_replace('<creaAcc/>','
     <input type="hidden" name="codiceProdottoCrea"" value=""/>
-    <label for="produttoreAmmCreaA">Produttore</label>
+    <label for="produttoreAmmCreaA">Produttore</label><span class="errore"> *<erroreProdCrea/></span>
     <input list="produttoreAmmCreaA" name="produttoreAmmCreaA">
     <datalist id="produttoreAmmCreaA">
       <option value="Daddario">
@@ -95,7 +126,7 @@ if($categoria == "accessori"){
       <option value="Fender">
       <option value="ErnieBall">
     </datalist>
-<label for="tipologiaAmmCreaA">Tipologia</label>  
+<label for="tipologiaAmmCreaA">Tipologia</label> <span class="errore"> *<erroreTipCrea/></span>
 <input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA">
 <datalist id="tipologiaAmmCreaA">
   <option value="Corde">
@@ -107,7 +138,7 @@ if($categoria == "accessori"){
       
     $data = str_replace('<creaChit/>','
 
-    <label for="produttoreAmmCreaC">Produttore</label>
+    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<erroreProdCrea/></span>
     <input list="produttoreAmmCreaC" name="produttoreAmmCreaC">
     <datalist id="produttoreAmmCreaC">
       <option value="Epiphone">
@@ -118,7 +149,7 @@ if($categoria == "accessori"){
       <option value="Yamaha">
       <option value="Cort">
     </datalist>
-    <label for="tipologiaAmmCreaC">Tipologia</label>
+    <label for="tipologiaAmmCreaC">Tipologia</label><span class="errore"> *<erroreTipCrea/></span>
     <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC">
     <datalist id="tipologiaAmmCreaC">
       <option value="Elettrica">
@@ -126,9 +157,9 @@ if($categoria == "accessori"){
       <option value="Acustica">
       <option value="Classica">
     </datalist>
-    <label for="legnoManicoCrea">Legno del manico</label>
+    <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> *<erroreLMCrea/></span>
     <input type="text" name="legnoManicoCrea" class="legnoManico">
-    <label for="legnoCorpoCrea">Legno del corpo</label>
+    <label for="legnoCorpoCrea">Legno del corpo</label><span class="errore"> *<erroreLCCrea/></span>
     <input type="text" name="legnoCorpoCrea" class="legnoCorpo">', $data);
    
   }

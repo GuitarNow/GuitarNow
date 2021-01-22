@@ -201,10 +201,10 @@ public function crea_chitC($tipo, $legno_manico, $legno_corpo){
     return $this->prodotto->insert_query($query);
 }
 
-public function crea_chitI($immagine, $short_desc, $long_desc){
+public function crea_chitI($immagine, $short_desc){
     $prodotto_inserito= new DatabaseConnection();
     $id_prodotto_inserito = mysqli_fetch_assoc($prodotto_inserito->get_result_query("SELECT MAX(codice_prodotto) as id FROM prodotto"));
-    $query="INSERT INTO immagine (path,long_desc, short_desc, codice_prodotto) VALUES ('".$immagine."', '".$long_desc."', '".$short_desc."', '".$id_prodotto_inserito['id']."')"; 
+    $query="INSERT INTO immagine (path, short_desc, codice_prodotto) VALUES ('".$immagine."', '".$short_desc."', '".$id_prodotto_inserito['id']."')"; 
    
     return $this->prodotto->insert_query($query);
 }
