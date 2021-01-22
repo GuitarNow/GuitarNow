@@ -1,10 +1,11 @@
 <div id="contenutoLogin" class="contenuto">
-    <form action="PHP/back/ManageLogin.php" method="POST"  class="form" >
+    <form action="Login.php" method="POST"  class="form" >
     <fieldset>
-    <img src="Images/logo_bianco.png" alt="" />
-	<label for="username">Username</label>
-	<input name="username" id="username" maxlength="20" placeholder="teo99"/>
-	<label for="password">Password</label>
+	<img src="Images/logo_bianco.png" alt="" />
+	<span class="errore"> <erroreLogin/></span>
+	<label for="username">Username</label><span class="errore"> <erroreUserLogin/></span>
+	<input name="username" id="username" maxlength="20" placeholder="teo99" valueUsername/>
+	<label for="password">Password</label><span class="errore"> <errorePassLogin/></span>
 	<input type="password" name="password" id="password" maxlength="20" />
 	<input type="submit" name="submit" value="Accedi" id="loginAccedi" />
 	<a class="giaAccount" href="Registrati.php">Non hai un account?</a>
