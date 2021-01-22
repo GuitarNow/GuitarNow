@@ -346,6 +346,7 @@ iframe{
     width:60%;
     margin-bottom: 3%;
     margin-top:3%;
+    display:block;
 }
 
 #nome, #cognome, #email, #nascita ,#username, #password, #ridigitaPassword{
@@ -370,10 +371,7 @@ height:2em;
 
 
 
-#cambpass, #giaAccount{
-    margin-bottom: 0.5em;
-    margin-left:0.7em;
-}
+
 
 /*------------------------------------------------------------------------------
 --------------------------------footer----------------------------------*/
