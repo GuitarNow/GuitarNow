@@ -28,6 +28,7 @@ $categoria = $_REQUEST['categoria'];
 error_reporting(0);
 
 $data=file_get_contents('Html/creaProdotto.html');
+$data = str_replace('<tip/>',$categoria, $data);
 if(isset($_REQUEST['SalvaCrea'])){
 
 if($categoria == "accessori"){
@@ -80,7 +81,7 @@ if($categoria == "accessori"){
     $creazioneI = new ManageProdotti();
     $creazioneI->crea_chitI("Images/".$file_name, $short_desc);
  }
- $data = str_replace('<tip/>',$categoria, $data);
+ 
 }
 else{
   
@@ -109,7 +110,7 @@ else{
                 $web_page= str_replace('<erroreLCCrea/>','Devi assegnare un valore', $web_page);
                  }
                  
-                 $data = str_replace('<tip/>',$categoria, $data);
+
 } 
     }
     
