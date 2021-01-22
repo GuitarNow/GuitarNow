@@ -1,6 +1,6 @@
 <div id="contenutoCrea" class="contenuto">
 
-    <form method="POST" class="form" id="formCrea" enctype= "multipart/form-data" action="creaProdottoAmm.php" >    
+    <form method="POST" class="form" id="formCrea" enctype= "multipart/form-data" action="creaProdottoAmm.php?categoria=<tip/>" >    
     <fieldset>
     <img src="Images/logo_bianco.png" alt="" />
     <creaAcc/>
@@ -8,11 +8,11 @@
     <label for="modelloCrea">Modello</label><span class="errore"> *<erroreModCrea/></span>
     <input type="text" name="modelloCrea" class="modello"  />
 
-    <label for="descrizioneCrea">Descrizione</label><span class="errore"> *<erroreDescCrea/></span>
+    <label for="descrizioneCrea">Descrizione</label><span class="errore"> *<erroreDescrCrea/></span>
     <textarea rows=“40" cols="40" name="descrizioneCrea" > </textarea>
     <label for="immagineCrea">Importa immagine</label><span class="errore"> *<erroreImmCrea/></span>
     <input type="file" name="image" class="file"/>
-    <label for="DescrizioneImmagineCCrea">Descrizione corta immagine</label><span class="errore"> *<errore/></span>
+    <label for="DescrizioneImmagineCCrea">Descrizione corta immagine</label><span class="errore"> *<erroreSICrea/></span>
     <input type="text" name="short_descCrea" class="immagineC" placeholder="rappresentazione della chitarra acustica fender" />
     <label for="prezzoCrea">Prezzo</label><span class="errore"> *<errorePrezzoCrea/></span>
     <input type="text" name="prezzoCrea" class="prezzo" placeholder="€" value="" />
