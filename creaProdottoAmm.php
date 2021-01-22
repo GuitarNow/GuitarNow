@@ -117,14 +117,14 @@ if($modello<1){
 
     $data = str_replace('<creaAcc/>','
     <input type="hidden" name="codiceProdottoCrea"" value=""/>
-    <label for="produttoreAmmCreaA">Produttore</label><span class="errore"> *<erroreProdCrea/></span>
+    <label for="produttoreAmmCreaA">Produttore</label><span class="errore"> <erroreProdCrea/></span>
     <input list="produttoreAmmCreaA" name="produttoreAmmCreaA">
     <datalist id="produttoreAmmCreaA">'.
     $produttori_accessori
     .'
    
     </datalist>
-<label for="tipologiaAmmCreaA">Tipologia</label> <span class="errore"> *<erroreTipCrea/></span>
+<label for="tipologiaAmmCreaA">Tipologia</label> <span class="errore"> <erroreTipCrea/></span>
 <input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA">
 <datalist id="tipologiaAmmCreaA">
   <option value="Corde">
@@ -142,13 +142,13 @@ if($modello<1){
 
     $data = str_replace('<creaChit/>','
 
-    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<erroreProdCrea/></span>
+    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> <erroreProdCrea/></span>
     <input list="produttoreAmmCreaC" name="produttoreAmmCreaC_name">
     <datalist id="produttoreAmmCreaC">'.
     $produttori_chitarre.
     '
     </datalist>
-    <label for="tipologiaAmmCreaC">Tipologia</label><span class="errore"> *<erroreTipCrea/></span>
+    <label for="tipologiaAmmCreaC">Tipologia</label><span class="errore"> <erroreTipCrea/></span>
     <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC">
     <datalist id="tipologiaAmmCreaC">
       <option value="Elettrica">
@@ -156,9 +156,9 @@ if($modello<1){
       <option value="Acustica">
       <option value="Classica">
     </datalist>
-    <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> *<erroreLMCrea/></span>
+    <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> <erroreLMCrea/></span>
     <input type="text" name="legnoManicoCrea" class="legnoManico">
-    <label for="legnoCorpoCrea">Legno del corpo</label><span class="errore"> *<erroreLCCrea/></span>
+    <label for="legnoCorpoCrea">Legno del corpo</label><span class="errore"> <erroreLCCrea/></span>
     <input type="text" name="legnoCorpoCrea" class="legnoCorpo">', $data);
    
   }

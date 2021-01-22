@@ -868,13 +868,12 @@ margin-left:0;
 
 /*--------------pagina 404-------------------*/
 
-<<<<<<< HEAD
-=======
-#img_404{margin-bottom: 0px;}
 
-
-/*-------------------------------FORM-------------------------------*/
 .errore{
     color:red;
+    margin-left:20%;
+    display:block;
 }
->>>>>>> c1707d39620fedfc1e5623894bb7fe7b475305e2
+label{
+    display:block;
+}
