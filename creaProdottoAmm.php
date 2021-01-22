@@ -91,7 +91,7 @@ if($categoria == "accessori"){
   if($categoria == "accessori"){
     $data = str_replace('<creaAcc/>','
     <input type="hidden" name="codiceProdottoCrea"" value=""/>
-    <label for="produttoreAmmCreaA">Produttore</label><span class="errore"> *<errore/></span>
+    <label for="produttoreAmmCreaA">Produttore</label><span class="errore"> *<erroreProdCrea/></span>
     <input list="produttoreAmmCreaA" name="produttoreAmmCreaA">
     <datalist id="produttoreAmmCreaA">
       <option value="Daddario">
@@ -99,7 +99,7 @@ if($categoria == "accessori"){
       <option value="Fender">
       <option value="ErnieBall">
     </datalist>
-<label for="tipologiaAmmCreaA">Tipologia</label> <span class="errore"> *<errore/></span>
+<label for="tipologiaAmmCreaA">Tipologia</label> <span class="errore"> *<erroreTipCrea/></span>
 <input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA">
 <datalist id="tipologiaAmmCreaA">
   <option value="Corde">
@@ -111,7 +111,7 @@ if($categoria == "accessori"){
       
     $data = str_replace('<creaChit/>','
 
-    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<errore/></span>
+    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<erroreModCrea/></span>
     <input list="produttoreAmmCreaC" name="produttoreAmmCreaC">
     <datalist id="produttoreAmmCreaC">
       <option value="Epiphone">
@@ -122,7 +122,7 @@ if($categoria == "accessori"){
       <option value="Yamaha">
       <option value="Cort">
     </datalist>
-    <label for="tipologiaAmmCreaC">Tipologia</label><span class="errore"> *<errore/></span>
+    <label for="tipologiaAmmCreaC">Tipologia</label><span class="errore"> *<erroreTipCrea/></span>
     <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC">
     <datalist id="tipologiaAmmCreaC">
       <option value="Elettrica">
@@ -130,9 +130,9 @@ if($categoria == "accessori"){
       <option value="Acustica">
       <option value="Classica">
     </datalist>
-    <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> *<errore/></span>
+    <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> *<erroreLMCrea/></span>
     <input type="text" name="legnoManicoCrea" class="legnoManico">
-    <label for="legnoCorpoCrea">Legno del corpo</label><span class="errore"> *<errore/></span>
+    <label for="legnoCorpoCrea">Legno del corpo</label><span class="errore"> *<erroreLCCrea/></span>
     <input type="text" name="legnoCorpoCrea" class="legnoCorpo">', $data);
    
   }
