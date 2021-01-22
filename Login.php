@@ -22,7 +22,14 @@ $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 $web_page = str_replace('<breadcrumbs_to_insert/>','Accedi', $web_page);
 
 $web_page = str_replace('<contenuto_to_insert/>', file_get_contents('Html/Login.html'), $web_page);
-
+if(isset($_GET['operazione']) && $_GET['operazione']==1)
+{
+    $web_page=str_replace('<messaggio/>', '<p>Registrazione eseguita correttamenete.</p>', $web_page);
+}
+else
+{
+    $web_page=str_replace('<messaggio/>', '', $web_page);
+}
 echo $web_page;
 
 
