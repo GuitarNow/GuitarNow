@@ -204,7 +204,7 @@ else{
                       $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 10 caratteri', $data);
                        }
                        else{
-                        $data = str_replace('<valueDescrCrea/>',$descrizione, $data);
+                        $data = str_replace('<valDC/>',$descrizione, $data);
                       }
                        
                          if(!is_numeric($prezzo_vendita)){
