@@ -50,6 +50,7 @@ else
 	$prodotto_selezionato= $manage_prodotto->get_specifiche_accessori($id_prodotto);	
 }
 
+
 if(isset($_REQUEST['SalvaMod'])){
 
   if($categoria == "accessori"){
@@ -64,10 +65,9 @@ if(isset($_REQUEST['SalvaMod'])){
       $modello = $_POST['modelloMod'];
       $descrizione = $_POST['descrizioneMod'];
       #inserire immagine
-          $long_desc = $_POST['long_descMod'];
           $short_desc = $_POST['short_descMod'];
           $prezzo_vendita = $_POST['prezzoMod'];
-  
+          if (strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5 && strlen($legno_manico)!=0 && strlen($legno_corpo)!=0) {      
       $modificaP = new ManageProdotti();
       $modificaP->modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita, $id_prodotto);
       if($categoria == "chitarre"){
@@ -104,44 +104,55 @@ if(isset($_REQUEST['SalvaMod'])){
         }
         
       $modificaI = new ManageProdotti();
-      $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $long_desc, $id_prodotto);
+      $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $id_prodotto);
       }
       header('Location: Visualizza_prodotto.php?prodotto='.$id_prodotto.'&tipo='.$categoria);
        }
+      } 
+$data=file_get_contents('Html/gestisciProdotto.html');
+  
 
-$dataMod=file_get_contents('Html/gestisciProdotto.html');
-  if($categoria == "accessori"){
-    $dataMod = str_replace('<modAcc/>',' <input type="hidden" name="codiceProdottoMod"" value=""/>
-    <label for="produttoreAmmModA">Produttore</label>
+
+
+
+    if($categoria == "accessori"){
+
+      $produttori_manage_accessori = new ManageProdotti();
+      $p = $produttori_manage_accessori->get_produttori_accessori();
+      $produttori_accessori="";
+      foreach($p as $produttori_da_visualizzare){
+        $produttori_accessori.= '<option value="'.$produttori_da_visualizzare['produttore'].'">';
+   }
+    $data = str_replace('<modAcc/>',' <input type="hidden" name="codiceProdottoMod"" value=""/>
+    <label for="produttoreAmmModA">Produttore</label><span class="errore"> <erroreProdMod/></span>
     <input list="produttoreAmmModA" name="produttoreAmmModA" value="'.$prodotto_selezionato['produttore'].'">
     <datalist id="produttoreAmmModA">
-      <option value="Daddario">
-      <option value="BOSS">
-      <option value="Fender">
-      <option value="ErnieBall">
+    '.
+    $produttori_accessori
+    .'
     </datalist>
-<label for="tipologiaAmmModA">Tipologia</label>
+<label for="tipologiaAmmModA">Tipologia</label><span class="errore"> <erroreTipMod/></span>
 <input list="tipologiaAmmModA" name="tipologiaAmmModA" value="'.$prodotto_selezionato['categoria'].'">
 <datalist id="tipologiaAmmModA">
   <option value="Corde">
   <option value="Amplificatori">
   <option value="Effetti">
   <option value="Gadget">
-</datalist>',$dataMod);
-  }else{
-      
-    $dataMod = str_replace('<modChit/>','   <label for="produttoreAmmModC">Produttore</label>
+</datalist>',$data);
+  }else{ $produttori_manage = new ManageProdotti();
+    $p = $produttori_manage->get_produttori_chitarre();
+    $produttori_chitarre="";
+    foreach($p as $produttori_da_visualizzare){
+      $produttori_chitarre.= '<option value="'.$produttori_da_visualizzare['produttore'].'">';
+    }  
+    $data = str_replace('<modChit/>','   <label for="produttoreAmmModC">Produttore</label><span class="errore"> <erroreProdMod/></span>
     <input list="produttoreAmmModC" name="produttoreAmmModC" value="'.$prodotto_selezionato['produttore'].'">
     <datalist id="produttoreAmmModC" >
-      <option value="Epiphone">
-      <option value="Gibson">
-      <option value="Fender">
-      <option value="Ibanez">
-      <option value="Eko">
-      <option value="Yamaha">
-      <option value="Cort">
+    '.
+    $produttori_chitarre.
+    '
     </datalist>
-    <label for="tipologiaAmmModC">Tipologia</label>
+    <label for="tipologiaAmmModC">Tipologia</label><span class="errore"> <erroreTipMod/></span>
     <input list="tipologiaAmmModC" name="tipologiaAmmModC" value="'.$prodotto_selezionato['tipo_chitarra'].'">
     <datalist id="tipologiaAmmModC">
       <option value="Elettrica">
@@ -149,21 +160,78 @@ $dataMod=file_get_contents('Html/gestisciProdotto.html');
       <option value="Acustica">
       <option value="Classica">
     </datalist>
-    <label for="legnoManicoMod">Legno del manico</label>
+    <label for="legnoManicoMod">Legno del manico</label><span class="errore"> <erroreLMMod/></span>
     <input type="text" name="legnoManicoMod" class="legnoManico" value="'.$prodotto_selezionato['legno_manico'].'">
-    <label for="legnoCorpoMod">Legno del corpo</label>
+    <label for="legnoCorpoMod">Legno del corpo</label><span class="errore"> <erroreLCMod/></span>
     <input type="text" name="legnoCorpoMod" class="legnoCorpo" value="'.$prodotto_selezionato['legno_corpo'].'">
-    ', $dataMod);
+    ', $data);
   }
-$web_page = str_replace('<contenuto_to_insert/>',$dataMod, $web_page);
 
-$web_page = str_replace('<prezzoV/>',$prodotto_selezionato['prezzo'], $web_page);
-$web_page = str_replace('<descrCV/>',$prodotto_selezionato['short_desc'], $web_page);
-$web_page = str_replace('<descrLV/>',$prodotto_selezionato['long_desc'], $web_page);
-$web_page = str_replace('<descrProdV/>',$prodotto_selezionato['descrizione'], $web_page);
-$web_page = str_replace('<modelloV/>',$prodotto_selezionato['modello'], $web_page);
-$web_page = str_replace('<catModF/>',$categoria, $web_page);
-$web_page = str_replace('<proModF/>',$id_prodotto, $web_page);
+
+  if(isset($_REQUEST['SalvaMod'])){
+    if(strlen($legno_manico)<1){
+      $data = str_replace('<erroreLMMod/>','Devi assegnare un valore', $data);
+       }
+       else{
+        $data = str_replace('valueLMMod','value="'.$legno_manico.'"', $data);
+       }
+       if(strlen($legno_corpo)<1){
+        $data= str_replace('<erroreLCMod/>','Devi assegnare un valore', $data);
+         }
+         else{
+          $data = str_replace('valueLCMod','value="'.$legno_corpo.'"', $data);
+         }
+         if(strlen($tipo)<1){
+          $data = str_replace('<erroreTipMod/>','Assegna un valore', $data);
+           }
+           else{
+            $data = str_replace('valueTipMod','value="'.$tipo.'"', $data);
+           }
+           if(strlen($modello)<1){
+            $data = str_replace('<erroreModMod/>','Devi assegnare un valore', $data);
+          }
+          else{
+            $data = str_replace('modelloV','value="'.$modello.'"', $data);
+          }
+          
+             
+             if((strlen($descrizione)) <25){
+              $data = str_replace('<erroreDescrMod/>','Deve contenere più di 25 caratteri', $data);
+               }
+               else{
+                $data = str_replace('Descrivi il prodotto',$descrizione, $data);
+              }
+               
+                 if(!is_numeric($prezzo_vendita)){
+                  $data = str_replace('<errorePrezzoMod/>','Devi assegnare un valore numerico', $data);
+                   }
+                   else{
+                    $data = str_replace('prezzoV','value="'.$prezzo_vendita.'"', $data);
+                  }
+                   if(strlen($short_desc) <5){
+                    $data = str_replace('<erroreDIMod/>','Deve contenere più di 5 caratteri', $data);
+                   }
+                   else{
+                    $data = str_replace('descrCV','value="'.$short_desc.'"', $data);
+                  }
+                  if(strlen($produttore)<1){
+                    $data =str_replace('<erroreProdMod/>','Assegna un valore', $data);
+                  }
+                  else{
+                    $data = str_replace('valueProdMod','value="'.$produttore.'"', $data);
+                   }
+  }
+
+
+
+$web_page = str_replace('<contenuto_to_insert/>',$data, $web_page);
+
+$web_page = str_replace('prezzoV','value="'.$prodotto_selezionato['prezzo'].'"', $web_page);
+$web_page = str_replace('descrCV','value="'.$prodotto_selezionato['short_desc'].'"', $web_page);
+$web_page = str_replace('Descrivi il prodotto','value="'.$prodotto_selezionato['descrizione'].'"', $web_page);
+$web_page = str_replace('modelloV','value="'.$prodotto_selezionato['modello'].'"', $web_page);
+$web_page = str_replace('catModF',$categoria, $web_page);
+$web_page = str_replace('proModF',$id_prodotto, $web_page);
 
 echo $web_page;
 

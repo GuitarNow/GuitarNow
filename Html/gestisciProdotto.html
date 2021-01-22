@@ -1,23 +1,21 @@
 <div id="contenutoGestisci" class="contenuto">
 
-    <form method="POST" class="form" id="formMod" enctype= "multipart/form-data" action="gestisciProdottoAmm.php?categoria=<catModF/>&prodotto=<proModF/>" >
+    <form method="POST" class="form" id="formMod" enctype= "multipart/form-data" action="gestisciProdottoAmm.php?categoria=catModF&prodotto=proModF" >
     <fieldset>
     
     <img src="Images/logo_bianco.png" alt="" />
     <modAcc/>
     <modChit/>
-    <label for="modelloMod">Modello</label>
-    <input type="text" name="modelloMod" class="modello" value="<modelloV/>" />
-    <label for="descrizioneMod">Descrizione</label>
-    <textarea rows=“40" cols="40" name="descrizioneMod" ><descrProdV/> </textarea>
-    <label for="immagineMod">Importa nuova immagine</label>
+    <label for="modelloMod">Modello</label><span class="errore"> <erroreModMod/></span>
+    <input type="text" name="modelloMod" class="modello" modelloV />
+    <label for="descrizioneMod">Descrizione</label><span class="errore"> <erroreDescrMod/></span>
+    <textarea rows=“40" cols="40" name="descrizioneMod" >Descrivi il prodotto</textarea>
+    <label for="immagineMod">Importa nuova immagine</label><span class="errore"> <erroreImmMod/></span>
     <input type="file" name="image" class="file" />
-    <label for="DescrizioneImmagineLMod">Descrizione lunga immagine</label>
-    <textarea rows=“40" cols="40" name="long_descMod" ><descrLV/></textarea>
-    <label for="DescrizioneImmagineCMod">Descrizione corta immagine</label>
-    <input type="text" name="short_descMod" class="immagineC" value="<descrCV/>"/>
-    <label for="prezzoMod">Prezzo</label>
-    <input type="text" name="prezzoMod" class="prezzo" value="<prezzoV/>"/>
+    <label for="DescrizioneImmagineCMod">Descrizione corta immagine</label><span class="errore"> <erroreDIMod/></span>
+    <input type="text" name="short_descMod" class="immagineC" descrCV/>
+    <label for="prezzoMod">Prezzo</label><span class="errore"> <errorePrezzoMod/></span>
+    <input type="text" name="prezzoMod" class="prezzo" prezzoV/>
     <input type="submit" name="SalvaMod" value="Salva Prodotto" class="Salva" />
     <a href="prodotti.php" class="Annulla">Annulla</a>  
     </fieldset>

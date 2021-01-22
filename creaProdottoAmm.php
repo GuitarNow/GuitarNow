@@ -88,28 +88,22 @@ if(strlen($modello)<1){
   $data = str_replace('<erroreModCrea/>','Devi assegnare un valore', $data);
 }
 else{
-  $data = str_replace('<valueModCrea/>','value="'.$modello.'"', $data);
+  $data = str_replace('valueModCrea','value="'.$modello.'"', $data);
 }
 
    
-   if((strlen($descrizione)) <10){
-    $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 10 caratteri', $data);
-     }
-     else{
-      $data = str_replace('<valueDescrCrea/>',$descrizione, $data);
-    }
      
        if(!is_numeric($prezzo_vendita)){
         $data = str_replace('<errorePrezzoCrea/>','Devi assegnare un valore numerico', $data);
          }
          else{
-          $data = str_replace('<valuePrezzoCrea/>','value="'.$prezzo_vendita.'"', $data);
+          $data = str_replace('valuePrezzoCrea','value="'.$prezzo_vendita.'"', $data);
         }
          if(strlen($short_desc) <5){
           $data = str_replace('<erroreSICrea/>','Deve contenere più di 5 caratteri', $data);
          }
          else{
-          $data = str_replace('<valueImmCCrea/>','value="'.$short_desc.'"', $data);
+          $data = str_replace('valueImmCCrea','value="'.$short_desc.'"', $data);
         }
  
       }   
@@ -201,7 +195,7 @@ else{
                   
                      
                      if((strlen($descrizione)) <25){
-                      $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 10 caratteri', $data);
+                      $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 25 caratteri', $data);
                        }
                        else{
                         $data = str_replace('Descrivi il prodotto',$descrizione, $data);
