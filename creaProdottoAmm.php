@@ -27,7 +27,7 @@ if (!isset($_REQUEST['categoria'])) {
 $categoria = $_REQUEST['categoria'];
 error_reporting(0);
 
-
+$data=file_get_contents('Html/creaProdotto.html');
 if(isset($_REQUEST['SalvaCrea'])){
 
 if($categoria == "accessori"){
@@ -42,12 +42,16 @@ if($categoria == "accessori"){
     $modello = $_POST['modelloCrea'];
     $descrizione = $_POST['descrizioneCrea'];
     
-        $long_desc = $_POST['long_descCrea'];
         $short_desc = $_POST['short_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
 
+        if (($modello) !=0 && ($produttore) != 0 && ($descrizione)> 5 && is_numeric($prezzo_vendita)) {
     $creazioneP = new ManageProdotti();
    $creazioneP->crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita);
+       }
+        else{
+         $data = str_replace('<errore/>','Devi assegnare un valore', $data);
+        }
    $creazioneC = new ManageProdotti();
    $creazioneC->crea_chitC($tipo, $legno_manico, $legno_corpo);
 
@@ -77,17 +81,17 @@ if($categoria == "accessori"){
        print_r($errors);
     }
     $creazioneI = new ManageProdotti();
-    $creazioneI->crea_chitI("Images/".$file_name, $short_desc, $long_desc);
+    $creazioneI->crea_chitI("Images/".$file_name, $short_desc);
  }
     
     }
     
 
-    $data=file_get_contents('Html/creaProdotto.html');
+    
   if($categoria == "accessori"){
     $data = str_replace('<creaAcc/>','
     <input type="hidden" name="codiceProdottoCrea"" value=""/>
-    <label for="produttoreAmmCreaA">Produttore</label>
+    <label for="produttoreAmmCreaA">Produttore</label><span class="errore"> *<errore/></span>
     <input list="produttoreAmmCreaA" name="produttoreAmmCreaA">
     <datalist id="produttoreAmmCreaA">
       <option value="Daddario">
@@ -95,7 +99,7 @@ if($categoria == "accessori"){
       <option value="Fender">
       <option value="ErnieBall">
     </datalist>
-<label for="tipologiaAmmCreaA">Tipologia</label>  
+<label for="tipologiaAmmCreaA">Tipologia</label> <span class="errore"> *<errore/></span>
 <input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA">
 <datalist id="tipologiaAmmCreaA">
   <option value="Corde">
@@ -107,7 +111,7 @@ if($categoria == "accessori"){
       
     $data = str_replace('<creaChit/>','
 
-    <label for="produttoreAmmCreaC">Produttore</label>
+    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<errore/></span>
     <input list="produttoreAmmCreaC" name="produttoreAmmCreaC">
     <datalist id="produttoreAmmCreaC">
       <option value="Epiphone">
@@ -118,7 +122,7 @@ if($categoria == "accessori"){
       <option value="Yamaha">
       <option value="Cort">
     </datalist>
-    <label for="tipologiaAmmCreaC">Tipologia</label>
+    <label for="tipologiaAmmCreaC">Tipologia</label><span class="errore"> *<errore/></span>
     <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC">
     <datalist id="tipologiaAmmCreaC">
       <option value="Elettrica">
@@ -126,9 +130,9 @@ if($categoria == "accessori"){
       <option value="Acustica">
       <option value="Classica">
     </datalist>
-    <label for="legnoManicoCrea">Legno del manico</label>
+    <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> *<errore/></span>
     <input type="text" name="legnoManicoCrea" class="legnoManico">
-    <label for="legnoCorpoCrea">Legno del corpo</label>
+    <label for="legnoCorpoCrea">Legno del corpo</label><span class="errore"> *<errore/></span>
     <input type="text" name="legnoCorpoCrea" class="legnoCorpo">', $data);
    
   }

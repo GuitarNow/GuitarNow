@@ -5,18 +5,16 @@
     <img src="Images/logo_bianco.png" alt="" />
     <creaAcc/>
     <creaChit/>
-    <label for="modelloCrea">Modello</label>
+    <label for="modelloCrea">Modello</label><span class="errore"> *<errore/></span>
     <input type="text" name="modelloCrea" class="modello"  />
 
-    <label for="descrizioneCrea">Descrizione</label>
+    <label for="descrizioneCrea">Descrizione</label><span class="errore"> *<erroreDescCrea/></span>
     <textarea rows=“40" cols="40" name="descrizioneCrea" > </textarea>
-    <label for="immagineCrea">Importa immagine</label>
+    <label for="immagineCrea">Importa immagine</label><span class="errore"> *<erroreImmCrea/></span>
     <input type="file" name="image" class="file"/>
-    <label for="DescrizioneImmagineLCrea">Descrizione lunga immagine</label>
-    <textarea rows=“40" cols="40" name="long_descCrea" > </textarea>
-    <label for="DescrizioneImmagineCCrea">Descrizione corta immagine</label>
+    <label for="DescrizioneImmagineCCrea">Descrizione corta immagine</label><span class="errore"> *<errore/></span>
     <input type="text" name="short_descCrea" class="immagineC" placeholder="rappresentazione della chitarra acustica fender" />
-    <label for="prezzoCrea">Prezzo</label>
+    <label for="prezzoCrea">Prezzo</label><span class="errore"> *<errorePrezzoCrea/></span>
     <input type="text" name="prezzoCrea" class="prezzo" placeholder="€" value="" />
     <input type="submit" name="SalvaCrea" value="Crea Prodotto" class="Salva" />   
     <a href="prodotti.php" class="Annulla">Annulla</a>
