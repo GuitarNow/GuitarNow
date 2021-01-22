@@ -162,6 +162,7 @@ if($modello<1){
     <input type="text" name="legnoCorpoCrea" class="legnoCorpo">', $data);
    
   }
+  if(isset($_REQUEST['SalvaCrea'])){
   if($produttoree<1){
     $data =str_replace('<erroreProdCrea/>','Assegna un valore', $data);
   }
@@ -174,6 +175,7 @@ if($modello<1){
                  if($tipo<1){
                   $data = str_replace('<erroreTipCrea/>','Assegna un valore', $data);
                    }
+                  }
 $web_page = str_replace('<contenuto_to_insert/>',$data, $web_page);
    
 
