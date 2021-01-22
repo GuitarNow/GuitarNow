@@ -46,7 +46,7 @@ if($categoria == "accessori"){
         $short_desc = $_POST['short_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
 
-        if (strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 10 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5 && strlen($legno_manico)!=0 && strlen($legno_corpo)!=0) {
+        if (strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5 && strlen($legno_manico)!=0 && strlen($legno_corpo)!=0) {
     $creazioneP = new ManageProdotti();
    $creazioneP->crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita);
       
@@ -128,14 +128,14 @@ else{
     $data = str_replace('<creaAcc/>','
     <input type="hidden" name="codiceProdottoCrea"" value=""/>
     <label for="produttoreAmmCreaA">Produttore</label><span class="errore"> <erroreProdCrea/></span>
-    <input list="produttoreAmmCreaA" name="produttoreAmmCreaA" <valueProdCrea/>> 
+    <input list="produttoreAmmCreaA" name="produttoreAmmCreaA" valueProdCrea> 
     <datalist id="produttoreAmmCreaA">'.
     $produttori_accessori
     .'
    
     </datalist>
 <label for="tipologiaAmmCreaA">Tipologia</label> <span class="errore"> <erroreTipCrea/></span>
-<input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA" <valueTipCrea/>>
+<input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA" valueTipCrea>
 <datalist id="tipologiaAmmCreaA">
   <option value="Corde">
   <option value="Amplificatori">
@@ -153,13 +153,13 @@ else{
     $data = str_replace('<creaChit/>','
 
     <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> <erroreProdCrea/></span>
-    <input list="produttoreAmmCreaC" name="produttoreAmmCreaC_name" <valueProdCrea/>>
+    <input list="produttoreAmmCreaC" name="produttoreAmmCreaC_name" valueProdCrea>
     <datalist id="produttoreAmmCreaC">'.
     $produttori_chitarre.
     '
     </datalist>
     <label for="tipologiaAmmCreaC">Tipologia</label><span class="errore"> <erroreTipCrea/></span>
-    <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC" <valueTipCrea/>>
+    <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC" valueTipCrea>
     <datalist id="tipologiaAmmCreaC">
       <option value="Elettrica">
       <option value="Semiacustica">
@@ -167,9 +167,9 @@ else{
       <option value="Classica">
     </datalist>
     <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> <erroreLMCrea/></span>
-    <input type="text" name="legnoManicoCrea" class="legnoManico" <valueLCCrea/>>
+    <input type="text" name="legnoManicoCrea" class="legnoManico" valueLCCrea>
     <label for="legnoCorpoCrea">Legno del corpo</label><span class="errore"> <erroreLCCrea/></span>
-    <input type="text" name="legnoCorpoCrea" class="legnoCorpo" <valueLCCrea/>>', $data);
+    <input type="text" name="legnoCorpoCrea" class="legnoCorpo" valueLCCrea>', $data);
    
   }
   if(isset($_REQUEST['SalvaCrea'])){
@@ -178,52 +178,52 @@ else{
               $data = str_replace('<erroreLMCrea/>','Devi assegnare un valore', $data);
                }
                else{
-                $data = str_replace('<valueLMCrea/>','value="'.$legno_manico.'"', $data);
+                $data = str_replace('valueLMCrea','value="'.$legno_manico.'"', $data);
                }
                if(strlen($legno_corpo)<1){
                 $data= str_replace('<erroreLCCrea/>','Devi assegnare un valore', $data);
                  }
                  else{
-                  $data = str_replace('<valueLCCrea/>','value="'.$legno_corpo.'"', $data);
+                  $data = str_replace('valueLCCrea','value="'.$legno_corpo.'"', $data);
                  }
                  if(strlen($tipo)<1){
                   $data = str_replace('<erroreTipCrea/>','Assegna un valore', $data);
                    }
                    else{
-                    $data = str_replace('<valueTipCrea/>','value="'.$tipo.'"', $data);
+                    $data = str_replace('valueTipCrea','value="'.$tipo.'"', $data);
                    }
                    if(strlen($modello)<1){
                     $data = str_replace('<erroreModCrea/>','Devi assegnare un valore', $data);
                   }
                   else{
-                    $data = str_replace('<valueModCrea/>','value="'.$modello.'"', $data);
+                    $data = str_replace('valueModCrea','value="'.$modello.'"', $data);
                   }
                   
                      
-                     if((strlen($descrizione)) <10){
+                     if((strlen($descrizione)) <25){
                       $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 10 caratteri', $data);
                        }
                        else{
-                        $data = str_replace('<valDC/>',$descrizione, $data);
+                        $data = str_replace('Descrivi il prodotto',$descrizione, $data);
                       }
                        
                          if(!is_numeric($prezzo_vendita)){
                           $data = str_replace('<errorePrezzoCrea/>','Devi assegnare un valore numerico', $data);
                            }
                            else{
-                            $data = str_replace('<valuePrezzoCrea/>','value="'.$prezzo_vendita.'"', $data);
+                            $data = str_replace('valuePrezzoCrea','value="'.$prezzo_vendita.'"', $data);
                           }
                            if(strlen($short_desc) <5){
                             $data = str_replace('<erroreSICrea/>','Deve contenere più di 5 caratteri', $data);
                            }
                            else{
-                            $data = str_replace('<valueImmCCrea/>','value="'.$short_desc.'"', $data);
+                            $data = str_replace('valueImmCCrea','value="'.$short_desc.'"', $data);
                           }
                           if(strlen($produttore)<1){
                             $data =str_replace('<erroreProdCrea/>','Assegna un valore', $data);
                           }
                           else{
-                            $data = str_replace('<valueProdCrea/>','value="'.$produttore.'"', $data);
+                            $data = str_replace('valueProdCrea','value="'.$produttore.'"', $data);
                            }
                    
                         }   
