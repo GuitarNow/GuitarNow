@@ -11,6 +11,6 @@ $username = $_POST['username'];
     if($password==$passwordR){
     $reg = new ManageRegistrati();
    $reg->registrati($email, $username, $password);
-   header('Location: ../../Login.php  ');
+   header('Location: ../../Login.php?operazione=1 ');
     }
 ?>

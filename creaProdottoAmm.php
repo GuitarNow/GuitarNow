@@ -35,7 +35,7 @@ if($categoria == "accessori"){
     $produttore = $_POST['produttoreAmmCreaA'];
     $tipo = $_POST['tipologiaAmmCreaA'];
     }else{
-        $produttore = $_POST['produttoreAmmCreaC'];
+        $produttore = $_POST['produttoreAmmCreaC_name'];
         $tipo = $_POST['tipologiaAmmCreaC'];
         $legno_manico = $_POST['legnoManicoCrea'];
         $legno_corpo = $_POST['legnoCorpoCrea'];
@@ -117,15 +117,22 @@ else{
 
     
   if($categoria == "accessori"){
+
+    $produttori_manage_accessori = new ManageProdotti();
+    $p = $produttori_manage_accessori->get_produttori_accessori();
+    $produttori_accessori="";
+    foreach($p as $produttori_da_visualizzare){
+      $produttori_accessori.= '<option value="'.$produttori_da_visualizzare['produttore'].'">';
+ }
+
     $data = str_replace('<creaAcc/>','
     <input type="hidden" name="codiceProdottoCrea"" value=""/>
     <label for="produttoreAmmCreaA">Produttore</label><span class="errore"> *<erroreProdCrea/></span>
     <input list="produttoreAmmCreaA" name="produttoreAmmCreaA">
-    <datalist id="produttoreAmmCreaA">
-      <option value="Daddario">
-      <option value="BOSS">
-      <option value="Fender">
-      <option value="ErnieBall">
+    <datalist id="produttoreAmmCreaA">'.
+    $produttori_accessori
+    .'
+   
     </datalist>
 <label for="tipologiaAmmCreaA">Tipologia</label> <span class="errore"> *<erroreTipCrea/></span>
 <input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA">
@@ -136,19 +143,20 @@ else{
   <option value="Gadget">
 </datalist>', $data);
   }else{
-      
+    $produttori_manage = new ManageProdotti();
+    $p = $produttori_manage->get_produttori_chitarre();
+    $produttori_chitarre="";
+    foreach($p as $produttori_da_visualizzare){
+      $produttori_chitarre.= '<option value="'.$produttori_da_visualizzare['produttore'].'">';
+ }
+
     $data = str_replace('<creaChit/>','
 
-    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<erroreProdCrea/></span>
-    <input list="produttoreAmmCreaC" name="produttoreAmmCreaC">
-    <datalist id="produttoreAmmCreaC">
-      <option value="Epiphone">
-      <option value="Gibson">
-      <option value="Fender">
-      <option value="Ibanez">
-      <option value="Eko">
-      <option value="Yamaha">
-      <option value="Cort">
+    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<erroreModCrea/></span>
+    <input list="produttoreAmmCreaC" name="produttoreAmmCreaC_name">
+    <datalist id="produttoreAmmCreaC">'.
+    $produttori_chitarre.
+    '
     </datalist>
     <label for="tipologiaAmmCreaC">Tipologia</label><span class="errore"> *<erroreTipCrea/></span>
     <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC">
