@@ -11,7 +11,7 @@ else{
 
 if($permessi==1){
 $web_page = file_get_contents('Html/template.html');
-
+$web_this = file_get_contents('creaProdottoAmm.php');
 $web_page = str_replace('<title_page/>', "Crea Prodotti Amministrazione", $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Crea Prodotto - Amministrazione", $web_page);
@@ -45,13 +45,10 @@ if($categoria == "accessori"){
         $short_desc = $_POST['short_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
 
-        if (($modello) !=0 && ($produttore) != 0 && ($descrizione)> 5 && is_numeric($prezzo_vendita)) {
+        if (($modello) !=0 && ($produttore) != 0 && ($descrizione)> 10 && is_numeric($prezzo_vendita) && ($tipo)!=0 && ($short_desc)>5 && ($legno_manico)!=0 && ($legno_corpo)!=0) {
     $creazioneP = new ManageProdotti();
    $creazioneP->crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita);
-       }
-        else{
-         $data = str_replace('<errore/>','Devi assegnare un valore', $data);
-        }
+      
    $creazioneC = new ManageProdotti();
    $creazioneC->crea_chitC($tipo, $legno_manico, $legno_corpo);
 
@@ -83,7 +80,37 @@ if($categoria == "accessori"){
     $creazioneI = new ManageProdotti();
     $creazioneI->crea_chitI("Images/".$file_name, $short_desc);
  }
-    
+ $data = str_replace('<tip/>',$categoria, $data);
+}
+else{
+  
+  if($modello<1){
+    $data = str_replace('<erroreModCrea/>','Devi assegnare un valore', $data);
+  }
+  if($produttoree<1){
+    $web_page =str_replace('<erroreProdCrea/>','Assegna un valore', $web_page);
+     }
+     if(($descrizione) <10){
+      $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 10 caratteri', $data);
+       }
+       if($tipo<1){
+        $data = str_replace('<erroreTipCrea/>','Devi assegnare un valore', $data);
+         }
+         if(!is_numeric($prezzo_vendita)){
+          $data = str_replace('<errorePrezzoCrea/>','Devi assegnare un valore numerico', $data);
+           }
+           if(($short_desc) <5){
+            $data = str_replace('<erroreSICrea/>','Deve contenere più di 5 caratteri', $data);
+             }
+             if($legno_manico<1){
+              $data = str_replace('<erroreLMCrea/>','Devi assegnare un valore', $data);
+               }
+               if($legno_corpo<1){
+                $web_page= str_replace('<erroreLCCrea/>','Devi assegnare un valore', $web_page);
+                 }
+                 
+                 $data = str_replace('<tip/>',$categoria, $data);
+} 
     }
     
 
@@ -111,7 +138,7 @@ if($categoria == "accessori"){
       
     $data = str_replace('<creaChit/>','
 
-    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<erroreModCrea/></span>
+    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<erroreProdCrea/></span>
     <input list="produttoreAmmCreaC" name="produttoreAmmCreaC">
     <datalist id="produttoreAmmCreaC">
       <option value="Epiphone">
