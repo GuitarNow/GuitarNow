@@ -11,7 +11,7 @@ else{
 
 if($permessi==1){
 $web_page = file_get_contents('Html/template.html');
-$web_this = file_get_contents('creaProdottoAmm.php');
+
 $web_page = str_replace('<title_page/>', "Crea Prodotti Amministrazione", $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Crea Prodotto - Amministrazione", $web_page);
