@@ -331,7 +331,7 @@ iframe{
 }
 
 .form a{ 
-	margin-left:25%;
+	margin-left:30%;
 	margin-top:2em;
 	color:#2C3539;
 }
@@ -346,6 +346,7 @@ iframe{
     width:60%;
     margin-bottom: 3%;
     margin-top:3%;
+    display:block;
 }
 
 #nome, #cognome, #email, #nascita ,#username, #password, #ridigitaPassword{
@@ -370,10 +371,7 @@ height:2em;
 
 
 
-#cambpass, #giaAccount{
-    margin-bottom: 0.5em;
-    margin-left:0.7em;
-}
+
 
 /*------------------------------------------------------------------------------
 --------------------------------footer----------------------------------*/
@@ -866,3 +864,8 @@ margin-left:0;
      margin-bottom: 3%;
      resize:none;
 }
+
+
+/*--------------pagina 404-------------------*/
+
+#img_404{margin-bottom: 0px;}

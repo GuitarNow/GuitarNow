@@ -49,8 +49,12 @@ $nav_bar = '       <li  class="link" role="none" xml:lang="en"><a class="a_heade
 <li class="link" role="none"><a class="a_header" href="Chisiamo.php" role="menuitem">Chi siamo</a></li>';
 $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 
-
-$web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Chitarre", $web_page);
+if($categoria == "chitarre" || $categoria == NULL){
+    $web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Chitarre", $web_page);
+}
+else{
+    $web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Accessori", $web_page);  
+}
 
 //login logout
 if(isset($_SESSION['login_user'])){
