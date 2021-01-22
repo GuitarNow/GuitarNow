@@ -84,35 +84,25 @@ if($categoria == "accessori"){
  
 }
 else{
-  
-  if($modello<1){
-    $data = str_replace('<erroreModCrea/>','Devi assegnare un valore', $data);
-  }
-  if($produttoree<1){
-    $web_page =str_replace('<erroreProdCrea/>','Assegna un valore', $web_page);
-     }
-     if(($descrizione) <10){
-      $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 10 caratteri', $data);
-       }
-       if($tipo<1){
-        $data = str_replace('<erroreTipCrea/>','Devi assegnare un valore', $data);
-         }
-         if(!is_numeric($prezzo_vendita)){
-          $data = str_replace('<errorePrezzoCrea/>','Devi assegnare un valore numerico', $data);
-           }
-           if(($short_desc) <5){
-            $data = str_replace('<erroreSICrea/>','Deve contenere più di 5 caratteri', $data);
-             }
-             if($legno_manico<1){
-              $data = str_replace('<erroreLMCrea/>','Devi assegnare un valore', $data);
-               }
-               if($legno_corpo<1){
-                $web_page= str_replace('<erroreLCCrea/>','Devi assegnare un valore', $web_page);
-                 }
-                 
+if($modello<1){
+  $data = str_replace('<erroreModCrea/>','Devi assegnare un valore', $data);
+}
 
-} 
-    }
+   }
+   if(($descrizione) <10){
+    $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 10 caratteri', $data);
+     }
+     
+       if(!is_numeric($prezzo_vendita)){
+        $data = str_replace('<errorePrezzoCrea/>','Devi assegnare un valore numerico', $data);
+         }
+         if(($short_desc) <5){
+          $data = str_replace('<erroreSICrea/>','Deve contenere più di 5 caratteri', $data);
+         }
+                 
+        }
+ 
+    
     
 
     
@@ -152,7 +142,7 @@ else{
 
     $data = str_replace('<creaChit/>','
 
-    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<erroreModCrea/></span>
+    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> *<erroreProdCrea/></span>
     <input list="produttoreAmmCreaC" name="produttoreAmmCreaC_name">
     <datalist id="produttoreAmmCreaC">'.
     $produttori_chitarre.
@@ -172,8 +162,22 @@ else{
     <input type="text" name="legnoCorpoCrea" class="legnoCorpo">', $data);
    
   }
+  if($produttoree<1){
+    $data =str_replace('<erroreProdCrea/>','Assegna un valore', $data);
+  }
+             if($legno_manico<1){
+              $data = str_replace('<erroreLMCrea/>','Devi assegnare un valore', $data);
+               }
+               if($legno_corpo<1){
+                $data= str_replace('<erroreLCCrea/>','Devi assegnare un valore', $data);
+                 }
+                 if($tipo<1){
+                  $data = str_replace('<erroreTipCrea/>','Assegna un valore', $data);
+                   }
 $web_page = str_replace('<contenuto_to_insert/>',$data, $web_page);
    
+
+
 
 echo $web_page;
 }
