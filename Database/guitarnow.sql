@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 22, 2021 alle 17:11
+-- Creato il: Gen 22, 2021 alle 18:32
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.4
 
@@ -72,7 +72,8 @@ INSERT INTO `chitarra` (`cod_chitarra`, `legno_manico`, `legno_corpo`, `tipo_chi
 (14, 'ontano', 'acero', 'Elettrica'),
 (16, 'abete', 'acero', 'Elettrica'),
 (42, 'mogano', 'acero', 'Semiacustica'),
-(43, 'mogano', 'acero', 'Semiacustica');
+(43, 'mogano', 'acero', 'Semiacustica'),
+(57, 'palissandro', 'palissandro', 'Semiacustica');
 
 -- --------------------------------------------------------
 
@@ -225,7 +226,16 @@ INSERT INTO `immagine` (`id_immagine`, `path`, `long_desc`, `short_desc`, `codic
 (13, 'Images/Roadcore_premium.jpg', 'da fare', 'anteprima Ibanez Roadcore Premium da inserire', 12),
 (14, 'Images/Cort_AC100.jpg', 'da fare', 'anteprima Cort AC100 in vendita', 13),
 (15, 'Images/Telecaster.jpg', 'da fare', 'anteprima Fender Telecaster MN in vendita', 14),
-(16, 'Images/Ibanez_RG.jpg', 'da fare', 'anteprima Ibanez RG in vendita', 16);
+(16, 'Images/Ibanez_RG.jpg', 'da fare', 'anteprima Ibanez RG in vendita', 16),
+(31, 'Images/logo4.png', '', 'dsadsa', 43),
+(32, 'Images/logo4.png', '', 'Descrizione corta immagine', 43),
+(33, 'Images/logo4.png', '', 'sdasda', 43),
+(34, 'Images/logo4.png', '', 'sdasda', 43),
+(35, 'Images/logo4.png', '', 'dsdas', 43),
+(36, 'Images/logo4.png', '', 'dsdas', 43),
+(37, 'Images/logo4.png', '', 'dsdas', 43),
+(38, 'Images/logo3.png', '', 'dsada', 43),
+(39, 'Images/logo3.png', '', 'dsada', 57);
 
 -- --------------------------------------------------------
 
@@ -262,7 +272,8 @@ INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione
 (14, 'Telecaster MN', 'Fender', 'La <span xml:lang=\"en\" >Telecaster</span> MN &egrave; progettata per l\'aspirante chitarrista. Caratterizzata dai toni iconici di <span xml:lang=\"en\" >Fender</span> e dallo stile accoppiato con componenti moderni. Il classico corpo <span xml:lang=\"en\" >Telecaster</span> a singola spalla mancante, realizzato in ontano, offre un suono ben bilanciato e dinamico. Sia il manico che la tastiera sono costruiti in acero, che migliora il tono con un sacco di luminosit&agrave; e sostegno.', 699.99),
 (16, 'RG Standard', 'Ibanez', 'La chitarra Ibanez RG Standard &egrave; perfetta per tutti quei chitarristi che vogliono acquistare uno strumento semi professionale ad un prezzo accessibile. I legni della chitarra le danno un aspetto esotico e naturale perfetto per tutti gli amanti delle chitarre vintage.  ', 600.00),
 (42, '1231', 'Fender', ' 32131', 123.00),
-(43, '1231', 'Fender', ' 32131', 123.00);
+(43, '1231', 'Fender', ' 32131', 123.00),
+(57, 'dsadsa', 'prova_inserimento_prodotto', 'sdadas', 123.00);
 
 -- --------------------------------------------------------
 
@@ -391,13 +402,13 @@ ALTER TABLE `commento`
 -- AUTO_INCREMENT per la tabella `immagine`
 --
 ALTER TABLE `immagine`
-  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- Limiti per le tabelle scaricate
