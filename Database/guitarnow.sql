@@ -85,7 +85,7 @@ CREATE TABLE `commento` (
   `id_commento` int(11) NOT NULL,
   `descrizione` text NOT NULL,
   `voto` int(1) NOT NULL,
-  `data` date NOT NULL DEFAULT current_timestamp(),
+  `data` date NOT NULL ,
   `codice_prodotto` int(11) NOT NULL,
   `user` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
