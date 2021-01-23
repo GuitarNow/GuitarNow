@@ -106,7 +106,7 @@ if(isset($_REQUEST['SalvaMod'])){
       $modificaI = new ManageProdotti();
       $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $id_prodotto);
       }
-      header('Location: Visualizza_prodotto.php?prodotto='.$id_prodotto.'&tipo='.$categoria);
+      header('Location: Visualizza_prodotto.php?prodotto='.$id_prodotto.'&tipo='.$categoria.'&operazione=1');
        }
       } 
 $data=file_get_contents('Html/gestisciProdotto.html');
