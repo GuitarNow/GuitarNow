@@ -19,7 +19,7 @@ class ManageCommenti
 
     public function delete_commenti($id)
     {
-        $query="DELETE FROM commento where id_commento=".$id;
+        $query="DELETE FROM commento where id_commento =".$id;
         return $this->prodotto->delete_query($query);
     }
 
