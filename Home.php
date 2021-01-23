@@ -34,6 +34,16 @@ else{
 
 $pagina_home =  file_get_contents('Html/Home.html');
 
+if($permessi!=-1)
+{
+    $pagina_home= str_replace('<benvenuto/>', '<h1>Benvenuto '.$_SESSION['login_user'].'</h1> ', $pagina_home);  
+}
+else{
+
+    $pagina_home= str_replace('<benvenuto/>', '<h1>Benvenuto su GuitarNow</h1> ', $pagina_home);
+}
+
+
 $chitarre = new ManageProdotti();
 $accessori = new ManageProdotti();
 
