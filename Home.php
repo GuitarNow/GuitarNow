@@ -6,13 +6,13 @@ $web_page = file_get_contents('Html/Template.html');
 
 $web_page = str_replace('<title_page/>', "Home", $web_page);
 
-$nav_bar = '       <li id="linkCorrente" class="link" role="none" xml:lang="en">Home</li> 
+$nav_bar = '       <li id="linkCorrente" class="link" role="none" lang="en">Home</li> 
 <li class="link" role="none"><a class="a_header" href="Prodotti.php?categoria=chitarre" role="menuitem">Prodotti</a></li>
 <li class="link" role="none"><a class="a_header" href="Servizi.php" role="menuitem">Servizi</a></li>
 <li class="link" role="none"><a class="a_header" href="Chisiamo.php" role="menuitem">Chi siamo</a></li>';
 $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 
-$web_page = str_replace('<breadcrumbs_to_insert/>', '<span xml: lang="en"> Home</span>', $web_page);
+$web_page = str_replace('<breadcrumbs_to_insert/>', '<span lang="en"> Home</span>', $web_page);
 
 //login logout
 if(isset($_SESSION['login_user'])){
@@ -33,6 +33,16 @@ else{
 }
 
 $pagina_home =  file_get_contents('Html/Home.html');
+
+if($permessi!=-1)
+{
+    $pagina_home= str_replace('<benvenuto/>', '<h1>Benvenuto '.$_SESSION['login_user'].'</h1> ', $pagina_home);  
+}
+else{
+
+    $pagina_home= str_replace('<benvenuto/>', '<h1>Benvenuto su GuitarNow</h1> ', $pagina_home);
+}
+
 
 $chitarre = new ManageProdotti();
 $accessori = new ManageProdotti();
