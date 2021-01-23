@@ -121,10 +121,16 @@ else{
 
     $produttori_manage_accessori = new ManageProdotti();
     $p = $produttori_manage_accessori->get_produttori_accessori();
+    $tipi_accessori = new ManageProdotti();
+    $t = $tipi_accessori->get_tipo_accessori();
     $produttori_accessori="";
+    $tipi_accessori="";
     foreach($p as $produttori_da_visualizzare){
       $produttori_accessori.= '<option value="'.$produttori_da_visualizzare['produttore'].'">';
  }
+ foreach($t as $tipi_da_visualizzare){
+  $tipi_accessori.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
+}
 
     $data = str_replace('<creaAcc/>','
     <input type="hidden" name="codiceProdottoCrea"" value=""/>
@@ -133,23 +139,26 @@ else{
     <datalist id="produttoreAmmCreaA">'.
     $produttori_accessori
     .'
-   
+    
     </datalist>
 <label for="tipologiaAmmCreaA">Tipologia</label> <span class="errore"> <erroreTipCrea/></span>
 <input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA" valueTipCrea>
-<datalist id="tipologiaAmmCreaA">
-  <option value="Corde">
-  <option value="Amplificatori">
-  <option value="Effetti">
-  <option value="Gadget">
+<datalist id="tipologiaAmmCreaA">'.
+$tipi_accessori.'
 </datalist>', $data);
   }else{
     $produttori_manage = new ManageProdotti();
     $p = $produttori_manage->get_produttori_chitarre();
+    $tipi_accessori = new ManageProdotti();
+    $t = $tipi_accessori->get_tipo_chitarre();
     $produttori_chitarre="";
+    $tipi_chitarra="";
     foreach($p as $produttori_da_visualizzare){
       $produttori_chitarre.= '<option value="'.$produttori_da_visualizzare['produttore'].'">';
  }
+ foreach($t as $tipi_da_visualizzare){
+  $tipi_chitarra.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
+}
 
     $data = str_replace('<creaChit/>','
 
@@ -161,11 +170,9 @@ else{
     </datalist>
     <label for="tipologiaAmmCreaC">Tipologia</label><span class="errore"> <erroreTipCrea/></span>
     <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC" valueTipCrea>
-    <datalist id="tipologiaAmmCreaC">
-      <option value="Elettrica">
-      <option value="Semiacustica">
-      <option value="Acustica">
-      <option value="Classica">
+    <datalist id="tipologiaAmmCreaC">'.
+    $tipi_chitarra 
+    .'
     </datalist>
     <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> <erroreLMCrea/></span>
     <input type="text" name="legnoManicoCrea" class="legnoManico" valueLCCrea>
