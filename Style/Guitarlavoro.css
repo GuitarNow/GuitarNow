@@ -106,6 +106,7 @@ background-color:#392D20;
 #menu{
     float: center;
     width: 70%;
+    line-height:45px;
     
 }
 
@@ -143,7 +144,7 @@ background-color:#392D20;
 }
 
 
-li#linkCorrente{
+li#linkCorrente a{
     background-color:#392D20;
     color: #DDD;
     text-align: left;
