@@ -1,7 +1,7 @@
 <?php
 include('PHP/back/Session.php');
 require_once("PHP/back/ManageCommenti.php");
-$tipo_prodotto= $_GET['tipo_prodotto'];
+$tipo_prodotto = $_REQUEST['tipo_prodotto'];
 $categoria = $tipo_prodotto;
 
 
@@ -30,6 +30,7 @@ $web_page = str_replace('<breadcrumbs_to_insert/>','Insersci commento', $web_pag
 $commenti = file_get_contents('Html/Inserisci_commento.html');
 
 $commenti = str_replace('<label_id/>', '<input type="hidden" id="codice_prodotto" name="codice_prodotto" value="'.$codice_p.'"/>', $commenti);
+$commenti = str_replace('<tipo/>', '<input type="hidden" id="tipo_prodotto" name="tipo_prodotto" value="'.$categoria.'"/>', $commenti);
 
 
 if (isset($_POST['submit'])) {
@@ -54,7 +55,7 @@ if($permessi ==0){
     $manage_comemnto=new ManageCommenti();
     $risultato = $manage_comemnto->inserisci_commento($descrizione,$voto,$id_prodotto,$utente_login);
     
-    header("Location: Visualizza_prodotto.php?prodotto=".$id_prodotto."&tipo=".$categoria."");
+   header("Location: Visualizza_prodotto.php?prodotto=".$id_prodotto."&tipo=".$tipo_prodotto);
     
 }
 }
