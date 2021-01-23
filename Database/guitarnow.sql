@@ -70,8 +70,10 @@ INSERT INTO `chitarra` (`cod_chitarra`, `legno_manico`, `legno_corpo`, `tipo_chi
 (12, 'acero', 'palissandro', 'Elettrica'),
 (13, 'mogano', 'abete', 'Classica'),
 (14, 'ontano', 'acero', 'Elettrica'),
-(15, 'abete', 'acero', 'Elettrica');
-
+(16, 'abete', 'acero', 'Elettrica'),
+(42, 'mogano', 'acero', 'Semiacustica'),
+(43, 'mogano', 'acero', 'Semiacustica'),
+(57, 'palissandro', 'palissandro', 'Semiacustica');
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,9 @@ INSERT INTO `commento` (`id_commento`, `descrizione`, `voto`, `data`, `codice_pr
 (1, 'Ne ho comprata una circa 2 mesi fa. Ottimo prodotto per un chitarrista che vuole upgradare la propria strumentazione. ', 4, '2020-12-01', 1, 'Mark'),
 (2, 'Prima volta che acquisto presso GuitarNow  e sono veramente soddisfatto del servizio ricevuto. Ottimi commessi disponibili e preparati. Per quanto riguarda il prodotto che dire assolutamente soddisfatto dell\'acquisto. ', 5, '2019-06-12', 11, 'Mark'),
 (3, 'Buon rapporto qualità prezzo. Consiglio l\'acquisto.', 3, '2020-12-07', 6, 'Marco90'),
-(4, 'Deluso dall\'acquisto. Mi aspettavo di meglio.', 1, '2021-01-01', 1, 'Marco90');
+(4, 'Deluso dall\'acquisto. Mi aspettavo di meglio.', 1, '2021-01-01', 1, 'Marco90'),
+(15, 'ssaa', 3, '2021-01-15', 9, 'Mark'),
+(16, 'ssaa', 3, '2021-01-15', 9, 'Mark');
 
 -- --------------------------------------------------------
 
@@ -207,22 +211,31 @@ CREATE TABLE `immagine` (
 -- Dump dei dati per la tabella `immagine`
 --
 
-INSERT INTO `immagine` (`id_immagine`, `path`, `short_desc`, `codice_prodotto`) VALUES
-(1, 'Images/Les_paul_studio.jpg', 'anteprima Epiphone Les Paul Studio in vendita ', 1),
-(2, 'Images/Les_paul_standard_hp_2018.jpg',  'anteprima Gibson Les Paul Standard HP 2018 in vendita ', 2),
-(3, 'Images/Stratocaster_MN_black.jpg', 'anteprima Fender Stratocaster MN Black in vendita', 3),
-(4, 'Images/Daddario_Ej4_light.jpg',  'anteprima Daddario Ej4 Light in vendita', 4),
-(5, 'Images/Fender_champion_40.jpg', 'anteprima Fender Champion40 in vendita', 5),
-(6, 'Images/RC3.jpg', 'anteprima Boss RC-3 in vendita', 6),
-(7, 'Images/AF75_BS.jpg', 'anteprima Ibanez AF75 BS in vendita', 7),
-(8, 'Images/S300_vintage_sunburst.jpg', 'anteprima Eko S300 Vintage Sunburst in vendita', 8),
-(9, 'Images/Pacifica_212_vfm.jpg', 'anteprima Yamaha Pacifica 212 VFM in vendita', 9),
-(10, 'Images/Marco_polo_so.jpg', 'anteprima Eko Marco Polo SO in vendita', 10),
-(11, 'Images/Axis_capo_gold.jpg', 'anteprima ErnieBall Axis Gold in vendita', 11),
-(12, 'Images/Roadcore_premium.jpg', 'anteprima Ibanez Roadcore Premium da inserire', 12),
-(13, 'Images/Cort_AC100.jpg', 'anteprima Cort AC100 in vendita', 13),
-(14, 'Images/Telecaster.jpg', 'anteprima Fender Telecaster MN in vendita', 14),
-(15, 'Images/Ibanez_RG.jpg', 'anteprima Ibanez RG in vendita', 15);
+INSERT INTO `immagine` (`id_immagine`, `path`, `long_desc`, `short_desc`, `codice_prodotto`) VALUES
+(1, 'Images/Les_paul_studio.jpg', 'da inserire', 'anteprima Epiphone Les Paul Studio in vendita ', 1),
+(2, 'Images/Les_paul_standard_hp_2018.jpg', 'da inserire', 'anteprima Gibson Les Paul Standard HP 2018 in vendita ', 2),
+(3, 'Images/Stratocaster_MN_black.jpg', 'da inserire', 'anteprima Fender Stratocaster MN Black in vendita', 3),
+(4, 'Images/Daddario_Ej4_light.jpg', 'da fare', 'anteprima Daddario Ej4 Light in vendita', 4),
+(5, 'Images/Fender_champion_40.jpg', 'da fare', 'anteprima Fender Champion40 in vendita', 5),
+(6, 'Images/RC3.jpg', 'da fare', 'anteprima Boss RC-3 in vendita', 6),
+(7, 'Images/AF75_BS.jpg', 'da fare', 'anteprima Ibanez AF75 BS in vendita', 7),
+(8, 'Images/S300_vintage_sunburst.jpg', 'da fare', 'anteprima Eko S300 Vintage Sunburst in vendita', 8),
+(9, 'Images/Pacifica_212_vfm.jpg', 'da fare', 'anteprima Yamaha Pacifica 212 VFM in vendita', 9),
+(10, 'Images/Marco_polo_so.jpg', 'da fare', 'anteprima Eko Marco Polo SO in vendita', 10),
+(11, 'Images/Axis_capo_gold.jpg', 'da fare', 'anteprima ErnieBall Axis Gold in vendita', 11),
+(13, 'Images/Roadcore_premium.jpg', 'da fare', 'anteprima Ibanez Roadcore Premium da inserire', 12),
+(14, 'Images/Cort_AC100.jpg', 'da fare', 'anteprima Cort AC100 in vendita', 13),
+(15, 'Images/Telecaster.jpg', 'da fare', 'anteprima Fender Telecaster MN in vendita', 14),
+(16, 'Images/Ibanez_RG.jpg', 'da fare', 'anteprima Ibanez RG in vendita', 16),
+(31, 'Images/logo4.png', '', 'dsadsa', 43),
+(32, 'Images/logo4.png', '', 'Descrizione corta immagine', 43),
+(33, 'Images/logo4.png', '', 'sdasda', 43),
+(34, 'Images/logo4.png', '', 'sdasda', 43),
+(35, 'Images/logo4.png', '', 'dsdas', 43),
+(36, 'Images/logo4.png', '', 'dsdas', 43),
+(37, 'Images/logo4.png', '', 'dsdas', 43),
+(38, 'Images/logo3.png', '', 'dsada', 43),
+(39, 'Images/logo3.png', '', 'dsada', 57);
 
 -- --------------------------------------------------------
 
@@ -257,7 +270,10 @@ INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione
 (12, 'Roadcore Premium', 'Ibanez', 'L\'<span xml:lang=\"en\" >Ibanez</span> <span xml:lang=\"en\" >Roadcore</span> <span xml:lang=\"en\" >Premium</span> dispone di un corpo in palissandro e un manico in acero con una tastiera in palissandro. Il suono  caldo di questo strumento &egrave; generato dai <span xml:lang=\"en\" >pickup</span> cromati. Dispone inoltre di un custodia rigida inclusa.', 799.99),
 (13, 'AC100', 'Cort ', 'I modelli in stile AC tradizionali sono stati rielaborati per migliorare la risonanza e per ottenere un suono di chitarra classica autentico. La buona combinazione di legni produce un suono tradizionale, profondo e piacevolmente morbido. La serie <span xml:lang=\"en\" >Cort</span> AC &egrave; molto indulgente verso gli errori degli studenti, poich&egrave; richiede meno precisione e nitidezza per avere un buon suono.', 160.00),
 (14, 'Telecaster MN', 'Fender', 'La <span xml:lang=\"en\" >Telecaster</span> MN &egrave; progettata per l\'aspirante chitarrista. Caratterizzata dai toni iconici di <span xml:lang=\"en\" >Fender</span> e dallo stile accoppiato con componenti moderni. Il classico corpo <span xml:lang=\"en\" >Telecaster</span> a singola spalla mancante, realizzato in ontano, offre un suono ben bilanciato e dinamico. Sia il manico che la tastiera sono costruiti in acero, che migliora il tono con un sacco di luminosit&agrave; e sostegno.', 699.99),
-(15, 'RG Standard', 'Ibanez', 'La chitarra Ibanez RG Standard &egrave; perfetta per tutti quei chitarristi che vogliono acquistare uno strumento semi professionale ad un prezzo accessibile. I legni della chitarra le danno un aspetto esotico e naturale perfetto per tutti gli amanti delle chitarre vintage.  ', 600.00);
+(16, 'RG Standard', 'Ibanez', 'La chitarra Ibanez RG Standard &egrave; perfetta per tutti quei chitarristi che vogliono acquistare uno strumento semi professionale ad un prezzo accessibile. I legni della chitarra le danno un aspetto esotico e naturale perfetto per tutti gli amanti delle chitarre vintage.  ', 600.00),
+(42, '1231', 'Fender', ' 32131', 123.00),
+(43, '1231', 'Fender', ' 32131', 123.00),
+(57, 'dsadsa', 'prova_inserimento_prodotto', 'sdadas', 123.00);
 
 -- --------------------------------------------------------
 
@@ -298,7 +314,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `getchitarre`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipologia`,`prodotto`.`produttore` AS `produttore`,`immagine`.`path` AS `path`,`immagine`.`short_desc` AS `alt` from ((`chitarra` join `prodotto`) join `immagine`) where `prodotto`.`codice_prodotto` = `chitarra`.`cod_chitarra` and `immagine`.`codice_prodotto` = `prodotto`.`codice_prodotto` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getchitarre`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo`,`chitarra`.`legno_manico` AS `legno_manico`,`chitarra`.`legno_corpo` AS `legno_corpo`,`chitarra`.`tipo_chitarra` AS `tipologia`,`prodotto`.`produttore` AS `produttore`,`immagine`.`path` AS `path`,`immagine`.`long_desc` AS `long_desc`,`immagine`.`short_desc` AS `alt` from ((`chitarra` join `prodotto`) join `immagine`) where `prodotto`.`codice_prodotto` = `chitarra`.`cod_chitarra` and `immagine`.`codice_prodotto` = `prodotto`.`codice_prodotto` ;
 
 -- --------------------------------------------------------
 
@@ -316,7 +332,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `getspecificheaccesssorii`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecificheaccesssorii`  AS  select distinct `a`.`codice_accessorio` AS `codice_accessorio`,`a`.`categoria` AS `categoria`,`i`.`path` AS `path`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo` from ((`accessorio` `a` join `immagine` `i`) join `prodotto` `p1`) where `a`.`codice_accessorio` = `p1`.`codice_prodotto` and `i`.`codice_prodotto` = `p1`.`codice_prodotto` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecificheaccesssorii`  AS  select distinct `a`.`codice_accessorio` AS `codice_accessorio`,`a`.`categoria` AS `categoria`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo` from ((`accessorio` `a` join `immagine` `i`) join `prodotto` `p1`) where `a`.`codice_accessorio` = `p1`.`codice_prodotto` and `i`.`codice_prodotto` = `p1`.`codice_prodotto` ;
 
 -- --------------------------------------------------------
 
@@ -325,7 +341,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `getspecifichechitarre`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecifichechitarre`  AS  select distinct `c`.`cod_chitarra` AS `cod_chitarra`,`c`.`legno_manico` AS `legno_manico`,`c`.`legno_corpo` AS `legno_corpo`,`c`.`tipo_chitarra` AS `tipo_chitarra`,`i`.`path` AS `path`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo` from ((`chitarra` `c` join `immagine` `i`) join `prodotto` `p1`) where `c`.`cod_chitarra` = `p1`.`codice_prodotto` and `i`.`codice_prodotto` = `p1`.`codice_prodotto` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getspecifichechitarre`  AS  select distinct `c`.`cod_chitarra` AS `cod_chitarra`,`c`.`legno_manico` AS `legno_manico`,`c`.`legno_corpo` AS `legno_corpo`,`c`.`tipo_chitarra` AS `tipo_chitarra`,`i`.`path` AS `path`,`i`.`long_desc` AS `long_desc`,`i`.`short_desc` AS `short_desc`,`p1`.`codice_prodotto` AS `codice_prodotto`,`p1`.`modello` AS `modello`,`p1`.`produttore` AS `produttore`,`p1`.`descrizione` AS `descrizione`,`p1`.`prezzo_vendita` AS `prezzo` from ((`chitarra` `c` join `immagine` `i`) join `prodotto` `p1`) where `c`.`cod_chitarra` = `p1`.`codice_prodotto` and `i`.`codice_prodotto` = `p1`.`codice_prodotto` ;
 
 --
 -- Indici per le tabelle scaricate
