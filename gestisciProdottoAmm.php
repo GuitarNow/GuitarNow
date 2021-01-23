@@ -228,7 +228,7 @@ $web_page = str_replace('<contenuto_to_insert/>',$data, $web_page);
 
 $web_page = str_replace('prezzoV','value="'.$prodotto_selezionato['prezzo'].'"', $web_page);
 $web_page = str_replace('descrCV','value="'.$prodotto_selezionato['short_desc'].'"', $web_page);
-$web_page = str_replace('Descrivi il prodotto','value="'.$prodotto_selezionato['descrizione'].'"', $web_page);
+$web_page = str_replace('Descrivi il prodotto',$prodotto_selezionato['descrizione'], $web_page);
 $web_page = str_replace('modelloV','value="'.$prodotto_selezionato['modello'].'"', $web_page);
 $web_page = str_replace('catModF',$categoria, $web_page);
 $web_page = str_replace('proModF',$id_prodotto, $web_page);
