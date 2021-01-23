@@ -70,7 +70,6 @@ else{
 $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 
 
-
 	$web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Specifiche prodotto", $web_page);
 
 	$num_commenti=0;
