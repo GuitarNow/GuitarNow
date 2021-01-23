@@ -26,11 +26,7 @@ li.chitarre_prodotti{
     margin-left: 1em;
 }
 
-.page_prodotti.chitCard{
-    margin: unset ;
-    margin-left: 2.5em;
-    margin-right: 2.5em;
-}
+
 .chitCard a.a_page_prodotti{
     width: 33%;
     
