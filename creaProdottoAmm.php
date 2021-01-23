@@ -48,7 +48,7 @@ if($categoria == "accessori"){
         $short_desc = $_POST['short_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
 
-        if (strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5 && ($categoria == "chitarre" && strlen($legno_manico)!=0 && strlen($legno_corpo)!=0) || ($categoria == "accessori")){
+        if (strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5 && ($categoria == "chitarre" && strlen($legno_manico)!=0 && strlen($legno_corpo)!=0 || $categoria == "accessori")){
     $creazioneP = new ManageProdotti();
    $creazioneP->crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita);
     
@@ -88,7 +88,16 @@ if($categoria == "accessori"){
     $creazioneI = new ManageProdotti();
     $creazioneI->crea_chitI("Images/".$file_name, $short_desc);
  }
- 
+
+  if(isset($_REQUEST['SalvaCrea']))
+  {
+    $data = str_replace('<inserimento_eseguito/>','<p class="operazione_confermata">Prodotto inserito correttamente</p>', $data);
+  }
+  else{
+    $data = str_replace('<inserimento_eseguito/>','', $data);
+
+  }
+  
 }
 else{
 if(strlen($modello)<1){
@@ -175,7 +184,7 @@ $tipi_accessori.'
     .'
     </datalist>
     <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> <erroreLMCrea/></span>
-    <input type="text" name="legnoManicoCrea" class="legnoManico" valueLCCrea>
+    <input type="text" name="legnoManicoCrea" class="legnoManico" valueLMCrea>
     <label for="legnoCorpoCrea">Legno del corpo</label><span class="errore"> <erroreLCCrea/></span>
     <input type="text" name="legnoCorpoCrea" class="legnoCorpo" valueLCCrea>', $data);
    
