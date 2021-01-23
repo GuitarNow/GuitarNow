@@ -120,11 +120,17 @@ $data=file_get_contents('Html/gestisciProdotto.html');
     if($categoria == "accessori"){
 
       $produttori_manage_accessori = new ManageProdotti();
+      $tipi_accessori = new ManageProdotti();
+      $t = $tipi_accessori->get_tipo_accessori();
       $p = $produttori_manage_accessori->get_produttori_accessori();
       $produttori_accessori="";
+      $tipi_accessori="";
       foreach($p as $produttori_da_visualizzare){
         $produttori_accessori.= '<option value="'.$produttori_da_visualizzare['produttore'].'">';
    }
+   foreach($t as $tipi_da_visualizzare){
+    $tipi_accessori.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
+  }
     $data = str_replace('<modAcc/>',' <input type="hidden" name="codiceProdottoMod"" value=""/>
     <label for="produttoreAmmModA">Produttore</label><span class="errore"> <erroreProdMod/></span>
     <input list="produttoreAmmModA" name="produttoreAmmModA" value="'.$prodotto_selezionato['produttore'].'">
@@ -135,18 +141,24 @@ $data=file_get_contents('Html/gestisciProdotto.html');
     </datalist>
 <label for="tipologiaAmmModA">Tipologia</label><span class="errore"> <erroreTipMod/></span>
 <input list="tipologiaAmmModA" name="tipologiaAmmModA" value="'.$prodotto_selezionato['categoria'].'">
-<datalist id="tipologiaAmmModA">
-  <option value="Corde">
-  <option value="Amplificatori">
-  <option value="Effetti">
-  <option value="Gadget">
+<datalist id="tipologiaAmmModA">'.
+$tipi_accessori
+.' 
 </datalist>',$data);
-  }else{ $produttori_manage = new ManageProdotti();
+  }else{ 
+    $tipi_chitarre = new ManageProdotti();
+    $t = $tipi_chitarre->get_tipo_chitarre();
+    $produttori_manage = new ManageProdotti();
     $p = $produttori_manage->get_produttori_chitarre();
     $produttori_chitarre="";
+    $tipi_chitarra="";
     foreach($p as $produttori_da_visualizzare){
       $produttori_chitarre.= '<option value="'.$produttori_da_visualizzare['produttore'].'">';
     }  
+    foreach($t as $tipi_da_visualizzare){
+      $tipi_chitarra.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
+    }
+
     $data = str_replace('<modChit/>','   <label for="produttoreAmmModC">Produttore</label><span class="errore"> <erroreProdMod/></span>
     <input list="produttoreAmmModC" name="produttoreAmmModC" value="'.$prodotto_selezionato['produttore'].'">
     <datalist id="produttoreAmmModC" >
@@ -156,11 +168,9 @@ $data=file_get_contents('Html/gestisciProdotto.html');
     </datalist>
     <label for="tipologiaAmmModC">Tipologia</label><span class="errore"> <erroreTipMod/></span>
     <input list="tipologiaAmmModC" name="tipologiaAmmModC" value="'.$prodotto_selezionato['tipo_chitarra'].'">
-    <datalist id="tipologiaAmmModC">
-      <option value="Elettrica">
-      <option value="Semiacustica">
-      <option value="Acustica">
-      <option value="Classica">
+    <datalist id="tipologiaAmmModC">'.
+    $tipi_chitarra
+    .'
     </datalist>
     <label for="legnoManicoMod">Legno del manico</label><span class="errore"> <erroreLMMod/></span>
     <input type="text" name="legnoManicoMod" class="legnoManico" value="'.$prodotto_selezionato['legno_manico'].'">
