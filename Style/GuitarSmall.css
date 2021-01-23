@@ -117,13 +117,36 @@
 
 /*----------------------------------------------------------------------------------
 ---------------------------CONTENUTOHOME---------------------------------------*/
-.chitCard, .accCard{  
+
+#contenutoHome .chitCard,#contenutoHome .accCard{  
     display:inline-block; 
     margin-left: 10%;
-    width:80%
+    width:300%;
     
 }
 
+.chitCard, .accCard{
+    width:80%;
+    display:inline-block; 
+    margin-left: 10%;
+}
+
+.chitCard a, .accCard a{
+    width: 10%;
+    color: #000;
+    text-decoration: none; 
+}
+
+.chitCard, .accCard{
+ margin-left: 10% ;
+ margin-right: 10% ;
+}
+
+.chitCard li, .accCard li{
+  margin-right:1.5%;
+    font-size: 1.15em;
+    height: 400px;
+}
 
 
 .chitarre{
@@ -146,11 +169,6 @@ p{
     font-size:4em;
 }
 
-.chitCard li, .accCard li{
-    
-    height: 400px;
-    
-}
 
 /*--------------------------------------------------------------------------------------
 ----------------------------------SERVIZI---------------------------------------------------*/
