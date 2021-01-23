@@ -32,6 +32,8 @@ body{
     font-weight: bold;
 }
 
+
+
 /*--------------------------------------------------------------------------------------
 -----------------------------------------HEADER-------------------------------*/
 header{   
@@ -100,6 +102,7 @@ background-color:#392D20;
 }
 
 
+
 #menu{
     float: center;
     width: 70%;
@@ -138,6 +141,7 @@ background-color:#392D20;
     color: #DDD;
     border: 1px solid #000;
 }
+
 
 li#linkCorrente{
     background-color:#392D20;
@@ -481,6 +485,8 @@ padding-top: 0.5%;
     background-color: #392D20;
     color: #DDD;
 }
+
+
 
 
 #linkCorrenteProdotti{
@@ -876,4 +882,13 @@ margin-left:0;
     color:#094709;
     text-align:center;
     font-weight: bold;
+}
+
+/*-----------------colori link-----------------------*/
+#menuProdotti a:visited{
+	color:#8f00ff;
+}
+
+#menu a:visited{
+	color:#8f00ff;
 }
