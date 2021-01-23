@@ -51,11 +51,11 @@ $ultimi_arrivi_accessori = $accessori->get_ultimi_arrivi_accessori();
 $chitarre_da_visualizzare="";
 foreach($ultimi_arrivi_chitarre as $prodotti)
 {
-    $chitarre_da_visualizzare.= '<a href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo=chitarre"><li>
+    $chitarre_da_visualizzare.= '<li><a href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo=chitarre">
     <img class="chitarre" src="'.$prodotti['path'].'" alt="'./*$prodotti['alt'].*/'" />'.
     '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
     '</p><p>'.$prodotti['prezzo'].'€</p>
-    </li></a>';
+    </a></li>';
 }
 
 $pagina_home = str_replace('<ultimi_arrivi_chitarre/>',$chitarre_da_visualizzare , $pagina_home);
@@ -64,11 +64,11 @@ $pagina_home = str_replace('<ultimi_arrivi_chitarre/>',$chitarre_da_visualizzare
 $accessori_da_visualizzare="";
 foreach($ultimi_arrivi_accessori as $accessori_da_scorrere)
 {
-    $accessori_da_visualizzare.= '<a href="Visualizza_prodotto.php?prodotto='.$accessori_da_scorrere['codice_prodotto'].'&tipo=accessori"><li>
+    $accessori_da_visualizzare.= '<li><a href="Visualizza_prodotto.php?prodotto='.$accessori_da_scorrere['codice_prodotto'].'&tipo=accessori">
     <img class="accessori" src="'.$accessori_da_scorrere['path'].'" alt="'./*$accessori_da_scorrere['alt'].*/'" />'.
     '<p>'.$accessori_da_scorrere['produttore'].' '.$accessori_da_scorrere['modello'].
     '</p><p>'.$accessori_da_scorrere['prezzo'].'€</p>
-    </li></a>';
+    </a></li>';
 }
 
 $pagina_home = str_replace('<ultimi_arrivi_accessori/>',$accessori_da_visualizzare , $pagina_home);
