@@ -161,7 +161,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	if($permessi==0 && $gia_commentato==false)
 	{
 		
-		$contenuto.='</br><a href="Inserisci_commento.php?codice_prodotto='.$id_prodotto.' " class="bottone_std">Commenta</a>';
+		$contenuto.='</br><a href="Inserisci_commento.php?codice_prodotto='.$id_prodotto.'&tipo_prodotto='.$categoria.'" class="bottone_std">Commenta</a>';
 	}
 	$contenuto=$contenuto.'</div><a id="floatDestra" class="aiuto" href="prodotti.php">Torna ai prodotti</a>';
 	$web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
