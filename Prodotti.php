@@ -178,6 +178,7 @@ if($numero_prodotti!=0)
 
     $fine=$pagina_corrente*8;
     $inizio=$fine-8;
+    $fine=8;
     if($categoria == "accessori"){
         $prodotti_database = $prodotti_get->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
     }else{
