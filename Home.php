@@ -8,6 +8,9 @@ $web_page = str_replace('<title_page/>', "Home", $web_page);
 
 $nav_bar = file_get_contents('Html/Header.html');
 $nav_bar = str_replace('idlinkcorrenteH', 'id="linkCorrente"', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteP', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteS', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteC', '', $nav_bar);
 $web_page = str_replace('<header_to_insert/>', $nav_bar, $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>', '<span lang="en"> Home</span>', $web_page);

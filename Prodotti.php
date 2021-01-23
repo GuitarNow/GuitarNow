@@ -45,6 +45,9 @@ $web_page = str_replace('<title_page/>', "Prodotti", $web_page);
 
 $nav_bar = file_get_contents('Html/Header.html');
 $nav_bar = str_replace('idlinkcorrenteP', 'id="linkCorrente"', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteH', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteS', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteC', '', $nav_bar);
 $web_page = str_replace('<header_to_insert/>', $nav_bar, $web_page);
 
 if($categoria == "chitarre" || $categoria == NULL){
