@@ -22,16 +22,18 @@ $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 $web_page = str_replace('<breadcrumbs_to_insert/>','Accedi', $web_page);
 
 
+
+
+$data=file_get_contents('Html/Login.html');
+
 if(isset($_GET['operazione']) && $_GET['operazione']==1)
 {
-    $web_page=str_replace('<messaggio/>', '<p>Registrazione eseguita correttamenete.</p>', $web_page);
+    $data=str_replace('<messaggio/>', '<p class="operazione_confermata">Registrazione eseguita correttamenete.</p>', $data);
 }
 else
 {
-    $web_page=str_replace('<messaggio/>', '', $web_page);
+    $datae=str_replace('<messaggio/>', '', $data);
 }
-
-$data=file_get_contents('Html/Login.html');
 
 if (isset($_POST['submit'])) {
     $username=$_POST['username'];

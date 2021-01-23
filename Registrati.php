@@ -54,7 +54,7 @@ if($utente!=NULL){
     else{
         $reg = new ManageRegistrati();
        $reg->registrati($email, $username, $password);
-       header('Location: Login.php ');
+       header('Location: Login.php?operazione=1');
         }
 }
 }

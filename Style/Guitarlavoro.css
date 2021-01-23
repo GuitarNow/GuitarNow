@@ -871,3 +871,9 @@ margin-left:0;
 #contenutoGestisci label{
     display:block;
 }
+
+.operazione_confermata{
+    color:#094709;
+    text-align:center;
+    font-weight: bold;
+}

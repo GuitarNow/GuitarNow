@@ -185,7 +185,7 @@ if($numero_prodotti!=0)
         $prodotti_database = $prodotti_get->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
     }
 
-
+   
 
 
 
@@ -193,13 +193,19 @@ if($numero_prodotti!=0)
     foreach($prodotti_database as $prodotti)
     {
         $contenuto_pagina.= '<a class="a_page_prodotti" href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li class="chitarre_prodotti">
-        <img class="chitarre " src="'.$prodotti['path'].'" alt="'.'a'/*$prodotti['alt']*/.'" />'.
+        <img class="chitarre " src="'.$prodotti['path'].'" alt="'.'a'.$prodotti['alt'].'" />'.
         '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
         '</p><p>'.$prodotti['prezzo'].'€</p>
         </li></a>';
     }
 
     $contenuto_pagina .= '</ul></div>';
+
+    if(isset($_GET['operazione']) && $_GET['operazione']==1)
+    {
+        $contenuto_pagina.='<p class="operazione_confermata" >Prodotto eliminato correttamenete.</p>';
+    }
+    
     if($pagina_corrente!=1)
     {
         $contenuto_pagina.='<a class="paginazione" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   >Indietro</a>';
