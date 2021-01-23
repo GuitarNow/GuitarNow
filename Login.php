@@ -25,13 +25,20 @@ $web_page = str_replace('<breadcrumbs_to_insert/>','Accedi', $web_page);
 
 $data=file_get_contents('Html/Login.html');
 
+
 if(isset($_GET['operazione']) && $_GET['operazione']==1)
 {
     $data=str_replace('<messaggio/>', '<p class="operazione_confermata">Registrazione eseguita correttamenete.</p>', $data);
+    $data = str_replace('<erroreLogin/>', '', $data);
+    $data = str_replace('valueUsername', '', $data);
+    $data = str_replace('<errorePassLogin/>', '', $data);
+        $data = str_replace('<erroreUserLogin/>', '', $data);
+        $data=str_replace('<messaggio/>', '', $data);
 }
 else
 {
-    $datae=str_replace('<messaggio/>', '', $data);
+    
+    $data=str_replace('<messaggio/>', '', $data);
 }
 
 if (isset($_POST['submit'])) {
@@ -73,6 +80,11 @@ if ($utente==NULL) {
 $_SESSION['psw']=$password;
 $_SESSION['permessi']=$utente['permessi'];
 header("location: Home.php"); // indirizzamento
+$data = str_replace('<erroreLogin/>', '', $data);
+    $data = str_replace('valueUsername', '', $data);
+    $data = str_replace('<errorePassLogin/>', '', $data);
+        $data = str_replace('<erroreUserLogin/>', '', $data);
+        $data=str_replace('<messaggio/>', '', $data);
 }
 
 }

@@ -118,34 +118,22 @@
 /*----------------------------------------------------------------------------------
 ---------------------------CONTENUTOHOME---------------------------------------*/
 
-#contenutoHome .chitCard,#contenutoHome .accCard{  
-    display:inline-block; 
-    margin-left: 10%;
-    width:300%;
-    
-}
-
-.chitCard, .accCard{
-    width:85%;
-    display:inline-block; 
+.chitCard li, .accCard li{
+    width:80%;
+    height:22em;
     margin-left: 10%;
 }
 
-.chitCard a, .accCard a{
-    width: 10%;
-    color: #000;
-    text-decoration: none; 
-}
 
 .chitCard, .accCard{
  margin-left: 10% ;
  margin-right: 10% ;
 }
 
-.chitCard li, .accCard li{
-  margin-right:1.5%;
-    font-size: 1.15em;
-    height: 400px;
+.chitCard, .accCard{
+    width:80%;
+    display:inline-block; 
+    margin-left: 10%;
 }
 
 
