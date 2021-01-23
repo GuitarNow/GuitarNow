@@ -88,7 +88,16 @@ if($categoria == "accessori"){
     $creazioneI = new ManageProdotti();
     $creazioneI->crea_chitI("Images/".$file_name, $short_desc);
  }
- 
+
+  if(isset($_REQUEST['SalvaCrea']))
+  {
+    $data = str_replace('<inserimento_eseguito/>','<p class="operazione_confermata">Prodotto inserito correttamente</p>', $data);
+  }
+  else{
+    $data = str_replace('<inserimento_eseguito/>','', $data);
+
+  }
+  
 }
 else{
 if(strlen($modello)<1){
