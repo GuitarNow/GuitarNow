@@ -45,6 +45,9 @@ $commenti=$manage_commenti->get_commenti($id_prodotto);
 
 $nav_bar = file_get_contents('Html/Header.html');
 $nav_bar = str_replace('idlinkcorrenteP', 'id="linkCorrente"', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteH', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteS', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteC', '', $nav_bar);
 $web_page = str_replace('<header_to_insert/>', $nav_bar, $web_page);
 
 //login logout
@@ -91,7 +94,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	$contenuto='<div id="scheda_prodotto">
 				<h1>'.$prodotto_selezionato['produttore'].' '.$prodotto_selezionato['modello'].'</h1>
 				<img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" id="anteprima_img" />
-				<span id="prezzo"><p>'.$prodotto_selezionato['prezzo'].'&#128</p></span>
+				<p><span id="prezzo">'.$prodotto_selezionato['prezzo'].'</span></p>
 				<h2>SPECIFICHE</h2>
 				<p>'.$prodotto_selezionato['descrizione'].'</p>';
 				
