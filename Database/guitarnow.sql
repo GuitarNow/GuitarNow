@@ -72,6 +72,7 @@ INSERT INTO `chitarra` (`cod_chitarra`, `legno_manico`, `legno_corpo`, `tipo_chi
 (14, 'ontano', 'acero', 'Elettrica'),
 (15, 'abete', 'acero', 'Elettrica');
 
+
 -- --------------------------------------------------------
 
 --
