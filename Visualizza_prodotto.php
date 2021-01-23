@@ -113,6 +113,10 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	.
 	'<a href="PHP/back/DeleteProduct.php?prodotto='.$id_prodotto.'" id="Elimina" >Elimina</a>';
 	$contenuto=$contenuto.$bottoniAmm;
+		if(isset($_GET['operazione']) && $_GET['operazione']==1)
+		{
+			$contenuto.='<p class="operazione_confermata" >Modifiche eseguite correttamenete.</p>';
+		}
 	}
 
 	/*------- COMMENTI -------*/
