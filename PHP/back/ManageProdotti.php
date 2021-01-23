@@ -200,6 +200,14 @@ public function crea_chitC($tipo, $legno_manico, $legno_corpo){
     return $this->prodotto->insert_query($query);
 }
 
+public function crea_chitA($tipo){
+    $prodotto_inserito= new DatabaseConnection();
+    $id_prodotto_inserito = mysqli_fetch_assoc($prodotto_inserito->get_result_query("SELECT MAX(codice_prodotto) as id FROM prodotto"));
+    $query="INSERT INTO accessorio (codice_accessorio,categoria) VALUES ('".$id_prodotto_inserito['id']."', '".$tipo."')"; 
+
+    return $this->prodotto->insert_query($query);
+}
+
 public function crea_chitI($immagine, $short_desc){
     $prodotto_inserito= new DatabaseConnection();
     $id_prodotto_inserito = mysqli_fetch_assoc($prodotto_inserito->get_result_query("SELECT MAX(codice_prodotto) as id FROM prodotto"));

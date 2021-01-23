@@ -46,13 +46,18 @@ if($categoria == "accessori"){
         $short_desc = $_POST['short_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
 
-        if (strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5 && strlen($legno_manico)!=0 && strlen($legno_corpo)!=0) {
+        if (strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5 && ($categoria == "chitarre" && strlen($legno_manico)!=0 && strlen($legno_corpo)!=0) || ($categoria == "accessori")){
     $creazioneP = new ManageProdotti();
    $creazioneP->crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita);
-      
+    
+   if($categoria == "chitarre"){
    $creazioneC = new ManageProdotti();
    $creazioneC->crea_chitC($tipo, $legno_manico, $legno_corpo);
-
+   }
+   if($categoria == "accessori"){
+   $creazioneA = new ManageProdotti();
+   $creazioneA->crea_chitA($tipo);
+   }
 
    if(isset($_FILES['image'])){
     $errors= array();
