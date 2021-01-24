@@ -43,7 +43,7 @@ if($utente!=NULL){
             $data = str_replace('<errorePassERidPassReg/>', 'Password e Ridigita password devono essere uguali', $data);
         }
         if(strlen($email) ==0){
-            $data = str_replace('<erroreEmailReg/>', 'Inserisci una mail corretta', $data);
+            $data = str_replace('<erroreEmailReg/>', 'Inserisci la mail', $data);
         }
         $data = str_replace('valueUserReg', 'value="'.$username.'"', $data);
         $data = str_replace('valueEmailReg', 'value="'.$email.'"', $data);
