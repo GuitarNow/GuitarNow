@@ -14,7 +14,10 @@ $web_page = file_get_contents('Html/Template.html');
 $web_page = str_replace('<title_page/>', "Accedi", $web_page);
 
 $nav_bar = file_get_contents('Html/Header.html');
-
+$nav_bar = str_replace('idlinkcorrenteH', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteP', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteS', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteC', '', $nav_bar);
 $web_page = str_replace('<header_to_insert/>', $nav_bar, $web_page);
 $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 
