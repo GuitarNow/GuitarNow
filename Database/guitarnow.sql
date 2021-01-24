@@ -114,6 +114,7 @@ CREATE TABLE `getaccessori` (
 ,`descrizione` text
 ,`prezzo` float(6,2)
 ,`categoria` varchar(15)
+,`alt` tinytext
 );
 
 -- --------------------------------------------------------
@@ -303,7 +304,7 @@ INSERT INTO `user` (`username`, `password`, `email`, `permessi`) VALUES
 --
 DROP TABLE IF EXISTS `getaccessori`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getaccessori`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`immagine`.`path` AS `path`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo`,`accessorio`.`categoria` AS `categoria` from ((`accessorio` join `prodotto` on(`accessorio`.`codice_accessorio` = `prodotto`.`codice_prodotto`)) join `immagine` on(`prodotto`.`codice_prodotto` = `immagine`.`codice_prodotto`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `getaccessori`  AS  select `prodotto`.`codice_prodotto` AS `codice_prodotto`,`prodotto`.`modello` AS `modello`,`immagine`.`path` AS `path`,`prodotto`.`produttore` AS `produttore`,`prodotto`.`descrizione` AS `descrizione`,`prodotto`.`prezzo_vendita` AS `prezzo`,`accessorio`.`categoria` AS `categoria`,`immagine`.`short_desc` AS `alt`  from ((`accessorio` join `prodotto` on(`accessorio`.`codice_accessorio` = `prodotto`.`codice_prodotto`)) join `immagine` on(`prodotto`.`codice_prodotto` = `immagine`.`codice_prodotto`)) ;
 
 -- --------------------------------------------------------
 
