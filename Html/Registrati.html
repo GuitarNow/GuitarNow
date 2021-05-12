@@ -1,16 +1,16 @@
 <div id="contenutoRegistrati" class="contenuto">
-    <form method="POST" class="form" action="Registrati.php">
+    <form method="POST" class="form"  onsubmit="return validaRegistrazione();" action="Registrati.php">
     <fieldset>
     <img src="Images/logo_bianco.png" alt="" />
-    <span class="errore"> <errorePassERidPassReg/></span>
-    <label for="email">Email</label><span class="errore"> <erroreEmailReg/></span>
-    <input type="email" name="email" id="email" placeholder="matteo.budai@gmail.com" valueEmailReg/>
-	<label for="username">Username</label><span class="errore"> <erroreUserReg/></span>
-	<input type="text" name="username" id="username" maxlength="20" placeholder="teo99" valueUserReg/>
-	<label for="password">Password</label><span class="errore"> <errorePassReg/></span>
-    <input type="password" name="password" id="password" maxlength="20" />
-    <label for="ridigitaPassword">Ridigita password</label><span class="errore"> <erroreRidPassReg/></span>
-	<input type="password" name="ridigitaPassword" id="ridigitaPassword" maxlength="20" />
+    
+    <label for="email">Email</label>
+    <span ><input type="email" name="email" id="email" /></span>
+	<label for="username">Username</label>
+	<span><input type="text" name="username" id="username" maxlength="20"  /></span>
+	<label for="password">Password</label>
+    <span><input type="password" name="password" id="password" maxlength="20" /></span>
+    <label for="ridigitaPassword">Ridigita password</label>
+	<span><input type="password" name="ridigitaPassword" id="ridigitaPassword" maxlength="20" /></span>
 	<input type="submit" name="Registrati" value="Registrati" id="registratiAccedi" />
     <a class="giaAccount" href="Login.php">Hai già un account?</a>
     </fieldset>
