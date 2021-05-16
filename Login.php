@@ -22,12 +22,10 @@ $web_page = str_replace('<header_to_insert/>', $nav_bar, $web_page);
 $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>','Accedi', $web_page);
-
-
+$web_page = str_replace('<gestioneAccesso/>', '', $web_page);
 
 
 $data=file_get_contents('Html/Login.html');
-
 
 if(isset($_GET['operazione']) && $_GET['operazione']==1)
 {
@@ -36,7 +34,7 @@ if(isset($_GET['operazione']) && $_GET['operazione']==1)
     $data = str_replace('valueUsername', '', $data);
     $data = str_replace('<errorePassLogin/>', '', $data);
         $data = str_replace('<erroreUserLogin/>', '', $data);
-        $data=str_replace('<messaggio/>', '', $data);
+        
 }
 else
 {
@@ -48,20 +46,20 @@ if (isset($_POST['submit'])) {
     $username=$_POST['username'];
     $password=$_POST['password'];  
     if (strlen($password) == 0 && strlen($username) ==0 ) {
-        $data = str_replace('<errorePassLogin/>', 'Inserisci un valore', $data);
-        $data = str_replace('<erroreUserLogin/>', 'Inserisci un valore', $data);
+        $data = str_replace('<errorePassLogin/>', '<p class="errore">Inserisci un valore</p>', $data);
+        $data = str_replace('<erroreUserLogin/>', '<p class="errore">Inserisci un valore</p>', $data);
         } 
 if (strlen($username) ==0) {
-$data = str_replace('<erroreUserLogin/>', 'Inserisci un valore', $data);
+$data = str_replace('<erroreUserLogin/>', '<p class="errore">Inserisci un valore</p>', $data);
 }
 else
     if (strlen($password) == 0) {
-        $data = str_replace('<errorePassLogin/>', 'Inserisci un valore', $data);
+        $data = str_replace('<errorePassLogin/>', '<p class="errore">Inserisci un valore</p>', $data);
         $data = str_replace('valueUsername', 'value="'.$username.'"', $data);
         }
         else
             if (strlen($password) < 3) {
-                $data = str_replace('<errorePassLogin/>', 'Password di almeno 3 caratteri', $data);
+                $data = str_replace('<errorePassLogin/>', '<p class="errore">Password di almeno 3 caratteri</p>', $data);
                 $data = str_replace('valueUsername', 'value="'.$username.'"', $data);
             }else{
 
@@ -75,7 +73,7 @@ else
 $utente = mysqli_fetch_assoc($database->get_result_query("select username, password, permessi from user where (password='$password' AND username='$username') "));	
 
 if ($utente==NULL) {
-    $data = str_replace('<erroreLogin/>', 'Password o Username non corretti', $data);
+    $data = str_replace('<erroreLogin/>', '<p class="errore">Password o Username non corretti</p>', $data);
     $data = str_replace('valueUsername', 'value="'.$username.'"', $data);
 
 } else {
