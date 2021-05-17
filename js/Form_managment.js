@@ -27,9 +27,11 @@ function mostraErrore(input){
 function validazioneCampoRegistrazione(input){
     
     //Reset messaggio d'errore
+    
     var parent=input.parentNode;
-    if(parent.children.lenght==2){
-        parent.removeChild(parent.children[0]);
+    
+    if(parent.children.length==2){
+        parent.removeChild(parent.children[1]);
     }
     
     //Mostro messaggio d'errore
