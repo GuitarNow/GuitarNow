@@ -206,12 +206,6 @@ if($numero_prodotti!=0)
     {
         $contenuto_pagina.='<p class="operazione_confermata" >Prodotto eliminato correttamenete.</p>';
     }
-    
-    if($pagina_corrente!=1)
-    {
-        $contenuto_pagina.='<a class="paginazione" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   >Indietro</a>';
-    }
-    $contenuto_pagina.='<p class="paginazione">'.$pagina_corrente.'/'.$num_pagine.'</p>';
     if($pagina_corrente!=$num_pagine)
     {
         if($cercato!=null){
@@ -219,8 +213,19 @@ if($numero_prodotti!=0)
         }else{
             $contenuto_pagina.='<a  class="paginazione"   href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Avanti</a>';
         }
-        
     }
+    $contenuto_pagina.='<p class="paginazione">'.$pagina_corrente.'/'.$num_pagine.'</p>';
+    if($pagina_corrente!=1)
+    {
+        $contenuto_pagina.='<a class="paginazione" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   >Indietro</a>';
+    }
+    
+    
+
+
+    
+    
+    
 }
 else
 {
