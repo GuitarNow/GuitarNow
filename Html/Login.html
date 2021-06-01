@@ -1,16 +1,16 @@
 <div id="contenutoLogin" class="contenuto">
-    <form action="Login.php" method="POST"  class="form" >
+    <form action="Login.php" method="POST"  class="form" onsubmit="return validaLogin();" >
 	<img src="Images/logo_bianco.png" alt="" />
+	
+	<label for="username">Username</label>
+	<span><input name="username" id="username" maxlength="20" placeholder="teo99" valueUsername/></span>
+	<label for="password">Password</label>
+	<span><input type="password" name="password" id="password" maxlength="20" /></span>
 	<erroreLogin/>
-	<label for="username">Username</label><erroreUserLogin/>
-	<input name="username" id="username" maxlength="20" placeholder="teo99" valueUsername/>
-	<span></span>
-	<label for="password">Password</label><errorePassLogin/>
-	<input type="password" name="password" id="password" maxlength="20" />
-	<span></span>
 	<input type="submit" name="submit" value="Accedi" id="loginAccedi" />
 	<a class="giaAccount" href="Registrati.php">Non hai un account?</a>
 	<messaggio/>
+	
 	</form>
 
 </div>

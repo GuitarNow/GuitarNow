@@ -31,9 +31,9 @@ if (isset($_POST['Registrati'])) {
     $utente = mysqli_fetch_assoc($database->get_result_query("select username, password,email, permessi from user where username='$username' "));
    
 if($utente!=NULL){
-    $data = str_replace('<errorePassERidPassReg/>', 'Username già in uso', $data);
+    $data = str_replace('<erroreUserGiaUsato/>', '<strong class="errore">Username già in uso</strong>', $data);
     $data = str_replace('valueUserReg', 'value="'.$username.'"', $data);
-        $data = str_replace('valueEmailReg', 'value="'.$email.'"', $data);
+    $data = str_replace('valueEmailReg', 'value="'.$email.'"', $data);
 }else{
 
     if (strlen($password) <3 || strlen($username) <3 || strlen($email) ==0 || ($password)!=($ridpassword)){
@@ -44,7 +44,7 @@ if($utente!=NULL){
             $data = str_replace('<errorePassReg/>', 'Inserisci almeno 3 caratteri', $data);
         }
         if(($password)!=($ridpassword)){
-            $data = str_replace('<errorePassERidPassReg/>', 'Password e Ridigita password devono essere uguali', $data);
+            $data = str_replace('<errorePassERidPassReg/>', '<strong class="errore">Le passsword non corrispondono</strong>', $data);
         }
         if(strlen($email) ==0){
             $data = str_replace('<erroreEmailReg/>', 'Inserisci la mail', $data);
