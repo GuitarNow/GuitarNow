@@ -197,54 +197,38 @@ $tipi_accessori.'
              if(strlen($legno_manico)<1){
               $data = str_replace('<erroreLMCrea/>','Devi assegnare un valore', $data);
                }
-               else{
-                $data = str_replace('valueLMCrea','value="'.$legno_manico.'"', $data);
-               }
+               
                if(strlen($legno_corpo)<1){
                 $data= str_replace('<erroreLCCrea/>','Devi assegnare un valore', $data);
                  }
-                 else{
-                  $data = str_replace('valueLCCrea','value="'.$legno_corpo.'"', $data);
-                 }
+                 
                  if(strlen($tipo)<1){
                   $data = str_replace('<erroreTipCrea/>','Assegna un valore', $data);
                    }
-                   else{
-                    $data = str_replace('valueTipCrea','value="'.$tipo.'"', $data);
-                   }
+                   
                    if(strlen($modello)<1){
                     $data = str_replace('<erroreModCrea/>','Devi assegnare un valore', $data);
                   }
-                  else{
-                    $data = str_replace('valueModCrea','value="'.$modello.'"', $data);
-                  }
+                  
                   
                      
                      if((strlen($descrizione)) <25){
                       $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 25 caratteri', $data);
                        }
-                       else{
-                        $data = str_replace('Descrivi il prodotto',$descrizione, $data);
-                      }
+                      
                        
                          if(!is_numeric($prezzo_vendita)){
                           $data = str_replace('<errorePrezzoCrea/>','Devi assegnare un valore numerico', $data);
                            }
-                           else{
-                            $data = str_replace('valuePrezzoCrea','value="'.$prezzo_vendita.'"', $data);
-                          }
+                          
                            if(strlen($short_desc) <5){
                             $data = str_replace('<erroreSICrea/>','Deve contenere più di 5 caratteri', $data);
                            }
-                           else{
-                            $data = str_replace('valueImmCCrea','value="'.$short_desc.'"', $data);
-                          }
+                           
                           if(strlen($produttore)<1){
                             $data =str_replace('<erroreProdCrea/>','Assegna un valore', $data);
                           }
-                          else{
-                            $data = str_replace('valueProdCrea','value="'.$produttore.'"', $data);
-                           }
+                          
                    
                         }   
                   
