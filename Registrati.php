@@ -36,19 +36,10 @@ if($utente!=NULL){
     $data = str_replace('valueEmailReg', 'value="'.$email.'"', $data);
 }else{
 
-    if (strlen($password) <3 || strlen($username) <3 || strlen($email) ==0 || ($password)!=($ridpassword)){
-        if(strlen($username) <3){
-            $data = str_replace('<erroreUserReg/>', 'Inserisci almeno 3 caratteri', $data);
-        }
-        if(strlen($password) <3){
-            $data = str_replace('<errorePassReg/>', 'Inserisci almeno 3 caratteri', $data);
-        }
-        if(($password)!=($ridpassword)){
-            $data = str_replace('<errorePassERidPassReg/>', '<strong class="errore">Le passsword non corrispondono</strong>', $data);
-        }
-        if(strlen($email) ==0){
-            $data = str_replace('<erroreEmailReg/>', 'Inserisci la mail', $data);
-        }
+    if (($password)!=($ridpassword)){
+        
+        
+        $data = str_replace('<errorePassERidPassReg/>', '<strong class="errore">Le password non corrispondono</strong>', $data);
         $data = str_replace('valueUserReg', 'value="'.$username.'"', $data);
         $data = str_replace('valueEmailReg', 'value="'.$email.'"', $data);
     }

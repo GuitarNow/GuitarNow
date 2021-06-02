@@ -533,7 +533,7 @@ hr{
     font-size:1.5em;
     text-align:center;
     font-family:"Arial", sans-serif;
-    margin-right:20%;
+    
 }
 
 #specifiche_prodotto::first-line
@@ -600,10 +600,12 @@ hr{
     
 }
 
-.paginazione{
-    float: right;
+#paginazione{
+    text-align: center;
 }
 
+.avanti{display:block}
+#indietro{display:block}
 #floatDestra{
     float:right;
     font-size:1.1em;
@@ -699,10 +701,12 @@ hr{
     padding-right:2em;
 }
 
-.prezzo, textarea, .immagineC, .modello, .legnoManico, .legnoCorpo{
+ .prezzo, .textarea, .immagineC, .modello, .legnoManico, .legnoCorpo{
     width:60%;
     margin-bottom:1%;
 }
+
+
 
 
 #produttoreAmmCreaA, #produttoreAmmCreaC, #tipologiaAmmCreaC, #tipologiaAmmCreaA,

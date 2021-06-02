@@ -209,17 +209,23 @@ if($numero_prodotti!=0)
     if($pagina_corrente!=$num_pagine)
     {
         if($cercato!=null){
-            $contenuto_pagina.='<a  class="paginazione"  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" >Avanti</a>';
+            $contenuto_pagina.='<a  class="avanti"   href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Avanti</a>';
+           
         }else{
-            $contenuto_pagina.='<a  class="paginazione"   href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Avanti</a>';
+            $contenuto_pagina.='<a  class="avanti"  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" >Avanti</a>';
         }
     }
-    $contenuto_pagina.='<p class="paginazione">'.$pagina_corrente.'/'.$num_pagine.'</p>';
+    $contenuto_pagina.='<p id="paginazione">'.$pagina_corrente.'/'.$num_pagine.'</p>';
     if($pagina_corrente!=1)
     {
-        $contenuto_pagina.='<a class="paginazione" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   >Indietro</a>';
+        if($cercato!=null){
+            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Indietro</a>';
+        }
+        else
+        {
+            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   >Indietro</a>';
+        }
     }
-    
     
 
 
