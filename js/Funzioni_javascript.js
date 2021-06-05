@@ -90,7 +90,7 @@ function menuOn(){
         menu.classList.remove('menu');
         menu.classList.add('menu_on');
 
-        for(let i=0;i<3;i++){
+        for(let i=0;i<=3;i++){
             document.getElementsByClassName('a_header')[i].classList.add('a_on');
         }
         link_c.classList.add('link_c');
