@@ -214,7 +214,7 @@ if($numero_prodotti!=0)
         }
         else
         {
-            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   ><img src="Images/Indietro.png"</a>';
+            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   ><img src="Images/Indietro.png"></a>';
         }
     }
 
