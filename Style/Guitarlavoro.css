@@ -600,12 +600,7 @@ hr{
     
 }
 
-#paginazione{
-    text-align: center;
-}
 
-.avanti{display:block}
-#indietro{display:block}
 #floatDestra{
     float:right;
     font-size:1.1em;
@@ -629,9 +624,18 @@ hr{
 
 #Nessun_prodotto{ 
     margin-left:25%;
+    color: red;
+    font-weight: bold;
+
 }
 
+#paginazione{
+    
+    display:inline;
+}
 
+.avanti{display:inline; float:right;}
+#indietro{display:inline; }
 
 /*---------------------------------------------------------------------
 -------------------------Amministratore---------------------------------*/

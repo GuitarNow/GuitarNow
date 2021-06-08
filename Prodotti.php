@@ -206,26 +206,30 @@ if($numero_prodotti!=0)
     {
         $contenuto_pagina.='<p class="operazione_confermata" >Prodotto eliminato correttamenete.</p>';
     }
-    if($pagina_corrente!=$num_pagine)
-    {
-        if($cercato!=null){
-            $contenuto_pagina.='<a  class="avanti"   href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Avanti</a>';
-           
-        }else{
-            $contenuto_pagina.='<a  class="avanti"  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" >Avanti</a>';
-        }
-    }
-    $contenuto_pagina.='<p id="paginazione">'.$pagina_corrente.'/'.$num_pagine.'</p>';
+
     if($pagina_corrente!=1)
     {
         if($cercato!=null){
-            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Indietro</a>';
+            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" ><img src="Images/Indietro.png"></a>';
         }
         else
         {
-            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   >Indietro</a>';
+            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   ><img src="Images/Indietro.png"</a>';
         }
     }
+
+    if($pagina_corrente!=$num_pagine)
+    {
+        if($cercato!=null){
+            $contenuto_pagina.='<a  class="avanti"   href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" ><img src="Images/Avanti.png"></a>';
+           
+        }else{
+            $contenuto_pagina.='<a  class="avanti"  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" ><img src="Images/Avanti.png"></a>';
+        }
+    }
+    $contenuto_pagina.='<p id="paginazione">'.$pagina_corrente.'/'.$num_pagine.'</p>';
+    
+    
     
 
 
@@ -235,7 +239,7 @@ if($numero_prodotti!=0)
 }
 else
 {
-    $contenuto_pagina.='<img src="Images/Nessun_prodotto.png" alt="Nessun prodotto trovato." id="Nessun_prodotto">';
+    $contenuto_pagina.='<p id="Nessun_prodotto">Spiacente non è stato trovato nessuno prodotto.</p>';
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
 
