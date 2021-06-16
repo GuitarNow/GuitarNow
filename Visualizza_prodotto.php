@@ -113,7 +113,8 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	if($permessi==1){
 	$bottoniAmm='<a href="gestisciProdottoAmm.php?categoria='.$categoria.'&prodotto='.$id_prodotto.'" id="Modifica" >Modifica</a>'
 	.
-	'<a href="PHP/back/DeleteProduct.php?prodotto='.$id_prodotto.'" id="Elimina" >Elimina</a>';
+	'<button onclick="eliminaProdotto('.$id_prodotto.')" id="Elimina" >Elimina</button>';
+	
 	$contenuto=$contenuto.$bottoniAmm;
 		if(isset($_GET['operazione']) && $_GET['operazione']==1)
 		{

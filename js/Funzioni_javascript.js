@@ -137,3 +137,16 @@ function dNone(){
         pg.classList.add('margin_less');
      }
 }
+
+
+function eliminaProdotto(id){
+    if (confirm('Vuoi eliminare il prodotto?')) {
+        var url = "PHP/back/DeleteProduct.php?prodotto="+id;
+        location.href = url;
+        
+        console.log('Thing was saved to the database.');
+      } else {
+        // Do nothing!
+        console.log('Thing was not saved to the database.');
+      }
+}
