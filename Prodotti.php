@@ -206,7 +206,7 @@ if($numero_prodotti!=0)
     {
         $contenuto_pagina.='<p class="operazione_confermata" >Prodotto eliminato correttamenete.</p>';
     }
-
+    $contenuto_pagina.='<div id="paginazione">';
     if($pagina_corrente!=1)
     {
         if($cercato!=null){
@@ -227,8 +227,8 @@ if($numero_prodotti!=0)
             $contenuto_pagina.='<a  class="avanti"  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" ><img src="Images/Avanti.png"></a>';
         }
     }
-    $contenuto_pagina.='<p id="paginazione">'.$pagina_corrente.'/'.$num_pagine.'</p>';
-    
+    $contenuto_pagina.='<p >'.$pagina_corrente.'/'.$num_pagine.'</p>';
+    $contenuto_pagina.='</div>';
     
     
 
@@ -242,6 +242,7 @@ else
     $contenuto_pagina.='<p id="Nessun_prodotto">Spiacente non è stato trovato nessuno prodotto.</p>';
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
+
 
 if($permessi==1){
     $web_page = str_replace('<amministratorCrea />', 

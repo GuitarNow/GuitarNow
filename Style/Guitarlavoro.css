@@ -631,11 +631,15 @@ hr{
 
 #paginazione{
     
-    display:inline;
 }
 
-.avanti{display:inline; float:right;}
-#indietro{display:inline; }
+#paginazione p{
+
+    text-align: center;
+}
+
+.avanti{display:block; float:right;}
+#indietro{display:block; }
 
 /*---------------------------------------------------------------------
 -------------------------Amministratore---------------------------------*/
