@@ -695,15 +695,28 @@ hr{
     padding-bottom:0.1em;
     border:1px solid #000;
     margin-left: 27%;
-    padding-left:2em;
-    padding-right:2em;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+#eliminaC{
+    margin-left: 2%;
+    padding-left: 6%;
+    padding-right: 6%;
+    background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+border:1px solid #000;
 }
 
 
 #Elimina{
     margin-left: 5%;
-    padding-left: 2.2em;
-    padding-right: 2.2em;
+    padding-left: 6%;
+    padding-right: 6%;
     background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
