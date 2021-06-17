@@ -146,7 +146,8 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				
 				if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
 
-					$sezione_commenti.='<a  href="PHP/back/DeleteCommenti.php?commento=' . $c['id_commento'] .'" id="eliminaC"">ELIMINA</a>	';			
+					$sezione_commenti.= '<button onclick="eliminaCommento('.$c['id_commento'].')" id="eliminaC" >ELIMINA</button>';
+		
 				}
 				$sezione_commenti.='</li>
 				';

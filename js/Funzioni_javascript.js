@@ -150,3 +150,12 @@ function eliminaProdotto(id){
         console.log('Thing was not saved to the database.');
       }
 }
+
+function eliminaCommento(id){
+    if (confirm('Vuoi eliminare il commento?')) {
+        var url = "PHP/back/DeleteCommenti.php?commento="+id;
+        location.href = url;
+      } else {
+        // Do nothing!
+      }
+}
