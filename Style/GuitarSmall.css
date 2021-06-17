@@ -61,7 +61,7 @@
 
  #menu #linkCorrente{
      display:none;
-     background-color: #747474;
+     background-color: #392D20;
      color: white;
  }
 
@@ -98,15 +98,16 @@
     
 }
 .link_c{
-    height: 8.4em !important;
-    display: flex !important;
+    height: 5.9em !important;
+    display: flex;
     text-align: center !important;
     color: white !important;
 }
 #menu a{
     background-color: #dbdbdb;
-    padding-top: 3.51em;
-    height: 4.51em;
+    padding-top: 4%;
+    padding-bottom:4%;
+    height: 20%;
 }
 #menu a:hover{
     background-color: #797979 ;
