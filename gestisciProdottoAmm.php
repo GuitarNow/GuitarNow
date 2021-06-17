@@ -104,9 +104,13 @@ if(isset($_REQUEST['SalvaMod'])){
         }else{
            print_r($errors);
         }
-        
-      $modificaI = new ManageProdotti();
-      $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $id_prodotto);
+
+        $modificaI = new ManageProdotti();
+        if($file_size == 0) {
+          $modificaI->modifica_prodI($prodotto_selezionato['path'], $prodotto_selezionato['short_desc'], $id_prodotto);
+        }else{
+          $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $id_prodotto);
+        }
       }
       header('Location: Visualizza_prodotto.php?prodotto='.$id_prodotto.'&tipo='.$categoria.'&operazione=1');
        }
