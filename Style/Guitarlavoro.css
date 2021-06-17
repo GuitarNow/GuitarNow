@@ -638,8 +638,11 @@ hr{
     text-align: center;
 }
 
-.avanti{display:block; float:right;}
-#indietro{display:block; }
+#Avanti{float:right;}
+#Indietro{ float:left;}
+#numPagina{padding-top:4%;
+margin-right:13%;
+}
 
 /*---------------------------------------------------------------------
 -------------------------Amministratore---------------------------------*/
