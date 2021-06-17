@@ -154,7 +154,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	}
 	if($num_commenti>0)
 	{
-		$contenuto.='<ul>';
+		$contenuto.='</ul>';
 	}
 	if($nessun_commento==true)
 	{
