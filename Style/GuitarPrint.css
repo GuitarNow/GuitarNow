@@ -70,3 +70,15 @@ ul{
 #scheda_prodotto h2, #commentonascosto{
     display:none;
 }
+
+#Indietro, #Avanti, #numPagina{
+ display: none;
+}
+
+.mezzi{
+display: none;
+}
+
+#Modifica,#Elimina{
+display: none;
+}
