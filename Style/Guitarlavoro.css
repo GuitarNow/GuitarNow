@@ -682,7 +682,7 @@ hr{
 -------------------------modifica creaProdotto Admin------------------------*/
 
 
-#Elimina, #Modifica{
+#Modifica{
 	background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
@@ -694,6 +694,9 @@ hr{
     padding-top:0.1em;
     padding-bottom:0.1em;
     border:1px solid #000;
+    margin-left: 27%;
+    padding-left:2em;
+    padding-right:2em;
 }
 
 
@@ -701,13 +704,15 @@ hr{
     margin-left: 5%;
     padding-left: 2.2em;
     padding-right: 2.2em;
+    background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+border:1px solid #000;
 }
 
-#Modifica{
-    margin-left: 27%;
-    padding-left:2em;
-    padding-right:2em;
-}
 
  .prezzo, .textarea, .immagineC, .modello, .legnoManico, .legnoCorpo{
     width:60%;
