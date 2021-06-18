@@ -69,6 +69,56 @@ if(isset($_REQUEST['SalvaMod'])){
       #inserire immagine
           $short_desc = $_POST['short_descMod'];
           $prezzo_vendita = $_POST['prezzoMod'];
+          if($categoria == "accessori"){
+            if(strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5) {      
+              $modificaP = new ManageProdotti();
+              $modificaP->modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita, $id_prodotto);
+              if($categoria == "chitarre"){
+              $modificaC = new ManageProdotti();
+              $modificaC->modifica_prodC($tipo, $legno_manico, $legno_corpo, $id_prodotto);
+              }
+              if($categoria == "accessori"){
+              $modificaA = new ManageProdotti();
+              $modificaA->modifica_prodA($tipo, $id_prodotto);
+              }
+              if(isset($_FILES['image'])){
+                $errors= array();
+                $file_name = $_FILES['image']['name'];
+                $file_size =$_FILES['image']['size'];
+                $file_tmp =$_FILES['image']['tmp_name'];
+                $file_type=$_FILES['image']['type'];
+                $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+                
+                $extensions= array("jpeg","jpg","png");
+                
+                if(in_array($file_ext,$extensions)=== false){
+                   $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+                }
+                
+                if($file_size > 2097152){
+                   $errors[]='File size must be excately 2 MB';
+                }
+                
+                if(empty($errors)==true){
+                   move_uploaded_file($file_tmp,"Images/".$file_name);
+                   echo "Success";
+                }else{
+                   print_r($errors);
+                }
+        
+                $modificaI = new ManageProdotti();
+                if($file_size == 0) {
+                  $modificaI->modifica_prodI($prodotto_selezionato['path'], $prodotto_selezionato['short_desc'], $id_prodotto);
+                }else{
+                  $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $id_prodotto);
+                }
+              }
+              header('Location: Visualizza_prodotto.php?prodotto='.$id_prodotto.'&tipo='.$categoria.'&operazione=1');
+               }
+
+          }
+          else{
+
           if (strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5 && strlen($legno_manico)!=0 && strlen($legno_corpo)!=0) {      
       $modificaP = new ManageProdotti();
       $modificaP->modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita, $id_prodotto);
@@ -114,6 +164,7 @@ if(isset($_REQUEST['SalvaMod'])){
       }
       header('Location: Visualizza_prodotto.php?prodotto='.$id_prodotto.'&tipo='.$categoria.'&operazione=1');
        }
+      }
       } 
 $data=file_get_contents('Html/gestisciProdotto.html');
   
@@ -185,6 +236,7 @@ $tipi_accessori
 
 
   if(isset($_REQUEST['SalvaMod'])){
+    if($categoria != "accessori"){
     if(strlen($legno_manico)<1){
       $data = str_replace('<erroreLMMod/>','Devi assegnare un valore', $data);
        }
@@ -197,6 +249,7 @@ $tipi_accessori
          else{
           $data = str_replace('valueLCMod','value="'.$legno_corpo.'"', $data);
          }
+        }
          if(strlen($tipo)<1){
           $data = str_replace('<erroreTipMod/>','Assegna un valore', $data);
            }
