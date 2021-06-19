@@ -266,11 +266,11 @@ $tipi_accessori
           
             
              if((strlen($descrizione)) <25){
-<<<<<<< HEAD
+
               
               
               $data = str_replace('<erroreDescrMod/>','Deve contenere più di 25 caratteri', $data);
-=======
+
 
               $data = str_replace('<span class="erroreDescrMod"></span>','<p class="errore">Deve contenere più di 25 caratteri</p>', $data);
 
@@ -278,7 +278,7 @@ $tipi_accessori
               $descrizione=str_replace('</span>','en/',$descrizione);
     
 
->>>>>>> fd3c7ab2bd876737ccf6b833bfe2f14c5791482f
+
                }
                else{
                 $data = str_replace('Descrivi il prodotto',$descrizione, $data);
