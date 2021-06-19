@@ -270,9 +270,7 @@ $tipi_accessori
             
              if((strlen($descrizione)) <25){
 
-              
-              
-              $data = str_replace('<erroreDescrMod/>','Deve contenere più di 25 caratteri', $data);
+            
 
 
               $data = str_replace('<span class="erroreDescrMod"></span>','<p class="errore">Deve contenere più di 25 caratteri</p>', $data);
