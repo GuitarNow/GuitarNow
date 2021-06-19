@@ -105,7 +105,7 @@ if($categoria == "accessori"){
 }
 else{
 if(strlen($modello)<1){
-  $data = str_replace('<erroreModCrea/>','Devi assegnare un valore', $data);
+  $data = str_replace('<erroreModCrea/>','<p>Devi assegnare un valore</p>', $data);
 }
 else{
   $data = str_replace('valueModCrea','value="'.$modello.'"', $data);
