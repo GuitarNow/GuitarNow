@@ -79,7 +79,7 @@
   height: unset;
   height: -webkit-fill-available;
   position: fixed;
-  margin-bottom: unset !important;
+  margin-bottom: unset ;
 }
 
 .a_on{
@@ -98,10 +98,8 @@
     
 }
 .link_c{
-    height: 5.9em !important;
-    display: flex;
-    text-align: center !important;
-    color: white !important;
+    display: flex !important;
+    
 }
 #menu a{
     background-color: #dbdbdb;
@@ -112,6 +110,8 @@
 #menu a:hover{
     background-color: #797979 ;
 }
+
+
 
 
 
