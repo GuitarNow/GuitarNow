@@ -5,7 +5,8 @@
     padding-top: 0em;
     padding-bottom:0.1em;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
  }
 
  #logo{
@@ -13,9 +14,78 @@
      margin-top: 0.7em ;
      margin-bottom: 1%;
      
-  
+
      
  }
+
+ #loginMobile{
+     display: flex;
+     flex-direction: row;
+ }
+
+#button_menu{
+    width: 110px;
+    height: 110px;
+    transform: scale(0.8);
+    background-image: url('../Images/menumobile.png');
+    margin-top:1em;
+    background-repeat: no-repeat;
+
+
+}
+
+ #menu_container{
+     align-items: center;
+     display: flex;
+     flex-direction: row;
+    justify-content: space-between;
+ }
+
+ .topnav {
+     display: flex !important;
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+  justify-content:center;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+  width: 100%;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+
+}
+
+/* Style the hamburger menu */
+.menu_container a.icon{
+  background: black;
+  display: block;
+  position: absolute;
+  width: 100px;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
 
 
 
@@ -43,54 +113,17 @@
             background-color: #797979;
         }
 
- .menu{
-    width: 110px;
-    height: 110px;
-    background-image: url('../Images/menumobile.png');
-    margin-top:1em;
+ 
 
- }
 
- .menu_null{
-    display: none;
-
- }
 
 
  #menu{
-     display:block;
-     background-position: center;
-     background-repeat: no-repeat;
-    background-size: 100px 100px;
-    float:right;
-    margin-right: 4% ;
-    margin-bottom: 1%;
-    width: 100%;
-    z-index: 1;
-  
+     display:none;
  }
 
 
- .menuLogin{
-    width: 110px;
-    height: 110px;
-    background-image: url('../Images/loginmobile.jpg');
-    margin-top:1em;
-
- }
-
- #menuLogin{
-     display:block;
-     background-position: center;
-     background-repeat: no-repeat;
-    background-size: 100px 100px;
-    float:right;
-    margin-right: 4% ;
-    margin-bottom: 1%;
-    width: 100%;
-    z-index: 1;
-  
- }
+ 
 
 
  
@@ -99,65 +132,32 @@
 }
 
 
- #menu #linkCorrente{
-     display:none;
-     background-color: #392D20;
-     color: white;
- }
-
 
 
 #accesso input{
     display:none;
 }
 
-.menu_on{
-    background-color: #dbdbdb;
-  background-image: unset;
-  width: unset;
-  width: 100%;
-  height: unset;
-  height: -webkit-fill-available;
-  position: fixed;
-  margin-bottom: unset ;
-}
 
-.a_on{
-  display: unset !important;
-  width: 100%;
-  height: 6em;
-}
 
-.a_header{
-    display: none;
-}
-
-.a_header_login{
-    display: none;
-}
-
-#menu li{
-    display:flex;
-    background-color: #dbdbdb;
-    
-}
 .link_c{
     display: flex !important;
     
 }
-#menu a{
-    background-color: #dbdbdb;
-    padding-top: 4%;
-    padding-bottom:4%;
-    height: 20%;
-}
-#menu a:hover{
-    background-color: #797979 ;
+
+
+#accedi{
+    flex: 1;
 }
 
 
+#registrati{
+    flex: 1;
+}
 
-
+#logout{
+    flex: 1;
+}
 
 
 /*----------------------------------------------------------------------------------

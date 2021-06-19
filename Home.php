@@ -28,9 +28,7 @@ $web_page = str_replace('<gestioneAccesso/>', '<a href="Login.php" id="accedi">A
         <a href="Registrati.php" id="registrati">Registrati</a>  ', $web_page);
 }
 else{
-    $web_page = str_replace('<gestioneAccesso/>', '<form  action="Logout.php" method="GET">
-    <input  id="logout" type="submit" name ="logout" value="Logout" > 
-     </form> ', $web_page);  
+    $web_page = str_replace('<gestioneAccesso/>', '<a href="Logout.php" id="logout">Logout</a>', $web_page);  
 }
 
 $pagina_home =  file_get_contents('Html/Home.html');
