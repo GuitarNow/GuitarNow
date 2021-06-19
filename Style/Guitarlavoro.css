@@ -31,6 +31,10 @@ body{
 .grande{
     font-weight: bold;
 }
+
+.topnav{
+    display: none;
+}
 a:visited {color: purple;}
 
 
@@ -62,9 +66,7 @@ header{
     margin-right:2%;   
 }
 
-#accesso form{
-	display:inline;  
-}
+
 
 #accedi, #registrati{
     text-decoration:none;
@@ -86,7 +88,9 @@ header{
 
 #logout{
     width:50%;
-    padding: 0.7em;
+    padding: 0.54em;
+    text-decoration: none;
+    display: block;
 }
 
 

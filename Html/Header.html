@@ -1,19 +1,42 @@
 <header>
-    <img id="logo" src="Images/logo_bianco.png" alt="" />
+    <div id="menu_container">
+        <img id="logo" src="Images/logo_bianco.png" alt="" />
+        <a href="javascript:void(0);"id="button_menu" onclick="myFunction()" > </a>
+          
+    </div>
+    
     <div id="accesso">
         <gestioneAccesso/>
     </div>
 
-    
 
-    <ul id="menu" class="menu" role="menubar" onclick="menuOn()">
-    <li><img src="Images/logo_chiusura.png" class="scompare" alt="" id="logo_chiusura" onclick="menuOff()"></li>         
-    <li  idlinkcorrenteH class="link" role="none" lang="en"><a class="a_header" href="Home.php" role="menuitem">Home</a></li> 
-    <li idlinkcorrenteP class="link" role="none"><a class="a_header" href="Prodotti.php?categoria=chitarre" role="menuitem">Prodotti</a></li>
-    <li  idlinkcorrenteS class="link" role="none"><a class="a_header" href="Servizi.php" role="menuitem">Servizi</a></li>
-    <li idlinkcorrenteC class="link" role="none"><a class="a_header" href="Chisiamo.php" role="menuitem">Chi siamo</a></li> 
+    <ul id="menu" class="menu" role="menubar" >
+    <li  idlinkcorrenteH class="link" role="none" lang="en"><a  href="Home.php" role="menuitem">Home</a></li> 
+    <li idlinkcorrenteP class="link" role="none"><a  href="Prodotti.php?categoria=chitarre" role="menuitem">Prodotti</a></li>
+    <li  idlinkcorrenteS class="link" role="none"><a href="Servizi.php" role="menuitem">Servizi</a></li>
+    <li idlinkcorrenteC class="link" role="none"><a  href="Chisiamo.php" role="menuitem">Chi siamo</a></li> 
     </ul>
 
 
+
+
+
+<div class="topnav">
+ 
+ 
+  <div id="myLinks">
+    <a  href="Home.php" >Home</a>
+    <a  href="Prodotti.php?categoria=chitarre" >Prodotti</a>
+    <a href="Servizi.php" >Servizi</a>
+    <a  href="Chisiamo.php">Chi siamo</a>
+    <div id="loginMobile">
+        <gestioneAccesso/>
+    </div>
+    
+
+  </div>
+ 
+  
+</div>
    
 </header>
