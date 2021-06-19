@@ -30,10 +30,8 @@ $data=file_get_contents('Html/Login.html');
 if(isset($_GET['operazione']) && $_GET['operazione']==1)
 {
     $data=str_replace('<messaggio/>', '<p class="operazione_confermata">Registrazione eseguita correttamenete.</p>', $data);
-    $data = str_replace('<erroreLogin/>', '', $data);
-    $data = str_replace('valueUsername', '', $data);
-    $data = str_replace('<errorePassLogin/>', '', $data);
-        $data = str_replace('<erroreUserLogin/>', '', $data);
+    $data = str_replace('<span class="errLogin"></span>', '', $data);
+    
         
 }
 else
@@ -55,12 +53,12 @@ $data = str_replace('<erroreUserLogin/>', '<p class="errore">Inserisci un valore
 else
     if (strlen($password) == 0) {
         $data = str_replace('<errorePassLogin/>', '<p class="errore">Inserisci un valore</p>', $data);
-        $data = str_replace('valueUsername', 'value="'.$username.'"', $data);
+        $data = str_replace('value=""', 'value="'.$username.'"', $data);
         }
         else
             if (strlen($password) < 3) {
                 $data = str_replace('<errorePassLogin/>', '<p class="errore">Password di almeno 3 caratteri</p>', $data);
-                $data = str_replace('valueUsername', 'value="'.$username.'"', $data);
+                $data = str_replace('value=""', 'value="'.$username.'"', $data);
             }else{
 
 
@@ -73,8 +71,8 @@ else
 $utente = mysqli_fetch_assoc($database->get_result_query("select username, password, permessi from user where (password='$password' AND username='$username') "));	
 
 if ($utente==NULL) {
-    $data = str_replace('<erroreLogin/>', '<p class="errore">Password o Username non corretti</p>', $data);
-    $data = str_replace('valueUsername', 'value="'.$username.'"', $data);
+    $data = str_replace('<span class="errLogin"></span>', '<p class="errore">Password o Username non corretti</p>', $data);
+    $data = str_replace('value=""', 'value="'.$username.'"', $data);
 
 } else {
     $_SESSION['login_user']=$username; 

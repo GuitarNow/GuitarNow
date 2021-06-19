@@ -138,7 +138,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 		$nessun_commento= false;
 		$sezione_commenti=$sezione_commenti.'
 				
-				<li id="commento">
+				<li class="commento">
 				<p>'.$c['username'].'</p>
 				<p>'.$c['data'].'</p>
 				<p>'.$c['descrizione'].'</p>
@@ -146,7 +146,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				
 				if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
 
-					$sezione_commenti.= '<button onclick="eliminaCommento('.$c['id_commento'].')" id="eliminaC" >ELIMINA</button>';
+					$sezione_commenti.= '<button onclick="eliminaCommento('.$c['id_commento'].')" class="eliminaC" >ELIMINA</button>';
 		
 				}
 				$sezione_commenti.='</li>
