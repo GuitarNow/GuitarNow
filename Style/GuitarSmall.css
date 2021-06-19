@@ -31,6 +31,18 @@
         background-color: #797979;
     }
 
+    #logo_chiusura_login {
+    
+        float: right;
+        margin: 0.8em;
+        border-radius: 5em;
+        margin-left: auto;
+        }
+    
+        #logo_chiusura_login:hover{
+            background-color: #797979;
+        }
+
  .menu{
     width: 110px;
     height: 110px;
@@ -39,7 +51,35 @@
 
  }
 
+ .menu_null{
+    display: none;
+
+ }
+
+
  #menu{
+     display:block;
+     background-position: center;
+     background-repeat: no-repeat;
+    background-size: 100px 100px;
+    float:right;
+    margin-right: 4% ;
+    margin-bottom: 1%;
+    width: 100%;
+    z-index: 1;
+  
+ }
+
+
+ .menuLogin{
+    width: 110px;
+    height: 110px;
+    background-image: url('../Images/loginmobile.jpg');
+    margin-top:1em;
+
+ }
+
+ #menuLogin{
      display:block;
      background-position: center;
      background-repeat: no-repeat;
@@ -89,6 +129,10 @@
 }
 
 .a_header{
+    display: none;
+}
+
+.a_header_login{
     display: none;
 }
 
