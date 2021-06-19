@@ -68,9 +68,13 @@ else{
 if($permessi==-1){
     $web_page = str_replace('<gestioneAccesso/>', '<a href="Login.php" id="accedi">Accedi</a>     
             <a href="Registrati.php" id="registrati">Registrati</a>  ', $web_page);
-    }
+            $web_page = str_replace('<gestioneAccessoMobile/>', '<a href="Login.php" id="accedi_menu">Accedi</a>     
+            <a href="Registrati.php" id="registrati_menu">Registrati</a>  ', $web_page);
+        }
     else{
         $web_page = str_replace('<gestioneAccesso/>', '<a href="Logout.php" id="logout">Logout</a>', $web_page);  
+        $web_page = str_replace('<gestioneAccessoMobile/>', '<a href="Logout.php" id="logout_menu">Logout</a>', $web_page);
+
     }
 
 // ----- FILTRO CATEGORIA PRODOTTO -------

@@ -23,6 +23,7 @@ $web_page = str_replace('<breadcrumbs_to_insert/>', "Gestisci Prodotti - Amminis
 
 
 $web_page = str_replace('<gestioneAccesso/>', '<a href="Logout.php" id="logout">Logout</a>', $web_page);  
+$web_page = str_replace('<gestioneAccessoMobile/>', '<a href="Logout.php" id="logout_menu">Logout</a>', $web_page);
 
     
 

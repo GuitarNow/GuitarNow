@@ -22,7 +22,8 @@ $web_page = str_replace('<breadcrumbs_to_insert/>','Insersci commento', $web_pag
 
 
 $web_page = str_replace('<gestioneAccesso/>', '<a href="Logout.php" id="logout">Logout</a>', $web_page);   
- 
+$web_page = str_replace('<gestioneAccessoMobile/>', '<a href="Logout.php" id="logout_menu">Logout</a>', $web_page);
+
 $commenti = file_get_contents('Html/Inserisci_commento.html');
 
 $commenti = str_replace('<label_id/>', '<input type="hidden" id="codice_prodotto" name="codice_prodotto" value="'.$codice_p.'"/>', $commenti);
