@@ -189,14 +189,14 @@ $data=file_get_contents('Html/gestisciProdotto.html');
   }
     $data = str_replace('<span class="ModAcc"></span>',' <input type="hidden" name="codiceProdottoMod"" value=""/>
     <label for="produttoreAmmModA1">Produttore</label><span class="erroreProdMod"></span>
-    <input list="produttoreAmmModA" id="produttoreAmmModA1" name="produttoreAmmModA1" value="'.$prodotto_selezionato['produttore'].'">
+    <input list="produttoreAmmModA" id="produttoreAmmModA1" name="produttoreAmmModA1" value="'.$prodotto_selezionato['produttore'].'"/>
     <datalist id="produttoreAmmModA">
     '.
     $produttori_accessori
     .'
     </datalist>
 <label for="tipologiaAmmModA1">Tipologia</label><span class="erroreTipMod"></span>
-<input list="tipologiaAmmModA" name="tipologiaAmmModA1" id="tipologiaAmmModA1" value="'.$prodotto_selezionato['categoria'].'">
+<input list="tipologiaAmmModA" name="tipologiaAmmModA1" id="tipologiaAmmModA1" value="'.$prodotto_selezionato['categoria'].'"/>
 <datalist id="tipologiaAmmModA">'.
 $tipi_accessori
 .' 
@@ -216,22 +216,22 @@ $tipi_accessori
     }
 
     $data = str_replace('<span class="ModChit"></span>','   <label for="produttoreAmmModC1">Produttore</label><span class="erroreProdMod"></span>
-    <input list="produttoreAmmModC" id="produttoreAmmModC1" name="produttoreAmmModC1" value="'.$prodotto_selezionato['produttore'].'">
+    <input list="produttoreAmmModC" id="produttoreAmmModC1" name="produttoreAmmModC1" value="'.$prodotto_selezionato['produttore'].'"/>
     <datalist id="produttoreAmmModC" >
     '.
     $produttori_chitarre.
     '
     </datalist>
     <label for="tipologiaAmmModC1">Tipologia</label><span class="erroreTipMod"></span>
-    <input list="tipologiaAmmModC" id="tipologiaAmmModC1" name="tipologiaAmmModC1" value="'.$prodotto_selezionato['tipo_chitarra'].'">
+    <input list="tipologiaAmmModC" id="tipologiaAmmModC1" name="tipologiaAmmModC1" value="'.$prodotto_selezionato['tipo_chitarra'].'"/>
     <datalist id="tipologiaAmmModC">'.
     $tipi_chitarra
     .'
     </datalist>
     <label for="legnoManicoMod">Legno del manico</label><span class="erroreLMMod"></span>
-    <input type="text" id="legnoManicoMod" name="legnoManicoMod" class="legnoManico" value="'.$prodotto_selezionato['legno_manico'].'">
+    <input type="text" id="legnoManicoMod" name="legnoManicoMod" class="legnoManico" value="'.$prodotto_selezionato['legno_manico'].'"/>
     <label for="legnoCorpoMod">Legno del corpo</label><span class="erroreLCMod"></span>
-    <input type="text" name="legnoCorpoMod" id="legnoCorpoMod" class="legnoCorpo" value="'.$prodotto_selezionato['legno_corpo'].'">
+    <input type="text" name="legnoCorpoMod" id="legnoCorpoMod" class="legnoCorpo" value="'.$prodotto_selezionato['legno_corpo'].'"/>
     ', $data);
   }
 
@@ -239,26 +239,26 @@ $tipi_accessori
   if(isset($_REQUEST['SalvaMod'])){
     if($categoria != "accessori"){
     if(strlen($legno_manico)<1){
-      $data = str_replace('<span class="erroreLMMod"></span>','<p>Devi assegnare un valore</p>', $data);
+      $data = str_replace('<span class="erroreLMMod"></span>','<p class="errore">Devi assegnare un valore</p>', $data);
        }
        else{
         $data = str_replace('valueLMMod','value="'.$legno_manico.'"', $data);
        }
        if(strlen($legno_corpo)<1){
-        $data= str_replace('<erroreLCMod/>','<p>Devi assegnare un valore</p>', $data);
+        $data= str_replace('<erroreLCMod/>','<p class="errore">Devi assegnare un valore</p>', $data);
          }
          else{
           $data = str_replace('valueLCMod','value="'.$legno_corpo.'"', $data);
          }
         }
          if(strlen($tipo)<1){
-          $data = str_replace('<span class="erroreTipMod"></span>','<p>Assegna un valore</p>', $data);
+          $data = str_replace('<span class="erroreTipMod"></span>','<p class="errore">Assegna un valore</p>', $data);
            }
            else{
             $data = str_replace('valueTipMod','value="'.$tipo.'"', $data);
            }
            if(strlen($modello)<1){
-            $data = str_replace('<span class="erroreMod"></span>','<p>Devi assegnare un valore</p>', $data);
+            $data = str_replace('<span class="erroreMod"></span>','<p class="errore">Devi assegnare un valore</p>', $data);
           }
           else{
             $data = str_replace('modelloV','value="'.$modello.'"', $data);
@@ -266,26 +266,26 @@ $tipi_accessori
           
              
              if((strlen($descrizione)) <25){
-              $data = str_replace('<span class="erroreDescrMod"></span>','<p>Deve contenere più di 25 caratteri</p>', $data);
+              $data = str_replace('<span class="erroreDescrMod"></span>','<p class="errore">Deve contenere più di 25 caratteri</p>', $data);
                }
                else{
                 $data = str_replace('Descrivi il prodotto',$descrizione, $data);
               }
                
                  if(!is_numeric($prezzo_vendita)){
-                  $data = str_replace('<span class="errorePrezzoMod"></span>','<p>Devi assegnare un valore numerico</p>', $data);
+                  $data = str_replace('<span class="errorePrezzoMod"></span>','<p class="errore">Devi assegnare un valore numerico</p>', $data);
                    }
                    else{
                     $data = str_replace('prezzoV','value="'.$prezzo_vendita.'"', $data);
                   }
                    if(strlen($short_desc) <5){
-                    $data = str_replace('<span class="erroreDIMod"></span>','<p>Deve contenere più di 5 caratteri</p>', $data);
+                    $data = str_replace('<span class="erroreDIMod"></span>','<p class="errore">Deve contenere più di 5 caratteri</p>', $data);
                    }
                    else{
                     $data = str_replace('descrCV','value="'.$short_desc.'"', $data);
                   }
                   if(strlen($produttore)<1){
-                    $data =str_replace('<span class="erroreProdMod"></span>','<p>Assegna un valore</p>', $data);
+                    $data =str_replace('<span class="erroreProdMod"></span>','<p class="errore">Assegna un valore</p>', $data);
                   }
                   else{
                     $data = str_replace('valueProdMod','value="'.$produttore.'"', $data);
