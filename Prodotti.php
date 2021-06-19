@@ -210,21 +210,21 @@ if($numero_prodotti!=0)
     if($pagina_corrente!=1)
     {
         if($cercato!=null){
-            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" ><img id="Indietro" src="Images/Indietro.png" alt=""></a>';
+            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" ><img id="Indietro" src="Images/Indietro.png" alt="Freccia indietro"></a>';
         }
         else
         {
-            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   ><img id="Indietro" src="Images/Indietro.png" alt=""></a>';
+            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   ><img id="Indietro" src="Images/Indietro.png" alt="Freccia indietro"></a>';
         }
     }
 
     if($pagina_corrente!=$num_pagine)
     {
         if($cercato!=null){
-            $contenuto_pagina.='<a  class="avanti"   href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" ><img id="Avanti" src="Images/Avanti.png" alt=""></a>';
+            $contenuto_pagina.='<a  class="avanti"   href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" ><img id="Avanti" src="Images/Avanti.png" alt="Freccia avanti"></a>';
            
         }else{
-            $contenuto_pagina.='<a  class="avanti"  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" ><img id="Avanti" src="Images/Avanti.png" alt=""></a>';
+            $contenuto_pagina.='<a  class="avanti"  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" ><img id="Avanti" src="Images/Avanti.png" alt="Freccia avanti"></a>';
         }
     }
     $contenuto_pagina.='<p id="numPagina">'.$pagina_corrente.'/'.$num_pagine.'</p>';

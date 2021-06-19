@@ -146,15 +146,15 @@ else{
 
     $data = str_replace('<creaAcc/>','
     <input type="hidden" name="codiceProdottoCrea"" value=""/>
-    <label for="produttoreAmmCreaA">Produttore</label><span class="errore"> <erroreProdCrea/></span>
-    <input list="produttoreAmmCreaA" name="produttoreAmmCreaA" valueProdCrea> 
+    <label for="produttoreAmmCreaA1">Produttore</label><span class="errore"> <erroreProdCrea/></span>
+    <input list="produttoreAmmCreaA" name="produttoreAmmCreaA1" id="produttoreAmmCreaA1" valueProdCrea> 
     <datalist id="produttoreAmmCreaA">'.
     $produttori_accessori
     .'
     
     </datalist>
-<label for="tipologiaAmmCreaA">Tipologia</label> <span class="errore"> <erroreTipCrea/></span>
-<input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA" valueTipCrea>
+<label for="tipologiaAmmCreaA1">Tipologia</label> <span class="errore"> <erroreTipCrea/></span>
+<input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA1" id="tipologiaAmmCreaA1" valueTipCrea>
 <datalist id="tipologiaAmmCreaA">'.
 $tipi_accessori.'
 </datalist>', $data);
@@ -174,22 +174,22 @@ $tipi_accessori.'
 
     $data = str_replace('<creaChit/>','
 
-    <label for="produttoreAmmCreaC">Produttore</label><span class="errore"> <erroreProdCrea/></span>
-    <input list="produttoreAmmCreaC" name="produttoreAmmCreaC_name" valueProdCrea>
+    <label for="produttoreAmmCreaC1">Produttore</label><span class="errore"> <erroreProdCrea/></span>
+    <input list="produttoreAmmCreaC" name="produttoreAmmCreaC1" id="produttoreAmmCreaC1" valueProdCrea>
     <datalist id="produttoreAmmCreaC">'.
     $produttori_chitarre.
     '
     </datalist>
-    <label for="tipologiaAmmCreaC">Tipologia</label><span class="errore"> <erroreTipCrea/></span>
-    <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC" valueTipCrea>
+    <label for="tipologiaAmmCreaC1">Tipologia</label><span class="errore"> <erroreTipCrea/></span>
+    <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC1" id="tipologiaAmmCreaC1" valueTipCrea>
     <datalist id="tipologiaAmmCreaC">'.
     $tipi_chitarra 
     .'
     </datalist>
     <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> <erroreLMCrea/></span>
-    <input type="text" name="legnoManicoCrea" class="legnoManico" valueLMCrea>
+    <input type="text" name="legnoManicoCrea" id="legnoManicoCrea" class="legnoManico" valueLMCrea>
     <label for="legnoCorpoCrea">Legno del corpo</label><span class="errore"> <erroreLCCrea/></span>
-    <input type="text" name="legnoCorpoCrea" class="legnoCorpo" valueLCCrea>', $data);
+    <input type="text" name="legnoCorpoCrea" id="legnoCorpoCrea" class="legnoCorpo" valueLCCrea>', $data);
    
   }
   if(isset($_REQUEST['SalvaCrea'])){
