@@ -265,14 +265,20 @@ $tipi_accessori
             $data = str_replace('modelloV','value="'.$modello.'"', $data);
           }
           
-             
+            
              if((strlen($descrizione)) <25){
+
+              
+              
+              $data = str_replace('<erroreDescrMod/>','Deve contenere più di 25 caratteri', $data);
+
 
               $data = str_replace('<span class="erroreDescrMod"></span>','<p class="errore">Deve contenere più di 25 caratteri</p>', $data);
 
               $descrizione=str_replace('<span lang="en" >','/en',$descrizione);
               $descrizione=str_replace('</span>','en/',$descrizione);
     
+
 
                }
                else{
@@ -305,7 +311,10 @@ $web_page = str_replace('<contenuto_to_insert/>',$data, $web_page);
 
 $web_page = str_replace('prezzoV','value="'.$prodotto_selezionato['prezzo'].'"', $web_page);
 $web_page = str_replace('descrCV','value="'.$prodotto_selezionato['short_desc'].'"', $web_page);
-$web_page = str_replace('Descrivi il prodotto',$prodotto_selezionato['descrizione'], $web_page);
+$desc=$prodotto_selezionato['descrizione'];
+$desc=str_replace('<span lang="en" >','{en}',$desc);
+$desc=str_replace('</span>','{/en}',$desc);
+$web_page = str_replace('Descrivi il prodotto',$desc, $web_page);
 $web_page = str_replace('modelloV','value="'.$prodotto_selezionato['modello'].'"', $web_page);
 $web_page = str_replace('catModF',$categoria, $web_page);
 $web_page = str_replace('proModF',$id_prodotto, $web_page);
