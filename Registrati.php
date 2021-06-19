@@ -14,6 +14,7 @@ $web_page = str_replace('<header_to_insert/>', $nav_bar, $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>','Registrati', $web_page);
 $web_page = str_replace('<gestioneAccesso/>', '', $web_page);
+$web_page = str_replace('<gestioneAccessoMobile/>', '', $web_page);
 
 $data=file_get_contents('Html/Registrati.html');
 
