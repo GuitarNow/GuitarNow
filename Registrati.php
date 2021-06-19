@@ -13,6 +13,7 @@ $nav_bar = str_replace('idlinkcorrenteC', '', $nav_bar);
 $web_page = str_replace('<header_to_insert/>', $nav_bar, $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>','Registrati', $web_page);
+$web_page = str_replace('<gestioneAccesso/>', '', $web_page);
 
 $data=file_get_contents('Html/Registrati.html');
 
@@ -31,7 +32,7 @@ if (isset($_POST['Registrati'])) {
     $utente = mysqli_fetch_assoc($database->get_result_query("select username, password,email, permessi from user where username='$username' "));
    
 if($utente!=NULL){
-    $data = str_replace('<erroreUserGiaUsato/>', '<strong class="errore">Username già in uso</strong>', $data);
+    $data = str_replace('<span class="erroreUserGiaUsato"></span>', '<p class="errore">Username già in uso</p>', $data);
     $data = str_replace('valueUserReg', 'value="'.$username.'"', $data);
     $data = str_replace('valueEmailReg', 'value="'.$email.'"', $data);
 }else{
@@ -39,7 +40,7 @@ if($utente!=NULL){
     if (($password)!=($ridpassword)){
         
         
-        $data = str_replace('<errorePassERidPassReg/>', '<strong class="errore">Le password non corrispondono</strong>', $data);
+        $data = str_replace('<span class="errorePassERidPassReg"></span>', '<p class="errore">Le password non corrispondono</p>', $data);
         $data = str_replace('valueUserReg', 'value="'.$username.'"', $data);
         $data = str_replace('valueEmailReg', 'value="'.$email.'"', $data);
     }
