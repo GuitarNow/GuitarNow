@@ -66,7 +66,7 @@ $accessori_da_visualizzare="";
 foreach($ultimi_arrivi_accessori as $accessori_da_scorrere)
 {
     $accessori_da_visualizzare.= '<li><a href="Visualizza_prodotto.php?prodotto='.$accessori_da_scorrere['codice_prodotto'].'&tipo=accessori">
-    <img class="accessori" src="'.$accessori_da_scorrere['path'].'" alt="'./*$accessori_da_scorrere['alt'].*/'" />'.
+    <img class="accessori" src="'.$accessori_da_scorrere['path'].'" alt="'.$accessori_da_scorrere['alt'].'" />'.
     '<p>'.$accessori_da_scorrere['produttore'].' '.$accessori_da_scorrere['modello'].
     '</p><p>'.$accessori_da_scorrere['prezzo'].'€</p>
     </a></li>';
