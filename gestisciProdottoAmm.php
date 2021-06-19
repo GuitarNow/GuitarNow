@@ -187,15 +187,15 @@ $data=file_get_contents('Html/gestisciProdotto.html');
     $tipi_accessori.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
   }
     $data = str_replace('<modAcc/>',' <input type="hidden" name="codiceProdottoMod"" value=""/>
-    <label for="produttoreAmmModA">Produttore</label><span class="errore"> <erroreProdMod/></span>
-    <input list="produttoreAmmModA" name="produttoreAmmModA" value="'.$prodotto_selezionato['produttore'].'">
+    <label for="produttoreAmmModA1">Produttore</label><span class="errore"> <erroreProdMod/></span>
+    <input list="produttoreAmmModA" id="produttoreAmmModA1" name="produttoreAmmModA1" value="'.$prodotto_selezionato['produttore'].'">
     <datalist id="produttoreAmmModA">
     '.
     $produttori_accessori
     .'
     </datalist>
-<label for="tipologiaAmmModA">Tipologia</label><span class="errore"> <erroreTipMod/></span>
-<input list="tipologiaAmmModA" name="tipologiaAmmModA" value="'.$prodotto_selezionato['categoria'].'">
+<label for="tipologiaAmmModA1">Tipologia</label><span class="errore"> <erroreTipMod/></span>
+<input list="tipologiaAmmModA" name="tipologiaAmmModA1" id="tipologiaAmmModA1" value="'.$prodotto_selezionato['categoria'].'">
 <datalist id="tipologiaAmmModA">'.
 $tipi_accessori
 .' 
@@ -214,23 +214,23 @@ $tipi_accessori
       $tipi_chitarra.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
     }
 
-    $data = str_replace('<modChit/>','   <label for="produttoreAmmModC">Produttore</label><span class="errore"> <erroreProdMod/></span>
-    <input list="produttoreAmmModC" name="produttoreAmmModC" value="'.$prodotto_selezionato['produttore'].'">
+    $data = str_replace('<modChit/>','   <label for="produttoreAmmModC1">Produttore</label><span class="errore"> <erroreProdMod/></span>
+    <input list="produttoreAmmModC" id="produttoreAmmModC1" name="produttoreAmmModC1" value="'.$prodotto_selezionato['produttore'].'">
     <datalist id="produttoreAmmModC" >
     '.
     $produttori_chitarre.
     '
     </datalist>
-    <label for="tipologiaAmmModC">Tipologia</label><span class="errore"> <erroreTipMod/></span>
-    <input list="tipologiaAmmModC" name="tipologiaAmmModC" value="'.$prodotto_selezionato['tipo_chitarra'].'">
+    <label for="tipologiaAmmModC1">Tipologia</label><span class="errore"> <erroreTipMod/></span>
+    <input list="tipologiaAmmModC" id="tipologiaAmmModC1" name="tipologiaAmmModC1" value="'.$prodotto_selezionato['tipo_chitarra'].'">
     <datalist id="tipologiaAmmModC">'.
     $tipi_chitarra
     .'
     </datalist>
     <label for="legnoManicoMod">Legno del manico</label><span class="errore"> <erroreLMMod/></span>
-    <input type="text" name="legnoManicoMod" class="legnoManico" value="'.$prodotto_selezionato['legno_manico'].'">
+    <input type="text" id="legnoManicoMod" name="legnoManicoMod" class="legnoManico" value="'.$prodotto_selezionato['legno_manico'].'">
     <label for="legnoCorpoMod">Legno del corpo</label><span class="errore"> <erroreLCMod/></span>
-    <input type="text" name="legnoCorpoMod" class="legnoCorpo" value="'.$prodotto_selezionato['legno_corpo'].'">
+    <input type="text" name="legnoCorpoMod" id="legnoCorpoMod" class="legnoCorpo" value="'.$prodotto_selezionato['legno_corpo'].'">
     ', $data);
   }
 
