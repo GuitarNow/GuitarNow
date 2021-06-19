@@ -3,22 +3,24 @@
     <form method="POST" class="form" id="formCrea" enctype= "multipart/form-data" action="creaProdottoAmm.php?categoria=<tip/>" >    
     <fieldset>
     <img src="Images/logo_bianco.png" alt="" />
-    <creaAcc/>
-    <creaChit/>
-    <label for="modelloCrea">Modello</label><span class="errore"> <erroreModCrea/></span>
-    <input type="text" id="modelloCrea" name="modelloCrea" class="modello" valueModCrea />
+    
+    <span class="creaAcc"></span>
+    <span class="creaChit"></span>
+    <label for="modelloCrea">Modello</label><span class="erroreModCrea"></span>
+    <input type="text" id="modelloCrea" name="modelloCrea" class="modello"/>
 
     <label for="descrizioneCrea">Descrizione</label><span class="errore"> <erroreDescrCrea/></span>
     <textarea rows=“40" cols="40" id="descrizioneCrea" name="descrizioneCrea" placeholder="Descrivi il prodotto. Racchiudi le parole inglese tra i caratteri speciali '{en}' e '{/en}' per gli utenti con disabilità visiva. Esempio: {en}Guitar{/en} " ></textarea>
     <label for="immagineCrea">Importa immagine</label><span class="errore"> <erroreImmCrea/></span>
     <input type="file" name="image" id="immagineCrea" class="file"/>
-    <label for="DescrizioneImmagineCCrea" >Descrizione breve dell'immagine</label><span class="errore"> <erroreSICrea/></span>
-    <input type="text" name="short_descCrea" id="DescrizioneImmagineCCrea" class="immagineC" placeholder="Descrivi brevemente l'immagine" valueImmCCrea/>
-    <label for="prezzoCrea">Prezzo</label><span class="errore"> <errorePrezzoCrea/></span>
-    <input type="text" name="prezzoCrea" id="prezzoCrea" class="prezzo" placeholder="€" valuePrezzoCrea/>
+    <label for="DescrizioneImmagineCCrea" >Descrizione breve dell'immagine</label><span class="erroreSICrea"></span>
+    <input type="text" name="short_descCrea" id="DescrizioneImmagineCCrea" class="immagineC" placeholder="Descrivi brevemente l'immagine"/>
+    <label for="prezzoCrea">Prezzo</label><span class="errorePrezzoCrea"></span>
+    <input type="text" name="prezzoCrea" id="prezzoCrea" class="prezzo" placeholder="€"/>
     <input type="submit" name="SalvaCrea" value="Crea Prodotto" class="Salva" />   
     <a href="prodotti.php" class="Annulla">Annulla</a>
-    <inserimento_eseguito/>
+    <span class="inserimento_eseguito"></span>
+    
     </fieldset>
     </form>
 </div>
