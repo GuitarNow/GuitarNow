@@ -267,7 +267,7 @@ $tipi_accessori
              
              if((strlen($descrizione)) <25){
 
-              $descrizione=str_replace('<span lang="eng">','/en',$descrizione);
+              $descrizione=str_replace('<span lang="en" >','/en',$descrizione);
               $descrizione=str_replace('</span>','en/',$descrizione);
               $data = str_replace('<erroreDescrMod/>','Deve contenere più di 25 caratteri', $data);
                }
