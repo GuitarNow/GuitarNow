@@ -23,6 +23,7 @@ $web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
 
 $web_page = str_replace('<breadcrumbs_to_insert/>','Accedi', $web_page);
 $web_page = str_replace('<gestioneAccesso/>', '', $web_page);
+$web_page = str_replace('<gestioneAccessoMobile/>', '', $web_page);
 
 
 $data=file_get_contents('Html/Login.html');

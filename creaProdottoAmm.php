@@ -19,6 +19,7 @@ $web_page = str_replace('<header_to_insert/>', $nav_bar, $web_page);
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Crea Prodotto - Amministrazione", $web_page);
 
 $web_page = str_replace('<gestioneAccesso/>', '<a href="Logout.php" id="logout">Logout</a>', $web_page);
+$web_page = str_replace('<gestioneAccessoMobile/>', '<a href="Logout.php" id="logout_menu">Logout</a>', $web_page);
 
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";

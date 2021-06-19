@@ -144,20 +144,20 @@
     display: flex !important;
     
 }
-
-
-#accedi{
+#accedi_menu, #registrati_menu, #logout_menu{   
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    background-color: #ec9b30;
+    padding: 0.5em;
+    font-size:1.1em;
+    color:#000;
+    border-radius:5px;  
     flex: 1;
+    
 }
 
-
-#registrati{
-    flex: 1;
-}
-
-#logout{
-    flex: 1;
-}
 
 
 /*----------------------------------------------------------------------------------
