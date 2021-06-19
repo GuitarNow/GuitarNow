@@ -126,8 +126,8 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	$nessun_commento=true;
 	if($num_commenti>0)
 	{
-		$contenuto.='<ul>';
-	}
+		$sezione_commenti.='<ul>';
+	
 	foreach($commenti as $c) 
 	{		
 		if ($utente_login==$c['username']){
@@ -149,11 +149,11 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				}
 				$sezione_commenti.='</li>
 				';
+	
+		
 	}
-	if($num_commenti>0)
-	{
-		$contenuto.='</ul>';
-	}
+	$sezione_commenti.='</ul>';
+}
 	if($nessun_commento==true)
 	{
 		$sezione_commenti='<p id="commentonascosto">Nessun commento disponibile</p>';

@@ -148,7 +148,7 @@ else{
 }
 
     $data = str_replace('<span class="creaAcc"></span>','
-    <input type="hidden" name="codiceProdottoCrea"" value=""/>
+    <input type="hidden" name="codiceProdottoCrea" value=""/>
     <label for="produttoreAmmCreaA1">Produttore</label><span class="erroreProdCrea"></span>
     <input list="produttoreAmmCreaA" name="produttoreAmmCreaA1" id="produttoreAmmCreaA1"/> 
     <datalist id="produttoreAmmCreaA">'.

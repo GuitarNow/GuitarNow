@@ -187,7 +187,7 @@ $data=file_get_contents('Html/gestisciProdotto.html');
    foreach($t as $tipi_da_visualizzare){
     $tipi_accessori.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
   }
-    $data = str_replace('<span class="ModAcc"></span>',' <input type="hidden" name="codiceProdottoMod"" value=""/>
+    $data = str_replace('<span class="ModAcc"></span>',' <input type="hidden" name="codiceProdottoMod" value=""/>
     <label for="produttoreAmmModA1">Produttore</label><span class="erroreProdMod"></span>
     <input list="produttoreAmmModA" id="produttoreAmmModA1" name="produttoreAmmModA1" value="'.$prodotto_selezionato['produttore'].'"/>
     <datalist id="produttoreAmmModA">
@@ -245,7 +245,7 @@ $tipi_accessori
         $data = str_replace('valueLMMod','value="'.$legno_manico.'"', $data);
        }
        if(strlen($legno_corpo)<1){
-        $data= str_replace('<erroreLCMod/>','<p class="errore">Devi assegnare un valore</p>', $data);
+        $data= str_replace('<span class="erroreLCMod"></span>','<p class="errore">Devi assegnare un valore</p>', $data);
          }
          else{
           $data = str_replace('valueLCMod','value="'.$legno_corpo.'"', $data);
