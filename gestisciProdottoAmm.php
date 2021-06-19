@@ -68,6 +68,8 @@ if(isset($_REQUEST['SalvaMod'])){
       }
       $modello = $_POST['modelloMod'];
       $descrizione = $_POST['descrizioneMod'];
+      $descrizione=str_replace('{en}','<span lang="en" >',$descrizione);
+      $descrizione=str_replace('{/en}','</span>',$descrizione);
       #inserire immagine
           $short_desc = $_POST['short_descMod'];
           $prezzo_vendita = $_POST['prezzoMod'];
