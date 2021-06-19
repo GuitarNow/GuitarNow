@@ -101,6 +101,16 @@
         background-color: #797979;
     }
 
+<<<<<<< HEAD
+ .menu{
+    width: 110px;
+    height: 110px;
+    background-image: url('../Images/menumobile.png');
+    margin-top:1em;
+
+ }
+
+=======
     #logo_chiusura_login {
     
         float: right;
@@ -116,6 +126,7 @@
  
 
 
+>>>>>>> 6ddf537ccb0abbe9d2db5df5375e871a41954c40
 
 
  #menu{
@@ -123,9 +134,12 @@
  }
 
 
+<<<<<<< HEAD
+=======
  
 
 
+>>>>>>> 6ddf537ccb0abbe9d2db5df5375e871a41954c40
  
 #accesso{
     display: none;
@@ -139,11 +153,41 @@
 }
 
 
+<<<<<<< HEAD
+.a_on{
+  display: unset !important;
+  width: 100%;
+  height: 6em;
+}
 
+.a_header{
+    display: none;
+}
+
+#menu li{
+    display:flex;
+    background-color: #dbdbdb;
+    
+}
+=======
+
+>>>>>>> 6ddf537ccb0abbe9d2db5df5375e871a41954c40
 .link_c{
     display: flex !important;
     
 }
+<<<<<<< HEAD
+#menu a{
+    background-color: #dbdbdb;
+    padding-top: 4%;
+    padding-bottom:4%;
+    height: 20%;
+}
+#menu a:hover{
+    background-color: purple ;
+}
+=======
+>>>>>>> 6ddf537ccb0abbe9d2db5df5375e871a41954c40
 
 
 #accedi{

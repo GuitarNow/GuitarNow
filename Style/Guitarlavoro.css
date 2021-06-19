@@ -581,7 +581,7 @@ hr{
     margin-top:2%;
 }
 
-#commento
+.commento
 {
     border:1px solid black;
     border-radius: 10px;
@@ -593,7 +593,7 @@ hr{
     
 }
 
-#commento::first-line
+.commento::first-line
 {
     font-weight:bold;
 }
@@ -706,7 +706,7 @@ margin-right:13%;
     padding-right: 6%;
 }
 
-#eliminaC{
+.eliminaC{
     margin-left: 2%;
     padding-left: 6%;
     padding-right: 6%;

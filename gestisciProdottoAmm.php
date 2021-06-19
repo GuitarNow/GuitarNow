@@ -54,11 +54,11 @@ else
 if(isset($_REQUEST['SalvaMod'])){
 
   if($categoria == "accessori"){
-      $produttore = $_POST['produttoreAmmModA'];
-      $tipo = $_POST['tipologiaAmmModA'];
+      $produttore = $_POST['produttoreAmmModA1'];
+      $tipo = $_POST['tipologiaAmmModA1'];
       }else{
-          $produttore = $_POST['produttoreAmmModC'];
-          $tipo = $_POST['tipologiaAmmModC'];
+          $produttore = $_POST['produttoreAmmModC1'];
+          $tipo = $_POST['tipologiaAmmModC1'];
           $legno_manico = $_POST['legnoManicoMod'];
           $legno_corpo = $_POST['legnoCorpoMod'];
       }
