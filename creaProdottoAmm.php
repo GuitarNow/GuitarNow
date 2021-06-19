@@ -47,7 +47,7 @@ if($categoria == "accessori"){
     $descrizione = $_POST['descrizioneCrea'];
     
     $descrizione=str_replace('/en','<span lang="eng">',$descrizione);
-    $descrizione=str_replace('en/','</span>',$descrizione);
+    $descrizione=str_replace('en/',' </span>',$descrizione);
     
         $short_desc = $_POST['short_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
