@@ -15,6 +15,9 @@ $web_page = file_get_contents('Html/template.html');
 $web_page = str_replace('<title_page/>', "Crea Prodotti Amministrazione", $web_page);
 $nav_bar = file_get_contents('Html/Header.html');
 $nav_bar = str_replace('idlinkcorrenteP', 'id="linkCorrente"', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteH', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteS', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteC', '', $nav_bar);
 $web_page = str_replace('<header_to_insert/>', $nav_bar, $web_page);
 $web_page = str_replace('<breadcrumbs_to_insert/>', "Crea Prodotto - Amministrazione", $web_page);
 
@@ -33,19 +36,19 @@ $data = str_replace('<tip/>',$categoria, $data);
 if(isset($_REQUEST['SalvaCrea'])){
 
 if($categoria == "accessori"){
-    $produttore = $_POST['produttoreAmmCreaA'];
-    $tipo = $_POST['tipologiaAmmCreaA'];
+    $produttore = $_POST['produttoreAmmCreaA1'];
+    $tipo = $_POST['tipologiaAmmCreaA1'];
     }else{
-        $produttore = $_POST['produttoreAmmCreaC_name'];
-        $tipo = $_POST['tipologiaAmmCreaC'];
+        $produttore = $_POST['produttoreAmmCreaC1'];
+        $tipo = $_POST['tipologiaAmmCreaC1'];
         $legno_manico = $_POST['legnoManicoCrea'];
         $legno_corpo = $_POST['legnoCorpoCrea'];
     }
     $modello = $_POST['modelloCrea'];
     $descrizione = $_POST['descrizioneCrea'];
     
-    $descrizione=str_replace('/en','<span lang="eng">',$descrizione);
-    $descrizione=str_replace('en/','</span>',$descrizione);
+    $descrizione=str_replace('/en','<span lang="en" >',$descrizione);
+    $descrizione=str_replace('en/',' </span>',$descrizione);
     
         $short_desc = $_POST['short_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
@@ -93,32 +96,34 @@ if($categoria == "accessori"){
 
   if(isset($_REQUEST['SalvaCrea']))
   {
-    $data = str_replace('<inserimento_eseguito/>','<p class="operazione_confermata">Prodotto inserito correttamente</p>', $data);
+    $data = str_replace('<span class="inserimento_eseguito"></span>
+    ','<p class="operazione_confermata">Prodotto inserito correttamente</p>', $data);
   }
   else{
-    $data = str_replace('<inserimento_eseguito/>','', $data);
+    $data = str_replace('<span class="inserimento_eseguito"></span>
+    ','', $data);
 
   }
   
 }
 else{
 if(strlen($modello)<1){
-  $data = str_replace('<erroreModCrea/>','Devi assegnare un valore', $data);
+  $data = str_replace('<span class="erroreModCrea"></span>','<p class="errore">Devi assegnare un valore</p>', $data);
 }
 else{
-  $data = str_replace('valueModCrea','value="'.$modello.'"', $data);
+  $data = str_replace('<input type="text" id="modelloCrea" name="modelloCrea" class="modello" valueModCrea/>','<input type="text" id="modelloCrea" name="modelloCrea" class="modello" value="'.$modello.'"/>', $data);
 }
 
    
      
        if(!is_numeric($prezzo_vendita)){
-        $data = str_replace('<errorePrezzoCrea/>','Devi assegnare un valore numerico', $data);
+        $data = str_replace('<span class="erroreProdCrea"></span>','<p class="errore">Devi assegnare un valore numerico</p>', $data);
          }
          else{
-          $data = str_replace('valuePrezzoCrea','value="'.$prezzo_vendita.'"', $data);
+          $data = str_replace('<input type="text" name="prezzoCrea" id="prezzoCrea" class="prezzo" placeholder="€"/>','<input type="text" name="prezzoCrea" id="prezzoCrea" class="prezzo" placeholder="€" value="'.$prezzo_vendita.'"/>', $data);
         }
          if(strlen($short_desc) <5){
-          $data = str_replace('<erroreSICrea/>','Deve contenere più di 5 caratteri', $data);
+          $data = str_replace('<span class="erroreSICrea"></span>','<p class="errore">Deve contenere più di 5 caratteri</p>', $data);
          }
          else{
           $data = str_replace('valueImmCCrea','value="'.$short_desc.'"', $data);
@@ -143,17 +148,17 @@ else{
   $tipi_accessori.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
 }
 
-    $data = str_replace('<creaAcc/>','
-    <input type="hidden" name="codiceProdottoCrea"" value=""/>
-    <label for="produttoreAmmCreaA1">Produttore</label><span class="errore"> <erroreProdCrea/></span>
-    <input list="produttoreAmmCreaA" name="produttoreAmmCreaA1" id="produttoreAmmCreaA1" valueProdCrea> 
+    $data = str_replace('<span class="creaAcc"></span>','
+    <input type="hidden" name="codiceProdottoCrea" value=""/>
+    <label for="produttoreAmmCreaA1">Produttore</label><span class="erroreProdCrea"></span>
+    <input list="produttoreAmmCreaA" name="produttoreAmmCreaA1" id="produttoreAmmCreaA1"/> 
     <datalist id="produttoreAmmCreaA">'.
     $produttori_accessori
     .'
     
     </datalist>
-<label for="tipologiaAmmCreaA1">Tipologia</label> <span class="errore"> <erroreTipCrea/></span>
-<input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA1" id="tipologiaAmmCreaA1" valueTipCrea>
+<label for="tipologiaAmmCreaA1">Tipologia</label> <span class="erroreTipCrea"></span>
+<input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA1" id="tipologiaAmmCreaA1"/>
 <datalist id="tipologiaAmmCreaA">'.
 $tipi_accessori.'
 </datalist>', $data);
@@ -171,61 +176,88 @@ $tipi_accessori.'
   $tipi_chitarra.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
 }
 
-    $data = str_replace('<creaChit/>','
+    $data = str_replace('<span class="creaChit"></span>','
 
-    <label for="produttoreAmmCreaC1">Produttore</label><span class="errore"> <erroreProdCrea/></span>
-    <input list="produttoreAmmCreaC" name="produttoreAmmCreaC1" id="produttoreAmmCreaC1" valueProdCrea>
+    <label for="produttoreAmmCreaC1">Produttore</label><span class="erroreProdCrea"></span>
+    <input list="produttoreAmmCreaC" name="produttoreAmmCreaC1" id="produttoreAmmCreaC1"/>
     <datalist id="produttoreAmmCreaC">'.
     $produttori_chitarre.
     '
     </datalist>
-    <label for="tipologiaAmmCreaC1">Tipologia</label><span class="errore"> <erroreTipCrea/></span>
-    <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC1" id="tipologiaAmmCreaC1" valueTipCrea>
+    <label for="tipologiaAmmCreaC1">Tipologia</label><span class="erroreTipCrea"></span>
+    <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC1" id="tipologiaAmmCreaC1"/>
     <datalist id="tipologiaAmmCreaC">'.
     $tipi_chitarra 
     .'
     </datalist>
-    <label for="legnoManicoCrea">Legno del manico</label><span class="errore"> <erroreLMCrea/></span>
-    <input type="text" name="legnoManicoCrea" id="legnoManicoCrea" class="legnoManico" valueLMCrea>
-    <label for="legnoCorpoCrea">Legno del corpo</label><span class="errore"> <erroreLCCrea/></span>
-    <input type="text" name="legnoCorpoCrea" id="legnoCorpoCrea" class="legnoCorpo" valueLCCrea>', $data);
+    <label for="legnoManicoCrea">Legno del manico</label><span class="erroreLMCrea"></span>
+    <input type="text" name="legnoManicoCrea" id="legnoManicoCrea" class="legnoManico"/>
+    <label for="legnoCorpoCrea">Legno del corpo</label><span class="erroreLCCrea"></span>
+    <input type="text" name="legnoCorpoCrea" id="legnoCorpoCrea" class="legnoCorpo"/>', $data);
    
   }
   if(isset($_REQUEST['SalvaCrea'])){
  
              if(strlen($legno_manico)<1){
-              $data = str_replace('<erroreLMCrea/>','Devi assegnare un valore', $data);
+              $data = str_replace('<span class="erroreLMCrea"></span>','<p class="errore">Devi assegnare un valore</p>', $data);
+               }
+               else{
+                $data = str_replace('<input type="text" name="legnoManicoCrea" id="legnoManicoCrea" class="legnoManico"/>','<input type="text" name="legnoManicoCrea" id="legnoManicoCrea" class="legnoManico" value="'.$legno_manico.'"/>', $data);
                }
                
                if(strlen($legno_corpo)<1){
-                $data= str_replace('<erroreLCCrea/>','Devi assegnare un valore', $data);
+                $data= str_replace('<span class="erroreLCCrea"></span>','<p class="errore">Devi assegnare un valore</p>', $data);
+                 }
+                 else{
+                  $data = str_replace('<input type="text" name="legnoCorpoCrea" id="legnoCorpoCrea" class="legnoCorpo"/>','<input type="text" name="legnoCorpoCrea" id="legnoCorpoCrea" class="legnoCorpo" value="'.$legno_corpo.'"/>', $data);
                  }
                  
                  if(strlen($tipo)<1){
-                  $data = str_replace('<erroreTipCrea/>','Assegna un valore', $data);
-                   }
+                  $data = str_replace('<span class="erroreTipCrea"></span>','<p class="errore">Assegna un valore</p>', $data);
+                   } elseif($categoria == "accessori"){
+                    $data = str_replace('<input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA1" id="tipologiaAmmCreaA1"/>','<input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA1" id="tipologiaAmmCreaA1" value="'.$tipo.'"/>', $data);
+                  }
+                  else{
+                    $data = str_replace('<input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC1" id="tipologiaAmmCreaC1"/>','<input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC1" id="tipologiaAmmCreaC1" value="'.$tipo.'"/>', $data);
+                  }
                    
                    if(strlen($modello)<1){
-                    $data = str_replace('<erroreModCrea/>','Devi assegnare un valore', $data);
+                    $data = str_replace('<span class="erroreModCrea"></span>','<p class="errore">Devi assegnare un valore</p>', $data);
+                  }else{
+                    $data = str_replace('<input type="text" id="modelloCrea" name="modelloCrea" class="modello"/>',' <input type="text" id="modelloCrea" name="modelloCrea" class="modello" value="'.$modello.'"/>', $data);
                   }
                   
                   
                      
                      if((strlen($descrizione)) <25){
-                      $data = str_replace('<erroreDescrCrea/>','Deve contenere più di 25 caratteri', $data);
-                       }
+                      $data = str_replace('<span class="erroreDescrCrea"></span>','<p class="errore">Deve contenere più di 25 caratteri</p>', $data);
+                       }else{
+                        $data = str_replace('Descrivi il prodotto',$descrizione, $data);
+                      }
                       
                        
                          if(!is_numeric($prezzo_vendita)){
-                          $data = str_replace('<errorePrezzoCrea/>','Devi assegnare un valore numerico', $data);
+                          $data = str_replace('<span class="errorePrezzoCrea"></span>','<p class="errore">Devi assegnare un valore numerico</p>', $data);
                            }
+                           else{
+                            $data = str_replace('<input type="text" name="prezzoCrea" id="prezzoCrea" class="prezzo" placeholder="€"/>','<input type="text" name="prezzoCrea" id="prezzoCrea" class="prezzo" placeholder="€" value="'.$prezzo_vendita.'"/>', $data);
+                          }
                           
                            if(strlen($short_desc) <5){
-                            $data = str_replace('<erroreSICrea/>','Deve contenere più di 5 caratteri', $data);
+                            $data = str_replace('<span class="erroreSICrea"></span>','<p class="errore">Deve contenere più di 5 caratteri</p>', $data);
                            }
+                           else{
+                            $data = str_replace('<input type="text" name="short_descCrea" id="DescrizioneImmagineCCrea" class="immagineC" placeholder="Descrivi brevemente l\'immagine"/>','<input type="text" name="short_descCrea" id="DescrizioneImmagineCCrea" class="immagineC" placeholder="Descrivi brevemente l\'immagine" value="'.$short_desc.'"/>', $data);
+                          }
                            
                           if(strlen($produttore)<1){
-                            $data =str_replace('<erroreProdCrea/>','Assegna un valore', $data);
+                            $data =str_replace('<span class="erroreProdCrea"></span>','<p class="errore">Assegna un valore</p>', $data);
+                          }
+                          elseif($categoria == "accessori"){
+                            $data = str_replace('<input list="produttoreAmmCreaA" name="produttoreAmmCreaA1" id="produttoreAmmCreaA1"/>','<input list="produttoreAmmCreaA" name="produttoreAmmCreaA1" id="produttoreAmmCreaA1" value="'.$produttore.'"/>', $data);
+                          }
+                          else{
+                            $data = str_replace('<input list="produttoreAmmCreaC" name="produttoreAmmCreaC1" id="produttoreAmmCreaC1"/>','<input list="produttoreAmmCreaC" name="produttoreAmmCreaC1" id="produttoreAmmCreaC1" value="'.$produttore.'"/>', $data);
                           }
                           
                    
