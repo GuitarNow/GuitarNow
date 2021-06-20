@@ -115,7 +115,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	if($permessi==1){
 	$bottoniAmm='<a href="gestisciProdottoAmm.php?categoria='.$categoria.'&prodotto='.$id_prodotto.'" id="Modifica" >Modifica</a>'
 	.
-	'<button onclick="eliminaProdotto('.$id_prodotto.')" id="Elimina" >Elimina</button>';
+	'<button aria-label="Elimina prodotto" onclick="eliminaProdotto('.$id_prodotto.')" id="Elimina" >Elimina</button>';
 	
 	$contenuto=$contenuto.$bottoniAmm;
 		if(isset($_GET['operazione']) && $_GET['operazione']==1)
@@ -148,7 +148,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 				
 				if(($permessi == 1 || ($permessi==0 && $utente_login == $c['username'] ))){
 
-					$sezione_commenti.= '<button onclick="eliminaCommento('.$c['id_commento'].')" class="eliminaC" >ELIMINA</button>';
+					$sezione_commenti.= '<button aria-label="Elimina commento" onclick="eliminaCommento('.$c['id_commento'].')" class="eliminaC" >ELIMINA</button>';
 		
 				}
 				$sezione_commenti.='</li>
