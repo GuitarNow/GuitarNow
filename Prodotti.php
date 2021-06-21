@@ -87,7 +87,7 @@ if($categoria == "chitarre" || $categoria == NULL){
 }elseif($categoria == "accessori"){
     $menu_prodotto = '
     <li id="btn_chitarre" class="link" role="none"><a id="a_chitarre" href="Prodotti.php?categoria=chitarre" role="menuitem">Chitarre</a></li> 
-    <li id="linkCorrenteProdotti" class="link" role="none">Accessori</a></li>';
+    <li id="linkCorrenteProdotti" class="link" role="none">Accessori</li>';
 }
 
 
