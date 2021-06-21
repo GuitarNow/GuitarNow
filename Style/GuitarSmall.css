@@ -24,10 +24,15 @@
  }
 
 #button_menu{
+    display: unset;
+    font-size: 0;
+    color: white;
     width: 110px;
     height: 110px;
     transform: scale(0.8);
     background-image: url('../Images/menumobile.png');
+    background-color:#4E1600;
+    border: 0;
     margin-top:1em;
     background-repeat: no-repeat;
 
@@ -42,7 +47,7 @@
  }
 
  .topnav {
-     display: flex !important;
+     display: flex ;
   overflow: hidden;
   background-color: #333;
   position: relative;
@@ -151,11 +156,7 @@
 
 
 
-.a_on{
-  display: unset !important;
-  width: 100%;
-  height: 6em;
-}
+
 
 .a_header{
     display: none;
@@ -168,10 +169,7 @@
 }
 
 
-.link_c{
-    display: flex !important;
-    
-}
+
 #accedi_menu, #registrati_menu, #logout_menu{   
     border-right: 1px solid #000;
     border-top: 1px solid #000;
@@ -440,7 +438,7 @@ flex-grow: 1;
 }
 
 .dU{
- display: unset !important;
+display: unset;
 }
 
 .margin_less{

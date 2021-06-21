@@ -77,44 +77,12 @@ function validaLogin(){
     return corretto;
 }
 
-var menu;
-var menuLogin;
+
 /* FUNZIONI PER IL MENU */
 
-function menuOn(){
-    menu = document.getElementById('menu');
-    var close = document.getElementById('logo_chiusura');
-    var a =  document.getElementsByClassName('a_header');
-    var link_c= document.getElementById('linkCorrente');
-    
-    if(menu.className==='menu'){
-        menu.classList.remove('menu');
-        menu.classList.add('menu_on');
 
-        for(let i=0;i<4;i++){
-            document.getElementsByClassName('a_header')[i].classList.add('a_on');
-        }
-        link_c.classList.add('link_c');
-        
-    
-        
-        close.classList.add('dU');
-    }else{
-        menu.classList.remove('menu_on');
-        menu.classList.add('menu');
-        close.classList.remove('dU');
-        
-    
-        for(let i=0;i<4;i++){
-            document.getElementsByClassName('a_header')[i].classList.remove('a_on');
-        }
-        link_c.classList.remove('link_c');
 
-    }
-    
-}
-
-function myFunction() {
+function funzioneMenu() {
     var x = document.getElementById("myLinks");
     if (x.style.display === "block") {
       x.style.display = "none";
@@ -124,52 +92,8 @@ function myFunction() {
   }
 
 
-function menuLoginOn(){
-    menuLogin = document.getElementById('menu_login');
-   
-    var closeLogin = document.getElementById('logo_chiusura_login');
-    var a =  document.getElementsByClassName('a_header_login');
-    var link_c= document.getElementById('linkCorrente');
-    
-    if(menuLogin.className==='menuLogin'){
-        menuLogin.classList.remove('menuLogin');
-        menuLogin.classList.add('menu_on');
-        menu.classList.remove('menu');
-        for(let i=0;i<1;i++){
-            document.getElementsByClassName('a_header_login')[i].classList.add('a_on');
-        }
-        link_c.classList.add('link_c');
-        
-    
-        
-        closeLogin.classList.add('dU');
-    }else{
-        menuLogin.classList.remove('menu_on');
-        menuLogin.classList.add('menuLogin');
-        menu.classList.add('menu');
-        closeLogin.classList.remove('dU');
-        
-    
-        for(let i=0;i<1;i++){
-            document.getElementsByClassName('a_header_login')[i].classList.remove('a_on');
-        }
-        link_c.classList.remove('link_c');
-
-    }
-    
-}
 
 
-
-
-function menuOff(){
-    menu.classList.add('menu');
-}
-
-function menuOffLogin(){
-    menuLogin.classList.add('menuLogin');
-    menu.classList.add('menu'); 
-}
 
 /* FUNZIONI PER I FILTRI */
 
