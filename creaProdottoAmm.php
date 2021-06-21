@@ -241,14 +241,14 @@ $data = str_replace('<inserimento_eseguito/>','', $data);
     $data = str_replace('<datiCreazione/>','
     <input type="hidden" name="codiceProdottoCrea" value=""/>
     <label for="produttoreAmmCrea">Produttore</label><span class="erroreProdCrea"></span>
-    <input list="produttoreAmmCreaA" name="produttoreAmmCrea" id="produttoreAmmCrea"/> 
+    <span><input list="produttoreAmmCreaA" name="produttoreAmmCrea" id="produttoreAmmCrea"/></span>
     <datalist id="produttoreAmmCreaA">'.
     $produttori_accessori
     .'
     
     </datalist>
 <label for="tipologiaAmmCrea">Tipologia</label> <span class="erroreTipCrea"></span>
-<input list="tipologiaAmmCreaA" name="tipologiaAmmCrea" id="tipologiaAmmCrea"/>
+<span><input list="tipologiaAmmCreaA" name="tipologiaAmmCrea" id="tipologiaAmmCrea"/></span>
 <datalist id="tipologiaAmmCreaA">'.
 $tipi_accessori.'
 </datalist>', $data);
@@ -269,21 +269,21 @@ $tipi_accessori.'
     $data = str_replace('<datiCreazione/>','
 
     <label for="produttoreAmmCrea">Produttore</label><span class="erroreProdCrea"></span>
-    <input list="produttoreAmmCreaC" name="produttoreAmmCrea" id="produttoreAmmCrea"/>
+    <span><input list="produttoreAmmCreaC" name="produttoreAmmCrea" id="produttoreAmmCrea"/></span>
     <datalist id="produttoreAmmCreaC">'.
     $produttori_chitarre.
     '
     </datalist>
     <label for="tipologiaAmmCrea">Tipologia</label><span class="erroreTipCrea"></span>
-    <input list="tipologiaAmmCreaC" name="tipologiaAmmCrea" id="tipologiaAmmCrea"/>
+    <span><input list="tipologiaAmmCreaC" name="tipologiaAmmCrea" id="tipologiaAmmCrea"/></span>
     <datalist id="tipologiaAmmCreaC">'.
     $tipi_chitarra 
     .'
     </datalist>
     <label for="legnoManicoCrea">Legno del manico</label>
-    <input type="text" name="legnoManicoCrea" id="legnoManicoCrea" class="legnoManico"/>
+    <span><input type="text" name="legnoManicoCrea" id="legnoManicoCrea" class="legnoManico"/></span>
     <label for="legnoCorpoCrea">Legno del corpo</label>
-    <input type="text" name="legnoCorpoCrea" id="legnoCorpoCrea" class="legnoCorpo"/>', $data);
+    <span><input type="text" name="legnoCorpoCrea" id="legnoCorpoCrea" class="legnoCorpo"/></span>', $data);
    
   }
  /*
