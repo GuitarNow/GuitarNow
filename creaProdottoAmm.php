@@ -33,6 +33,9 @@ error_reporting(0);
 
 $data=file_get_contents('Html/creaProdotto.html');
 $data = str_replace('<tip/>',$categoria, $data);
+
+/*
+
 if(isset($_REQUEST['SalvaCrea'])){
 
 if($categoria == "accessori"){
@@ -130,6 +133,94 @@ else{
  
       }   
 }
+*/
+
+
+
+
+if(isset($_REQUEST['SalvaCrea'])){
+
+  $produttore = $_POST['produttoreAmmCrea'];
+  $tipo = $_POST['tipologiaAmmCrea'];
+  $modello = $_POST['modelloCrea'];
+  $descrizione = $_POST['descrizioneCrea'];
+  
+  $descrizione=str_replace('{en}','<span lang="en" >',$descrizione);
+  $descrizione=str_replace('{/en}',' </span>',$descrizione);
+  
+  $short_desc = $_POST['short_descCrea'];
+  $long_desc = $_POST['long_descCrea'];
+  $prezzo_vendita = $_POST['prezzoCrea'];
+
+
+  $creazioneP = new ManageProdotti();
+  $creazioneP->crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita);
+
+  if($categoria == "accessori"){
+    $creazioneA = new ManageProdotti();
+    $creazioneA->crea_chitA($tipo);
+  }
+
+  if($categoria == "chitarre"){
+        $legno_manico = $_POST['legnoManicoCrea'];
+        $legno_corpo = $_POST['legnoCorpoCrea'];
+        $creazioneC = new ManageProdotti();
+        $creazioneC->crea_chitC($tipo, $legno_manico, $legno_corpo);
+  }
+
+
+  if(isset($_FILES['image'])){
+    $errors= array();
+    $file_name = $_FILES['image']['name'];
+    $file_size =$_FILES['image']['size'];
+    $file_tmp =$_FILES['image']['tmp_name'];
+    $file_type=$_FILES['image']['type'];
+    $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+    /*
+    $extensions= array("jpeg","jpg","png");
+    
+    if(in_array($file_ext,$extensions)=== false){
+       $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+    }
+    
+    if($file_size > 2097152){
+       $errors[]='File size must be excately 2 MB';
+    }
+    
+    if(empty($errors)==true){
+       move_uploaded_file($file_tmp,"Images/".$file_name);
+     //  echo "Success";
+    }else{
+       print_r($errors);
+    }*/
+
+    $creazioneI = new ManageProdotti();
+    $creazioneI->crea_chitI("Images/".$file_name, $short_desc,$long_desc);
+
+
+    $data = str_replace('<inserimento_eseguito/>','<p class="operazione_confermata">Prodotto inserito correttamente</p>', $data);
+ }
+
+
+}
+
+
+$data = str_replace('<inserimento_eseguito/>','', $data);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
   if($categoria == "accessori"){
@@ -149,15 +240,15 @@ else{
 
     $data = str_replace('<span class="creaAcc"></span>','
     <input type="hidden" name="codiceProdottoCrea" value=""/>
-    <label for="produttoreAmmCreaA1">Produttore</label><span class="erroreProdCrea"></span>
-    <input list="produttoreAmmCreaA" name="produttoreAmmCreaA1" id="produttoreAmmCreaA1"/> 
+    <label for="produttoreAmmCrea">Produttore</label><span class="erroreProdCrea"></span>
+    <input list="produttoreAmmCreaA" name="produttoreAmmCrea" id="produttoreAmmCrea"/> 
     <datalist id="produttoreAmmCreaA">'.
     $produttori_accessori
     .'
     
     </datalist>
-<label for="tipologiaAmmCreaA1">Tipologia</label> <span class="erroreTipCrea"></span>
-<input list="tipologiaAmmCreaA" name="tipologiaAmmCreaA1" id="tipologiaAmmCreaA1"/>
+<label for="tipologiaAmmCrea">Tipologia</label> <span class="erroreTipCrea"></span>
+<input list="tipologiaAmmCreaA" name="tipologiaAmmCrea" id="tipologiaAmmCrea"/>
 <datalist id="tipologiaAmmCreaA">'.
 $tipi_accessori.'
 </datalist>', $data);
@@ -177,14 +268,14 @@ $tipi_accessori.'
 
     $data = str_replace('<span class="creaChit"></span>','
 
-    <label for="produttoreAmmCreaC1">Produttore</label><span class="erroreProdCrea"></span>
-    <input list="produttoreAmmCreaC" name="produttoreAmmCreaC1" id="produttoreAmmCreaC1"/>
+    <label for="produttoreAmmCrea">Produttore</label><span class="erroreProdCrea"></span>
+    <input list="produttoreAmmCreaC" name="produttoreAmmCrea" id="produttoreAmmCrea"/>
     <datalist id="produttoreAmmCreaC">'.
     $produttori_chitarre.
     '
     </datalist>
-    <label for="tipologiaAmmCreaC1">Tipologia</label><span class="erroreTipCrea"></span>
-    <input list="tipologiaAmmCreaC" name="tipologiaAmmCreaC1" id="tipologiaAmmCreaC1"/>
+    <label for="tipologiaAmmCrea">Tipologia</label><span class="erroreTipCrea"></span>
+    <input list="tipologiaAmmCreaC" name="tipologiaAmmCrea" id="tipologiaAmmCrea"/>
     <datalist id="tipologiaAmmCreaC">'.
     $tipi_chitarra 
     .'
@@ -195,6 +286,7 @@ $tipi_accessori.'
     <input type="text" name="legnoCorpoCrea" id="legnoCorpoCrea" class="legnoCorpo"/>', $data);
    
   }
+ /*
   if(isset($_REQUEST['SalvaCrea'])){
  
              if(strlen($legno_manico)<1){
@@ -268,7 +360,7 @@ $tipi_accessori.'
                           
                    
                         }   
-                  
+                  */
 $web_page = str_replace('<contenuto_to_insert/>',$data, $web_page);
    
                 
