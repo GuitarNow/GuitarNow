@@ -85,6 +85,35 @@ function validaCreaProdotto(){
     return corretto;
 }
 
+/* FUNZIONI PER LA GESTIONE DEL FORM IN MODIFICA PRODOTTO (CHITARRA)  */
+var formModChitarra={
+    "produttoreAmmMod":[/^[A-z0-9\.\+_-]{2,15}/,"Il produttore deve essere di almeno 2 caratteri e massimo 15 "],
+    "tipologiaAmmMod":[/^[A-z0-9\.\+_-]{2,15}/,"La tipologia deve essere di almeno 2 caratteri e massimo 15 "],
+    "legnoManicoMod":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno manico deve essere di almeno 2 caratteri e massimo 10 "],
+    "legnoCorpoMod":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno corpo deve essere di almeno 2 caratteri e massimo 10 "],
+    "modelloMod": [/^[A-z0-9\.\+_-]{2,15}/,"Il modello deve essere di almeno 2 caratteri e massimo 15 "],
+    "descrizioneMod":[/^[A-z0-9\.\+_-]{5,500}/,"La descrizone deve essere di almeno 5 caratteri e massimo 500 "],
+    "DescrizioneImmagineCMod": [/^[A-z0-9\.\+_-]{5,100}/,"L'alt deve essere di almeno 5 caratteri e massimo 100 "],
+    "DescrizioneImmagineCModLong":[/^[A-z0-9\.\+_-]{5,500}/,"La longdesc deve essere di almeno 5 caratteri e massimo 500 "],
+    "prezzoMod":[/^[0-9]+(\.[0-9]{1,2})?/,"Formato prezzo non valido"]
+}
+
+function validaModChitarra(){
+   
+    var corretto=true;
+    for(var key in formModChitarra){
+        var input=document.getElementById(key);
+        var valore=validazioneCampo(input,formModChitarra);
+        corretto= corretto && valore;
+    }
+
+
+    return corretto;
+}
+
+
+
+
 
 /* FUNZIONI PER IL MENU */
 
