@@ -15,7 +15,7 @@ html{
 body{
     max-width:1024px;
     margin: auto;
-    background-color:#C68948;
+    background-color:#d4b868;
     font-family:"Comic Sans MS", cursive, sans-serif;
     font-size:100%;
     color: #000;
@@ -631,7 +631,7 @@ hr{
 
 #Nessun_prodotto{ 
     margin-left:25%;
-    color: red;
+    color: rgb(0, 0, 0);
     font-weight: bold;
 
 }
@@ -911,9 +911,10 @@ margin-left:0;
 
 /*---------------GESTIONE ERRORI--------------*/
 .errore{
-    color:red;
+    color:rgb(109, 0, 0);
     margin-left:20%;
     display:block;
+	font-weight: bold;
 }
 #contenutoCrea label{
      display:block;
