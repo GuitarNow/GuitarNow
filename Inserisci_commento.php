@@ -35,7 +35,7 @@ $commenti = str_replace('<tipo/>', '<input type="hidden" id="tipo_prodotto" name
 
 if (isset($_POST['submit'])) {
 $id_prodotto = $_POST['codice_prodotto'];
-$descrizione = $_POST['commento'];
+$descrizione = $_POST['inscommento'];
 $voto = $_POST['valutazione'];
 
 
@@ -51,7 +51,7 @@ else{
 
 
 if($permessi ==0){
-
+    echo $descrizione;
     $manage_comemnto=new ManageCommenti();
     $risultato = $manage_comemnto->inserisci_commento($descrizione,$voto,$id_prodotto,$utente_login);
     
