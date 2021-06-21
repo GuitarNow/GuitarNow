@@ -69,7 +69,9 @@ else
                 $password = stripslashes($password);
                 $username = $database->escape_string($username);
                 $password = $database->escape_string($password);
-$utente = mysqli_fetch_assoc($database->get_result_query("select username, password, permessi from user where (password='$password' AND username='$username') "));	
+              
+$utente = mysqli_fetch_assoc($database->get_result_query("select username, password, permessi from user where ( BINARY password='$password' AND BINARY username='$username') "));	
+
 
 if ($utente==NULL) {
     $data = str_replace('<span class="errLogin"></span>', '<p class="errore">Password o Username non corretti</p>', $data);
