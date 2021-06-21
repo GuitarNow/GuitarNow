@@ -233,8 +233,8 @@ public function modifica_prodA($tipo, $id_prodotto){
    return $this->prodotto->insert_query($query);
 }
 
-public function modifica_prodI($file_name, $short_desc, $id_prodotto){
-    $query="UPDATE immagine SET path='".$file_name."', short_desc='".$short_desc."' WHERE codice_prodotto=".$id_prodotto; 
+public function modifica_prodI($file_name, $short_desc,$long_desc, $id_prodotto){
+    $query="UPDATE immagine SET path='".$file_name."', short_desc='".$short_desc."', long_desc='".$long_desc."' WHERE codice_prodotto=".$id_prodotto; 
     return $this->prodotto->insert_query($query);
 }
 

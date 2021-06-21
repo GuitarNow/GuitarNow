@@ -745,11 +745,11 @@ border:1px solid #000;
 
 
 #produttoreAmmCreaA, #produttoreAmmCreaC, #tipologiaAmmCreaC, #tipologiaAmmCreaA,
-#produttoreAmmModA, #produttoreAmmModC, #tipologiaAmmModC, #tipologiaAmmModA{
+#produttoreAmmMod, #tipologiaAmmMod{
     margin-left: 20%;
-    height: 0.7em;
+    height: 2em;
     margin-bottom:1%;
-    display:inline-block;
+
  }
 
 
