@@ -267,15 +267,15 @@ $data=file_get_contents('Html/gestisciProdotto.html');
     $tipi_accessori.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
   }
     $data = str_replace('<span class="ModAcc"></span>',' <input type="hidden" name="codiceProdottoMod" value=""/>
-    <label for="produttoreAmmModA1">Produttore</label><span class="erroreProdMod"></span>
-    <input list="produttoreAmmModA" id="produttoreAmmModA1" name="produttoreAmmModA1" value="'.$prodotto_selezionato['produttore'].'"/>
+    <label for="produttoreAmmModA">Produttore</label><span class="erroreProdMod"></span>
+    <input list="produttoreAmmModA" id="produttoreAmmModA" name="produttoreAmmModA" value="'.$prodotto_selezionato['produttore'].'"/>
     <datalist id="produttoreAmmModA">
     '.
     $produttori_accessori
     .'
     </datalist>
-<label for="tipologiaAmmModA1">Tipologia</label><span class="erroreTipMod"></span>
-<input list="tipologiaAmmModA" name="tipologiaAmmModA1" id="tipologiaAmmModA1" value="'.$prodotto_selezionato['categoria'].'"/>
+<label for="tipologiaAmmModA">Tipologia</label><span class="erroreTipMod"></span>
+<input list="tipologiaAmmModA" name="tipologiaAmmModA" id="tipologiaAmmModA" value="'.$prodotto_selezionato['categoria'].'"/>
 <datalist id="tipologiaAmmModA">'.
 $tipi_accessori
 .' 
@@ -294,16 +294,16 @@ $tipi_accessori
       $tipi_chitarra.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
     }
 
-    $data = str_replace('<span class="ModChit"></span>','   <label for="produttoreAmmModC1">Produttore</label><span class="erroreProdMod"></span>
-    <input list="produttoreAmmModC" id="produttoreAmmModC1" name="produttoreAmmModC1" value="'.$prodotto_selezionato['produttore'].'"/>
-    <datalist id="produttoreAmmModC" >
+    $data = str_replace('<span class="ModChit"></span>','   <label for="produttoreAmmModA">Produttore</label><span class="erroreProdMod"></span>
+    <input list="produttoreAmmModA" id="produttoreAmmModA" name="produttoreAmmModA" value="'.$prodotto_selezionato['produttore'].'"/>
+    <datalist id="produttoreAmmModA" >
     '.
     $produttori_chitarre.
     '
     </datalist>
-    <label for="tipologiaAmmModC1">Tipologia</label><span class="erroreTipMod"></span>
-    <input list="tipologiaAmmModC" id="tipologiaAmmModC1" name="tipologiaAmmModC1" value="'.$prodotto_selezionato['tipo_chitarra'].'"/>
-    <datalist id="tipologiaAmmModC">'.
+    <label for="tipologiaAmmModA">Tipologia</label><span class="erroreTipMod"></span>
+    <input list="tipologiaAmmModA" id="tipologiaAmmModA" name="tipologiaAmmModA" value="'.$prodotto_selezionato['tipo_chitarra'].'"/>
+    <datalist id="tipologiaAmmModA">'.
     $tipi_chitarra
     .'
     </datalist>

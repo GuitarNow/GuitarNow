@@ -1,25 +1,29 @@
 <div id="contenutoCrea" class="contenuto">
 
-    <form method="POST" class="form" id="formCrea" enctype= "multipart/form-data" action="creaProdottoAmm.php?categoria=<tip/>" >    
+    <form method="POST" class="form" id="formCrea" enctype= "multipart/form-data" action="creaProdottoAmm.php?categoria=<tip/>" onsubmit="return validaCreaProdotto();" >    
     <fieldset>
     <img src="Images/logo_bianco.png" alt="" />
     
-    <span class="creaAcc"></span>
-    <span class="creaChit"></span>
-    <label for="modelloCrea">Modello</label><span class="erroreModCrea"></span>
-    <input type="text" id="modelloCrea" name="modelloCrea" class="modello"/>
+    <datiCreazione/>
 
-    <label for="descrizioneCrea">Descrizione</label> <span class="erroreDescrCrea"></span>
-    <textarea rows="40" cols="40" id="descrizioneCrea" name="descrizioneCrea" placeholder="Descrivi il prodotto. Racchiudi le parole inglese tra i caratteri speciali '{en}' e '{/en}' per gli utenti con disabilità visiva. Esempio: {en}Guitar{/en} " ></textarea>
-    <label for="immagineCrea">Importa immagine</label><span class="ImmCrea"></span>
-    <input type="file" name="image" id="immagineCrea" class="file"/>
-    <label for="DescrizioneImmagineCCrea" >Descrizione breve dell'immagine</label><span class="erroreSICrea"></span>
-    <textarea rows="40" cols="40" id="DescrizioneImmagineCCrea" name="short_descCrea" placeholder="Descrivi brevemente l'immagine" ></textarea>
-    <label for="DescrizioneImmagineCCreaLong" >Descrizione lunga dell'immagine</label><span class="erroreSICrea"></span>
-    <textarea rows="40" cols="40" id="DescrizioneImmagineCCreaLong" name="long_descCrea" placeholder="Descrivi in modo completo l'immagine" ></textarea>
+    <label for="modelloCrea">Modello</label>
+    <span><input type="text" id="modelloCrea" name="modelloCrea" class="modello"/></span>
+
+    <label for="descrizioneCrea">Descrizione</label> 
+    <span><textarea rows="40" cols="40" id="descrizioneCrea" name="descrizioneCrea" placeholder="Descrivi il prodotto. Racchiudi le parole inglese tra i caratteri speciali '{en}' e '{/en}' per gli utenti con disabilità visiva. Esempio: {en}Guitar{/en} " ></textarea></span>
     
-    <label for="prezzoCrea">Prezzo</label><span class="errorePrezzoCrea"></span>
-    <input type="text" name="prezzoCrea" id="prezzoCrea" class="prezzo" placeholder="€"/>
+    <label for="immagineCrea">Importa immagine</label>
+    <span><input type="file" name="image" id="immagineCrea" class="file"/></span>
+    
+    <label for="DescrizioneImmagineCCrea" >Descrizione breve dell'immagine</label>
+    <span><textarea rows="40" cols="40" id="DescrizioneImmagineCCrea" name="short_descCrea" placeholder="Descrivi brevemente l'immagine" ></textarea></span>
+    
+    <label for="DescrizioneImmagineCCreaLong" >Descrizione lunga dell'immagine</label>
+    <span><textarea rows="40" cols="40" id="DescrizioneImmagineCCreaLong" name="long_descCrea" placeholder="Descrivi in modo completo l'immagine" ></textarea></span>
+    
+    <label for="prezzoCrea">Prezzo</label>
+    <span><input type="text" name="prezzoCrea" id="prezzoCrea" class="prezzo" placeholder="€"/></span>
+    
     <input type="submit" name="SalvaCrea" value="Crea Prodotto" class="Salva" />   
     <a href="prodotti.php" class="Annulla">Annulla</a>
     <span class="inserimento_eseguito"></span>

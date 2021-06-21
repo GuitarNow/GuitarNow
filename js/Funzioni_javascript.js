@@ -59,21 +59,29 @@ function validaRegistrazione(){
     return corretto;
 }
 
-/* FUNZIONI PER LA GESTIONE DEL FORM DELLA PAGINA DI LOGIN  */
-var form_login={
-
-    "username": [/^[A-z0-9\.\+_-]{4,10}/,"Formato dello username non corretto"],
-    "password": [/^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{5,}/,"Formato della password non corretto "]
+/* FUNZIONI PER LA GESTIONE DEL FORM IN CREA PRODOTTO (CHITARRA)  */
+var formCreaChitarra={
+    "produttoreCrea":[/^[A-z0-9\.\+_-]{2,15}/,"Il produttore deve essere di almeno 2 caratteri e massimo 15 "],
+    "tipologiaCrea":[/^[A-z0-9\.\+_-]{2,15}/,"La tipologia deve essere di almeno 2 caratteri e massimo 15 "],
+    "legnoManicoCrea":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno manico deve essere di almeno 2 caratteri e massimo 10 "],
+    "legnoCorpoCrea":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno corpo deve essere di almeno 2 caratteri e massimo 10 "],
+    "modelloCrea": [/^[A-z0-9\.\+_-]{2,15}/,"Il modello deve essere di almeno 2 caratteri e massimo 15 "],
+    "descrizioneCrea":[/^[A-z0-9\.\+_-]{5,500}/,"La descrizone deve essere di almeno 5 caratteri e massimo 500 "],
+    "short_descCrea": [/^[A-z0-9\.\+_-]{5,100}/,"L'alt deve essere di almeno 5 caratteri e massimo 100 "],
+    "long_descCrea":[/^[A-z0-9\.\+_-]{5,500}/,"La longdesc deve essere di almeno 5 caratteri e massimo 500 "],
+    "prezzoCrea":[/^[0-9]+(\.[0-9]{1,2})?/,"Formato prezzo non valido"]
 }
 
-function validaLogin(){
+function validaCreaProdotto(){
    
     var corretto=true;
-    for(var key in form_login){
+    for(var key in formCreaChitarra){
         var input=document.getElementById(key);
-        var valore=validazioneCampo(input,form_login);
+        var valore=validazioneCampo(input,formCreaChitarra);
         corretto= corretto && valore;
     }
+
+
     return corretto;
 }
 
