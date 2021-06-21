@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 21, 2021 alle 08:33
+-- Creato il: Giu 21, 2021 alle 14:46
 -- Versione del server: 10.1.19-MariaDB
 -- Versione PHP: 5.6.28
 
@@ -105,7 +105,7 @@ CREATE TABLE `getaccessori` (
 ,`descrizione` text
 ,`prezzo` float(6,2)
 ,`categoria` varchar(15)
-,`alt` tinytext
+,`alt` text
 );
 
 -- --------------------------------------------------------
@@ -124,7 +124,7 @@ CREATE TABLE `getchitarre` (
 ,`produttore` varchar(30)
 ,`path` tinytext
 ,`long_desc` text
-,`alt` tinytext
+,`alt` text
 );
 
 -- --------------------------------------------------------
@@ -151,7 +151,7 @@ CREATE TABLE `getspecificheaccesssorii` (
 ,`categoria` varchar(15)
 ,`path` tinytext
 ,`long_desc` text
-,`short_desc` tinytext
+,`short_desc` text
 ,`codice_prodotto` int(11)
 ,`modello` varchar(50)
 ,`produttore` varchar(30)
@@ -171,7 +171,7 @@ CREATE TABLE `getspecifichechitarre` (
 ,`tipo_chitarra` varchar(20)
 ,`path` tinytext
 ,`long_desc` text
-,`short_desc` tinytext
+,`short_desc` text
 ,`codice_prodotto` int(11)
 ,`modello` varchar(50)
 ,`produttore` varchar(30)
@@ -189,7 +189,7 @@ CREATE TABLE `immagine` (
   `id_immagine` int(11) NOT NULL,
   `path` tinytext NOT NULL,
   `long_desc` text NOT NULL,
-  `short_desc` tinytext NOT NULL,
+  `short_desc` text NOT NULL,
   `codice_prodotto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -198,17 +198,17 @@ CREATE TABLE `immagine` (
 --
 
 INSERT INTO `immagine` (`id_immagine`, `path`, `long_desc`, `short_desc`, `codice_prodotto`) VALUES
-(3, 'Images/Stratocaster_MN_black.jpg', 'Anteprima Fender Stratocaster nera.Il corpo si presenta di colore nero e il battipenna bianco. Manico da 24 tasti con texture di legno chiaro. Sul corpo ci sono 2 selettori per il volume e uno per il suono. È una chitarra elettrica di fascia medio-alta. Ottima per chitarristi con qualche anno di esperienza. Molto versatile e adatta a qualsiasi genere musicale.', 'Anteprima Fender Stratocaster MN Black. Chitarra elettrica dal corpo di colore nero e il battipenna bianco. Manico da 24 tasti con texture di legno chiaro. Sul corpo presenta 2 selettori per il volume e uno per il suono.', 3),
-(4, 'Images/Daddario_Ej4_light.jpg', 'Anteprima Daddario Ej4 argentate. Corde per chitarra acustica in nichel. Modello più sottile e morbido rispetto alle corde standard. Ottime per una maggiore velocità e consigliate per i chitarristi solisti.', 'Anteprima corde Daddario Ej4 Light argentate. Confezione di 6 corde per acustica morbide e poco spesse. ', 4),
-(5, 'Images/Fender_champion_40.jpg', 'Anteprima Fender Champion40 da 40 watt. La cassa presenta una clorazione nera scura ed è alta 40 centimetri e larga 25. Sul davanti presenta inoltre le entrata per il cavo e una serie di selettori per il volume e gli effetti.  Ottimo amplificatore per principianti che cercano una cassa poco ingombrante e facile da trasportare. Possibilità di modificare il suono dello strumento con oltre 30 effetti.', 'Anteprima amplificatore Fender Champion40. La cassa presenta una clorazione nera scura ed è alta 40 centimetri e larga 25. Sul davanti presenta inoltre entrata per il cavo e una serie di selettori per il volume e gli effetti. ', 5),
-(6, 'Images/RC3.jpg', 'Anteprima Boss RC-3.Pedalina di forma rettangolare e di colore rosso. Sulla parte alta presenta i tasti per far partire la registrazione e un piccolo schermo col numero di traccia. Ottima per registrare e mettere in loop le proprie creazioni. Sia per chitarra acustica che per elettrica.', 'Anteprima loop-station Boss RC-3. Pedalina di forma rettangolare e di colore rosso. Sulla parte alta presenta i tasti per far partire la registrazione e un piccolo schermo col numero di traccia.', 6),
-(7, 'Images/AF75_BS.jpg', 'Anteprima Ibanez AF75 BS bianca. La chitarra presenta un corpo di colore bianco con meccaniche e decorazioni di color oro. La paletta e il manico da 24 tasti hanno una colorazione nera. Sul corpo sono presenti tre selettori per il suono e un tremolo. È una semiacustica versatile sia per chi ama il rock sia per chi preferisce sonorità da chitarra classica. Adatta a chi ha già qualche anno di esperienza con lo strumento.', 'Anteprima Ibanez AF75 BS. La chitarra presenta un corpo di colore bianco con meccaniche e decorazioni di color oro. La paletta e il manico da 24 tasti presentano una colorazione nera. Sul corpo sono presenti tre selettori per il suono e un tremolo.', 7),
-(8, 'Images/S300_vintage_sunburst.jpg', 'Anteprima Eko S300. La chitarra presenta una colorazione marrone sfumato col nero. Il battipenna è dii colore bianco mentre il manico da 22 tasti presenta una colorazione di legno più scuro. Sul corpo ci sono tre selettori per il suona e il volume. Buona chitarra elettrica per chi si vuole approcciare per la prima volta al mondo della musica.', 'Anteprima Eko S300 Vintage Sunburst. La chitarra presenta una colorazione marrone sfumato col nero. Il battipenna è dii colore bianco mentre il manico da 22 tasti presenta una colorazione di legno più scuro. ', 8),
-(9, 'Images/Pacifica_212_vfm.jpg', 'Anteprima Yamaha Pacifica 212 VFM. Il corpo e la paletta della chitarra presentano una colorazione nero opaca. Il manico è da 24 tasti e presenta anch''esso un colore scuro. Sul corpo è presente un battipenna bianco e 3 selettori per il suono. Chitarra di fascia medio bassa versatile per suonare un po'' di tutto. Consigliata per chi ha già suonato in passato e vuole fare un upgrade dello strumento. ', 'Anteprima Yamaha Pacifica 212 VFM. Il corpo e la paletta della chitarra presentano una colorazione nero opaca. Il manico è da 24 tasti e presenta anch''esso un colore scuro. Sul corpo è presente un battipenna bianco e 3 selettori per il suono. ', 9),
-(10, 'Images/Marco_polo_so.jpg', 'Anteprima Eko Marco Polo S. Il corpo dello strumento è di un bianco perlaceo e non presenta battipenna. La lunghezza del manico è di 22 tasti e presenta una colorazione più scura in legno. Chitarra classica di fascia alta. Ottimo strumento sia per i concerti live sia per la registrazione in studio.', 'Anteprima Eko Marco Polo SO. Il corpo dello strumento è di un bianco perlaceo e non presenta battipenna. La lunghezza del manico è di 22 tasti e presenta una colorazione più scura in legno.', 10),
-(11, 'Images/Axis_capo_gold.jpg', 'Anteprima capotasto ErnieBall Axis Gold versione argentata. Uno tra i migliori capotasti attualmente sul mercato. Non può mancare tra gli accessori di un chitarrista. Presenta una colorazione metallizzata e due fasce in gomma per evitare di danneggiare il manico quando vengono bloccate le corde.', 'Anteprima capotasto ErnieBall Axis Gold. Presenta una colorazione metallizzata e due fasce in gomma per evitare di danneggiare il manico quando vengono bloccate le corde.', 11),
-(13, 'Images/Roadcore_premium.jpg', 'Anteprima Ibanez Roadcore Premium. Attualmente fuori produzione è una dei modelli Ibanez più particolari. Consigliata per chi vuole avere tra le mani un gioiellino che si discosta completamente dai marchi più famosi di chitarre.  La chitarra presenta una colorazione completamente effetto legno. Sul corpo sono presenti 3 selettori per il volume e il suono. È inoltre sprovvista di battipenna.', 'Anteprima Ibanez Roadcore Premium. La chitarra presenta una colorazione completamente effetto legno. Sul corpo sono presenti 3 selettori per il volume e il suono. È inoltre sprovvista di battipenna.', 12),
-(16, 'Images/Ibanez_RG.jpg', 'Anteprima Ibanez RG colorazione effetto legno. Uno dei modelli più classici delle chitarra elettriche Ibanez. Strumento super versatile di fascia medio alta. La chitarra presenta una colorazione effetto legno sul corpo e il manico. Le meccaniche e la paletta sono invece di colore nero opaco. Sul corpo sono presenti 2 selettori per il volume e uno switch per il suono.', 'Anteprima Ibanez RG. La chitarra presenta una colorazione effetto legno sul corpo e il manico. Le meccaniche e la paletta sono invece di colore nero opaco. Sul corpo sono presenti 2 selettori per il volume e uno switch per il suono.', 16);
+(3, 'Images/Stratocaster_MN_black.jpg', 'Anteprima Fender Stratocaster nera.Il corpo si presenta di colore nero e il battipenna bianco. Manico da 24 tasti con texture di legno chiaro. Sul corpo ci sono 2 selettori per il volume e uno per il suono. È una chitarra elettrica di fascia medio-alta. Ottima per chitarristi con qualche anno di esperienza. Molto versatile e adatta a qualsiasi genere musicale.', 'Chitarra elettrica dal corpo di colore nero. Manico da 24 e selettori per il volume e per il suono.', 3),
+(4, 'Images/Daddario_Ej4_light.jpg', 'Anteprima Daddario Ej4 argentate. Corde per chitarra acustica in nichel. Modello più sottile e morbido rispetto alle corde standard. Ottime per una maggiore velocità e consigliate per i chitarristi solisti.', 'Confezione di 6 corde argentate per acustica morbide e poco spesse. ', 4),
+(5, 'Images/Fender_champion_40.jpg', 'Anteprima Fender Champion40 da 40 watt. La cassa presenta una clorazione nera scura ed è alta 40 centimetri e larga 25. Sul davanti presenta inoltre le entrata per il cavo e una serie di selettori per il volume e gli effetti.  Ottimo amplificatore per principianti che cercano una cassa poco ingombrante e facile da trasportare. Possibilità di modificare il suono dello strumento con oltre 30 effetti.', 'Cassa di colore nero alta 40 e larga 25 centimetri. Presenta una serie di selettori per gli effetti. ', 5),
+(6, 'Images/RC3.jpg', 'Anteprima Boss RC-3.Pedalina di forma rettangolare e di colore rosso. Sulla parte alta presenta i tasti per far partire la registrazione e un piccolo schermo col numero di traccia. Ottima per registrare e mettere in loop le proprie creazioni. Sia per chitarra acustica che per elettrica.', 'Effetto loop di colore rosso. Sulla parte alta presenta i tasti per registrare e editare la traccia.', 6),
+(7, 'Images/AF75_BS.jpg', 'Anteprima Ibanez AF75 BS bianca. La chitarra presenta un corpo di colore bianco con meccaniche e decorazioni di color oro. La paletta e il manico da 24 tasti hanno una colorazione nera. Sul corpo sono presenti tre selettori per il suono e un tremolo. È una semiacustica versatile sia per chi ama il rock sia per chi preferisce sonorità da chitarra classica. Adatta a chi ha già qualche anno di esperienza con lo strumento.', 'Chitarra semiacustica di colore bianco con meccaniche oro. Presenta 3 selettori per il suono.', 7),
+(8, 'Images/S300_vintage_sunburst.jpg', 'Anteprima Eko S300. La chitarra presenta una colorazione marrone sfumato col nero. Il battipenna è dii colore bianco mentre il manico da 22 tasti presenta una colorazione di legno più scuro. Sul corpo ci sono tre selettori per il suona e il volume. Buona chitarra elettrica per chi si vuole approcciare per la prima volta al mondo della musica.', 'Chitarra elettrica con colorazione marrone sfumato e battipenna bianco. Manico di 22 tasti. ', 8),
+(9, 'Images/Pacifica_212_vfm.jpg', 'Anteprima Yamaha Pacifica 212 VFM. Il corpo e la paletta della chitarra presentano una colorazione nero opaca. Il manico è da 24 tasti e presenta anch''esso un colore scuro. Sul corpo è presente un battipenna bianco e 3 selettori per il suono. Chitarra di fascia medio bassa versatile per suonare un po'' di tutto. Consigliata per chi ha già suonato in passato e vuole fare un upgrade dello strumento. ', 'Chitarra elettrica di colore nero opaco. Il manico è da 24 tasti in legno con colorazione scura.', 9),
+(10, 'Images/Marco_polo_so.jpg', 'Anteprima Eko Marco Polo S. Il corpo dello strumento è di un bianco perlaceo e non presenta battipenna. La lunghezza del manico è di 22 tasti e presenta una colorazione più scura in legno. Chitarra classica di fascia alta. Ottimo strumento sia per i concerti live sia per la registrazione in studio.', 'Chitarra acustica color bianco perlaceo con manico di 22 tasti.', 10),
+(11, 'Images/Axis_capo_gold.jpg', 'Anteprima capotasto ErnieBall Axis Gold versione argentata. Uno tra i migliori capotasti attualmente sul mercato. Non può mancare tra gli accessori di un chitarrista. Presenta una colorazione metallizzata e due fasce in gomma per evitare di danneggiare il manico quando vengono bloccate le corde.', 'Capotasto color metallo con 2 fasce in gomma per non danneggiare le corde quando vengono bloccate.', 11),
+(13, 'Images/Roadcore_premium.jpg', 'Anteprima Ibanez Roadcore Premium. Attualmente fuori produzione è una dei modelli Ibanez più particolari. Consigliata per chi vuole avere tra le mani un gioiellino che si discosta completamente dai marchi più famosi di chitarre.  La chitarra presenta una colorazione completamente effetto legno. Sul corpo sono presenti 3 selettori per il volume e il suono. È inoltre sprovvista di battipenna.', 'Chitarra elettrica effetto legno. Sul corpo sono presenti 3 selettori per il volume e il suono.', 12),
+(16, 'Images/Ibanez_RG.jpg', 'Anteprima Ibanez RG colorazione effetto legno. Uno dei modelli più classici delle chitarra elettriche Ibanez. Strumento super versatile di fascia medio alta. La chitarra presenta una colorazione effetto legno sul corpo e il manico. Le meccaniche e la paletta sono invece di colore nero opaco. Sul corpo sono presenti 2 selettori per il volume e uno switch per il suono.', 'Chitarra elettrica con colorazione effetto legno. Le meccaniche sono invece di colore nero opaco. ', 16);
 
 -- --------------------------------------------------------
 
@@ -229,7 +229,7 @@ CREATE TABLE `prodotto` (
 --
 
 INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione`, `prezzo_vendita`) VALUES
-(3, 'Stratocaster MN ', 'Fender', 'Il suono ispiratore di una <span lang="en" >Stratocaster</span> &egrave; uno dei fondamenti <span lang="en" >Fender</span>. &Egrave; caratterizzata da un suono classico, medi potenti ed una fascia bassa robusta. Lo strumento inoltre &egrave; abbastanza versatile e permette di gestire qualsiasi stile. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il <span lang="en" >pickup</span> al ponte, dando un maggiore controllo sul suono nelle posizioni del <span lang="en" >pickup</span> 1 e 2.\r\n', 639.00),
+(3, 'Stratocaster MN ', 'Fender', 'Il suono ispiratore di una <span lang="en" >Stratocaster</span> &egrave; uno dei fondamenti <span lang="en" >Fender</span>. &Egrave; caratterizzata da un suono classico, medi potenti ed una fascia bassa robusta. Lo strumento inoltre &egrave; abbastanza versatile e permette di gestire qualsiasi stile. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il <span lang="en" >pickup</span> al ponte, dando un maggiore controllo sul suono nelle posizioni del <span lang="en" >pickup</span> 1 e 2.\n', 639.00),
 (4, 'EJ41 Light', 'Daddario', 'Le corde Daddario EJ41 in <span lang="en" >nylon</span> per chitarra classica sono perfette per i principianti, gli studenti e i professionisti. Questo set di corde a tensione normale contiene 3 cant&igrave;ni in <span lang="en" >nylon</span> e 3 bassi <span lang="en" >Silver-plated</span> <span lang="en" >Copper-wound</span> per garantire un ottimo bilanciamento tra timbri caldi e timbri nitidi.', 12.00),
 (5, 'Champion 40', 'Fender', 'Compatto, facile da usare e versatile per qualsiasi tipo di chitarra. Il <span lang="en" >Champion</span> da 40 <span lang="en" >watt</span> &egrave; la scelta ideale come tuo primo amplificatore. Controlli intuitivi, effetti fantastici facilitano la creazione dei suoni giusti per <span lang="en" >rock</span>, <span lang="en" >blues</span>, <span lang="en" >metal</span> e altro. Gli amplificatori <span lang="en" >Fender</span> sono dotati di effetti che offrono una ricchezza di colori, atmosfere e trame sonore. Include riverbero, <span lang="en" >delay</span>, <span lang="en" >chorus</span>, tremolo e molto altro.', 199.00),
 (6, 'RC-3', 'BOSS', 'RC-3 garantisce tre ore di registrazione stereo direttamente nella sua memoria interna. Ora potrete registrare senza dovervi preoccupare del limite di tempo ed avrete a disposizione 99 locazioni di memoria per salvare e richiamare immediatamente le vostre creazioni. Una volta create le vostre <span lang="en" >performance</span> potrete comodamente trasferirle su un PC grazie alla porta USB 2.0.', 149.99),
@@ -370,12 +370,12 @@ ALTER TABLE `commento`
 -- AUTO_INCREMENT per la tabella `immagine`
 --
 ALTER TABLE `immagine`
-  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- Limiti per le tabelle scaricate
 --
