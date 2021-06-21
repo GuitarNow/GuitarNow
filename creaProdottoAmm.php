@@ -238,7 +238,7 @@ $data = str_replace('<inserimento_eseguito/>','', $data);
   $tipi_accessori.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
 }
 
-    $data = str_replace('<span class="creaAcc"></span>','
+    $data = str_replace('<datiCreazione/>','
     <input type="hidden" name="codiceProdottoCrea" value=""/>
     <label for="produttoreAmmCrea">Produttore</label><span class="erroreProdCrea"></span>
     <input list="produttoreAmmCreaA" name="produttoreAmmCrea" id="produttoreAmmCrea"/> 
@@ -266,7 +266,7 @@ $tipi_accessori.'
   $tipi_chitarra.= '<option value="'.$tipi_da_visualizzare['tipo'].'">';
 }
 
-    $data = str_replace('<span class="creaChit"></span>','
+    $data = str_replace('<datiCreazione/>','
 
     <label for="produttoreAmmCrea">Produttore</label><span class="erroreProdCrea"></span>
     <input list="produttoreAmmCreaC" name="produttoreAmmCrea" id="produttoreAmmCrea"/>
@@ -280,9 +280,9 @@ $tipi_accessori.'
     $tipi_chitarra 
     .'
     </datalist>
-    <label for="legnoManicoCrea">Legno del manico</label><span class="erroreLMCrea"></span>
+    <label for="legnoManicoCrea">Legno del manico</label>
     <input type="text" name="legnoManicoCrea" id="legnoManicoCrea" class="legnoManico"/>
-    <label for="legnoCorpoCrea">Legno del corpo</label><span class="erroreLCCrea"></span>
+    <label for="legnoCorpoCrea">Legno del corpo</label>
     <input type="text" name="legnoCorpoCrea" id="legnoCorpoCrea" class="legnoCorpo"/>', $data);
    
   }
