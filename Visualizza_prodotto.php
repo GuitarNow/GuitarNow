@@ -95,7 +95,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 	
 	$contenuto='<div id="scheda_prodotto">
 				<h1>'.$prodotto_selezionato['produttore'].' '.$prodotto_selezionato['modello'].'</h1>
-				<img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" id="anteprima_img" />
+				<img src="'.$prodotto_selezionato['path'].'" alt="'.$prodotto_selezionato['short_desc'].'" longdesc="'.$prodotto_selezionato['long_desc'].'" id="anteprima_img" />
 				<p><span id="prezzo">'.$prodotto_selezionato['prezzo'].'</span></p>
 				<h2>SPECIFICHE</h2>
 				<p>'.$prodotto_selezionato['descrizione'].'</p>';

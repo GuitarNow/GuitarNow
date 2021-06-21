@@ -14,7 +14,10 @@
     <label for="immagineCrea">Importa immagine</label><span class="ImmCrea"></span>
     <input type="file" name="image" id="immagineCrea" class="file"/>
     <label for="DescrizioneImmagineCCrea" >Descrizione breve dell'immagine</label><span class="erroreSICrea"></span>
-    <input type="text" name="short_descCrea" id="DescrizioneImmagineCCrea" class="immagineC" placeholder="Descrivi brevemente l'immagine"/>
+    <textarea rows="40" cols="40" id="DescrizioneImmagineCCrea" name="short_descCrea" placeholder="Descrivi brevemente l'immagine" ></textarea>
+    <label for="DescrizioneImmagineCCreaLong" >Descrizione lunga dell'immagine</label><span class="erroreSICrea"></span>
+    <textarea rows="40" cols="40" id="DescrizioneImmagineCCreaLong" name="long_descCrea" placeholder="Descrivi in modo completo l'immagine" ></textarea>
+    
     <label for="prezzoCrea">Prezzo</label><span class="errorePrezzoCrea"></span>
     <input type="text" name="prezzoCrea" id="prezzoCrea" class="prezzo" placeholder="€"/>
     <input type="submit" name="SalvaCrea" value="Crea Prodotto" class="Salva" />   

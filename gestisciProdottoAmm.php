@@ -54,7 +54,7 @@ else
 	$prodotto_selezionato= $manage_prodotto->get_specifiche_accessori($id_prodotto);	
 }
 
-
+/*
 if(isset($_REQUEST['SalvaMod'])){
 
   if($categoria == "accessori"){
@@ -70,7 +70,7 @@ if(isset($_REQUEST['SalvaMod'])){
       $descrizione = $_POST['descrizioneMod'];
       $descrizione=str_replace('{en}','<span lang="en" >',$descrizione);
       $descrizione=str_replace('{/en}','</span>',$descrizione);
-      #inserire immagine
+      //inserire immagine
           $short_desc = $_POST['short_descMod'];
           $prezzo_vendita = $_POST['prezzoMod'];
           if($categoria == "accessori"){
@@ -112,12 +112,13 @@ if(isset($_REQUEST['SalvaMod'])){
         
                 $modificaI = new ManageProdotti();
                 if($file_size == 0) {
-                  $modificaI->modifica_prodI($prodotto_selezionato['path'], $prodotto_selezionato['short_desc'], $id_prodotto);
+                  $modificaI->modifica_prodI($prodotto_selezionato['path'], $short_desc, $id_prodotto);
+                  echo $short_desc;
                 }else{
                   $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $id_prodotto);
                 }
               }
-              header('Location: Visualizza_prodotto.php?prodotto='.$id_prodotto.'&tipo='.$categoria.'&operazione=1');
+              //header('Location: Visualizza_prodotto.php?prodotto='.$id_prodotto.'&tipo='.$categoria.'&operazione=1');
                }
 
           }
@@ -170,6 +171,81 @@ if(isset($_REQUEST['SalvaMod'])){
        }
       }
       } 
+*/
+
+
+if(isset($_REQUEST['SalvaMod'])){
+
+  if($categoria == "accessori"){
+    
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
 $data=file_get_contents('Html/gestisciProdotto.html');
   
 

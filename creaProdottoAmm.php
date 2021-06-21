@@ -51,6 +51,7 @@ if($categoria == "accessori"){
     $descrizione=str_replace('{/en}',' </span>',$descrizione);
     
         $short_desc = $_POST['short_descCrea'];
+        $long_desc = $_POST['long_descCrea'];
         $prezzo_vendita = $_POST['prezzoCrea'];
 
         if (strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5 && ($categoria == "chitarre" && strlen($legno_manico)!=0 && strlen($legno_corpo)!=0 || $categoria == "accessori")){
@@ -91,7 +92,7 @@ if($categoria == "accessori"){
        print_r($errors);
     }
     $creazioneI = new ManageProdotti();
-    $creazioneI->crea_chitI("Images/".$file_name, $short_desc);
+    $creazioneI->crea_chitI("Images/".$file_name, $short_desc,$long_desc);
  }
 
   if(isset($_REQUEST['SalvaCrea']))
@@ -125,9 +126,7 @@ else{
          if(strlen($short_desc) <5){
           $data = str_replace('<span class="erroreSICrea"></span>','<p class="errore">Deve contenere più di 5 caratteri</p>', $data);
          }
-         else{
-          $data = str_replace('valueImmCCrea','value="'.$short_desc.'"', $data);
-        }
+        
  
       }   
 }
@@ -248,6 +247,13 @@ $tipi_accessori.'
                            }
                            else{
                             $data = str_replace('<input type="text" name="short_descCrea" id="DescrizioneImmagineCCrea" class="immagineC" placeholder="Descrivi brevemente l\'immagine"/>','<input type="text" name="short_descCrea" id="DescrizioneImmagineCCrea" class="immagineC" placeholder="Descrivi brevemente l\'immagine" value="'.$short_desc.'"/>', $data);
+                          }
+
+                          if(strlen($long_desc) <5){
+                            $data = str_replace('<span class="erroreSICrea"></span>','<p class="errore">Deve contenere più di 5 caratteri</p>', $data);
+                           }
+                           else{
+                            $data = str_replace('<input type="text" name="long_descCrea" id="DescrizioneImmagineCCreaLong" class="immagineC" placeholder="Descrivi in modo completo l\'immagine"/>','<input type="text" name="long_descCrea" id="DescrizioneImmagineCCreaLong" class="immagineC" placeholder="Descrivi in modo completo l\'immagine" value="'.$long_desc.'"/>', $data);
                           }
                            
                           if(strlen($produttore)<1){
