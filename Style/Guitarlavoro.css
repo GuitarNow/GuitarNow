@@ -631,7 +631,7 @@ hr{
 
 #Nessun_prodotto{ 
     margin-left:25%;
-    color: red;
+    color: rgb(0, 0, 0);
     font-weight: bold;
 
 }
@@ -911,7 +911,7 @@ margin-left:0;
 
 /*---------------GESTIONE ERRORI--------------*/
 .errore{
-    color:red;
+    color:rgb(0, 0, 0);
     margin-left:20%;
     display:block;
 }
