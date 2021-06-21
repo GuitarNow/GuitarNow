@@ -196,7 +196,7 @@ if($numero_prodotti!=0)
     foreach($prodotti_database as $prodotti)
     {
         $contenuto_pagina.= '<li class="chitarre_prodotti"><a class="a_page_prodotti" href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'">
-        <img class="chitarre " src="'.$prodotti['path'].'" alt="'.'a'.$prodotti['alt'].'" />'.
+        <img class="chitarre " src="'.$prodotti['path'].'" alt="'.$prodotti['alt'].'" />'.
         '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
         '</p><p>'.$prodotti['prezzo'].'€</p>
         </a></li>';
