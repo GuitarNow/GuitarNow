@@ -82,3 +82,7 @@ display: none;
 #Modifica,#Elimina{
 display: none;
 }
+
+#myLinks, #button_menu{
+    display:none;
+}
