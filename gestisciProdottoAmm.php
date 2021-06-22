@@ -70,9 +70,9 @@ if(isset($_REQUEST['SalvaMod'])){
   $descrizione = $_POST['descrizioneMod'];
   $descrizione=str_replace('{en}','<span lang="en" >',$descrizione);
   $descrizione=str_replace('{/en}','</span>',$descrizione);
-  $short_desc = $_POST['short_descMod'];
+  $short_desc = quota($_POST['short_descMod']);
 
-  $long_desc = $_POST['long_descMod'];
+  $long_desc = quota($_POST['long_descMod']);
 
   $prezzo_vendita = $_POST['prezzoMod'];
   $descrizione= quota($descrizione);

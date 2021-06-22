@@ -49,8 +49,8 @@ if(isset($_REQUEST['SalvaCrea'])){
   $descrizione=str_replace('{en}','<span lang="en" >',$descrizione);
   $descrizione=str_replace('{/en}',' </span>',$descrizione);
   $descrizione =  quota($descrizione);
-  $short_desc = $_POST['short_descCrea'];
-  $long_desc = $_POST['long_descCrea'];
+  $short_desc = quota($_POST['short_descCrea']);
+  $long_desc = quota($_POST['long_descCrea']);
   $prezzo_vendita = $_POST['prezzoCrea'];
 
 
