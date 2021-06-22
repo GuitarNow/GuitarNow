@@ -78,10 +78,10 @@ var formCreaProdotto={
     "tipologiaAmmCrea":[/^[A-z0-9\.\+_-]{2,15}/,"La tipologia deve essere di almeno 2 caratteri e massimo 15 "],
     "legnoManicoCrea":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno manico deve essere di almeno 2 caratteri e massimo 10 "],
     "legnoCorpoCrea":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno corpo deve essere di almeno 2 caratteri e massimo 10 "],
-    "modelloCrea": [/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{1,15})/,"Il modello deve essere di almeno 2 caratteri e massimo 15 "],
-    "descrizioneCrea":[/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{4,500})/,"La descrizone deve essere di almeno 5 caratteri e massimo 500 "],
-    "DescrizioneImmagineCCrea": [/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{4,99})/,"L'alt deve essere di almeno 5 caratteri e massimo 100 "],
-    "DescrizioneImmagineCCreaLong":[/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{4,500})/,"La longdesc deve essere di almeno 5 caratteri e massimo 500 "],
+    "modelloCrea": [/^([^"//]{2,15})$/,"Il modello deve essere di almeno 2 caratteri e massimo 15 "],
+    "descrizioneCrea":[/^([^]{5,500})$/,"La descrizone deve essere di almeno 5 caratteri e massimo 500 "],
+    "DescrizioneImmagineCCrea": [/^([^"//]{5,100})$/,"L'alt deve essere di almeno 5 caratteri e massimo 100 "],
+    "DescrizioneImmagineCCreaLong":[/^([^"//]{5,500})$/,"La longdesc deve essere di almeno 5 caratteri e massimo 500 "],
     "prezzoCrea":[/^([0-9]+)+((\.)([0-9]{1,2}?))?$/,"Formato prezzo non valido"]
 }
 
