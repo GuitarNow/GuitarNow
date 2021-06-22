@@ -54,124 +54,7 @@ else
 	$prodotto_selezionato= $manage_prodotto->get_specifiche_accessori($id_prodotto);	
 }
 
-/*
-if(isset($_REQUEST['SalvaMod'])){
 
-  if($categoria == "accessori"){
-      $produttore = $_POST['produttoreAmmModA1'];
-      $tipo = $_POST['tipologiaAmmModA1'];
-      }else{
-          $produttore = $_POST['produttoreAmmModC1'];
-          $tipo = $_POST['tipologiaAmmModC1'];
-          $legno_manico = $_POST['legnoManicoMod'];
-          $legno_corpo = $_POST['legnoCorpoMod'];
-      }
-      $modello = $_POST['modelloMod'];
-      $descrizione = $_POST['descrizioneMod'];
-      $descrizione=str_replace('{en}','<span lang="en" >',$descrizione);
-      $descrizione=str_replace('{/en}','</span>',$descrizione);
-      //inserire immagine
-          $short_desc = $_POST['short_descMod'];
-          $prezzo_vendita = $_POST['prezzoMod'];
-          if($categoria == "accessori"){
-            if(strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5) {      
-              $modificaP = new ManageProdotti();
-              $modificaP->modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita, $id_prodotto);
-              if($categoria == "chitarre"){
-              $modificaC = new ManageProdotti();
-              $modificaC->modifica_prodC($tipo, $legno_manico, $legno_corpo, $id_prodotto);
-              }
-              if($categoria == "accessori"){
-              $modificaA = new ManageProdotti();
-              $modificaA->modifica_prodA($tipo, $id_prodotto);
-              }
-              if(isset($_FILES['image'])){
-                $errors= array();
-                $file_name = $_FILES['image']['name'];
-                $file_size =$_FILES['image']['size'];
-                $file_tmp =$_FILES['image']['tmp_name'];
-                $file_type=$_FILES['image']['type'];
-                $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-                
-                $extensions= array("jpeg","jpg","png");
-                
-                if(in_array($file_ext,$extensions)=== false){
-                   $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-                }
-                
-                if($file_size > 2097152){
-                   $errors[]='File size must be excately 2 MB';
-                }
-                
-                if(empty($errors)==true){
-                   move_uploaded_file($file_tmp,"Images/".$file_name);
-                   echo "Success";
-                }else{
-                   print_r($errors);
-                }
-        
-                $modificaI = new ManageProdotti();
-                if($file_size == 0) {
-                  $modificaI->modifica_prodI($prodotto_selezionato['path'], $short_desc, $id_prodotto);
-                  echo $short_desc;
-                }else{
-                  $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $id_prodotto);
-                }
-              }
-              //header('Location: Visualizza_prodotto.php?prodotto='.$id_prodotto.'&tipo='.$categoria.'&operazione=1');
-               }
-
-          }
-          else{
-
-          if (strlen($modello) !=0 && strlen($produttore) != 0 && strlen($descrizione)> 25 && is_numeric($prezzo_vendita) && strlen($tipo)!=0 && strlen($short_desc)>5 && strlen($legno_manico)!=0 && strlen($legno_corpo)!=0) {      
-      $modificaP = new ManageProdotti();
-      $modificaP->modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita, $id_prodotto);
-      if($categoria == "chitarre"){
-      $modificaC = new ManageProdotti();
-      $modificaC->modifica_prodC($tipo, $legno_manico, $legno_corpo, $id_prodotto);
-      }
-      if($categoria == "accessori"){
-      $modificaA = new ManageProdotti();
-      $modificaA->modifica_prodA($tipo, $id_prodotto);
-      }
-      if(isset($_FILES['image'])){
-        $errors= array();
-        $file_name = $_FILES['image']['name'];
-        $file_size =$_FILES['image']['size'];
-        $file_tmp =$_FILES['image']['tmp_name'];
-        $file_type=$_FILES['image']['type'];
-        $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-        
-        $extensions= array("jpeg","jpg","png");
-        
-        if(in_array($file_ext,$extensions)=== false){
-           $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-        }
-        
-        if($file_size > 2097152){
-           $errors[]='File size must be excately 2 MB';
-        }
-        
-        if(empty($errors)==true){
-           move_uploaded_file($file_tmp,"Images/".$file_name);
-           echo "Success";
-        }else{
-           print_r($errors);
-        }
-
-        $modificaI = new ManageProdotti();
-        if($file_size == 0) {
-          $modificaI->modifica_prodI($prodotto_selezionato['path'], $prodotto_selezionato['short_desc'], $id_prodotto);
-        }else{
-          $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $id_prodotto);
-        }
-      }
-      header('Location: Visualizza_prodotto.php?prodotto='.$id_prodotto.'&tipo='.$categoria.'&operazione=1');
-       }
-      }
-      } 
-*/
 
 
 if(isset($_REQUEST['SalvaMod'])){
@@ -199,25 +82,8 @@ if(isset($_REQUEST['SalvaMod'])){
     $file_size =$_FILES['image']['size'];
     $file_tmp =$_FILES['image']['tmp_name'];
     $file_type=$_FILES['image']['type'];
-    /*$file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-    
-    $extensions= array("jpeg","jpg","png");
-    
-    if(in_array($file_ext,$extensions)=== false){
-       $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-    }
-    
-    if($file_size > 2097152){
-       $errors[]='File size must be excately 2 MB';
-    }
-    
-    if(empty($errors)==true){
-       move_uploaded_file($file_tmp,"Images/".$file_name);
-       echo "Success";
-    }else{
-       print_r($errors);
-    }
-*/
+
+    move_uploaded_file($file_tmp,"Images/".$file_name);
     $modificaI = new ManageProdotti();
     if($file_size == 0) {
       $modificaI->modifica_prodI($prodotto_selezionato['path'], $short_desc,$long_desc, $id_prodotto);
@@ -272,14 +138,14 @@ $data=file_get_contents('Html/gestisciProdotto.html');
   }
     $data = str_replace('<modificaDati/>',' <input type="hidden" name="codiceProdottoMod" value=""/>
     <label for="produttoreAmmMod">Produttore</label><span class="erroreProdMod"></span>
-    <input list="produttoreAmmModA" id="produttoreAmmMod" name="produttoreAmmMod" value="'.$prodotto_selezionato['produttore'].'"/>
+    <span><input list="produttoreAmmModA" id="produttoreAmmMod" name="produttoreAmmMod" value="'.$prodotto_selezionato['produttore'].'"/></span>
     <datalist id="produttoreAmmModA">
     '.
     $produttori_accessori
     .'
     </datalist>
 <label for="tipologiaAmmMod">Tipologia</label><span class="erroreTipMod"></span>
-<input list="tipologiaAmmModA" name="tipologiaAmmMod" id="tipologiaAmmMod" value="'.$prodotto_selezionato['categoria'].'"/>
+<span><input list="tipologiaAmmModA" name="tipologiaAmmMod" id="tipologiaAmmMod" value="'.$prodotto_selezionato['categoria'].'"/></span>
 <datalist id="tipologiaAmmModA">'.
 $tipi_accessori
 .' 
@@ -299,92 +165,25 @@ $tipi_accessori
     }
 
     $data = str_replace('<modificaDati/>','   <label for="produttoreAmmMod">Produttore</label><span class="erroreProdMod"></span>
-    <input list="produttoreAmmModA" id="produttoreAmmMod" name="produttoreAmmMod" value="'.$prodotto_selezionato['produttore'].'"/>
+    </span><input list="produttoreAmmModA" id="produttoreAmmMod" name="produttoreAmmMod" value="'.$prodotto_selezionato['produttore'].'"/></span>
     <datalist id="produttoreAmmModA" >
     '.
     $produttori_chitarre.
     '
     </datalist>
     <label for="tipologiaAmmMod">Tipologia</label><span class="erroreTipMod"></span>
-    <input list="tipologiaAmmModA" id="tipologiaAmmMod" name="tipologiaAmmMod" value="'.$prodotto_selezionato['tipo_chitarra'].'"/>
+    <span><input list="tipologiaAmmModA" id="tipologiaAmmMod" name="tipologiaAmmMod" value="'.$prodotto_selezionato['tipo_chitarra'].'"/></span>
     <datalist id="tipologiaAmmModA">'.
     $tipi_chitarra
     .'
     </datalist>
     <label for="legnoManicoMod">Legno del manico</label><span class="erroreLMMod"></span>
-    <input type="text" id="legnoManicoMod" name="legnoManicoMod" class="legnoManico" value="'.$prodotto_selezionato['legno_manico'].'"/>
+    <span><input type="text" id="legnoManicoMod" name="legnoManicoMod" class="legnoManico" value="'.$prodotto_selezionato['legno_manico'].'"/></span>
     <label for="legnoCorpoMod">Legno del corpo</label><span class="erroreLCMod"></span>
-    <input type="text" name="legnoCorpoMod" id="legnoCorpoMod" class="legnoCorpo" value="'.$prodotto_selezionato['legno_corpo'].'"/>
+    <span><input type="text" name="legnoCorpoMod" id="legnoCorpoMod" class="legnoCorpo" value="'.$prodotto_selezionato['legno_corpo'].'"/></span>
     ', $data);
   }
 
-/*
-  if(isset($_REQUEST['SalvaMod'])){
-    if($categoria != "accessori"){
-    if(strlen($legno_manico)<1){
-      $data = str_replace('<span class="erroreLMMod"></span>','<p class="errore">Devi assegnare un valore</p>', $data);
-       }
-       else{
-        $data = str_replace('valueLMMod','value="'.$legno_manico.'"', $data);
-       }
-       if(strlen($legno_corpo)<1){
-        $data= str_replace('<span class="erroreLCMod"></span>','<p class="errore">Devi assegnare un valore</p>', $data);
-         }
-         else{
-          $data = str_replace('valueLCMod','value="'.$legno_corpo.'"', $data);
-         }
-        }
-         if(strlen($tipo)<1){
-          $data = str_replace('<span class="erroreTipMod"></span>','<p class="errore">Assegna un valore</p>', $data);
-           }
-           else{
-            $data = str_replace('valueTipMod','value="'.$tipo.'"', $data);
-           }
-           if(strlen($modello)<1){
-            $data = str_replace('<span class="erroreMod"></span>','<p class="errore">Devi assegnare un valore</p>', $data);
-          }
-          else{
-            $data = str_replace('modelloV','value="'.$modello.'"', $data);
-          }
-          
-            
-             if((strlen($descrizione)) <25){
-
-            
-
-
-              $data = str_replace('<span class="erroreDescrMod"></span>','<p class="errore">Deve contenere più di 25 caratteri</p>', $data);
-
-              $descrizione=str_replace('<span lang="en" >','/en',$descrizione);
-              $descrizione=str_replace('</span>','en/',$descrizione);
-    
-
-
-               }
-               else{
-                $data = str_replace('Descrivi il prodotto',$descrizione, $data);
-              }
-               
-                 if(!is_numeric($prezzo_vendita)){
-                  $data = str_replace('<span class="errorePrezzoMod"></span>','<p class="errore">Devi assegnare un valore numerico</p>', $data);
-                   }
-                   else{
-                    $data = str_replace('prezzoV','value="'.$prezzo_vendita.'"', $data);
-                  }
-                   if(strlen($short_desc) <5){
-                    $data = str_replace('<span class="erroreDIMod"></span>','<p class="errore">Deve contenere più di 5 caratteri</p>', $data);
-                   }
-                   else{
-                    $data = str_replace('descrCV','value="'.$short_desc.'"', $data);
-                  }
-                  if(strlen($produttore)<1){
-                    $data =str_replace('<span class="erroreProdMod"></span>','<p class="errore">Assegna un valore</p>', $data);
-                  }
-                  else{
-                    $data = str_replace('valueProdMod','value="'.$produttore.'"', $data);
-                   }
-  }
-*/
 
 
 $web_page = str_replace('<contenuto_to_insert/>',$data, $web_page);

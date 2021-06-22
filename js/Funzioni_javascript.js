@@ -2,7 +2,7 @@
 
 function mostraErrore(input,arr){
     
-    console.log(arr[input.id][1]);
+   
     
     var elemento=document.createElement("strong");
     elemento.className="errore";
@@ -12,6 +12,18 @@ function mostraErrore(input,arr){
 
 
 }
+
+
+function mostraErroreImg(input, err){
+
+    var elemento=document.createElement("strong");
+    elemento.className="errore";
+    elemento.appendChild(document.createTextNode(err));
+    var p=input.parentNode; 
+    p.appendChild(elemento);
+
+}
+
 
 
 function validazioneCampo(input,arr){
@@ -61,28 +73,70 @@ function validaRegistrazione(){
 }
 
 /* FUNZIONI PER LA GESTIONE DEL FORM IN CREA PRODOTTO (CHITARRA)  */
-var formCreaChitarra={
+var formCreaProdotto={
     "produttoreAmmCrea":[/^[A-z0-9\.\+_-]{2,15}/,"Il produttore deve essere di almeno 2 caratteri e massimo 15 "],
     "tipologiaAmmCrea":[/^[A-z0-9\.\+_-]{2,15}/,"La tipologia deve essere di almeno 2 caratteri e massimo 15 "],
     "legnoManicoCrea":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno manico deve essere di almeno 2 caratteri e massimo 10 "],
     "legnoCorpoCrea":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno corpo deve essere di almeno 2 caratteri e massimo 10 "],
-    "modelloCrea": [/^[A-z0-9\.\+_-]{2,15}/,"Il modello deve essere di almeno 2 caratteri e massimo 15 "],
-    "descrizioneCrea":[/^[A-z0-9\.\+_-]{5,500}/,"La descrizone deve essere di almeno 5 caratteri e massimo 500 "],
-    "DescrizioneImmagineCCrea": [/^[A-z0-9\.\+_-]{5,100}/,"L'alt deve essere di almeno 5 caratteri e massimo 100 "],
-    "DescrizioneImmagineCCreaLong":[/^[A-z0-9\.\+_-]{5,500}/,"La longdesc deve essere di almeno 5 caratteri e massimo 500 "],
-    "prezzoCrea":[/^[0-9]+(\.[0-9]{1,2})?/,"Formato prezzo non valido"]
+    "modelloCrea": [/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{1,15})/,"Il modello deve essere di almeno 2 caratteri e massimo 15 "],
+    "descrizioneCrea":[/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{4,500})/,"La descrizone deve essere di almeno 5 caratteri e massimo 500 "],
+    "DescrizioneImmagineCCrea": [/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{4,99})/,"L'alt deve essere di almeno 5 caratteri e massimo 100 "],
+    "DescrizioneImmagineCCreaLong":[/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{4,500})/,"La longdesc deve essere di almeno 5 caratteri e massimo 500 "],
+    "prezzoCrea":[/^([0-9]+)+((\.)([0-9]{1,2}?))?$/,"Formato prezzo non valido"]
 }
 
 function validaCreaProdotto(){
    
     var corretto=true;
-    for(var key in formCreaChitarra){
+    for(var key in formCreaProdotto){
         var input=document.getElementById(key);
-        var valore=validazioneCampo(input,formCreaChitarra);
-        console.log(valore)
-        
+         if(document.getElementById(key) != null){
+        console.log(input);
+        var valore=validazioneCampo(input,formCreaProdotto);
         corretto= corretto && valore;
+        }
     }
+    var input = document.getElementById('immagineCrea');
+
+    //reset messaggio di errore immagine
+    var parent=input.parentNode;
+    if(parent.children.length==2){
+        parent.removeChild(parent.children[1]);
+    }
+
+    // controllo errori immagine
+    if (!input.files[0]) {
+        mostraErroreImg(input,"Nessuna immagine inserita");
+        corretto = false;
+        console.log(input.files[0]);
+    } 
+    
+    else {
+    
+        var file = input.files[0];
+        
+        if(file.size > 2097152){
+          
+          mostraErroreImg(input,'Il file deve essere minore di 2 MB');
+          corretto = false;
+        }
+        
+        var estensione =  file.name.split('.').pop();
+        console.log(estensione);
+        var estensioni= ["jpeg","jpg","png"];
+        var check = false;
+        for(var key in estensioni){
+            
+            if(estensione == estensioni[key]){ check = true;}
+        }
+        if(check == false){
+            mostraErroreImg(input,'Estensione non valida, inserire file (.JPEG | .JPG | .PNG)');
+            corretto = false;
+        }
+        
+    
+    }
+
 
 
     return corretto;
@@ -90,29 +144,76 @@ function validaCreaProdotto(){
 }
 
 /* FUNZIONI PER LA GESTIONE DEL FORM IN MODIFICA PRODOTTO (CHITARRA)  */
-var formModChitarra={
+var formModProdotto={
     "produttoreAmmMod":[/^[A-z0-9\.\+_-]{2,15}/,"Il produttore deve essere di almeno 2 caratteri e massimo 15 "],
     "tipologiaAmmMod":[/^[A-z0-9\.\+_-]{2,15}/,"La tipologia deve essere di almeno 2 caratteri e massimo 15 "],
     "legnoManicoMod":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno manico deve essere di almeno 2 caratteri e massimo 10 "],
     "legnoCorpoMod":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno corpo deve essere di almeno 2 caratteri e massimo 10 "],
-    "modelloMod": [/^[A-z0-9\.\+_-]{2,15}/,"Il modello deve essere di almeno 2 caratteri e massimo 15 "],
-    "descrizioneMod":[/^[A-z0-9\.\+_-]{5,500}/,"La descrizone deve essere di almeno 5 caratteri e massimo 500 "],
-    "DescrizioneImmagineCMod": [/^[A-z0-9\.\+_-]{5,100}/,"L'alt deve essere di almeno 5 caratteri e massimo 100 "],
-    "DescrizioneImmagineCModLong":[/^[A-z0-9\.\+_-]{5,500}/,"La longdesc deve essere di almeno 5 caratteri e massimo 500 "],
-    "prezzoMod":[/^[0-9]+(\.[0-9]{1,2})?/,"Formato prezzo non valido"]
+    "modelloMod": [/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{1,15})/,"Il modello deve essere di almeno 2 caratteri e massimo 15 "],
+    "descrizioneMod":[/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{4,500})/,"La descrizone deve essere di almeno 5 caratteri e massimo 500 "],
+    "DescrizioneImmagineCMod": [/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{4,99})/,"L'alt deve essere di almeno 5 caratteri e massimo 100 "],
+    "DescrizioneImmagineCModLong":[/^("(?:[^"\\]|\\.)*"|\\\s|\S)+(.{4,500})/,"La longdesc deve essere di almeno 5 caratteri e massimo 500 "],
+    "prezzoMod":[/^([0-9]+)+((\.)([0-9]{1,2}?))?$/,"Formato prezzo non valido"]
 }
 
-function validaModChitarra(){
+function validaModProdotto(){
    
-    var corretto=true;
-    for(var key in formModChitarra){
-        var input=document.getElementById(key);
-        var valore=validazioneCampo(input,formModChitarra);
-        corretto= corretto && valore;
-    }
+    if (confirm('Vuoi modificare il prodotto?')) {
+        var corretto=true;
+        for(var key in formModProdotto){
+            if(document.getElementById(key) != null){
+                var input=document.getElementById(key);
+                var valore=validazioneCampo(input,formModProdotto);
+                corretto= corretto && valore;
+            }
+            
+        }
+
+        var input = document.getElementById('immagineMod');
+
+        //reset messaggio di errore immagine
+        var parent=input.parentNode;
+        if(parent.children.length==2){
+            parent.removeChild(parent.children[1]);
+        }
+    
+        // controllo errori immagine
+        if (input.files[0]) {
+           
+            var file = input.files[0];
+            
+            if(file.size > 2097152){
+              
+              mostraErroreImg(input,'Il file deve essere minore di 2 MB');
+              corretto = false;
+            }
+            
+            var estensione =  file.name.split('.').pop();
+            console.log(estensione);
+            var estensioni= ["jpeg","jpg","png"];
+            var check = false;
+            for(var key in estensioni){
+                
+                if(estensione == estensioni[key]){ check = true;}
+            }
+            if(check == false){
+                mostraErroreImg(input,'Estensione non valida, inserire file (.JPEG | .JPG | .PNG)');
+                corretto = false;
+            }
+            
+        
+        }
 
 
-    return corretto;
+
+
+
+
+        return corretto;
+      } else {
+             return false;      
+        }
+
 }
 
 
