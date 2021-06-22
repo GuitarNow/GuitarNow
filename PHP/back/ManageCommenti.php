@@ -13,7 +13,7 @@ class ManageCommenti
     //------------- CHITARRE --------------------
     public function get_commenti($id)
     {
-        $query="select * FROM getCommenti WHERE codice_prodotto=".$id;
+        $query="SELECT id_commento, descrizione, voto, DATE_FORMAT(getcommenti.data, '%d-%m-%Y') as data ,codice_prodotto, username from getcommenti WHERE codice_prodotto=".$id;
         return mysqli_fetch_all($this->prodotto->get_result_query($query), MYSQLI_ASSOC);
     }
 
