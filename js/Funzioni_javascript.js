@@ -100,8 +100,11 @@ function validaCreaProdotto(){
 
     //reset messaggio di errore immagine
     var parent=input.parentNode;
-    if(parent.children.length==2){
+    console.log(parent.children.length);
+    if(parent.children.length>=2){
+        for(var i = 0 ; i< parent.children.length; i++)
         parent.removeChild(parent.children[1]);
+    
     }
 
     // controllo errori immagine
@@ -173,8 +176,11 @@ function validaModProdotto(){
 
         //reset messaggio di errore immagine
         var parent=input.parentNode;
-        if(parent.children.length==2){
+        console.log(parent.children.length);
+        if(parent.children.length>=2){
+            for(var i = 0 ; i< parent.children.length; i++)
             parent.removeChild(parent.children[1]);
+        
         }
     
         // controllo errori immagine
