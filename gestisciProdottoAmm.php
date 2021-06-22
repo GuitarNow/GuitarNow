@@ -3,6 +3,9 @@
 include('PHP/back/Session.php');
 
 require_once("PHP/back/ManageProdotti.php");
+require_once("PHP/back/Function.php");
+
+
 if(isset($_SESSION['login_user'])){
 	$permessi=$_SESSION['permessi'];
 }
@@ -57,22 +60,28 @@ else
 
 
 
+
+
 if(isset($_REQUEST['SalvaMod'])){
 
-  $produttore = $_POST['produttoreAmmMod'];
-  $tipo = $_POST['tipologiaAmmMod'];
-  $modello = $_POST['modelloMod'];
+  $produttore = quota($_POST['produttoreAmmMod']);
+  $tipo = quota($_POST['tipologiaAmmMod']);
+  $modello = quota($_POST['modelloMod']);
   $descrizione = $_POST['descrizioneMod'];
   $descrizione=str_replace('{en}','<span lang="en" >',$descrizione);
   $descrizione=str_replace('{/en}','</span>',$descrizione);
   $short_desc = $_POST['short_descMod'];
 
   $long_desc = $_POST['long_descMod'];
-  echo "short desc ".$short_desc;
-  echo "long desc ".$short_desc;
-  $prezzo_vendita = $_POST['prezzoMod'];
 
+  $prezzo_vendita = $_POST['prezzoMod'];
+  $descrizione= quota($descrizione);
+  
   $modificaP = new ManageProdotti();
+
+
+
+
   $modificaP->modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita, $id_prodotto);
 
 
@@ -89,13 +98,13 @@ if(isset($_REQUEST['SalvaMod'])){
       $modificaI->modifica_prodI($prodotto_selezionato['path'], $short_desc,$long_desc, $id_prodotto);
       
     }else{
-      $modificaI->modifica_prodI("Images/".$file_name, $short_desc, $long_desc, $id_prodotto);
+      $modificaI->modifica_prodI("Images/".quota($file_name), $short_desc, $long_desc, $id_prodotto);
     }
   }
 
   if($categoria == "chitarre"){
-    $legno_manico = $_POST['legnoManicoMod'];
-    $legno_corpo = $_POST['legnoCorpoMod'];
+    $legno_manico = quota($_POST['legnoManicoMod']);
+    $legno_corpo = quota($_POST['legnoCorpoMod']);
     $modificaC = new ManageProdotti();
     $modificaC->modifica_prodC($tipo, $legno_manico, $legno_corpo, $id_prodotto);
   }

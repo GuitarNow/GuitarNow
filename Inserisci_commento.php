@@ -1,6 +1,8 @@
 <?php
 include('PHP/back/Session.php');
 require_once("PHP/back/ManageCommenti.php");
+require_once("PHP/back/Function.php");
+
 $tipo_prodotto = $_REQUEST['tipo_prodotto'];
 $categoria = $tipo_prodotto;
 
@@ -35,7 +37,7 @@ $commenti = str_replace('<tipo/>', '<input type="hidden" id="tipo_prodotto" name
 
 if (isset($_POST['submit'])) {
 $id_prodotto = $_POST['codice_prodotto'];
-$descrizione = $_POST['inscommento'];
+$descrizione = quota($_POST['inscommento']);
 $voto = $_POST['valutazione'];
 
 
