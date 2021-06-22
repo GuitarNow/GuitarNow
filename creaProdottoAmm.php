@@ -2,6 +2,8 @@
 
 include('PHP/back/Session.php');
 require_once("PHP/back/ManageProdotti.php");
+require_once("PHP/back/Function.php");
+
 if(isset($_SESSION['login_user'])){
 	$permessi=$_SESSION['permessi'];
 }
@@ -39,14 +41,14 @@ $data = str_replace('<tip/>',$categoria, $data);
 
 if(isset($_REQUEST['SalvaCrea'])){
 
-  $produttore = $_POST['produttoreAmmCrea'];
-  $tipo = $_POST['tipologiaAmmCrea'];
-  $modello = $_POST['modelloCrea'];
-  $descrizione = $_POST['descrizioneCrea'];
+  $produttore  =  quota($_POST['produttoreAmmCrea']);
+  $tipo =         quota($_POST['tipologiaAmmCrea']);
+  $modello =      quota($_POST['modelloCrea']);
+  $descrizione =  $_POST['descrizioneCrea'];
   
   $descrizione=str_replace('{en}','<span lang="en" >',$descrizione);
   $descrizione=str_replace('{/en}',' </span>',$descrizione);
-  
+  $descrizione =  quota($descrizione);
   $short_desc = $_POST['short_descCrea'];
   $long_desc = $_POST['long_descCrea'];
   $prezzo_vendita = $_POST['prezzoCrea'];
@@ -61,8 +63,8 @@ if(isset($_REQUEST['SalvaCrea'])){
   }
 
   if($categoria == "chitarre"){
-        $legno_manico = $_POST['legnoManicoCrea'];
-        $legno_corpo = $_POST['legnoCorpoCrea'];
+        $legno_manico = quota($_POST['legnoManicoCrea']);
+        $legno_corpo =  quota($_POST['legnoCorpoCrea']);
         $creazioneC = new ManageProdotti();
         $creazioneC->crea_chitC($tipo, $legno_manico, $legno_corpo);
   }
@@ -79,7 +81,7 @@ if(isset($_REQUEST['SalvaCrea'])){
     move_uploaded_file($file_tmp,"Images/".$file_name);
 
     $creazioneI = new ManageProdotti();
-    $creazioneI->crea_chitI("Images/".$file_name, $short_desc,$long_desc);
+    $creazioneI->crea_chitI("Images/".quota($file_name), $short_desc,$long_desc);
 
 
     $data = str_replace('<inserimento_eseguito/>','<p class="operazione_confermata">Prodotto inserito correttamente</p>', $data);

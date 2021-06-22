@@ -152,10 +152,10 @@ var formModProdotto={
     "tipologiaAmmMod":[/^[A-z0-9\.\+_-]{2,15}/,"La tipologia deve essere di almeno 2 caratteri e massimo 15 "],
     "legnoManicoMod":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno manico deve essere di almeno 2 caratteri e massimo 10 "],
     "legnoCorpoMod":[/^[A-z0-9\.\+_-]{2,10}/,"Il legno corpo deve essere di almeno 2 caratteri e massimo 10 "],
-    "modelloMod": [/^[^"\\]{2,15}(,[^"\\]{2,15})*/,"Il modello deve essere di almeno 2 caratteri e massimo 15 "],
-    "descrizioneMod":[/^[^"\\]{5,500}(,[^"\\]{5,500})*/,"La descrizone deve essere di almeno 5 caratteri e massimo 500 "],
-    "DescrizioneImmagineCMod": [/^[^"\\]{5,500}(,[^"\\]{5,100})*/,"L'alt deve essere di almeno 5 caratteri e massimo 100 "],
-    "DescrizioneImmagineCModLong":[/^[^"\\]{5,500}(,[^"\\]{5,500})*/,"La longdesc deve essere di almeno 5 caratteri e massimo 500 "],
+    "modelloMod": [/^([^"//]{2,15})$/,"Il modello deve essere di almeno 2 caratteri e massimo 15 "],
+    "descrizioneMod":[/^([^]{5,500})$/,"La descrizone deve essere di almeno 5 caratteri e massimo 500 "],
+    "DescrizioneImmagineCMod": [/^([^"//]{5,100})$/,"L'alt deve essere di almeno 5 caratteri e massimo 100 "],
+    "DescrizioneImmagineCModLong":[/^([^"//]{5,500})$/,"La longdesc deve essere di almeno 5 caratteri e massimo 500 "],
     "prezzoMod":[/^([0-9]+)+((\.)([0-9]{1,2}?))?$/,"Formato prezzo non valido"]
 }
 

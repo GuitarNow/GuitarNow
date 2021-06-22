@@ -16,4 +16,15 @@ function cambia_acc($dato){
 	return $dato;
 }
 
+
+
+function quota($stringa){
+	$daQuotare = ["'", '"', "<", ">"];
+	$quotate   = ["\'", '\"', "\<", "\>"];
+
+return str_replace($daQuotare, $quotate, $stringa);
+
+	
+}
+
 ?>
