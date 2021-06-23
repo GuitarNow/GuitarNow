@@ -10,7 +10,7 @@ class ManageCommenti
     {
         $this->prodotto = new DatabaseConnection();
     }
-    //------------- CHITARRE --------------------
+    
     public function get_commenti($id)
     {
         $query="SELECT id_commento, descrizione, voto, DATE_FORMAT(getcommenti.data, '%d-%m-%Y') as data ,codice_prodotto, username from getcommenti WHERE codice_prodotto=".$id;

@@ -192,7 +192,7 @@ if($numero_prodotti!=0)
 
 
 
-    // Predisposizione di un campo nascosto nella carta dove inserire l'id della chitarra , in modo da reindirizzare alla pagina_dettaglio della chitarra
+    
     foreach($prodotti_database as $prodotti)
     {
         $contenuto_pagina.= '<li class="chitarre_prodotti"><a class="a_page_prodotti" href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'">

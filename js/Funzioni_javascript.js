@@ -72,7 +72,7 @@ function validaRegistrazione(){
     return corretto;
 }
 
-/* FUNZIONI PER LA GESTIONE DEL FORM IN CREA PRODOTTO (CHITARRA)  */
+/* FUNZIONI PER LA GESTIONE DEL FORM IN CREA PRODOTTO  */
 var formCreaProdotto={
     "produttoreAmmCrea":[/^[A-z0-9\.\+_-]{2,15}/,"Il produttore deve essere di almeno 2 caratteri e massimo 15 "],
     "tipologiaAmmCrea":[/^[A-z0-9\.\+_-]{2,15}/,"La tipologia deve essere di almeno 2 caratteri e massimo 15 "],
@@ -146,7 +146,7 @@ function validaCreaProdotto(){
   
 }
 
-/* FUNZIONI PER LA GESTIONE DEL FORM IN MODIFICA PRODOTTO (CHITARRA)  */
+/* FUNZIONI PER LA GESTIONE DEL FORM IN MODIFICA PRODOTTO  */
 var formModProdotto={
     "produttoreAmmMod":[/^[A-z0-9\.\+_-]{2,15}/,"Il produttore deve essere di almeno 2 caratteri e massimo 15 "],
     "tipologiaAmmMod":[/^[A-z0-9\.\+_-]{2,15}/,"La tipologia deve essere di almeno 2 caratteri e massimo 15 "],
