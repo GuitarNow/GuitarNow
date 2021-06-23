@@ -113,14 +113,14 @@ $data = str_replace('<inserimento_eseguito/>','', $data);
 
     $data = str_replace('<datiCreazione/>','
     <input type="hidden" name="codiceProdottoCrea" value=""/>
-    <label for="produttoreAmmCrea">Produttore</label><span class="erroreProdCrea"></span>
+    <label for="produttoreAmmCrea">Produttore</label>
     <span><input list="produttoreAmmCreaA" name="produttoreAmmCrea" id="produttoreAmmCrea"/></span>
     <datalist id="produttoreAmmCreaA">'.
     $produttori_accessori
     .'
     
     </datalist>
-<label for="tipologiaAmmCrea">Tipologia</label> <span class="erroreTipCrea"></span>
+<label for="tipologiaAmmCrea">Tipologia</label> 
 <span><input list="tipologiaAmmCreaA" name="tipologiaAmmCrea" id="tipologiaAmmCrea"/></span>
 <datalist id="tipologiaAmmCreaA">'.
 $tipi_accessori.'
@@ -141,13 +141,13 @@ $tipi_accessori.'
 
     $data = str_replace('<datiCreazione/>','
 
-    <label for="produttoreAmmCrea">Produttore</label><span class="erroreProdCrea"></span>
+    <label for="produttoreAmmCrea">Produttore</label>
     <span><input list="produttoreAmmCreaC" name="produttoreAmmCrea" id="produttoreAmmCrea"/></span>
     <datalist id="produttoreAmmCreaC">'.
     $produttori_chitarre.
     '
     </datalist>
-    <label for="tipologiaAmmCrea">Tipologia</label><span class="erroreTipCrea"></span>
+    <label for="tipologiaAmmCrea">Tipologia</label>
     <span><input list="tipologiaAmmCreaC" name="tipologiaAmmCrea" id="tipologiaAmmCrea"/></span>
     <datalist id="tipologiaAmmCreaC">'.
     $tipi_chitarra 
