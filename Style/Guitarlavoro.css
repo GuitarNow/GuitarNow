@@ -428,7 +428,7 @@ padding-top: 0.5%;
   position: absolute;
 }
 
-.ontatti{
+.contatti{
     
     padding-top: 0.8%;
     padding-left: 3%;
@@ -439,6 +439,7 @@ padding-top: 0.5%;
     display:inline-block;
 }
 
+/*     DA ELIMINARE
 #contatti{
     float:left;
     text-align: left;
@@ -446,7 +447,7 @@ padding-top: 0.5%;
     color:rgb(87, 87, 87);
 
 }
-
+*/
 
 /*--------------------------------------------------------------------------
 -----------------------Filtri------------------------------------------*/
@@ -651,7 +652,7 @@ margin-right:13%;
 
 /*---------------------------------------------------------------------
 -------------------------Amministratore---------------------------------*/
-
+/*  DA ELIMINARE
 #headerAmm{
     padding-top: 1em;
     padding-bottom:1em;
@@ -685,7 +686,7 @@ margin-right:13%;
     margin-bottom: 0.5em;
     margin-top:3%;
 }
-
+/*
 /*---------------------------------------------------------------------
 -------------------------modifica creaProdotto Admin------------------------*/
 
