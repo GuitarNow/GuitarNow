@@ -439,15 +439,7 @@ padding-top: 0.5%;
     display:inline-block;
 }
 
-/*     DA ELIMINARE
-#contatti{
-    float:left;
-    text-align: left;
-    padding-top: 2%;
-    color:rgb(87, 87, 87);
 
-}
-*/
 
 /*--------------------------------------------------------------------------
 -----------------------Filtri------------------------------------------*/
@@ -650,43 +642,8 @@ hr{
 margin-right:13%;
 }
 
-/*---------------------------------------------------------------------
--------------------------Amministratore---------------------------------*/
-/*  DA ELIMINARE
-#headerAmm{
-    padding-top: 1em;
-    padding-bottom:1em;
-    overflow: auto;
-    text-align:center;
-    margin: auto;
-    background-color:#4E1600;
-}
 
-#breadcrumbsAmm{
-    background-color:#4E1600;
-    color: #DDD;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    padding: 0.2em;
-}
 
-#passwordAmm, #usernameAmm{
-    width:60%;
-    margin-bottom: 0.7em;
-}
-
-#loginAmm{
-    background-color:#990000;
-	border-radius:10px 10px;
-	font-family:"Comic Sans MS", cursive, sans-serif;
-	color:#DDD;
-	height:1.7em;
-    font-size:1.1em;
-    width:60%;
-    margin-bottom: 0.5em;
-    margin-top:3%;
-}
-/*
 /*---------------------------------------------------------------------
 -------------------------modifica creaProdotto Admin------------------------*/
 

@@ -24,7 +24,7 @@ if($permessi ==1 ||$permessi ==0){
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     
 }else{
-//reindirizzare a page 404
+	header('Location: ../../Home.php');
 
 }
 

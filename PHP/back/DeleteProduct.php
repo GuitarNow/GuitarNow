@@ -23,7 +23,8 @@ if($permessi ==1){
     header("Location: ../../Prodotti.php?operazione=1"); 
     
 }else{
-//reindirizzare a page 404
+	header('Location: ../../Home.php');
+	
 
 }
 
