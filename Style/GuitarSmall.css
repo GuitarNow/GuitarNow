@@ -1,6 +1,3 @@
-  /*-----------------------------------------------------------------------------------
- ---------------------HEADER-------------------------------------------------------*/
-
  header{
     padding-top: 0em;
     padding-bottom:0.1em;
@@ -54,13 +51,11 @@
   justify-content:center;
 }
 
-/* Hide the links inside the navigation menu (except for logo/home) */
 .topnav #myLinks {
   display: none;
   width: 100%;
 }
 
-/* Style navigation menu links */
 .topnav a {
   color: white;
   padding: 14px 16px;
@@ -70,7 +65,6 @@
 
 }
 
-/* Style the hamburger menu */
 .menu_container a.icon{
   background: black;
   display: block;
@@ -80,47 +74,27 @@
   top: 0;
 }
 
-/* Add a grey background color on mouse-over */
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
 
-/* Style the active link (or home/logo) */
 .active {
   background-color: #04AA6D;
   color: white;
 }
 
-
-
-
-
-
-
  #menu{
      display:none;
  }
 
-
- 
-
-
- 
 #accesso{
     display: none;
 }
 
-
-
-
 #accesso input{
     display:none;
 }
-
-
-
-
 
 .a_header{
     display: none;
@@ -128,11 +102,8 @@
 
 #menu li{
     display:flex;
-    background-color: #dbdbdb;
-    
+    background-color: #dbdbdb;  
 }
-
-
 
 #accedi_menu, #registrati_menu, #logout_menu{   
     border-right: 1px solid #000;
@@ -157,18 +128,11 @@
     background-color: purple ;
 }
 
-
-
-
-/*----------------------------------------------------------------------------------
----------------------------CONTENUTOHOME---------------------------------------*/
-
 .chitCard li, .accCard li{
     width:80%;
     height:22em;
     margin-left: 10%;
 }
-
 
 .chitCard, .accCard{
  margin-left: 10% ;
@@ -180,7 +144,6 @@
     display:inline-block; 
     margin-left: 10%;
 }
-
 
 .chitarre{
     width:50%;  
@@ -202,10 +165,6 @@ p{
     font-size:4em;
 }
 
-
-/*--------------------------------------------------------------------------------------
-----------------------------------SERVIZI---------------------------------------------------*/
-
 .img_servizi{
     display:none;
 }
@@ -220,8 +179,6 @@ p{
     font-size: 1.6em;
 }
 
-/*------------------------------------------------------------------------------------------------------
----------------------------------CHISIAMO----------------------------------------------*/
 iframe{
     width: 100%;
     position: unset;
@@ -242,22 +199,14 @@ iframe{
 	margin-left:0
 }
 
-/*-----------------------------------------------------------------------------------------
---------------------------------PRODOTTI---------------------------------------------------*/
-
-
 .paginazione, #floatDestra{
     font-size:2em;
 }
+
  #Nessun_prodotto{ 
    margin-top:10%;
    margin-bottom:130%;
    }
-
-
-
-/*-----------------------------------------------------------------------------------------
---------------------------------PRODOTTI-FILTRI--------------------------------------------*/
 
 #Crea{
     flex-grow: 1;
@@ -278,19 +227,14 @@ iframe{
     display: none;
 }
 
-
 #colonna_filtri{
     display: unset;
     position: absolute;
     width: 100%;
-    
 }
 
-
-
 #colonna_filtri form fieldset label{
-    font-size:1.8em; 
-    
+    font-size:1.8em;   
 }
 
 input[type='radio'] {
@@ -301,8 +245,8 @@ input[type='radio'] {
 
 #colonna_filtri form fieldset legend{
     font-size:1.7em;
-    
 }
+
 #tipologia{
     width:300px;
     font-size:1.9em;
@@ -358,9 +302,6 @@ padding: unset;
     text-align: center;
 }
 
-
-
-
 #btnFiltri{
   display: flex;
   width: 100%;
@@ -374,7 +315,6 @@ padding: unset;
     padding: 0.3em;
     margin-bottom: 1.5em;
 }
-
 
 #linea{
     color: #e2e2e2;
@@ -415,11 +355,6 @@ display: unset;
 
 #numPagina{padding-top:3%;}
 
-
-
-/*-------------------------------------------------------------------------------------
-------------------------------SPECIFICHEPRODOTTO------------------------------------*/
-
 #specifiche_prodotto
 {
     width:200px;
@@ -428,9 +363,6 @@ display: unset;
 #Modifica{
     margin-left:26%;   
    }
-
-/*------------------------------------------------------------------------------------
-------------------------------FOOTER------------------------------------------------*/
 
 .icone_footer{
     margin-top: 0.8em;
@@ -441,7 +373,6 @@ display: unset;
     margin-left: 0.3em;
 }
 
-/*--------------Amministratore--------------------*/
 #contenutoGestisci form .Salva, #contenutoCrea form .Salva{
   width:36%;
 	height:2em;
@@ -456,9 +387,3 @@ display: unset;
     padding-left:6%;
     padding-right:6%;
 }
-
-
-
-
-
-
