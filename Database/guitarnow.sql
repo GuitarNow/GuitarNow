@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 22, 2021 alle 22:05
+-- Creato il: Giu 24, 2021 alle 10:49
 -- Versione del server: 10.1.19-MariaDB
 -- Versione PHP: 5.6.28
 
@@ -60,7 +60,7 @@ CREATE TABLE `chitarra` (
 
 INSERT INTO `chitarra` (`cod_chitarra`, `legno_manico`, `legno_corpo`, `tipo_chitarra`) VALUES
 (3, 'acero', 'acero', 'Elettrica'),
-(7, 'abete', 'acero', 'Semiacustica'),
+(7, 'Abete', 'Acero', 'Semiacustica'),
 (8, 'ontano', 'acero', 'Elettrica'),
 (9, 'ontano', 'palissandro', 'Elettrica'),
 (10, 'mogano', 'abete', 'Acustica'),
@@ -89,14 +89,15 @@ CREATE TABLE `commento` (
 --
 
 INSERT INTO `commento` (`id_commento`, `descrizione`, `voto`, `data`, `codice_prodotto`, `user`) VALUES
-(2, 'Prima volta che acquisto presso GuitarNow  e sono veramente soddisfatto del servizio ricevuto. Ottimi commessi disponibili e preparati. Per quanto riguarda il prodotto che dire assolutamente soddisfatto dell''acquisto. ', 5, '2019-06-12', 11, 'Mark'),
-(11, 'Buono strumento. Ottimo per chi Ã¨ alle prime armi.', 4, '2021-06-22', 3, 'user'),
-(12, 'Massa schei sio can.', 1, '2021-06-22', 55, 'user'),
-(13, 'Buona chitarra per tutti.', 4, '2021-06-22', 8, 'user'),
-(14, 'Suca', 1, '2021-06-22', 7, 'user'),
-(15, 'Buona qualitÃ  a basso costo. ', 5, '2021-06-22', 4, 'user'),
-(16, 'Le compro sempre buone corde.', 4, '2021-06-22', 4, 'Mark'),
-(17, 'Non Ã¨ il massimo. Speravo in meglio.', 2, '2021-06-22', 9, 'Mark');
+(11, 'Buono strumento. Ottimo per chi Ã¨ alle prime armi.', 4, '2021-06-22', 3, 'User'),
+(13, 'Buona chitarra per tutti.', 4, '2021-06-22', 8, 'User'),
+(15, 'Buona qualitÃ  a basso costo. ', 5, '2021-06-22', 4, 'User'),
+(18, 'Prodotto discreto. Facile da utilizzare e versatile. Lo consiglio a tutti.', 5, '2021-06-23', 6, 'User'),
+(19, 'Chitarra discreta.', 3, '2021-06-24', 3, 'Robby'),
+(20, 'Deluso. Pensavo fosse meglio.', 2, '2021-06-24', 7, 'Robby'),
+(21, 'Corde discrete. Le prendo sempre.', 4, '2021-06-24', 4, 'Robby'),
+(22, 'Buona chitarra per principianti.', 3, '2021-06-24', 54, 'Robby'),
+(23, 'Materiali scadenti. Una delusione.', 1, '2021-06-24', 11, 'Robby');
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,7 @@ CREATE TABLE `immagine` (
 INSERT INTO `immagine` (`id_immagine`, `path`, `long_desc`, `short_desc`, `codice_prodotto`) VALUES
 (3, 'Images/Stratocaster_MN_black.jpg', 'Anteprima Fender Stratocaster nera.Il corpo si presenta di colore nero e il battipenna bianco. Manico da 24 tasti con texture di legno chiaro. Sul corpo ci sono 2 selettori per il volume e uno per il suono. Ã‰ una chitarra elettrica di fascia medio-alta. Ottima per chitarristi con qualche anno di esperienza. Molto versatile e adatta a qualsiasi genere musicale.', 'Chitarra elettrica dal corpo di colore nero. Manico da 24 e selettori per il volume e per il suono.', 3),
 (4, 'Images/Daddario_Ej4_light.jpg', 'Anteprima Daddario Ej4 argentate. Corde per chitarra acustica in nichel. Modello piÃ¹ sottile e morbido rispetto alle corde standard. Ottime per una maggiore velocitÃ  e consigliate per i chitarristi solisti.', 'Confezione di 6 corde argentate per acustica morbide e poco spesse. ', 4),
-(5, 'Images/Fender_champion_40.jpg', 'Anteprima Fender Champion40 da 40 watt. La cassa presenta una clorazione nera scura ed Ã¨ alta 40 centimetri e larga 25. Sul davanti presenta inoltre le entrata per il cavo e una serie di selettori per il volume e gli effetti.  Ottimo amplificatore per principianti che cercano una cassa poco ingombrante e facile da trasportare. PossibilitÃ  di modificare il suono dello strumento con oltre 30 effetti.', 'Cassa di colore nero alta 40 e larga 25 centimetri. Presenta una serie di selettori per gli effetti. ', 5),
+(5, 'Images/Fender_champion_40.jpg', 'Anteprima Fender Champion40 da 40 watt. La cassa presenta una clorazione nera scura ed Ã¨ alta 40 centimetri e larga 25. Sul davanti presenta inoltre le entrata per il cavo e una serie di selettori per il volume e gli effetti.  Ottimo amplificatore per principianti che cercano una cassa poco ingombrante e facile da trasportare. PossibilitÃ  di modificare il suono dello strumento con oltre 30 effetti.', 'Cassa di colore nero alta 40 e larga 25 centimetri.Presenta una serie di selettori per gli effetti. ', 5),
 (6, 'Images/RC3.jpg', 'Anteprima Boss RC-3.Pedalina di forma rettangolare e di colore rosso. Sulla parte alta presenta i tasti per far partire la registrazione e un piccolo schermo col numero di traccia. Ottima per registrare e mettere in loop le proprie creazioni. Sia per chitarra acustica che per elettrica.', 'Effetto loop di colore rosso. Sulla parte alta presenta i tasti per registrare e editare la traccia.', 6),
 (7, 'Images/AF75_BS.jpg', 'Anteprima Ibanez AF75 BS bianca. La chitarra presenta un corpo di colore bianco con meccaniche e decorazioni di color oro. La paletta e il manico da 24 tasti hanno una colorazione nera. Sul corpo sono presenti tre selettori per il suono e un tremolo. Ã‰ una semiacustica versatile sia per chi ama il rock sia per chi preferisce sonoritÃ  da chitarra classica. Adatta a chi ha giÃ  qualche anno di esperienza con lo strumento.', 'Chitarra semiacustica di colore bianco con meccaniche oro. Presenta 3 selettori per il suono.', 7),
 (8, 'Images/S300_vintage_sunburst.jpg', 'Anteprima Eko S300. La chitarra presenta una colorazione marrone sfumato col nero. Il battipenna Ã¨ dii colore bianco mentre il manico da 22 tasti presenta una colorazione di legno piÃ¹ scuro. Sul corpo ci sono tre selettori per il suona e il volume. Buona chitarra elettrica per chi si vuole approcciare per la prima volta al mondo della musica.', 'Chitarra elettrica con colorazione marrone sfumato e battipenna bianco. Manico di 22 tasti. ', 8),
@@ -237,16 +238,16 @@ CREATE TABLE `prodotto` (
 --
 
 INSERT INTO `prodotto` (`codice_prodotto`, `modello`, `produttore`, `descrizione`, `prezzo_vendita`) VALUES
-(3, 'Stratocaster MN ', 'Fender', 'Il suono ispiratore di una <span lang="en" >Stratocaster</span> Ã¨ uno dei fondamenti <span lang="en" >Fender</span>. Ãˆ caratterizzata da un suono classico, medi potenti ed una fascia bassa robusta. Lo strumento inoltre Ã¨ abbastanza versatile e permette di gestire qualsiasi stile. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il <span lang="en" >pickup</span> al ponte, dando un maggiore controllo sul suono nelle posizioni del <span lang="en" >pickup</span> 1 e 2.\r\n', 639.91),
+(3, 'Stratocaster  ', 'Fender', 'Il suono ispiratore di una <span lang="en" >Stratocaster</span> Ã¨ uno dei fondamenti <span lang="en" >Fender</span>. Ãˆ caratterizzata da un suono classico, medi potenti ed una fascia bassa robusta. Lo strumento inoltre Ã¨ abbastanza versatile e permette di gestire qualsiasi stile. Rompendo con la tradizione, Fender ha aggiunto un controllo del tono dedicato per il <span lang="en" >pickup</span> al ponte, dando un maggiore controllo sul suono nelle posizioni del <span lang="en" >pickup</span> 1 e 2.\r\n', 639.91),
 (4, 'EJ41 Light', 'Daddario', 'Le corde Daddario EJ41 in <span lang="en" >nylon</span> per chitarra classica sono perfette per i principianti, gli studenti e i professionisti. Questo set di corde a tensione normale contiene 3 cantÃ¬ni in <span lang="en" >nylon</span> e 3 bassi <span lang="en" >Silver-plated</span> <span lang="en" >Copper-wound</span> per garantire un ottimo bilanciamento tra timbri caldi e timbri nitidi.', 12.00),
 (5, 'Champion 40', 'Fender', 'Compatto, facile da usare e versatile per qualsiasi tipo di chitarra. Il <span lang="en" >Champion</span> da 40 <span lang="en" >watt</span> Ã¨ la scelta ideale come tuo primo amplificatore. Controlli intuitivi, effetti fantastici facilitano la creazione dei suoni giusti per <span lang="en" >rock</span>, <span lang="en" >blues</span>, <span lang="en" >metal</span> e altro. Gli amplificatori <span lang="en" >Fender</span> sono dotati di effetti che offrono una ricchezza di colori, atmosfere e trame sonore. Include riverbero, <span lang="en" >delay</span>, <span lang="en" >chorus</span>, tremolo e molto altro.', 199.00),
 (6, 'RC-3', 'BOSS', 'RC-3 garantisce tre ore di registrazione stereo direttamente nella sua memoria interna. Ora potrete registrare senza dovervi preoccupare del limite di tempo ed avrete a disposizione 99 locazioni di memoria per salvare e richiamare immediatamente le vostre creazioni. Una volta create le vostre <span lang="en" >performance</span> potrete comodamente trasferirle su un PC grazie alla porta USB 2.0.', 149.99),
-(7, 'AF75 BS', 'Ibanez', 'Ibanez ha introdotto la serie <span lang="en" >Artcore</span> nel 2002 ed &egrave; stata la chitarra <span lang="en" >hollow-body</span> preferita dai musicisti degli ultimi 10 anni. La combinazione tra qualit&agrave; di lavorazione e convenienza ha creato schiere di fan da diversi generi come <span lang="en" >blues</span>, <span lang="en" >country</span>, <span lang="en" >rock</span> e <span lang="en" >jazz</span>. <span lang="en" >Artcore</span> &egrave; molto rispettata per il suo suono, il <span lang="en" >sustain</span> e il modo in cui tiene l''accordatura.', 421.00),
-(8, 'S300V Vintage Sunburst', 'Eko', 'Dopo la ricerca e le sperimentazioni del nostro laboratorio di liuteria abbiamo trovato interessante proporre strumenti dallo stile <span lang="en" >vintage</span>, stile che non perde mai il suo fascino. Grazie a particolari colorazioni e finiture potrai vivere l''esperienza di suonare uno strumento dallo stile intramontabile ad un prezzo contenuto.', 119.99),
+(7, 'AF75 BS', 'Ibanez', 'Ibanez ha introdotto la serie <span lang="en" >Artcore</span> nel 2002 ed Ã¨ stata la chitarra <span lang="en" >hollow-body</span> preferita dai musicisti degli ultimi 10 anni. La combinazione tra qualitÃ  di lavorazione e convenienza ha creato schiere di fan da diversi generi come <span lang="en" >blues</span>, <span lang="en" >country</span>, <span lang="en" >rock</span> e <span lang="en" >jazz</span>. <span lang="en" >Artcore</span> Ã¨ molto rispettata per il suo suono, il <span lang="en" >sustain</span> e il modo in cui tiene l''accordatura.', 421.00),
+(8, 'S300V Vintage ', 'Eko', 'Dopo la ricerca e le sperimentazioni del nostro laboratorio di liuteria abbiamo trovato interessante proporre strumenti dallo stile <span lang="en" >vintage</span>, stile che non perde mai il suo fascino. Grazie a particolari colorazioni e finiture potrai vivere l''esperienza di suonare uno strumento dallo stile intramontabile ad un prezzo contenuto.', 119.99),
 (9, 'Pacifica 212VFM', 'Yamaha', 'Si presenta con accattivanti figure in acero sulla parte superiore del corpo e sulla paletta, la Pacifica 212VFM Ã¨ una variante della Pacifica 112V sviluppato appositamente. Questo modello offre <span lang="en" >pickup</span> in Alnico e la funzione <span lang="en" >coil-tap</span>, mentre il suo bellissimo corpo in acero fiammato offre una presenza senza precedenti con il suo <span lang="en" >look</span> di alta classe. Questo modello ha anche figure in acero sulla sua paletta con una finitura corrispondente.', 330.00),
 (10, 'Marco Polo SO', 'Eko', 'Marco Polo SO Ã¨ la chitarra di <span lang="en" >Eko Guitars</span> costruita con corpo in Abete Italiano, fasce e fondo in palissandro e manico in Mogano. Grazie alle sue dimensioni ridotte, scala da 610 millimetri e larghezza al capotasto da 43 millimetri, la Marco Polo SO Ã¨ la chitarra da viaggio ideale per il musicista sempre in movimento.', 689.99),
 (11, 'Axis Capo Gold', 'ErnieBall', 'Le caratteristiche ergonomiche di <span lang="en" >ErnieBall</span> <span lang="en" >Axis</span> Capo consentono cambi di chiavi con una sola mano veloci e precisi. Il <span lang="en" >design</span> a doppio raggio Ã¨ conforme alle tastiere piatte o curve, assicurando un funzionamento senza ronzio su chitarre elettriche e acustiche a 6 o 7 corde.\r\nAdatto a tutti i tipi di chitarra', 12.00),
-(12, 'Roadcore Premium', 'Ibanez', 'L''<span lang="en" >Ibanez</span> <span lang="en" >Roadcore</span> <span lang="en" >Premium</span> dispone di un corpo in palissandro e un manico in acero con una tastiera in palissandro. Il suono  caldo di questo strumento &egrave; generato dai <span lang="en" >pickup</span> cromati. Dispone inoltre di un custodia rigida inclusa.', 799.99),
+(12, 'Roadcore ', 'Ibanez', 'L''<span lang="en" >Ibanez</span> <span lang="en" >Roadcore</span> <span lang="en" >Premium</span> dispone di un corpo in palissandro e un manico in acero con una tastiera in palissandro. Il suono  caldo di questo strumento Ã¨ generato dai <span lang="en" >pickup</span> cromati. Dispone inoltre di un custodia rigida inclusa.', 799.99),
 (16, 'RG Standard', 'Ibanez', 'La chitarra Ibanez RG Standard Ã¨ perfetta per tutti quei chitarristi che vogliono acquistare uno strumento semi professionale ad un prezzo accessibile. I legni della chitarra le danno un aspetto esotico e naturale perfetto per tutti gli amanti delle chitarre vintage.  ', 600.00),
 (54, 'GRX40', 'Ibanez', 'La Ibanez GRX40 Ã¨ una chitarra mozzafiato, ricca di potenziale. Contenente tre <span lang="en" >pickup</span>, tra cui uno doppio e due bobine singole, offre un''ampia gamma di toni che vi darÃ  la potenza necessaria per rendere superbo qualsiasi genere sonoro. Un manico in acero permette di suonare in modo fluido e veloce. Progettata sia per i musicisti esperti che per i principianti.\r\n', 150.00),
 (55, 'Acoustasonic', 'Fender', 'La semiacustica <span lang="en" >Acoustasonic</span> incarna lo spirito innovativo su cui Ã¨ stata costruita <span lang="en" >Fender</span>. Da una forma acustica, passando per i suoni ritmici elettrici, questa potente chitarra utilizza un motore acustico<span lang="en" >Fishman</span> rivoluzionario per offrire una nuova espressione sonora. Il corpo cavo ispirato alla <span lang="en" >Telecaster</span> Ã¨ naturalmente sonoro, risonante e con una grande proiezione, il che significa che la chitarra suonerÃ  altrettanto bene sulle tue gambe quanto sul palco.', 1200.00);
@@ -270,11 +271,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`username`, `password`, `email`, `permessi`) VALUES
 ('Admin', 'Admin', 'admini@gmail.com', 1),
-('ciaonao63', 'Qwert', 'jonww@re.nm', 0),
-('Jon56', '1234Qweo', 'jon@gmail.com', 0),
-('Marco90', '134Qw', 'marco.rossi@yhaoo.com', 0),
-('Mark', '123Qw', 'mark@gamil.com', 0),
-('user', 'User1', 'user@gmail.com', 0);
+('Robby', 'Robby', 'jon@gmail.co', 0),
+('User', 'User', 'user@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -374,17 +372,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT per la tabella `commento`
 --
 ALTER TABLE `commento`
-  MODIFY `id_commento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_commento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT per la tabella `immagine`
 --
 ALTER TABLE `immagine`
-  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `codice_prodotto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- Limiti per le tabelle scaricate
 --
