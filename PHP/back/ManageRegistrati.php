@@ -12,7 +12,7 @@ class ManageRegistrati
         $this->prodotto = new DatabaseConnection();
     }
     public function registrati($email, $username, $password){
-        $query = "INSERT INTO user (username,email,password) VALUES ('".$username."','".$email."','".$password."')";
+        $query = "INSERT INTO user (username,email,password) VALUES ('".$username."','".$email."',SHA2('".$password."', 256))";
         return $this->prodotto->insert_query($query);
     }
       

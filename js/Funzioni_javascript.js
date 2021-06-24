@@ -1,4 +1,4 @@
-/* FUNZIONI GENERALI PER I FORM */
+
 
 function mostraErrore(input,arr){
     
@@ -28,7 +28,7 @@ function mostraErroreImg(input, err){
 
 function validazioneCampo(input,arr){
     
-    //Reset messaggio d'errore
+ 
     
     var parent=input.parentNode;
     
@@ -37,7 +37,7 @@ function validazioneCampo(input,arr){
     }
 
     
-    //Mostro messaggio d'errore
+ 
     var regex=arr[input.id][0];
     
     var valore=input.value;
@@ -52,7 +52,7 @@ function validazioneCampo(input,arr){
     }
 }
 
-/* FUNZIONI PER LA GESTIONE DEL FORM DELLA PAGINA DI REGISTRAZIONE  */
+
 var form_registrazione = {
 
     "email": [/^[A-z0-9\.\+_-]+@+[A-z0-9\._-]+\.+[A-z]{2,6}/,"Formato della email non corretto"],
@@ -72,7 +72,7 @@ function validaRegistrazione(){
     return corretto;
 }
 
-/* FUNZIONI PER LA GESTIONE DEL FORM IN CREA PRODOTTO  */
+
 var formCreaProdotto={
     "produttoreAmmCrea":[/^[A-z0-9\.\+_-]{2,15}/,"Il produttore deve essere di almeno 2 caratteri e massimo 15 "],
     "tipologiaAmmCrea":[/^[A-z0-9\.\+_-]{2,15}/,"La tipologia deve essere di almeno 2 caratteri e massimo 15 "],
@@ -98,7 +98,7 @@ function validaCreaProdotto(){
     }
     var input = document.getElementById('immagineCrea');
 
-    //reset messaggio di errore immagine
+   
     var parent=input.parentNode;
     console.log(parent.children.length);
     if(parent.children.length>=2){
@@ -107,7 +107,7 @@ function validaCreaProdotto(){
     
     }
 
-    // controllo errori immagine
+   
     if (!input.files[0]) {
         mostraErroreImg(input,"Nessuna immagine inserita");
         corretto = false;
@@ -146,7 +146,7 @@ function validaCreaProdotto(){
   
 }
 
-/* FUNZIONI PER LA GESTIONE DEL FORM IN MODIFICA PRODOTTO  */
+
 var formModProdotto={
     "produttoreAmmMod":[/^[A-z0-9\.\+_-]{2,15}/,"Il produttore deve essere di almeno 2 caratteri e massimo 15 "],
     "tipologiaAmmMod":[/^[A-z0-9\.\+_-]{2,15}/,"La tipologia deve essere di almeno 2 caratteri e massimo 15 "],
@@ -174,7 +174,7 @@ function validaModProdotto(){
 
         var input = document.getElementById('immagineMod');
 
-        //reset messaggio di errore immagine
+        
         var parent=input.parentNode;
         console.log(parent.children.length);
         if(parent.children.length>=2){
@@ -183,7 +183,7 @@ function validaModProdotto(){
         
         }
     
-        // controllo errori immagine
+        
         if (input.files[0]) {
            
             var file = input.files[0];
@@ -226,7 +226,7 @@ function validaModProdotto(){
 
 
 
-/* FUNZIONI PER IL MENU */
+
 
 
 
@@ -243,7 +243,6 @@ function funzioneMenu() {
 
 
 
-/* FUNZIONI PER I FILTRI */
 
 function dNone(){
     var el = document.getElementById('form_filtri');

@@ -70,7 +70,7 @@ else
                 $username = $database->escape_string($username);
                 $password = $database->escape_string($password);
               
-$utente = mysqli_fetch_assoc($database->get_result_query("select username, password, permessi from user where ( BINARY password='$password' AND BINARY username='$username') "));	
+$utente = mysqli_fetch_assoc($database->get_result_query("select username, password, permessi from user where ( BINARY password= SHA2('".$password."', 256) AND BINARY username='$username') "));	
 
 
 if ($utente==NULL) {
