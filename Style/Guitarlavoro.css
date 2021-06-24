@@ -475,6 +475,10 @@ hr{
    font-weight: bold;
 }
 
+#commenta_b:visited{
+	color:white;
+}
+
 #scheda_prodotto{
 	width:70%;
 	background-color:white;
