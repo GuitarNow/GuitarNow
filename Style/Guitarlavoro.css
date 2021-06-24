@@ -1,6 +1,3 @@
-/*------------------------------------------------------------------------
-------------------------------- Generale---------------------------------*/
-
 *{
     padding: 0em;
     margin: 0em;
@@ -35,14 +32,13 @@ body{
 .topnav{
     display: none;
 }
-a:visited {color: purple;}
+
+a:visited {color:#8f00ff;}
 
 #button_menu{
     display:none;
 }
 
-/*--------------------------------------------------------------------------------------
------------------------------------------HEADER-------------------------------*/
 header{   
     padding-top: 1em;
     padding-bottom:1em;
@@ -52,8 +48,6 @@ header{
     background-color:#4E1600;
 }
 
-
-
 #logo{
     float:left;
     width:20%; 
@@ -62,14 +56,11 @@ header{
     height: 20%;
 }
 
-
 #accesso{
     width:220px;
     float:right; 
     margin-right:2%;   
 }
-
-
 
 #accedi, #registrati{
     text-decoration:none;
@@ -85,8 +76,7 @@ header{
     padding: 0.5em;
     font-size:1.1em;
     color:#000;
-    border-radius:5px;  
-    
+    border-radius:5px;     
 }
 
 #logout{
@@ -95,7 +85,6 @@ header{
     text-decoration: none;
     display: block;
 }
-
 
 #accedi{
     padding-left: 1em;
@@ -108,8 +97,6 @@ background-color:#392D20;
     color: #DDD;
 }
 
-
-
 #menu{
     float: center;
     width: 70%;
@@ -120,8 +107,6 @@ background-color:#392D20;
 .scompare{
     display: none;
 }
-
-
 
 #menu  li {
         
@@ -159,9 +144,6 @@ li#linkCorrente a{
     border: 1px solid #000;
 }
 
-/*------------------------------------------------------------------------------
------------------------------------home--------------------------------*/
-
 #home{
     background-color:#4E1600;
     color: #DDD;
@@ -182,11 +164,6 @@ h1{
     text-align: center;
     font-size:1.5em;
 }
-
-
-
-/*------------------------------------------------------------------------------
---------------------------------contenutoHome----------------------------------*/
 
 #contenutoHome{
     width: 95%;
@@ -210,8 +187,6 @@ h1{
     font-size:2em;
 }
 
-
-
 .chitCard, .accCard{
     list-style: none;
     display: flex; 
@@ -224,9 +199,7 @@ h1{
 .chitCard li, .accCard li{
     background-color: #fff0f6;
     border: 1px solid #fcc2d7;
-  /* background-color: #e5dbff;
-border: 1px solid #d0bfff; */
-margin: 0 10px 20px 10px;
+    margin: 0 10px 20px 10px;
     padding: 10px;
     border-radius:12px;
     flex:0 0 19%;
@@ -242,29 +215,23 @@ li.chitarre_prodotti{
    
 }
 
-
-
 .chitCard a, .accCard a{
     width: 25%;
     color: #000;
     text-decoration: none; 
-    
 }
 
 .chitarre{
     width: 8em ;
     height: 8em;
     border-radius: 15%; 
-    
 }
-
 
 .accessori{
     border-radius: 15%;
     width: 8em ;
     height: 8em;
 }
-
 
 #descrizione{
     color: #000;
@@ -276,9 +243,6 @@ li.chitarre_prodotti{
     font-size: 1.2em;
     text-align:justify;
 }
-
-/*------------------------------------------------------------------------------
---------------------------------contenuto SERVIZI----------------------------------*/
 
 .img_servizi{
     width:25%;
@@ -298,8 +262,6 @@ li.chitarre_prodotti{
     padding-top:0.5em;
 }
 
-/*--------------------------------------------------------------------------------
------------------------------contenuto CHISIAMO---------------------------------*/
 #contenutoChi{
     margin-top:2%;
     margin-bottom:2%;
@@ -322,15 +284,12 @@ iframe{
        height:300px;
        position: relative;
        bottom: 1em;
-
 }
 
 .mezzi{
 	margin-left:55%
 }
 
-/*------------------------------------------------------------------------------
-----------------------contenuto LOGIN--REGISTRATI--------------------------------*/
 .form{
 	border:1px solid black;
 	border-radius:5px 5px;
@@ -381,23 +340,13 @@ iframe{
 border:1px solid black;
 height:2em;
 } 
+
 .form img{
 	width:80%;
 	height:20%;
 }
 
-
-
-
-
-/*------------------------------------------------------------------------------
---------------------------------footer----------------------------------*/
-
-
-
-
 #img_footer{
-   
     display: flex;
     justify-content: space-between;
     font-size: 0.9em;
@@ -410,12 +359,10 @@ footer{
     font-size:0.7em;
     padding: 0.5em;
     padding-top: 1em;
-    border-top: 1px solid #000;
-   
+    border-top: 1px solid #000;  
 }
 
-#logo_footer{
-    
+#logo_footer{   
     width:17%;
     padding-right:1em;
     padding-bottom: 0.5%;
@@ -423,13 +370,11 @@ footer{
 }
 
 .icone_footer{
-padding-top: 0.5%;
-
+    padding-top: 0.5%;
   position: absolute;
 }
 
-.contatti{
-    
+.contatti{ 
     padding-top: 0.8%;
     padding-left: 3%;
    
@@ -439,10 +384,6 @@ padding-top: 0.5%;
     display:inline-block;
 }
 
-
-
-/*--------------------------------------------------------------------------
------------------------Filtri------------------------------------------*/
 #form_filtri{
 	margin-bottom:4%
 }
@@ -454,7 +395,6 @@ padding-top: 0.5%;
     float:left;	
     height: min-content; 
 }
-
 
 #menuProdotti{
     display: flex;
@@ -492,9 +432,6 @@ padding-top: 0.5%;
     color: #DDD;
 }
 
-
-
-
 #linkCorrenteProdotti{
     background-color:#392D20;
     color: #DDD;
@@ -525,15 +462,12 @@ padding-top: 0.5%;
 hr{
 	margin-bottom:4%
 }
-   
-/*--------------------------------------------------------------------------
------------------------Visualizza prodotto------------------------------------------*/
+
 #prezzo{
     font-weight: bold;
     font-size:1.5em;
     text-align:center;
-    font-family:"Arial", sans-serif;
-    
+    font-family:"Arial", sans-serif;   
 }
 
 #specifiche_prodotto::first-line
@@ -555,7 +489,6 @@ hr{
 #elementi_contenuto{
 		overflow:hidden;		
 }
-
 
 #anteprima_img{
     width:50%;
@@ -585,8 +518,7 @@ hr{
     width:95%;
     margin-left:2.5%;
     list-style: none;
-    margin-top:2%;
-    
+    margin-top:2%;   
 }
 
 .commento::first-line
@@ -596,10 +528,8 @@ hr{
 
 #scheda_prodotto > p
 {
-    text-align:center;
-    
+    text-align:center;   
 }
-
 
 #floatDestra{
     float:right;
@@ -620,16 +550,12 @@ hr{
     width:10%;
     margin-left:45%;
 }
-/*-----------------------Prodotto-------------------------------------*/
 
 #Nessun_prodotto{ 
     margin-left:25%;
     color: rgb(0, 0, 0);
     font-weight: bold;
-
 }
-
-
 
 #paginazione p{
 
@@ -637,16 +563,13 @@ hr{
 }
 
 #Avanti{float:right;}
+
 #Indietro{ float:left;}
-#numPagina{padding-top:4%;
+
+#numPagina{
+    padding-top:4%;
 margin-right:13%;
 }
-
-
-
-/*---------------------------------------------------------------------
--------------------------modifica creaProdotto Admin------------------------*/
-
 
 #Modifica{
 	background-color:#990000;
@@ -679,7 +602,6 @@ border:1px solid #000;
 margin-bottom:1%;
 }
 
-
 #Elimina{
     margin-left: 5%;
     padding-left: 6%;
@@ -693,14 +615,10 @@ margin-bottom:1%;
 border:1px solid #000;
 }
 
-
  .prezzo, .textarea, .immagineC, .modello, .legnoManico, .legnoCorpo{
     width:60%;
     margin-bottom:1%;
 }
-
-
-
 
 #produttoreAmmCreaA, #produttoreAmmCreaC, #tipologiaAmmCreaC, #tipologiaAmmCreaA,
 #produttoreAmmMod, #tipologiaAmmMod{
@@ -710,8 +628,6 @@ border:1px solid #000;
 
  }
 
-
-
 #formMod textarea, #formCrea textarea{
 	margin-left:20%;	
 	border:1px solid black;
@@ -720,8 +636,6 @@ border:1px solid #000;
      resize:none;
      margin-bottom:1%;
 }
-
-
 
 .file{
     background-color:gray; 
@@ -750,7 +664,6 @@ border:1px solid #000;
     padding-bottom:0.1em;
     border:1px solid #000;
 }
-
 
 #formMod, #formCrea{
 width:100%;
@@ -801,8 +714,7 @@ margin-left:0;
     font-size:1.1em;
     margin-bottom:2%;
     margin-top:2%;
-    margin-left:25%;
-    
+    margin-left:25%;  
 }
 
 #contenutoGestisci form .Annulla{
@@ -841,8 +753,6 @@ margin-left:0;
     	padding-bottom:0.8em
     }
 
-    /*-----------------------------------------------
-    ----------------INSERISCICOMMENTO-----------------*/
 #Conferma{
     background-color:#990000;
 	border-radius:10px 10px;
@@ -863,17 +773,13 @@ margin-left:0;
      resize:none;
 }
 
-
-/*--------------pagina 404-------------------*/
-
-
-/*---------------GESTIONE ERRORI--------------*/
 .errore{
     color:rgb(109, 0, 0);
     margin-left:20%;
     display:block;
 	font-weight: bold;
 }
+
 #contenutoCrea label{
      display:block;
 }
@@ -888,7 +794,6 @@ margin-left:0;
     font-weight: bold;
 }
 
-/*-----------------colori link-----------------------*/
 #menuProdotti a:visited{
 	color:#8f00ff;
 }
