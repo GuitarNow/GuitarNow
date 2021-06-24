@@ -19,11 +19,12 @@ else{
 if($permessi ==1 ||$permessi ==0){
 
     $manage_commenti=new ManageCommenti();
-    $risultato = $manage_commenti->delete_commenti($id_commento);
+	$risultato = $manage_commenti->delete_commenti($id_commento);
+	echo $risultato;
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     
 }else{
-//reindirizzare a page 404
+	header('Location: ../../Home.php');
 
 }
 

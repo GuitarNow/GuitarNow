@@ -1,14 +1,17 @@
 <div id="contenutoLogin" class="contenuto">
-    <form action="PHP/back/ManageLogin.php" method="post"  class="form" >
-    <fieldset>
-    <img src="Images/logo_bianco.png" alt="" />
+    <form action="Login.php" method="POST"  class="form"  >
+	<img src="Images/logo_bianco.png" alt="" />
+	
 	<label for="username">Username</label>
-	<input name="username" id="username" maxlength="20" placeholder="teo99"/>
+	<span><input name="username" id="username" maxlength="20" placeholder="teo99" value=""/></span>
 	<label for="password">Password</label>
-	<input type="password" name="password" id="password" maxlength="20" />
+	<span><input type="password" name="password" id="password" maxlength="20" /></span>
+	<span class="errLogin"></span>
 	<input type="submit" name="submit" value="Accedi" id="loginAccedi" />
-    <p id="cambpass"><a href="cambio_psw.php">password dimenticata</a></p>
-    </fieldset>
+	<a class="giaAccount" href="Registrati.php">Non hai un account?</a>
+	<messaggio/>
+	
 	</form>
+
 </div>
 

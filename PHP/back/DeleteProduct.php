@@ -20,10 +20,11 @@ if($permessi ==1){
 
     $manage_prodoto=new ManageProdotti();
     $risultato = $manage_prodoto->delete_prodotti($id_prodotto);
-    header("Location: ../../Prodotti.php"); 
+    header("Location: ../../Prodotti.php?operazione=1"); 
     
 }else{
-//reindirizzare a page 404
+	header('Location: ../../Home.php');
+	
 
 }
 

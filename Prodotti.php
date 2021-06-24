@@ -2,13 +2,6 @@
 include('PHP/back/Session.php');
 require_once("PHP/back/ManageProdotti.php");
 
-if(isset($_SESSION['login_user'])){
-	$permessi=$_SESSION['permessi'];
-}
-else{
-	$permessi=-1;
-}
-
 if (!isset($_REQUEST['categoria'])) {
     $_REQUEST['categoria']="chitarre";
 }
@@ -50,15 +43,39 @@ $web_page = file_get_contents('html/template.html');
 
 $web_page = str_replace('<title_page/>', "Prodotti", $web_page);
 
-$nav_bar = '       <li  class="link" role="none" xml:lang="en"><a href="Home.php" role="menuitem">Home</a></li> 
-<li  id="linkCorrente" class="link" role="none">Prodotti</li>
-<li class="link" role="none"><a href="Servizi.php" role="menuitem">Servizi</a></li>
-<li class="link" role="none"><a href="Chisiamo.php" role="menuitem">Chi siamo</a></li>';
-$web_page = str_replace('<menu_to_insert/>', $nav_bar, $web_page);
+$nav_bar = file_get_contents('Html/Header.html');
+$nav_bar = str_replace('idlinkcorrenteP', 'id="linkCorrente"', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteH', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteS', '', $nav_bar);
+$nav_bar = str_replace('idlinkcorrenteC', '', $nav_bar);
+$web_page = str_replace('<header_to_insert/>', $nav_bar, $web_page);
 
+if($categoria == "chitarre" || $categoria == NULL){
+    $web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Chitarre", $web_page);
+}
+else{
+    $web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Accessori", $web_page);  
+}
 
-$web_page = str_replace('<breadcrumbs_to_insert/>', "Prodotti/Chitarre", $web_page);
+//login logout
+if(isset($_SESSION['login_user'])){
+	$permessi=$_SESSION['permessi'];
+}
+else{
+	$permessi=-1;
+}
 
+if($permessi==-1){
+    $web_page = str_replace('<gestioneAccesso/>', '<a href="Login.php" id="accedi">Accedi</a>     
+            <a href="Registrati.php" id="registrati">Registrati</a>  ', $web_page);
+            $web_page = str_replace('<gestioneAccessoMobile/>', '<a href="Login.php" id="accedi_menu">Accedi</a>     
+            <a href="Registrati.php" id="registrati_menu">Registrati</a>  ', $web_page);
+        }
+    else{
+        $web_page = str_replace('<gestioneAccesso/>', '<a href="Logout.php" id="logout">Logout</a>', $web_page);  
+        $web_page = str_replace('<gestioneAccessoMobile/>', '<a href="Logout.php" id="logout_menu">Logout</a>', $web_page);
+
+    }
 
 // ----- FILTRO CATEGORIA PRODOTTO -------
 $menu_prodotto ="";
@@ -70,7 +87,7 @@ if($categoria == "chitarre" || $categoria == NULL){
 }elseif($categoria == "accessori"){
     $menu_prodotto = '
     <li id="btn_chitarre" class="link" role="none"><a id="a_chitarre" href="Prodotti.php?categoria=chitarre" role="menuitem">Chitarre</a></li> 
-    <li id="linkCorrenteProdotti" class="link" role="none">Accessori</a></li>';
+    <li id="linkCorrenteProdotti" class="link" role="none">Accessori</li>';
 }
 
 
@@ -164,52 +181,76 @@ if($numero_prodotti!=0)
 
     $fine=$pagina_corrente*8;
     $inizio=$fine-8;
+    $fine=8;
     if($categoria == "accessori"){
         $prodotti_database = $prodotti_get->filtri_accessori($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
     }else{
         $prodotti_database = $prodotti_get->filtri_chitarre($tipologia_ricevuta,$produttore,$prezzo,$inizio,$fine);
     }
 
+   
 
 
 
-
-    // Predisposizione di un campo nascosto nella carta dove inserire l'id della chitarra , in modo da reindirizzare alla pagina_dettaglio della chitarra
+    
     foreach($prodotti_database as $prodotti)
     {
-        $contenuto_pagina.= '<a class="a_page_prodotti" href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'"><li class="chitarre_prodotti">
-        <img class="chitarre " src="'.$prodotti['path'].'" alt="'.'a'/*$prodotti['alt']*/.'" />'.
+        $contenuto_pagina.= '<li class="chitarre_prodotti"><a class="a_page_prodotti" href="Visualizza_prodotto.php?prodotto='.$prodotti['codice_prodotto'].'&tipo='.$categoria.'">
+        <img class="chitarre " src="'.$prodotti['path'].'" alt="'.$prodotti['alt'].'" />'.
         '<p>'.$prodotti['produttore'].' '.$prodotti['modello'].
         '</p><p>'.$prodotti['prezzo'].'€</p>
-        </li></a>';
+        </a></li>';
     }
 
     $contenuto_pagina .= '</ul></div>';
+
+    if(isset($_GET['operazione']) && $_GET['operazione']==1)
+    {
+        $contenuto_pagina.='<p class="operazione_confermata" >Prodotto eliminato correttamenete.</p>';
+    }
+    $contenuto_pagina.='<div id="paginazione">';
     if($pagina_corrente!=1)
     {
-        $contenuto_pagina.='<a class="paginazione" href="' . $_SERVER['PHP_SELF'] . '?pagina='. ($pagina_corrente - 1) .'"   >Indietro</a>';
+        if($cercato!=null){
+            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?categoria='.$categoria.'&pagina='. ($pagina_corrente - 1) .'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" ><img id="Indietro" src="Images/Indietro.png" alt="Freccia indietro"></a>';
+        }
+        else
+        {
+            $contenuto_pagina.='<a class="indietro" href="' . $_SERVER['PHP_SELF'] . '?categoria='.$categoria.'&pagina='. ($pagina_corrente - 1) .'"   ><img id="Indietro" src="Images/Indietro.png" alt="Freccia indietro"></a>';
+        }
     }
-    $contenuto_pagina.='<p class="paginazione">'.$pagina_corrente.'/'.$num_pagine.'</p>';
+
     if($pagina_corrente!=$num_pagine)
     {
         if($cercato!=null){
-            $contenuto_pagina.='<a  class="paginazione"  href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'" >Avanti</a>';
+            $contenuto_pagina.='<a  class="avanti"   href="' . $_SERVER['PHP_SELF'] . '?categoria='.$categoria.'&pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" ><img id="Avanti" src="Images/Avanti.png" alt="Freccia avanti"></a>';
+           
         }else{
-            $contenuto_pagina.='<a  class="paginazione"   href="' . $_SERVER['PHP_SELF'] . '?pagina='.($pagina_corrente + 1).'&produttore='.$produttore.'&tipologia='.$tipologia_ricevuta.'&prezzo='.$prezzo.'&cercato='.$_REQUEST['categoria'].'" >Avanti</a>';
+            $contenuto_pagina.='<a  class="avanti"  href="' . $_SERVER['PHP_SELF'] . '?categoria='.$categoria.'&pagina='.($pagina_corrente + 1).'" ><img id="Avanti" src="Images/Avanti.png" alt="Freccia avanti"></a>';
         }
-        
     }
+    $contenuto_pagina.='<p id="numPagina">'.$pagina_corrente.'/'.$num_pagine.'</p>';
+    $contenuto_pagina.='</div>';
+    
+    
+
+
+    
+    
+    
 }
 else
 {
-    $contenuto_pagina.='<img src="Images/Nessun_prodotto.png" alt="Nessun prodotto trovato." id="Nessun_prodotto">';
+    $contenuto_pagina.='<p id="Nessun_prodotto">Spiacente non è stato trovato nessuno prodotto.</p>';
 }
 $web_page = str_replace('<contenuto_to_insert/>', $contenuto_pagina, $web_page);
+
 
 if($permessi==1){
     $web_page = str_replace('<amministratorCrea />', 
 ' <hr/>
-<input id="Crea" type="button" name ="Crea" value="Crea" >', $web_page);
+
+<a href="creaProdottoAmm.php?categoria='.$categoria.'" id="Crea" ><span class="tasto">Crea</span></a>' , $web_page);
 }
 else{
     $web_page = str_replace('<amministratorCrea />','', $web_page);

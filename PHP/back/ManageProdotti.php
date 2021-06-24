@@ -18,6 +18,7 @@ class ManageProdotti
     {
         return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre"), MYSQLI_ASSOC);
     }
+    
     public function get_specifiche_chitarre($id){
         return mysqli_fetch_assoc($this->prodotto->get_result_query("select * from getspecificheChitarre WHERE codice_prodotto =".$id));
     }
@@ -180,13 +181,62 @@ class ManageProdotti
     {
         $query="DELETE FROM prodotto where codice_prodotto=".$id;
         return $this->prodotto->delete_query($query);
+        
     }
 
   //-------------------CREAZIONE PRODOTTI------------------------
-    public function crea_prodotto($produttore, $modello, $descrizione, $prezzo_vendita){
-    $query="INSERT INTO prodotto (produttore,modello,descrizione,prezzo_vendita) VALUES (".$produttore.",".$modello.",".$descrizione.",". $prezzo_vendita.")";
-    $this->prodotto->get_result_query($query);
-    return $query;
+    public function crea_chitP($modello, $produttore, $descrizione, $prezzo_vendita){
+    $query="INSERT INTO prodotto (modello, produttore, descrizione, prezzo_vendita) VALUES ('".$modello."', '".$produttore."', '".$descrizione."', '". $prezzo_vendita."')";
+   
+    return $this->prodotto->insert_query($query);
+
 }
+
+public function crea_chitC($tipo, $legno_manico, $legno_corpo){
+    $prodotto_inserito= new DatabaseConnection();
+    $id_prodotto_inserito = mysqli_fetch_assoc($prodotto_inserito->get_result_query("SELECT MAX(codice_prodotto) as id FROM prodotto"));
+    $query="INSERT INTO chitarra (cod_chitarra,legno_manico, legno_corpo, tipo_chitarra) VALUES ('".$id_prodotto_inserito['id']."','". $legno_manico."', '".$legno_corpo."', '".$tipo."')"; 
+
+    return $this->prodotto->insert_query($query);
+}
+
+public function crea_chitA($tipo){
+    $prodotto_inserito= new DatabaseConnection();
+    $id_prodotto_inserito = mysqli_fetch_assoc($prodotto_inserito->get_result_query("SELECT MAX(codice_prodotto) as id FROM prodotto"));
+    $query="INSERT INTO accessorio (codice_accessorio,categoria) VALUES ('".$id_prodotto_inserito['id']."', '".$tipo."')"; 
+
+    return $this->prodotto->insert_query($query);
+}
+
+public function crea_chitI($immagine, $short_desc,$long_desc){
+    $prodotto_inserito= new DatabaseConnection();
+    $id_prodotto_inserito = mysqli_fetch_assoc($prodotto_inserito->get_result_query("SELECT MAX(codice_prodotto) as id FROM prodotto"));
+    $query="INSERT INTO immagine (path, short_desc, long_desc, codice_prodotto) VALUES ('".$immagine."', '".$short_desc."', '".$long_desc."', '".$id_prodotto_inserito['id']."')"; 
+   
+    return $this->prodotto->insert_query($query);
+}
+
+//-----------------------------MODIFICA PRODOTTI-------------------------------------
+
+public function modifica_prodP($modello, $produttore, $descrizione, $prezzo_vendita, $id_prodotto){
+    $query="UPDATE prodotto SET modello='".$modello."', produttore='".$produttore."', descrizione='".$descrizione."', prezzo_vendita='".$prezzo_vendita."' WHERE codice_prodotto=".$id_prodotto; 
+   return $this->prodotto->insert_query($query);
+}
+
+public function modifica_prodC($tipo, $legno_manico, $legno_corpo, $id_prodotto){
+    $query="UPDATE chitarra SET tipo_chitarra='".$tipo."', legno_manico='".$legno_manico."', legno_corpo='".$legno_corpo."' WHERE cod_chitarra=".$id_prodotto; 
+   return $this->prodotto->insert_query($query);
+}
+
+public function modifica_prodA($tipo, $id_prodotto){
+    $query="UPDATE accessorio SET categoria='".$tipo."' WHERE codice_accessorio=".$id_prodotto; 
+   return $this->prodotto->insert_query($query);
+}
+
+public function modifica_prodI($file_name, $short_desc,$long_desc, $id_prodotto){
+    $query="UPDATE immagine SET path='".$file_name."', short_desc='".$short_desc."', long_desc='".$long_desc."' WHERE codice_prodotto=".$id_prodotto; 
+    return $this->prodotto->insert_query($query);
+}
+
 }
 ?>

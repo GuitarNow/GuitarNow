@@ -1,0 +1,32 @@
+<div id="contenutoGestisci" class="contenuto">
+
+    <form method="POST" class="form" id="formMod" enctype= "multipart/form-data" onsubmit="return validaModProdotto();" action="gestisciProdottoAmm.php?categoria=catModF&prodotto=proModF" >
+    <fieldset>
+    
+    <img src="Images/logo_bianco.png" alt="" />
+    <modificaDati/>
+    
+    <label for="modelloMod">Modello</label>
+    <span><input type="text" name="modelloMod" id="modelloMod" class="modello" modelloV /></span>
+    
+    <label for="descrizioneMod">Descrizione</label>
+    <span><textarea rows="40" cols="40" name="descrizioneMod" id="descrizioneMod" placeholder="Descrivi il prodotto" ><descrizioneMod/></textarea></span>
+    
+    <label for="immagineMod">Importa nuova immagine</label><span class="erroreImmMod"></span>
+    <span><input type="file" name="image" id="immagineMod" class="file"/></span>
+    
+    <label for="DescrizioneImmagineCMod" >Descrizione breve dell'immagine</label><span class="erroreSICrea"></span>
+    <span><textarea rows="40" cols="40" id="DescrizioneImmagineCMod" name="short_descMod" placeholder="Descrivi brevemente l'immagine" ><descrizioneImgShort/></textarea></span>
+
+    <label for="DescrizioneImmagineCModLong" >Descrizione lunga dell'immagine</label><span class="erroreSICrea"></span>
+    <span><textarea rows="40" cols="40" id="DescrizioneImmagineCModLong" name="long_descMod" placeholder="Descrivi in modo completo l'immagine" ><descrizioneImgLong/></textarea></span>
+
+
+    <label for="prezzoMod">Prezzo</label><span class="errorePrezzoMod"></span>
+    <span><input type="text" name="prezzoMod" id="prezzoMod" class="prezzo" prezzoV/></span>
+    <input type="submit" name="SalvaMod" value="Salva Prodotto" class="Salva" />
+    <a href="prodotti.php" class="Annulla">Annulla</a>  
+    </fieldset>
+    </form>
+    
+</div>

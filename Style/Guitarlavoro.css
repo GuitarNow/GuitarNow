@@ -1,6 +1,3 @@
-/*------------------------------------------------------------------------
-------------------------------- Generale---------------------------------*/
-
 *{
     padding: 0em;
     margin: 0em;
@@ -15,7 +12,7 @@ html{
 body{
     max-width:1024px;
     margin: auto;
-    background-color:#C68948;
+    background-color:#d4b868;
     font-family:"Comic Sans MS", cursive, sans-serif;
     font-size:100%;
     color: #000;
@@ -32,8 +29,16 @@ body{
     font-weight: bold;
 }
 
-/*--------------------------------------------------------------------------------------
------------------------------------------HEADER-------------------------------*/
+.topnav{
+    display: none;
+}
+
+a:visited {color:#8f00ff;}
+
+#button_menu{
+    display:none;
+}
+
 header{   
     padding-top: 1em;
     padding-bottom:1em;
@@ -51,15 +56,15 @@ header{
     height: 20%;
 }
 
-
-#accesso, #logout{
+#accesso{
     width:220px;
     float:right; 
     margin-right:2%;   
 }
 
-#logout{
-    width:13%;
+#accedi, #registrati{
+    text-decoration:none;
+    line-height:45px;
 }
 
 #accedi, #registrati, #logout{   
@@ -68,13 +73,18 @@ header{
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     background-color: #ec9b30;
-    padding: 0.7em;
+    padding: 0.5em;
     font-size:1.1em;
     color:#000;
-    border-radius:5px;
-    
+    border-radius:5px;     
 }
 
+#logout{
+    width:50%;
+    padding: 0.54em;
+    text-decoration: none;
+    display: block;
+}
 
 #accedi{
     padding-left: 1em;
@@ -87,11 +97,15 @@ background-color:#392D20;
     color: #DDD;
 }
 
-
 #menu{
     float: center;
     width: 70%;
+    line-height:45px;
     
+}
+
+.scompare{
+    display: none;
 }
 
 #menu  li {
@@ -109,7 +123,6 @@ background-color:#392D20;
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     text-decoration: none;
-    display:inline-block;
     color: #000;  
     background-color: #ec9b30;  
     text-align: center;   
@@ -122,16 +135,14 @@ background-color:#392D20;
     border: 1px solid #000;
 }
 
-li#linkCorrente{
+
+li#linkCorrente a{
     background-color:#392D20;
     color: #DDD;
     text-align: left;
     padding: 0.6em;
     border: 1px solid #000;
 }
-
-/*------------------------------------------------------------------------------
------------------------------------home--------------------------------*/
 
 #home{
     background-color:#4E1600;
@@ -153,11 +164,6 @@ h1{
     text-align: center;
     font-size:1.5em;
 }
-
-
-
-/*------------------------------------------------------------------------------
---------------------------------contenutoHome----------------------------------*/
 
 #contenutoHome{
     width: 95%;
@@ -181,8 +187,6 @@ h1{
     font-size:2em;
 }
 
-
-
 .chitCard, .accCard{
     list-style: none;
     display: flex; 
@@ -195,16 +199,15 @@ h1{
 .chitCard li, .accCard li{
     background-color: #fff0f6;
     border: 1px solid #fcc2d7;
-  /* background-color: #e5dbff;
-border: 1px solid #d0bfff; */
-margin: 0 10px 20px 10px;
+    margin: 0 10px 20px 10px;
     padding: 10px;
     border-radius:12px;
-    flex:0 0 100%;
+    flex:0 0 19%;
+    width:20%;
     text-align: center;
     font-size: 1.1em;   
     height:235px;  
-    
+    margin-left:2%;
 }
 
 li.chitarre_prodotti{
@@ -212,29 +215,23 @@ li.chitarre_prodotti{
    
 }
 
-
-
 .chitCard a, .accCard a{
     width: 25%;
     color: #000;
     text-decoration: none; 
-    
 }
 
 .chitarre{
     width: 8em ;
     height: 8em;
     border-radius: 15%; 
-    
 }
-
 
 .accessori{
     border-radius: 15%;
     width: 8em ;
     height: 8em;
 }
-
 
 #descrizione{
     color: #000;
@@ -246,9 +243,6 @@ li.chitarre_prodotti{
     font-size: 1.2em;
     text-align:justify;
 }
-
-/*------------------------------------------------------------------------------
---------------------------------contenuto SERVIZI----------------------------------*/
 
 .img_servizi{
     width:25%;
@@ -268,8 +262,6 @@ li.chitarre_prodotti{
     padding-top:0.5em;
 }
 
-/*--------------------------------------------------------------------------------
------------------------------contenuto CHISIAMO---------------------------------*/
 #contenutoChi{
     margin-top:2%;
     margin-bottom:2%;
@@ -292,11 +284,12 @@ iframe{
        height:300px;
        position: relative;
        bottom: 1em;
-
 }
 
-/*------------------------------------------------------------------------------
-----------------------contenuto LOGIN--REGISTRATI--------------------------------*/
+.mezzi{
+	margin-left:55%
+}
+
 .form{
 	border:1px solid black;
 	border-radius:5px 5px;
@@ -314,7 +307,7 @@ iframe{
 }
 
 .form a{ 
-	margin-left:25%;
+	margin-left:30%;
 	margin-top:2em;
 	color:#2C3539;
 }
@@ -327,8 +320,9 @@ iframe{
 	height:1.7em;
     font-size:1.1em;
     width:60%;
-    margin-bottom: 0.5em;
+    margin-bottom: 3%;
     margin-top:3%;
+    display:block;
 }
 
 #nome, #cognome, #email, #nascita ,#username, #password, #ridigitaPassword{
@@ -346,29 +340,16 @@ iframe{
 border:1px solid black;
 height:2em;
 } 
+
 .form img{
 	width:80%;
 	height:20%;
 }
 
-
-
-#cambpass, #giaAccount{
-    margin-bottom: 0.5em;
-    margin-left:0.7em;
-}
-
-/*------------------------------------------------------------------------------
---------------------------------footer----------------------------------*/
-
-
-
-
 #img_footer{
-   
     display: flex;
     justify-content: space-between;
-    font-size: 0.7em;
+    font-size: 0.9em;
  }
 
 footer{
@@ -378,12 +359,10 @@ footer{
     font-size:0.7em;
     padding: 0.5em;
     padding-top: 1em;
-    border-top: 1px solid #000;
-   
+    border-top: 1px solid #000;  
 }
 
-#logo_footer{
-    
+#logo_footer{   
     width:17%;
     padding-right:1em;
     padding-bottom: 0.5%;
@@ -391,13 +370,11 @@ footer{
 }
 
 .icone_footer{
-padding-top: 0.5%;
-
+    padding-top: 0.5%;
   position: absolute;
 }
 
-.ontatti{
-    
+.contatti{ 
     padding-top: 0.8%;
     padding-left: 3%;
    
@@ -407,30 +384,9 @@ padding-top: 0.5%;
     display:inline-block;
 }
 
-#contatti{
-    float:left;
-    text-align: left;
-    padding-top: 2%;
-    color:rgb(87, 87, 87);
-
+#form_filtri{
+	margin-bottom:4%
 }
-
-
-#xhtml{
-    
-    float:right;
-}
-
-#css{
-    
-    float:right;
-    
-}
-
-/*--------------------------------------------------------------------------
------------------------Filtri------------------------------------------*/
-
-
 
 #colonna_filtri{
 	width:20%;
@@ -439,7 +395,6 @@ padding-top: 0.5%;
     float:left;	
     height: min-content; 
 }
-
 
 #menuProdotti{
     display: flex;
@@ -477,7 +432,6 @@ padding-top: 0.5%;
     color: #DDD;
 }
 
-
 #linkCorrenteProdotti{
     background-color:#392D20;
     color: #DDD;
@@ -502,22 +456,18 @@ padding-top: 0.5%;
     margin-bottom: 4%;
     margin-top:4%;
     margin-left:16%;
+    border:1px solid #000;
 }
 
+hr{
+	margin-bottom:4%
+}
 
-
-   
-/*--------------------------------------------------------------------------
------------------------Visualizza prodotto------------------------------------------*/
-#specifiche_prodotto
-{
-    float:right;
-    background-color:#ec9b30;
-    margin-right:10%;
-    border:1px solid black;
-    width:25%;
-    border-radius: 10px;
-    margin-top:3%;
+#prezzo{
+    font-weight: bold;
+    font-size:1.5em;
+    text-align:center;
+    font-family:"Arial", sans-serif;   
 }
 
 #specifiche_prodotto::first-line
@@ -540,11 +490,10 @@ padding-top: 0.5%;
 		overflow:hidden;		
 }
 
-
 #anteprima_img{
-    width:45%;
+    width:50%;
     height:30%;
-    margin-left:15%;
+    margin-left:25%;
 	margin-top:3%;
 }
 
@@ -552,14 +501,16 @@ padding-top: 0.5%;
 {
     margin-left:3%;
     margin-right:3%;
+    margin-bottom:1%;
 }
 
 #scheda_prodotto h2
 {
     text-align:center;
+    margin-top:2%;
 }
 
-#commento
+.commento
 {
     border:1px solid black;
     border-radius: 10px;
@@ -567,23 +518,17 @@ padding-top: 0.5%;
     width:95%;
     margin-left:2.5%;
     list-style: none;
-    margin-top:2%;
-    
+    margin-top:2%;   
 }
 
-#commento::first-line
+.commento::first-line
 {
     font-weight:bold;
 }
 
 #scheda_prodotto > p
 {
-    text-align:center;
-    
-}
-
-.paginazione{
-    float: right;
+    text-align:center;   
 }
 
 #floatDestra{
@@ -605,89 +550,83 @@ padding-top: 0.5%;
     width:10%;
     margin-left:45%;
 }
-/*-----------------------Prodotto-------------------------------------*/
 
 #Nessun_prodotto{ 
     margin-left:25%;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
 }
 
+#paginazione p{
 
-
-/*---------------------------------------------------------------------
--------------------------Amministratore---------------------------------*/
-
-#headerAmm{
-    padding-top: 1em;
-    padding-bottom:1em;
-    overflow: auto;
-    text-align:center;
-    margin: auto;
-    background-color:#4E1600;
+    text-align: center;
 }
 
-#breadcrumbsAmm{
-    background-color:#4E1600;
-    color: #DDD;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    padding: 0.2em;
+#Avanti{float:right;}
+
+#Indietro{ float:left;}
+
+#numPagina{
+    padding-top:4%;
+margin-right:13%;
 }
 
-#passwordAmm, #usernameAmm{
-    width:60%;
-    margin-bottom: 0.7em;
+#Modifica{
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+    width:60%;   
+    text-decoration: none;  
+    padding-top:0.1em;
+    padding-bottom:0.1em;
+    border:1px solid #000;
+    margin-left: 27%;
+    padding-left: 6%;
+    padding-right: 6%;
 }
 
-#loginAmm{
+.eliminaC{
+    margin-left: 2%;
+    padding-left: 6%;
+    padding-right: 6%;
     background-color:#990000;
 	border-radius:10px 10px;
 	font-family:"Comic Sans MS", cursive, sans-serif;
 	color:#DDD;
 	height:1.7em;
     font-size:1.1em;
-    width:60%;
-    margin-bottom: 0.5em;
-    margin-top:3%;
-}
-
-/*---------------------------------------------------------------------
--------------------------modifica creaProdotto Admin------------------------*/
-
-
-.Salva, .Annulla, #Elimina, #Modifica{
-	background-color:#990000;
-	border-radius:10px 10px;
-	font-family:"Comic Sans MS", cursive, sans-serif;
-	color:#DDD;
-	height:1.8em;
-    font-size:1.1em;
-    width:30%;
-    margin-bottom: 3%;
-    margin-top:3%;
-}
-
-#formMod .Salva, #formCrea .Salva{
-	margin-left:22%;
-    width:26%;
-}
-
-#formCrea .Annulla, #formMod .Annulla{
-	margin-left:5%;
-    width:25%;
+border:1px solid #000;
+margin-bottom:1%;
 }
 
 #Elimina{
     margin-left: 5%;
+    padding-left: 6%;
+    padding-right: 6%;
+    background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+border:1px solid #000;
 }
 
-#Modifica{
-    margin-left: 16%;
-}
-
-.produttoreAmm, .prezzo, .tipologiaAmm, textarea, .legnoManico, .legnoCorpo, .immagineC, .modello{
+ .prezzo, .textarea, .immagineC, .modello, .legnoManico, .legnoCorpo{
     width:60%;
-    margin-bottom: 0.7em;
+    margin-bottom:1%;
 }
+
+#produttoreAmmCreaA, #produttoreAmmCreaC, #tipologiaAmmCreaC, #tipologiaAmmCreaA,
+#produttoreAmmMod, #tipologiaAmmMod{
+    margin-left: 20%;
+    height: 2em;
+    margin-bottom:1%;
+
+ }
 
 #formMod textarea, #formCrea textarea{
 	margin-left:20%;	
@@ -695,10 +634,10 @@ padding-top: 0.5%;
 	height:12em;
      margin-bottom: 3%;
      resize:none;
+     margin-bottom:1%;
 }
 
-
-#file{
+.file{
     background-color:gray; 
     margin-left:20%;	
     border:1px solid black;
@@ -717,20 +656,148 @@ padding-top: 0.5%;
 	height:1.7em;
     font-size:1.1em;
     width:60%;
-    margin-bottom: 3%;
-    margin-top: 3%;
     margin-left:17%;
-}
-
-.produttoreAmm, .tipologiaAmm, .legnoManico, .legnoCorpo{
-   margin-left: 20%;
-   height: 1.7em;
-   width: 60%;
-   font-size:1em;
-   margin-bottom: 3%;
+    text-decoration: none;
+    padding-left:18%;
+    padding-right:18%;
+    padding-top:0.1em;
+    padding-bottom:0.1em;
+    border:1px solid #000;
 }
 
 #formMod, #formCrea{
 width:100%;
 margin-left:0;
+}
+
+#scheda_prodotto form{
+    display:inline;
+}
+
+#contenutoCrea form .Salva{
+	width:23%;
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:2em;
+    font-size:1.1em;
+    margin-bottom:2%;
+    margin-top:2%;
+    margin-left:25%;
+}
+
+#contenutoCrea form .Annulla{
+    background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+    width:60%;
+    margin-left:5%;
+    text-decoration: none;
+    padding-left:8%;
+    padding-right:8%;
+    padding-top:0.25em;
+    padding-bottom:0.25em;
+    border:1px solid #000;
+}
+
+#contenutoGestisci form .Salva{
+	width:23%;
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:2em;
+    font-size:1.1em;
+    margin-bottom:2%;
+    margin-top:2%;
+    margin-left:25%;  
+}
+
+#contenutoGestisci form .Annulla{
+	background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+    width:60%;
+    margin-left:5%;
+    text-decoration: none;
+    padding-left:8%;
+    padding-right:8%;
+    padding-top:0.25em;
+    padding-bottom:0.25em;
+    border:1px solid #000;
+}
+
+#scheda_prodotto li a{
+    background-color:#990000;
+        border-radius:10px 10px;
+        font-family:"Comic Sans MS", cursive, sans-serif;
+        color:#DDD;
+        height:1.7em;
+        font-size:1.1em;
+        width:12%;
+        margin-left:2%;
+        padding-right:0.4em;
+        padding-left:0.4em;
+        text-decoration: none;
+        border:1px solid #000;    
+    }
+
+    #scheda_prodotto ul li{
+    	padding-bottom:0.8em
+    }
+
+#Conferma{
+    background-color:#990000;
+	border-radius:10px 10px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#DDD;
+	height:1.7em;
+    font-size:1.1em;
+    width:60%;
+    margin-bottom: 3%;
+    margin-top:3%;
+}
+
+#formInsC textarea{
+	margin-left:20%;	
+	border:1px solid black;
+	height:12em;
+     margin-bottom: 3%;
+     resize:none;
+}
+
+.errore{
+    color:rgb(109, 0, 0);
+    margin-left:20%;
+    display:block;
+	font-weight: bold;
+}
+
+#contenutoCrea label{
+     display:block;
+}
+
+#contenutoGestisci label{
+    display:block;
+}
+
+.operazione_confermata{
+    color:#094709;
+    text-align:center;
+    font-weight: bold;
+}
+
+#menuProdotti a:visited{
+	color:#8f00ff;
+}
+
+#menu a:visited{
+	color:#8f00ff;
 }
