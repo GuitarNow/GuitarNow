@@ -173,7 +173,7 @@ $web_page = str_replace('<title_page/>', "Specifiche prodotto", $web_page);
 		
 		$contenuto.='</br><a href="Inserisci_commento.php?codice_prodotto='.$id_prodotto.'&tipo_prodotto='.$categoria.'" id="commenta_b" class="bottone_std">Commenta</a>';
 	}
-	$contenuto=$contenuto.'</div><a id="floatDestra" class="aiuto" href="Prodotti.php">Torna ai prodotti</a>';
+	$contenuto=$contenuto.'</div><a id="floatDestra" class="aiuto" href="Prodotti.php?categoria='.$categoria.'">Torna ai prodotti</a>';
 	$web_page = str_replace('<contenuto_to_insert/>', $contenuto, $web_page);
 
 echo $web_page;
