@@ -2,15 +2,13 @@
 
 class DatabaseConnection
 {
-    //I valori vanno cambiati quando lo passiamo nel server di tecweb. A
-    //quel punto impostiamo xampp perché sia uguale, e cambiamo i dati
-    //di accesso. localhost rimane uguale perchè lo script e il db
-    //girano comunque sulla stessa macchina
-
+    
     private  $host="localhost";
     private  $username ="ddamico";
     private  $password ="aiFawohhaoso3AhX";
     private  $dbName ="ddamico";
+
+ 
 
     private $connection;
 
