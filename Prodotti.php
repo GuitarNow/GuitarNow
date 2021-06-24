@@ -39,7 +39,7 @@ $categoria = $_REQUEST['categoria'];
 
 
 
-$web_page = file_get_contents('html/template.html');
+$web_page = file_get_contents('Html/Template.html');
 
 $web_page = str_replace('<title_page/>', "Prodotti", $web_page);
 

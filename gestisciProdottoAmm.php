@@ -13,7 +13,7 @@ else{
 	$permessi=-1;
 }
 if($permessi==1){
-$web_page = file_get_contents('Html/template.html');
+$web_page = file_get_contents('Html/Template.html');
 
 $web_page = str_replace('<title_page/>', "Gestisci Prodotti Amministrazione", $web_page);
 $nav_bar = file_get_contents('Html/Header.html');

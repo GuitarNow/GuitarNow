@@ -9,7 +9,7 @@ $categoria = $tipo_prodotto;
 require_once('PHP/back/ManageProdotti.php');
 require_once('PHP/back/ManageCommenti.php');
 
-$web_page = file_get_contents('Html/template.html');
+$web_page = file_get_contents('Html/Template.html');
 
 if(isset($_SESSION['login_user'])){
 	$permessi=$_SESSION['permessi'];
