@@ -13,39 +13,39 @@ class ManageProdotti
     }
     //------------- CHITARRE --------------------
 
-    // la funzione ritorna il contenuto della vista getChitarre che riporta la lista di tutte le chitarre contenenti nel database
+    // la funzione ritorna il contenuto della vista getchitarre che riporta la lista di tutte le chitarre contenenti nel database
     public function get_chitarra()
     {
-        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getchitarre"), MYSQLI_ASSOC);
     }
     
     public function get_specifiche_chitarre($id){
-        return mysqli_fetch_assoc($this->prodotto->get_result_query("select * from getspecificheChitarre WHERE codice_prodotto =".$id));
+        return mysqli_fetch_assoc($this->prodotto->get_result_query("select * from getspecifichechitarre WHERE codice_prodotto =".$id));
     }
 
     public function get_produttori_chitarre(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct produttore FROM getChitarre"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct produttore FROM getchitarre"), MYSQLI_ASSOC);
     }
 
     public function get_tipo_chitarre(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct tipologia as tipo FROM getChitarre"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct tipologia as tipo FROM getchitarre"), MYSQLI_ASSOC);
     }
 
     public function get_ultimi_arrivi_chitarre(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getChitarre ORDER BY codice_prodotto DESC LIMIT 4"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getchitarre ORDER BY codice_prodotto DESC LIMIT 4"), MYSQLI_ASSOC);
     }
 
     public function get_numero_chitarre(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select count(*) as Num from getChitarre "), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select count(*) as Num from getchitarre "), MYSQLI_ASSOC);
     }
     
 
     //------------- ACCESSORI --------------------
 
-       // la funzione ritorna il contenuto della vista getChitarre che riporta la lista di tutti gli accessori contenenti nel database
+       // la funzione ritorna il contenuto della vista getchitarre che riporta la lista di tutti gli accessori contenenti nel database
     public function get_accessori()
     {
-        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getaccessori"), MYSQLI_ASSOC);
     }
 
     public function get_specifiche_accessori($id){
@@ -53,18 +53,18 @@ class ManageProdotti
     }
 
     public function get_produttori_accessori(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct produttore FROM getAccessori"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct produttore FROM getaccessori"), MYSQLI_ASSOC);
     }
     public function get_tipo_accessori(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct categoria as tipo FROM getAccessori"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select distinct categoria as tipo FROM getaccessori"), MYSQLI_ASSOC);
     }
 
     public function get_ultimi_arrivi_accessori(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getAccessori ORDER BY codice_prodotto DESC LIMIT 4"), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select * from getaccessori ORDER BY codice_prodotto DESC LIMIT 4"), MYSQLI_ASSOC);
     }
 
     public function get_numero_accessori(){
-        return mysqli_fetch_all($this->prodotto->get_result_query("select count(*) as Num from getAccessori "), MYSQLI_ASSOC);
+        return mysqli_fetch_all($this->prodotto->get_result_query("select count(*) as Num from getaccessori "), MYSQLI_ASSOC);
     }
 
 
@@ -73,7 +73,7 @@ class ManageProdotti
     
 
     public function filtri_accessori($categoria=NULL, $produttore=NULL, $prezzo=NULL,$inizio=0,$fine=1000000){
-        $query = "SELECT * FROM getAccessori";
+        $query = "SELECT * FROM getaccessori";
         $primo = true;
 
         if($categoria != NULL)
@@ -128,7 +128,7 @@ class ManageProdotti
     public function filtri_chitarre($categoria=NULL, $produttore=NULL, $prezzo=NULL,$inizio=0,$fine=1000000){
 
        
-        $query = "SELECT * FROM getChitarre";
+        $query = "SELECT * FROM getchitarre";
         $primo = true;
 
         if($categoria != NULL)

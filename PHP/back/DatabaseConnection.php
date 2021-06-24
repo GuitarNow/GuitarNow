@@ -8,9 +8,9 @@ class DatabaseConnection
     //girano comunque sulla stessa macchina
 
     private  $host="localhost";
-    private  $username ="root";
-    private  $password ="";
-    private  $dbName ="guitarnow";
+    private  $username ="ddamico";
+    private  $password ="aiFawohhaoso3AhX";
+    private  $dbName ="ddamico";
 
     private $connection;
 
