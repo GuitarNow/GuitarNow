@@ -269,19 +269,12 @@ function eliminaProdotto(id){
     if (confirm('Vuoi eliminare il prodotto?')) {
         var url = "PHP/back/DeleteProduct.php?prodotto="+id;
         location.href = url;
-        
-        console.log('Thing was saved to the database.');
-      } else {
-        // Do nothing!
-        console.log('Thing was not saved to the database.');
-      }
+      } 
 }
 
 function eliminaCommento(id){
     if (confirm('Vuoi eliminare il commento?')) {
         var url = "PHP/back/DeleteCommenti.php?commento="+id;
         location.href = url;
-      } else {
-        // Do nothing!
-      }
+      } 
 }
