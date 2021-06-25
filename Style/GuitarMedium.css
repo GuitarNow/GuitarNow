@@ -32,6 +32,30 @@ li.chitarre_prodotti{
    
 }
 
+#imgError{
+    display: none;
+}
+
+.hError{
+    display: inline;
+    text-align: center;
+    font-weight: bold;
+    font-size: 5em;
+}
+
+#pError{
+    font-size: 2em;
+    font-weight: 100;
+    padding: 0 2em 0 2em ;
+}
+
+#errorDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30em;
+}
 
 #menuProdotti li{
     font-size:81.5% ;
