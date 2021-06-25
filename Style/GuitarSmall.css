@@ -15,6 +15,8 @@
      
  }
 
+
+
  #loginMobile{
      display: flex;
      flex-direction: row;
@@ -34,6 +36,32 @@
     background-repeat: no-repeat;
 
 
+}
+
+
+#errorDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30em;
+}
+
+.hError{
+    display: inline;
+    text-align: center;
+    font-weight: bold;
+    font-size: 5em;
+}
+
+#pError{
+    font-size: 2em;
+    font-weight: 100;
+    padding: 0 2em 0 2em ;
+}
+
+#imgError{
+    display: none;
 }
 
  #menu_container{
