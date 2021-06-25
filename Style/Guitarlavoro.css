@@ -535,6 +535,10 @@ hr{
     text-align:center;   
 }
 
+.hError{
+    display: none;
+}
+
 #floatDestra{
     float:right;
     font-size:1.1em;
